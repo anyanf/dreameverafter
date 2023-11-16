@@ -8,17 +8,21 @@
   Archives - DreamEverAfter
   
   </title>
- <meta name="description" content="">
- <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
     <link rel="stylesheet" href="asset/css/foundation.min.css" />
     <link rel="stylesheet" href="asset/css/docs.css" />
-
     <script src="asset/js/vendor/modernizr.js"></script>
     <script src="asset/js/vendor/jquery.js"></script>
-    <script src="asset/highlightjs/highlight.pack.js"></script>
-    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
-    <script>hljs.initHighlightingOnLoad();</script>
-    
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
   </head>
   <body class="antialiased hide-extras">
     
@@ -28,11 +32,36 @@
 
 <nav class="top-bar docs-bar hide-for-small" data-topbar>
 
-<div id="header">
-    <h1><a href="index.html">DreamEverAfter</a></h1>
-</div>
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
 
 </nav>
+
         <nav class="tab-bar show-for-small">
   <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
     <span> &nbsp; DreamEverAfter</span>
@@ -41,849 +70,791 @@
 
 <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-      <li><a href="index.html">Home</a></li>
-      
-        <li class="divider"></li>
-        <li><label>菜谱</label></li>
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
 
-          
-            <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
-          
+    <li><label>Categories</label></li>
 
-      
-        <li class="divider"></li>
-        <li><label>List</label></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
 
-          
-            <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
-          
-
-      
-        <li class="divider"></li>
-        <li><label>杂</label></li>
-
-          
-            <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
-          
-            <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
-          
-            <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
-          
-            <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
-          
-            <li><a title="离骚" href="17001173766480.html">离骚</a></li>
-          
-            <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
-          
-            <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
-          
-
-      
-        <li class="divider"></li>
-        <li><label>CS</label></li>
-
-          
-            <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
-          
-            <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
-          
-            <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
-          
-            <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
-          
-            <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
-          
-            <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
-          
-            <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
-          
-            <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
-          
-            <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
-          
-            <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
-          
-            <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
-          
-            <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
-          
-            <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
-          
-            <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
-          
-            <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
-          
-            <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
-          
-            <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
-          
-            <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
-          
-
-      
       </ul>
     </aside>
 
 <a class="exit-off-canvas" href="#"></a>
 
+
         <section id="main-content" role="main" class="scroll-container">
+        
+       
 
-          <div class="row">
-            <div class="large-3 medium-3 columns">
-              <div class="hide-for-small">
-                <div class="sidebar">
-                <nav>
-                  <ul id="side-nav" class="side-nav">
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_archives').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+    <div id="archives-page-wrap">
+        <h1>Archives</h1>
+        <div class="markdown-body archives-wrap">
+          
+             
+                <h1>2023</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="16996865532784.html">
+                <h1>三汁焖锅</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2023/11/11</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E8%8F%9C%E8%B0%B1.html'>菜谱</a></span>
+                 
+              </div>
+            </div><!-- article -->
 
-                    
-                      <li class="side-title"><span>菜谱</span></li>
-                        
-                          <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
-                        
+          
+             
+                <h1>2022</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="17001172774052.html">
+                <h1>别了，中国大陆的Kindle</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2022/08/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
+                 
+              </div>
+            </div><!-- article -->
 
-                    
-                      <li class="side-title"><span>List</span></li>
-                        
-                          <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
-                        
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001265068678.html">
+                <h1>HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2022/08/27</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
 
-                    
-                      <li class="side-title"><span>杂</span></li>
-                        
-                          <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
-                        
-                          <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
-                        
-                          <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
-                        
-                          <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
-                        
-                          <li><a title="离骚" href="17001173766480.html">离骚</a></li>
-                        
-                          <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
-                        
-                          <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
-                        
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001171363865.html">
+                <h1>LiSSA第四代计时器说明书</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2022/03/04</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
+                 
+              </div>
+            </div><!-- article -->
 
-                    
-                      <li class="side-title"><span>CS</span></li>
-                        
-                          <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
-                        
-                          <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
-                        
-                          <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
-                        
-                          <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
-                        
-                          <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
-                        
-                          <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
-                        
-                          <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
-                        
-                          <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
-                        
-                          <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
-                        
-                          <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
-                        
-                          <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
-                        
-                          <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
-                        
-                          <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
-                        
-                          <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
-                        
-                          <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
-                        
-                          <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
-                        
-                          <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
-                        
-                          <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
-                        
+          
+             
+                <h1>2021</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="17001191890787.html">
+                <h1>C++ STL简介</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2021/07/23</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='C/C++.html'>C/C++</a></span>
+                 
+              </div>
+            </div><!-- article -->
 
-                    
-                  </ul>
-                </nav>
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001178696932.html">
+                <h1>常用代码模板2——数据结构</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2021/07/17</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>算法与数据结构</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001178251653.html">
+                <h1>常用代码模板1——基础算法</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2021/07/17</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>算法与数据结构</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001195727549.html">
+                <h1>代码大全——1.欢迎进入软件构建的世界</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2021/07/07</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8.html'>代码大全</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001155269640.html">
+                <h1>终于看完了《扎克·施奈德版正义联盟》</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2021/05/05</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Movies.html'>Movies</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001174083229.html">
+                <h1>观《观山海》</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2021/05/03</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001265070006.html">
+                <h1>深入理解计算机系统(第二版) 家庭作业 第二章</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2021/01/04</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CSAPP.html'>CSAPP</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+             
+                <h1>2020</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="17001150891969.html">
+                <h1>水仙 🌼</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2020/09/22</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='Games.html'>Games</a></span>
+                
+                    <span class="posted-in"><a href='List.html'>List</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001174848432.html">
+                <h1>《十万嬉皮》</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2020/09/14</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001187952144.html">
+                <h1>Vue 的一些指令和缩写</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2020/09/02</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='web.html'>web</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001265069754.html">
+                <h1>OpenGL 术语</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2020/08/06</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001177799867.html">
+                <h1>归纳与演绎</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2020/03/13</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>算法与数据结构</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001265069516.html">
+                <h1>命令行通过ffmpeg剪切视频</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2020/02/22</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001173766480.html">
+                <h1>离骚</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2020/01/22</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+             
+                <h1>2019</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="17001161339218.html">
+                <h1>人为什么会过分自信</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2019/11/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001196451067.html">
+                <h1>CMake入门及常用变量指令手册</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2019/09/21</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001265069165.html">
+                <h1>MeshLab</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2019/03/12</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001188677503.html">
+                <h1>centos7 mysql数据库安装和配置</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2019/03/05</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+             
+                <h1>2018</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="17001197697594.html">
+                <h1>解决Mac下Cornerstone无法查看SVN日志的问题</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/12/04</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001191228771.html">
+                <h1>C语言指针小结</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/11/07</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='C/C++.html'>C/C++</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001189934109.html">
+                <h1>C语言数据类型和const、static关键字</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/11/07</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='C/C++.html'>C/C++</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001186638477.html">
+                <h1>使用mpvue开发微信小程序</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/10/14</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='web.html'>web</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001265068913.html">
+                <h1>WxWidgets类列表</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/10/14</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001182998798.html">
+                <h1>在 Mac OS X 上安装 TensorFlow</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/10/12</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001192407824.html">
+                <h1>关于C语言中的union</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/09/16</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='C/C++.html'>C/C++</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001265069881.html">
+                <h1>虚拟机 Linux 上编 slice3r perl Build.PL 报错</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2018/06/12</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+             
+                <h1>2017</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="17001265069032.html">
+                <h1>升级 Mac OS  10.13 High Sierra 后 ruby 报错</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2017/09/11</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+             
+                <h1>2016</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="17001180357944.html">
+                <h1>SQL语句的语法</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2016/11/21</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001265068802.html">
+                <h1>零宽空格 - 如幽灵一般的空格</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2016/10/30</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001181867505.html">
+                <h1>HTTP请求报文和HTTP响应报文,以及工作原理</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2016/01/29</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001265069634.html">
+                <h1>Vim 快捷键整理</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2016/01/08</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+             
+                <h1>2015</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="17001265069390.html">
+                <h1>Git 命令</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2015/04/20</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001265069283.html">
+                <h1>MAC OS X 常用技巧</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2015/04/11</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+             
+                <h1>2014</h1>
+            
+            <div class="article">
+              <a class="clearlink" href="17001197235131.html">
+                <h1>代码重构</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2014/12/22</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='CS.html'>CS</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+          
+            
+            <div class="article">
+              <a class="clearlink" href="17001175328385.html">
+                <h1>正确的握笔姿势</h1>
+              </a>
+              <div class="read-more clearfix">
+                <span class="date">2014/07/07</span>
+                <span>posted in&nbsp;</span> 
+                
+                    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
+                 
+              </div>
+            </div><!-- article -->
+
+           
+        </div>
+      </div>
+  </div>
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
                 </div>
               </div>
-            </div>
-            <div class="large-9 medium-9 columns">
 
- <div class="markdown-body">
-	
-		 
-		  	<h2>2023</h2>
-		
-		
-			<div>
-				<h3><a href="16996865532784.html">三汁焖锅</a></h3>
-				<p>
-					<time datetime="2023-11-11T15:09:13+08:00" pubdate><span class='month'>Nov</span> <span class='day'>11</span> <span class='year'>2023</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E8%8F%9C%E8%B0%B1.html'>菜谱</a>&nbsp;
-				   
-				  </span>
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001171363865.html">LiSSA第四代计时器说明书</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001191890787.html">C++ STL简介</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
 
-				</p>
-			</div>
- 	
-		 
-		  	<h2>2022</h2>
-		
-		
-			<div>
-				<h3><a href="17001172774052.html">别了，中国大陆的Kindle</a></h3>
-				<p>
-					<time datetime="2022-08-29T11:52:36+08:00" pubdate><span class='month'>Aug</span> <span class='day'>29</span> <span class='year'>2022</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E6%9D%82.html'>杂</a>&nbsp;
-				   
-				  </span>
+</div><!-- row -->
 
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></h3>
-				<p>
-					<time datetime="2022-08-27T00:19:23+08:00" pubdate><span class='month'>Aug</span> <span class='day'>27</span> <span class='year'>2022</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001171363865.html">LiSSA第四代计时器说明书</a></h3>
-				<p>
-					<time datetime="2022-03-04T12:24:45+08:00" pubdate><span class='month'>Mar</span> <span class='day'>04</span> <span class='year'>2022</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E6%9D%82.html'>杂</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		 
-		  	<h2>2021</h2>
-		
-		
-			<div>
-				<h3><a href="17001191890787.html">C++ STL简介</a></h3>
-				<p>
-					<time datetime="2021-07-23T09:11:10+08:00" pubdate><span class='month'>Jul</span> <span class='day'>23</span> <span class='year'>2021</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='C/C++.html'>C/C++</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001178696932.html">常用代码模板2——数据结构</a></h3>
-				<p>
-					<time datetime="2021-07-17T16:23:27+08:00" pubdate><span class='month'>Jul</span> <span class='day'>17</span> <span class='year'>2021</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>算法与数据结构</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001178251653.html">常用代码模板1——基础算法</a></h3>
-				<p>
-					<time datetime="2021-07-17T10:22:57+08:00" pubdate><span class='month'>Jul</span> <span class='day'>17</span> <span class='year'>2021</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>算法与数据结构</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001195727549.html">代码大全——1.欢迎进入软件构建的世界</a></h3>
-				<p>
-					<time datetime="2021-07-07T17:16:30+08:00" pubdate><span class='month'>Jul</span> <span class='day'>07</span> <span class='year'>2021</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8.html'>代码大全</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001155269640.html">终于看完了《扎克·施奈德版正义联盟》</a></h3>
-				<p>
-					<time datetime="2021-05-05T14:50:19+08:00" pubdate><span class='month'>May</span> <span class='day'>05</span> <span class='year'>2021</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Movies.html'>Movies</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001174083229.html">观《观山海》</a></h3>
-				<p>
-					<time datetime="2021-05-03T21:08:14+08:00" pubdate><span class='month'>May</span> <span class='day'>03</span> <span class='year'>2021</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E6%9D%82.html'>杂</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001265070006.html">深入理解计算机系统(第二版) 家庭作业 第二章</a></h3>
-				<p>
-					<time datetime="2021-01-04T22:04:06+08:00" pubdate><span class='month'>Jan</span> <span class='day'>04</span> <span class='year'>2021</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CSAPP.html'>CSAPP</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		 
-		  	<h2>2020</h2>
-		
-		
-			<div>
-				<h3><a href="17001150891969.html">水仙 🌼</a></h3>
-				<p>
-					<time datetime="2020-09-22T20:06:00+08:00" pubdate><span class='month'>Sep</span> <span class='day'>22</span> <span class='year'>2020</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='Games.html'>Games</a>&nbsp;
-				  
-					    <a class='category' href='List.html'>List</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001174848432.html">《十万嬉皮》</a></h3>
-				<p>
-					<time datetime="2020-09-14T22:38:58+08:00" pubdate><span class='month'>Sep</span> <span class='day'>14</span> <span class='year'>2020</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E6%9D%82.html'>杂</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001187952144.html">Vue 的一些指令和缩写</a></h3>
-				<p>
-					<time datetime="2020-09-02T14:36:53+08:00" pubdate><span class='month'>Sep</span> <span class='day'>02</span> <span class='year'>2020</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='web.html'>web</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001265069754.html">OpenGL 术语</a></h3>
-				<p>
-					<time datetime="2020-08-06T09:13:56+08:00" pubdate><span class='month'>Aug</span> <span class='day'>06</span> <span class='year'>2020</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001177799867.html">归纳与演绎</a></h3>
-				<p>
-					<time datetime="2020-03-13T11:33:50+08:00" pubdate><span class='month'>Mar</span> <span class='day'>13</span> <span class='year'>2020</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>算法与数据结构</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001265069516.html">命令行通过ffmpeg剪切视频</a></h3>
-				<p>
-					<time datetime="2020-02-22T01:49:25+08:00" pubdate><span class='month'>Feb</span> <span class='day'>22</span> <span class='year'>2020</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001173766480.html">离骚</a></h3>
-				<p>
-					<time datetime="2020-01-22T11:41:52+08:00" pubdate><span class='month'>Jan</span> <span class='day'>22</span> <span class='year'>2020</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E6%9D%82.html'>杂</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		 
-		  	<h2>2019</h2>
-		
-		
-			<div>
-				<h3><a href="17001161339218.html">人为什么会过分自信</a></h3>
-				<p>
-					<time datetime="2019-11-29T12:14:05+08:00" pubdate><span class='month'>Nov</span> <span class='day'>29</span> <span class='year'>2019</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E6%9D%82.html'>杂</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001196451067.html">CMake入门及常用变量指令手册</a></h3>
-				<p>
-					<time datetime="2019-09-21T10:16:18+08:00" pubdate><span class='month'>Sep</span> <span class='day'>21</span> <span class='year'>2019</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001265069165.html">MeshLab</a></h3>
-				<p>
-					<time datetime="2019-03-12T19:03:41+08:00" pubdate><span class='month'>Mar</span> <span class='day'>12</span> <span class='year'>2019</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001188677503.html">centos7 mysql数据库安装和配置</a></h3>
-				<p>
-					<time datetime="2019-03-05T14:41:23+08:00" pubdate><span class='month'>Mar</span> <span class='day'>05</span> <span class='year'>2019</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		 
-		  	<h2>2018</h2>
-		
-		
-			<div>
-				<h3><a href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></h3>
-				<p>
-					<time datetime="2018-12-04T18:32:45+08:00" pubdate><span class='month'>Dec</span> <span class='day'>04</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001191228771.html">C语言指针小结</a></h3>
-				<p>
-					<time datetime="2018-11-07T19:44:01+08:00" pubdate><span class='month'>Nov</span> <span class='day'>07</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='C/C++.html'>C/C++</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001189934109.html">C语言数据类型和const、static关键字</a></h3>
-				<p>
-					<time datetime="2018-11-07T17:33:52+08:00" pubdate><span class='month'>Nov</span> <span class='day'>07</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='C/C++.html'>C/C++</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001186638477.html">使用mpvue开发微信小程序</a></h3>
-				<p>
-					<time datetime="2018-10-14T15:36:50+08:00" pubdate><span class='month'>Oct</span> <span class='day'>14</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='web.html'>web</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001265068913.html">WxWidgets类列表</a></h3>
-				<p>
-					<time datetime="2018-10-14T14:32:34+08:00" pubdate><span class='month'>Oct</span> <span class='day'>14</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></h3>
-				<p>
-					<time datetime="2018-10-12T17:46:11+08:00" pubdate><span class='month'>Oct</span> <span class='day'>12</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001192407824.html">关于C语言中的union</a></h3>
-				<p>
-					<time datetime="2018-09-16T21:26:25+08:00" pubdate><span class='month'>Sep</span> <span class='day'>16</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='C/C++.html'>C/C++</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></h3>
-				<p>
-					<time datetime="2018-06-12T10:22:53+08:00" pubdate><span class='month'>Jun</span> <span class='day'>12</span> <span class='year'>2018</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		 
-		  	<h2>2017</h2>
-		
-		
-			<div>
-				<h3><a href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></h3>
-				<p>
-					<time datetime="2017-09-11T07:22:24+08:00" pubdate><span class='month'>Sep</span> <span class='day'>11</span> <span class='year'>2017</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		 
-		  	<h2>2016</h2>
-		
-		
-			<div>
-				<h3><a href="17001180357944.html">SQL语句的语法</a></h3>
-				<p>
-					<time datetime="2016-11-21T09:44:01+08:00" pubdate><span class='month'>Nov</span> <span class='day'>21</span> <span class='year'>2016</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></h3>
-				<p>
-					<time datetime="2016-10-30T06:49:48+08:00" pubdate><span class='month'>Oct</span> <span class='day'>30</span> <span class='year'>2016</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></h3>
-				<p>
-					<time datetime="2016-01-29T06:53:19+08:00" pubdate><span class='month'>Jan</span> <span class='day'>29</span> <span class='year'>2016</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001265069634.html">Vim 快捷键整理</a></h3>
-				<p>
-					<time datetime="2016-01-08T14:23:40+08:00" pubdate><span class='month'>Jan</span> <span class='day'>08</span> <span class='year'>2016</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		 
-		  	<h2>2015</h2>
-		
-		
-			<div>
-				<h3><a href="17001265069390.html">Git 命令</a></h3>
-				<p>
-					<time datetime="2015-04-20T06:47:03+08:00" pubdate><span class='month'>Apr</span> <span class='day'>20</span> <span class='year'>2015</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001265069283.html">MAC OS X 常用技巧</a></h3>
-				<p>
-					<time datetime="2015-04-11T09:42:53+08:00" pubdate><span class='month'>Apr</span> <span class='day'>11</span> <span class='year'>2015</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		 
-		  	<h2>2014</h2>
-		
-		
-			<div>
-				<h3><a href="17001197235131.html">代码重构</a></h3>
-				<p>
-					<time datetime="2014-12-22T14:26:28+08:00" pubdate><span class='month'>Dec</span> <span class='day'>22</span> <span class='year'>2014</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='CS.html'>CS</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	
-		
-		
-			<div>
-				<h3><a href="17001175328385.html">正确的握笔姿势</a></h3>
-				<p>
-					<time datetime="2014-07-07T10:13:00+08:00" pubdate><span class='month'>Jul</span> <span class='day'>07</span> <span class='year'>2014</span></time>
-					&nbsp;&nbsp;
-				  <span class="categories">posted in 
-				  
-					    <a class='category' href='%E6%9D%82.html'>杂</a>&nbsp;
-				   
-				  </span>
-
-				</p>
-			</div>
- 	 
-</div>  
-</div></div>
-
-
-<div class="page-bottom">
+ <div class="page-bottom clearfix">
   <div class="row">
-  <hr />
-  <div class="small-9 columns">
-  <p class="copyright">Copyright &copy; 2015
+   <p class="copyright">Copyright &copy; 2015
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
 Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
-  </div>
-  <div class="small-3 columns">
-  <p class="copyright text-right"><a href="#header">TOP</a></p>
-  </div>
-   
   </div>
 </div>
 
         </section>
       </div>
     </div>
-    
 
 
 
@@ -903,8 +874,8 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
 
 
 <style type="text/css">
-figure{margin: 0.4em 0;padding: 0;}
-  figcaption{text-align:center;}
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
 
 /* PrismJS 1.14.0
  http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
@@ -1090,16 +1061,28 @@ pre[class*="language-"].line-numbers > code {
             text-align: right;
         }
 
-
 </style>
+
+  
     
+
     <script src="asset/js/foundation.min.js"></script>
-    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
     <script>
       $(document).foundation();
-
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
      
     </script>
+
 
 
   </body>

@@ -8,17 +8,21 @@
   解决Mac下Cornerstone无法查看SVN日志的问题 - DreamEverAfter
   
   </title>
- <meta name="description" content="">
- <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
     <link rel="stylesheet" href="asset/css/foundation.min.css" />
     <link rel="stylesheet" href="asset/css/docs.css" />
-
     <script src="asset/js/vendor/modernizr.js"></script>
     <script src="asset/js/vendor/jquery.js"></script>
-    <script src="asset/highlightjs/highlight.pack.js"></script>
-    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
-    <script>hljs.initHighlightingOnLoad();</script>
-    
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
   </head>
   <body class="antialiased hide-extras">
     
@@ -28,11 +32,36 @@
 
 <nav class="top-bar docs-bar hide-for-small" data-topbar>
 
-<div id="header">
-    <h1><a href="index.html">DreamEverAfter</a></h1>
-</div>
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
 
 </nav>
+
         <nav class="tab-bar show-for-small">
   <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
     <span> &nbsp; DreamEverAfter</span>
@@ -41,183 +70,69 @@
 
 <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
-      <li><a href="index.html">Home</a></li>
-      
-        <li class="divider"></li>
-        <li><label>菜谱</label></li>
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
 
-          
-            <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
-          
+    <li><label>Categories</label></li>
 
-      
-        <li class="divider"></li>
-        <li><label>List</label></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
 
-          
-            <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
-          
-
-      
-        <li class="divider"></li>
-        <li><label>杂</label></li>
-
-          
-            <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
-          
-            <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
-          
-            <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
-          
-            <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
-          
-            <li><a title="离骚" href="17001173766480.html">离骚</a></li>
-          
-            <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
-          
-            <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
-          
-
-      
-        <li class="divider"></li>
-        <li><label>CS</label></li>
-
-          
-            <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
-          
-            <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
-          
-            <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
-          
-            <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
-          
-            <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
-          
-            <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
-          
-            <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
-          
-            <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
-          
-            <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
-          
-            <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
-          
-            <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
-          
-            <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
-          
-            <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
-          
-            <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
-          
-            <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
-          
-            <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
-          
-            <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
-          
-            <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
-          
-
-      
       </ul>
     </aside>
 
 <a class="exit-off-canvas" href="#"></a>
 
+
         <section id="main-content" role="main" class="scroll-container">
+        
+       
 
-          <div class="row">
-            <div class="large-3 medium-3 columns">
-              <div class="hide-for-small">
-                <div class="sidebar">
-                <nav>
-                  <ul id="side-nav" class="side-nav">
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>解决Mac下Cornerstone无法查看SVN日志的问题</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/12/04</span>
 
-                    
-                      <li class="side-title"><span>菜谱</span></li>
-                        
-                          <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
-                        
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='CS.html'>CS</a></span>
+           
+         
+          <span class="comments">
+            
 
-                    
-                      <li class="side-title"><span>List</span></li>
-                        
-                          <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
-                        
+            
+          </span>
 
-                    
-                      <li class="side-title"><span>杂</span></li>
-                        
-                          <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
-                        
-                          <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
-                        
-                          <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
-                        
-                          <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
-                        
-                          <li><a title="离骚" href="17001173766480.html">离骚</a></li>
-                        
-                          <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
-                        
-                          <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
-                        
+        </div>
+      </div><!-- article -->
 
-                    
-                      <li class="side-title"><span>CS</span></li>
-                        
-                          <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
-                        
-                          <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
-                        
-                          <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
-                        
-                          <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
-                        
-                          <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
-                        
-                          <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
-                        
-                          <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
-                        
-                          <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
-                        
-                          <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
-                        
-                          <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
-                        
-                          <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
-                        
-                          <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
-                        
-                          <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
-                        
-                          <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
-                        
-                          <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
-                        
-                          <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
-                        
-                          <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
-                        
-                          <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
-                        
-
-                    
-                  </ul>
-                </nav>
-                </div>
-              </div>
-            </div>
-            <div class="large-9 medium-9 columns">
-
- <div class="markdown-body">
-<h1>解决Mac下Cornerstone无法查看SVN日志的问题</h1>
-
-<pre><code class="language-plain_text">Could not contact repository to read the latest log entries.The log displayed may be incomplete.
+      <div class="article-content">
+      <pre><code class="language-plain_text">Could not contact repository to read the latest log entries.The log displayed may be incomplete.
 </code></pre>
+<span id="more"></span><!-- more -->
 <p>这个问题的出现具体原因不明，可能是因为log数据量太大吧，下载不下来。这时候我们需要清空一下cornerstone的缓存，然后再选择是否下载日志的时候选择Not Now。这样每次看log都是实时请求，也就不会出现上面的问题了，具体操作如下：</p>
 <p>先退出 cornerstone。</p>
 <p>打开终端，敲入下面命令。</p>
@@ -230,66 +145,176 @@ defaults delete com.zennaware.Cornerstone HistoryCacheUsage
 <p><img src="media/17001197697594/17001197798812.png" alt="cornerstone_log" /></p>
 
 
-</div>
+    
 
-<br /><br />
-<hr />
+      </div>
 
-<div class="row clearfix">
-  <div class="large-6 columns">
-	<div class="text-left" style="padding:15px 0px;">
-		
-	        <a href="17001188677503.html"  title="Previous Post: centos7 mysql数据库安装和配置">&laquo; centos7 mysql数据库安装和配置</a>
-	    
-	</div>
-  </div>
-  <div class="large-6 columns">
-	<div class="text-right" style="padding:15px 0px;">
-		
-	        <a href="17001191228771.html" 
-	        title="Next Post: C语言指针小结">C语言指针小结 &raquo;</a>
-	    
-	</div>
-  </div>
-</div>
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="17001188677503.html" 
+          title="Previous Post: centos7 mysql数据库安装和配置">&laquo; centos7 mysql数据库安装和配置</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="17001191228771.html" 
+          title="Next Post: C语言指针小结">C语言指针小结 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
 
-<div class="row">
-<div style="padding:0px 0.93em;" class="share-comments">
+          
 
-</div>
-</div>
-<script type="text/javascript">
-	$(function(){
-		var currentURL = '17001197697594.html';
-		$('#side-nav a').each(function(){
-			if($(this).attr('href') == currentURL){
-				$(this).parent().addClass('active');
-			}
-		});
-	});
-</script>  
-</div></div>
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
 
 
-<div class="page-bottom">
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001171363865.html">LiSSA第四代计时器说明书</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001191890787.html">C++ STL简介</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
   <div class="row">
-  <hr />
-  <div class="small-9 columns">
-  <p class="copyright">Copyright &copy; 2015
+   <p class="copyright">Copyright &copy; 2015
 Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
 Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
-  </div>
-  <div class="small-3 columns">
-  <p class="copyright text-right"><a href="#header">TOP</a></p>
-  </div>
-   
   </div>
 </div>
 
         </section>
       </div>
     </div>
-    
 
 
 
@@ -311,8 +336,8 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
 
 
 <style type="text/css">
-figure{margin: 0.4em 0;padding: 0;}
-  figcaption{text-align:center;}
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
 
 /* PrismJS 1.14.0
  http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
@@ -498,16 +523,28 @@ pre[class*="language-"].line-numbers > code {
             text-align: right;
         }
 
-
 </style>
+
+  
     
+
     <script src="asset/js/foundation.min.js"></script>
-    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
     <script>
       $(document).foundation();
-
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
      
     </script>
+
 
 
   </body>

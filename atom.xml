@@ -4,14 +4,13 @@
   <title><![CDATA[DreamEverAfter]]></title>
   <link href="www.dreameverafter.com/atom.xml" rel="self"/>
   <link href="www.dreameverafter.com/"/>
-  <updated>2023-11-16T18:00:06+08:00</updated>
+  <updated>2023-11-16T19:13:53+08:00</updated>
   <id>www.dreameverafter.com/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
-  <generator uri="http://www.mweb.im">MWeb</generator>
-
+  <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
     <title type="html"><![CDATA[三汁焖锅]]></title>
@@ -38,6 +37,7 @@
     <content type="html"><![CDATA[
 <p><img src="media/17001172774052/kindle.jpg" alt="kindle" /></p>
 <p>这几年 Amazon 一步步退出中国市场，似乎预示着这一天已经不远。果不其然，前阵子 Amazon 官方宣布退出中国电子书业务。今年五月由于疫情在家远程办公一周，苦于 Kindle 放公司忘了带回家无 Kindle 可看，遂准备买个新的 Whitepaper5。找一圈发现，Whitepaper5 在官方渠道没有销售，当时就感觉不太对劲。如今，算是正式开启退出中国市场的计划了。</p>
+<span id="more"></span><!-- more -->
 <p>我也算是 Kindle 比较早期的用户了，从一开始的标准版，到 Oasis2，到现在的 Whitepaper5，一共使用过 3 个设备。还给媳妇买了个 Kindle，不过她一直没有用这个看书的习惯，基本上属于吃灰的状态。</p>
 <p>在 Kindle 中国商城里买了不少电子书，甚至大部分都没看过，毕竟买过就算是看过了哈哈。退出这个事情正好也刺激了我看书的进度，这段时间把看 Kindle 的优先级调高了很多，有点时间就拿起来看看。</p>
 <p>其实八月是有一个好消息的，那就是 Kindle 支持 epub 的格式转换了，今年我一度因为各种格式的割裂，想做一个全格式支持的本地阅读器应用，由于疫情原因，无限期搁置了。当知道这个消息后，感觉这个阅读器应用的意义不大了。</p>
@@ -57,8 +57,9 @@
     <id>www.dreameverafter.com/17001265068678.html</id>
     <content type="html"><![CDATA[
 <p>今天想通过 <code>brew</code> 装 <code>openvc</code>，结果发现根本 <code>search</code> 不到。<br />
-但是网上搜索怎么安装这个库，的确都是用 <code>brew</code>，所以想更新一下 <code>brew</code> 再搜。<br />
-结果更新直接报错如下：</p>
+但是网上搜索怎么安装这个库，的确都是用 <code>brew</code>，所以想更新一下 <code>brew</code> 再搜。</p>
+<span id="more"></span><!-- more -->
+<p>结果更新直接报错如下：</p>
 <pre><code class="language-plain_text">brew update
 
 fatal: Could not resolve HEAD to a revision
@@ -138,6 +139,7 @@ echo 'export HOMEBREW_BOTTLE_DOMAIN=&quot;https://mirrors.ustc.edu.cn/homebrew-b
     <content type="html"><![CDATA[
 <p><img src="media/17001171363865/LiSSA-header.jpeg" alt="LiSSA-header" /></p>
 <p>之前买了一个LISSA的计时器作为时间管理的工具，发现该计时器是目前我看到最能满足我需求的。如下几个功能是我需要的。</p>
+<span id="more"></span><!-- more -->
 <ol>
 <li>倒计时</li>
 <li>正计时</li>
@@ -159,7 +161,7 @@ echo 'export HOMEBREW_BOTTLE_DOMAIN=&quot;https://mirrors.ustc.edu.cn/homebrew-b
     <updated>2023-11-16T15:19:49+08:00</updated>
     <id>www.dreameverafter.com/17001191890787.html</id>
     <content type="html"><![CDATA[
-<!--more-->
+<span id="more"></span><!-- more -->
 <pre><code class="language-cpp">vector, 变长数组，倍增的思想
     size()  返回元素个数
     empty()  返回是否为空
@@ -271,6 +273,7 @@ deque, 双端队列
     <updated>2023-11-16T14:57:49+08:00</updated>
     <id>www.dreameverafter.com/17001178696932.html</id>
     <content type="html"><![CDATA[
+<span id="more"></span><!-- more -->
 <h3><a id="%E5%8D%95%E9%93%BE%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>单链表</h3>
 <pre><code class="language-cpp">// head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点
 int head, e[N], ne[N], idx;
@@ -631,6 +634,7 @@ ULL get(int l, int r)
     <updated>2023-11-16T14:57:05+08:00</updated>
     <id>www.dreameverafter.com/17001178251653.html</id>
     <content type="html"><![CDATA[
+<span id="more"></span><!-- more -->
 <h3><a id="%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>快速排序算法模板</h3>
 <pre><code class="language-cpp">void quick_sort(int q[], int l, int r)
 {
@@ -889,6 +893,7 @@ void merge(vector&lt;PII&gt; &amp;segs)
     <updated>2023-11-16T15:26:12+08:00</updated>
     <id>www.dreameverafter.com/17001195727549.html</id>
     <content type="html"><![CDATA[
+<span id="more"></span><!-- more -->
 <p>以下是阅读代码大全摘抄。</p>
 <ol>
 <li>软件构建是软件开发的核心活动；构建活动是每个项目中唯一一项必不可少的工作。</li>
@@ -908,7 +913,7 @@ void merge(vector&lt;PII&gt; &amp;segs)
     <id>www.dreameverafter.com/17001155269640.html</id>
     <content type="html"><![CDATA[
 <p>开始我是没想到看一个电影会这么难。</p>
-<!--more-->
+<span id="more"></span><!-- more -->
 <p>上个月突然各种群里都在说扎导版的正义联盟，<a href="https://movie.douban.com/subject/35076714/">豆瓣</a>上一查分还很高，然后我也就跟风下了个准备看看，一打开四个小时差点劝退，然后看了一下影评，大概意思是之前两个小时版本根本讲不清楚，所以还是选择看下去。</p>
 <p>不过看的过程又遇到了一些阻力，字幕没有双语的，都手动设置一下第二字幕，但是那样两个字幕位置差的就很远，体验很不爽。再加上这个好像得用支持HDR的显示器，才能看出来效果，普通显示器看的话，颜色很淡，正好我那个显示器的HDR很渣，跟没有一样，后来用播放器模拟了一下，颜色凑活能看了。</p>
 <p>经过上次种种的阻碍，再看了两个小故事后，暂停了一下，然后就没有然后了。昨天听说国内的视频平台上架了这个电影，今天上午试看感觉不过，字幕是双语的，颜色似乎也正常了（也许是我的眼睛已经适应了这个电影的颜色），所以就斥资六大洋购买了电影，一口气看完了它。</p>
@@ -924,6 +929,7 @@ void merge(vector&lt;PII&gt; &amp;segs)
     <id>www.dreameverafter.com/17001174083229.html</id>
     <content type="html"><![CDATA[
 <p>久闻《山海经》大名了，却一直没有细致的看过。可能是潜意识觉得看这本书需要精心挑选一个版本，然后斋戒三日沐浴更衣才能开始看吧。这样的想法反而造成的极大的行为成本，结果就是直到今天才有一个看这本书的契机，没错，还是被动的。</p>
+<span id="more"></span><!-- more -->
 <p>《观山海》是媳妇前两年买的，当时她不知何故文青气质爆炸，然后就买了这本书。本身我是没打算看的，也就不曾研究这版和原版之间的差异，毕竟是媳妇买的，她开心比什么都重要。前两个月面临夏天可能要搬家的事实，意识到家里各种物件实在太多，回想起上次搬家差点要了老命，就起了把家里的东西“精简”一下的念头。扔是不可能扔的，大方向就是不常用甚至就没用过的，直接邮寄回家了事。至于那好几排的书，得提上日程尽快看完，也邮回家。《观山海》自然是尽快看完的首选，谁让它又大又厚呢。</p>
 <p>书中的插画是真的棒，之前在别的书里也偶有提到《山海经》中的神怪的地方，但是只能自我发挥想象，每个神怪的样子并不是很清晰，有的只是一个符号。这书里的插画让我心中的那些符号有了具体的形象，画风非常细腻，看着很过瘾。</p>
 <p>最让我头大的是，我发现这书，首先是一本地理书，而我是很不擅长记这些的，看过基本上就忘记了，只有一点点方向上的概念，还有特产矿石什么的，完全记不住。里面还会提到一些祭祀的方式，各种怪物吃了有什么功效等等，感觉这就是一本古代的百科全书。听说这版内容不是全的，也无所谓了，反正都记不住，我也就是看个热闹。</p>
@@ -941,6 +947,7 @@ void merge(vector&lt;PII&gt; &amp;segs)
     <content type="html"><![CDATA[
 <p>正在看《深入理解计算机系统》这本书，课后茫茫多的习题，看着就让人发怵。。</p>
 <p>做的时候也需要验证一下对错，所以在网上找了很多相关的题解。顺便就在这里记一下了。</p>
+<span id="more"></span><!-- more -->
 <p>先放一下源码地址：</p>
 <p><a href="http://csapp.cs.cmu.edu/2e/code.html">Code Examples</a></p>
 <p>第二章各种编码和绕来套取的计算当时差点把我劝退，做个小结就是一般来说整数用补码编码，浮点数用 IEEE 浮点编码，和小心精度问题。</p>
@@ -1443,6 +1450,7 @@ int main(int argc, char* argv[]) {
     <id>www.dreameverafter.com/17001150891969.html</id>
     <content type="html"><![CDATA[
 <p>买个安卓手机做导航用的，没成想到手第一件事就是装了个ons模拟器，然后一晚上把水仙1和2玩完了。</p>
+<span id="more"></span><!-- more -->
 <p><img src="media/17001150891969/17001182613721.png" alt="水仙" /></p>
 
 ]]></content>
@@ -1457,6 +1465,7 @@ int main(int argc, char* argv[]) {
 <blockquote>
 <p>万能青年旅店</p>
 </blockquote>
+<span id="more"></span><!-- more -->
 <p>大梦一场的董二千先生</p>
 <p>推开窗户 举起望远镜</p>
 <p>眼底映出 一阵浓烟</p>
@@ -1488,6 +1497,7 @@ int main(int argc, char* argv[]) {
     <id>www.dreameverafter.com/17001187952144.html</id>
     <content type="html"><![CDATA[
 <p>这里得先了解一下vue中的指令(Directives)。</p>
+<span id="more"></span><!-- more -->
 <p>指令是带有 <code>v-</code> 前缀的特殊 <code>attribute</code>。指令 <code>attribute</code> 的值预期是 <strong>单个 JavaScript 表达式</strong> (<code>v-for</code> 是例外情况，稍后我们再讨论)。指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。回顾我们在介绍中看到的例子：</p>
 <pre><code class="language-html">&lt;p v-if=&quot;seen&quot;&gt;现在你看到我了&lt;/p&gt;
 </code></pre>
@@ -1630,6 +1640,7 @@ int main(int argc, char* argv[]) {
     <id>www.dreameverafter.com/17001265069754.html</id>
     <content type="html"><![CDATA[
 <p>前两年稍微接触了一些 <code>OpenGL</code>，近期准备把所得总结一下，先把高频词汇列出来把。</p>
+<span id="more"></span><!-- more -->
 <ul>
 <li>顶点数据（Vertices）</li>
 <li>顶点着色器（Vertex Shader）</li>
@@ -1653,6 +1664,7 @@ int main(int argc, char* argv[]) {
     <content type="html"><![CDATA[
 <h2><a id="%E5%BD%92%E7%BA%B3%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>归纳法</h2>
 <p>归纳法或归纳推理（Inductive reasoning），有时叫做归纳逻辑，是论证的前提支持结论但不确保结论的推理过程。</p>
+<span id="more"></span><!-- more -->
 <p>它基于对特殊的代表（token）的有限观察，把性质或关系归结到类型；或基于对反复再现的现象的模式（pattern）的有限观察，公式表达规律。</p>
 <p>例如，使用归纳法在如下特殊的命题中：</p>
 <ol>
@@ -1698,6 +1710,7 @@ int main(int argc, char* argv[]) {
     <id>www.dreameverafter.com/17001265069516.html</id>
     <content type="html"><![CDATA[
 <p>ffmpeg的强大自不用多书，有时候遇到只是想简单剪切一下视频，那么可以直接用一下脚本，简单方法，前提是先装上ffmpeg环境。</p>
+<span id="more"></span><!-- more -->
 <p>以下就是脚本内容。</p>
 <pre><code class="language-python">#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/anaconda3/bin/python3
 
@@ -1732,6 +1745,7 @@ os.system(c.format(file, start, delta, target))
 <blockquote>
 <p>先秦•屈原</p>
 </blockquote>
+<span id="more"></span><!-- more -->
 <p>帝高阳之苗裔兮，朕皇考曰伯庸。</p>
 <p>摄提贞于孟陬兮，惟庚寅吾以降。</p>
 <p>皇览揆余初度兮，肇锡余以嘉名。</p>
@@ -1932,6 +1946,7 @@ os.system(c.format(file, start, delta, target))
     <content type="html"><![CDATA[
 <p><strong>为什么人们会过分自信呢？</strong></p>
 <p>这主要是因为人们有很多其他导致自己过分自信的特征。</p>
+<span id="more"></span><!-- more -->
 <p>比如说人们思维中有<strong>自我归因偏差</strong>：倾向于把好的结果归结为自己能力出众，而把坏的结果归结为不受自己控制的外部原因（比如别人造成的原因或者归咎于运气不好）。</p>
 <p>人们还有<strong>事后诸葛亮的偏差</strong>：当一件事发生后，人们经常会说，我早就知道这事会发生，因此觉得自己的判断力超群。但除了这件事，他可能还预测了很多其他事，但都没发生。这些错误的预测完全没有引起他的注意。</p>
 <p>和事后诸葛亮偏差类似，人们<strong>在收集信息时也会不自觉的忽略和自己观点不一致的信息</strong>，只会处理和加强那些和自己当初观点一致的信息。正是这个原因，我们在生活中很难说服一个人，多数的争吵其实都是在浪费时间。这些人根本不会去接受你提供的新信息；而你也用同样的方式拒绝着别人提供的和自己观点相悖的信息。</p>
@@ -1951,6 +1966,7 @@ os.system(c.format(file, start, delta, target))
     <content type="html"><![CDATA[
 <h2><a id="%E5%AE%9E%E6%88%98" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>实战</h2>
 <p>参考《CMake Practice》。</p>
+<span id="more"></span><!-- more -->
 <h3><a id="%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>项目目录结构</h3>
 <p>我们项目的名称为CRNode，假设我们项目的所有文件存放再~/workspace/CRNode，之后没有特殊说明的话，我们所指的目录都以此目录为相对路径。<br />
 我们的目录结构如下：</p>
