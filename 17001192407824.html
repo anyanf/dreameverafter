@@ -1,0 +1,559 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  关于C语言中的union - DreamEverAfter
+  
+  </title>
+ <meta name="description" content="">
+ <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+<div id="header">
+    <h1><a href="index.html">DreamEverAfter</a></h1>
+</div>
+
+</nav>
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+      <li><a href="index.html">Home</a></li>
+      
+        <li class="divider"></li>
+        <li><label>菜谱</label></li>
+
+          
+            <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>List</label></li>
+
+          
+            <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>杂</label></li>
+
+          
+            <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
+          
+            <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
+          
+            <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
+          
+            <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
+          
+            <li><a title="离骚" href="17001173766480.html">离骚</a></li>
+          
+            <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
+          
+            <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>CS</label></li>
+
+          
+            <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
+          
+            <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
+          
+            <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
+          
+            <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
+          
+            <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
+          
+            <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
+          
+            <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
+          
+            <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
+          
+            <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
+          
+            <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
+          
+            <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
+          
+            <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
+          
+            <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
+          
+            <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
+          
+            <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
+          
+            <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
+          
+            <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
+          
+            <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
+          
+
+      
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+        <section id="main-content" role="main" class="scroll-container">
+
+          <div class="row">
+            <div class="large-3 medium-3 columns">
+              <div class="hide-for-small">
+                <div class="sidebar">
+                <nav>
+                  <ul id="side-nav" class="side-nav">
+
+                    
+                      <li class="side-title"><span>菜谱</span></li>
+                        
+                          <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>List</span></li>
+                        
+                          <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>杂</span></li>
+                        
+                          <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
+                        
+                          <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
+                        
+                          <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
+                        
+                          <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
+                        
+                          <li><a title="离骚" href="17001173766480.html">离骚</a></li>
+                        
+                          <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
+                        
+                          <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>CS</span></li>
+                        
+                          <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
+                        
+                          <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
+                        
+                          <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
+                        
+                          <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
+                        
+                          <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
+                        
+                          <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
+                        
+                          <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
+                        
+                          <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
+                        
+                          <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
+                        
+                          <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
+                        
+                          <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
+                        
+                          <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
+                        
+                          <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
+                        
+                          <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
+                        
+                          <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
+                        
+                          <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
+                        
+                          <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
+                        
+                          <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
+                        
+
+                    
+                  </ul>
+                </nav>
+                </div>
+              </div>
+            </div>
+            <div class="large-9 medium-9 columns">
+
+ <div class="markdown-body">
+<h1>关于C语言中的union</h1>
+
+<h2><a id="union%E5%AE%9A%E4%B9%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>union定义</h2>
+<p>“联合”是一种特殊的类，也是一种构造类型的数据结构。在一个“联合”内可以定义多种不同的数据类型， 一个被说明为该“联合”类型的变量中，允许装入该“联合”所定义的任何一种数据，这些数据共享同一段内存，已达到节省空间的目的（还有一个节省空间的类型：位域）。 这是一个非常特殊的地方，也是联合的特征。另外，同struct一样，联合默认访问权限也是公有的，并且，也具有成员函数。</p>
+<p>“联合”与“结构”有一些相似之处。但两者有本质上的不同。在结构中各成员有各自的内存空间， 一个结构变量的总长度是各成员长度之和（空结构除外，同时不考虑边界调整）。<strong>而在“联合”中，各成员共享一段内存空间， 一个联合变量的长度等于各成员中最长的长度，同一时间只能储存其中一个数据成员，所有的数据成员具有相同的起始地址</strong>。应该说明的是， 这里所谓的共享不是指把多个成员同时装入一个联合变量内， 而是指该联合变量可被赋予任一成员值，但每次只能赋一种值， 赋入新值则冲去旧值。</p>
+<p>栗子如下：</p>
+<pre><code class="language-c">union Foo
+{
+   char character;
+   char *str;
+   double number;
+};
+</code></pre>
+<p>一个union只配置一个足够大的空间以来容纳最大长度的数据成员，以上例而言，最大长度是double类型，所以Foo的空间大小就是double数据类型的大小。</p>
+<p>在C++里，union的成员默认属性页为public。union主要用来压缩空间。如果一些数据不可能在同一时间同时被用到，则可以使用union。</p>
+<h2><a id="%E5%A4%A7%E5%B0%8F%E7%AB%AF%E6%A8%A1%E5%BC%8F%E5%AF%B9union%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E5%BD%B1%E5%93%8D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>大小端模式对union 类型数据的影响</h2>
+<p>下面再看一个例子：</p>
+<pre><code class="language-c">union var{
+        char c[4];
+        int i;
+};
+int main(){
+        union var data;
+        data.c[0] = 0x04;//因为是char类型，数字不要太大，算算ascii的范围~
+        data.c[1] = 0x03;//写成16进制为了方便直接打印内存中的值对比
+        data.c[2] = 0x02;
+        data.c[3] = 0x11;//数组中下标低的，地址也低，按地址从低到高，内存内容依次为：04,03,02,11。总共四字节！
+//而把四个字节作为一个整体（不分类型，直接打印十六进制），应该从内存高地址到低地址看，0x11020304，低位04放在低地址上。
+        printf(&quot;%x\n&quot;,data.i);
+}
+</code></pre>
+<p>data.i的值应该为多少呢？</p>
+<p>这里需要考虑存储模式：大端模式和小端模式。</p>
+<p>大端模式（Big_endian）：字数据的高字节存储在低地址中，而字数据的低字节则存放在高地址中。<br />
+小端模式（Little_endian）：字数据的高字节存储在高地址中，而字数据的低字节则存放在低地址中。</p>
+<p>union 型数据所占的空间等于其最大的成员所占的空间。对union 型的成员的存取都是相对于该联合体基地址的偏移量为0 处开始，也就是联合体的访问不论对哪个变量的存取都是从union 的首地址位置开始。如此一解释，上面的问题是否已经有了答案呢？</p>
+<p>我的Mac系统打印的是 <code>11020304</code> ,说明是小端模式。。</p>
+<h2><a id="%E5%A6%82%E4%BD%95%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%A1%AE%E8%AE%A4%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%98%E5%82%A8%E6%A8%A1%E5%BC%8F%EF%BC%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>如何用程序确认当前系统的存储模式？</h2>
+<p>上述问题似乎还比较简单，那来个有技术含量的：请写一个C 函数，若处理器是Big_endian 的，则返回0；若是Little_endian 的，则返回1。</p>
+<p>先分析一下，按照上面关于大小端模式的定义，假设int 类型变量i 被初始化为1。</p>
+<p>以大端模式存储，其内存布局如下图：</p>
+<p><img src="media/17001192407824/17001192603586.jpg" alt="" /></p>
+<p>以小端模式存储，其内存布局如下图：</p>
+<p><img src="media/17001192407824/17001192603597.jpg" alt="" /></p>
+<p>变量<code>i</code>占4 个字节，但只有一个字节的值为1，另外三个字节的值都为0。如果取出低地址上的值为0，毫无疑问，这是大端模式；如果取出低地址上的值为1，毫无疑问，这是小端模式。既然如此，我们完全可以利用union类型数据的特点：所有成员的起始地址一致。</p>
+<p>到现在，应该知道怎么写了吧？参考答案如下：</p>
+<pre><code class="language-c">int checkSystem( )
+{
+   union check
+   {
+      int i;
+      char ch;
+   } c;
+   c.i = 1;
+   return (c.ch == 1);
+}
+</code></pre>
+<h2><a id="%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
+<p>union同一时间只能储存其中一个数据成员，所有的数据成员具有相同的起始地址，它所占的空间等于其最大的成员所占的空间，机器的大小端存储影响union成员的取值。</p>
+
+
+</div>
+
+<br /><br />
+<hr />
+
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="17001182998798.html"  title="Previous Post: 在 Mac OS X 上安装 TensorFlow">&laquo; 在 Mac OS X 上安装 TensorFlow</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="17001265069881.html" 
+	        title="Next Post: 虚拟机 Linux 上编 slice3r perl Build.PL 报错">虚拟机 Linux 上编 slice3r perl Build.PL 报错 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
+
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
+
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '17001192407824.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
+</div></div>
+
+
+<div class="page-bottom">
+  <div class="row">
+  <hr />
+  <div class="small-9 columns">
+  <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+  <div class="small-3 columns">
+  <p class="copyright text-right"><a href="#header">TOP</a></p>
+  </div>
+   
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+    
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0.4em 0;padding: 0;}
+  figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+
+</style>
+    
+    <script src="asset/js/foundation.min.js"></script>
+    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
+    <script>
+      $(document).foundation();
+
+     
+    </script>
+
+
+  </body>
+</html>

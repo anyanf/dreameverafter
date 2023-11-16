@@ -1,0 +1,620 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  代码重构 - DreamEverAfter
+  
+  </title>
+ <meta name="description" content="">
+ <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+<div id="header">
+    <h1><a href="index.html">DreamEverAfter</a></h1>
+</div>
+
+</nav>
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+      <li><a href="index.html">Home</a></li>
+      
+        <li class="divider"></li>
+        <li><label>菜谱</label></li>
+
+          
+            <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>List</label></li>
+
+          
+            <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>杂</label></li>
+
+          
+            <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
+          
+            <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
+          
+            <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
+          
+            <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
+          
+            <li><a title="离骚" href="17001173766480.html">离骚</a></li>
+          
+            <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
+          
+            <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>CS</label></li>
+
+          
+            <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
+          
+            <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
+          
+            <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
+          
+            <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
+          
+            <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
+          
+            <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
+          
+            <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
+          
+            <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
+          
+            <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
+          
+            <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
+          
+            <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
+          
+            <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
+          
+            <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
+          
+            <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
+          
+            <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
+          
+            <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
+          
+            <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
+          
+            <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
+          
+
+      
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+        <section id="main-content" role="main" class="scroll-container">
+
+          <div class="row">
+            <div class="large-3 medium-3 columns">
+              <div class="hide-for-small">
+                <div class="sidebar">
+                <nav>
+                  <ul id="side-nav" class="side-nav">
+
+                    
+                      <li class="side-title"><span>菜谱</span></li>
+                        
+                          <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>List</span></li>
+                        
+                          <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>杂</span></li>
+                        
+                          <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
+                        
+                          <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
+                        
+                          <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
+                        
+                          <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
+                        
+                          <li><a title="离骚" href="17001173766480.html">离骚</a></li>
+                        
+                          <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
+                        
+                          <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>CS</span></li>
+                        
+                          <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
+                        
+                          <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
+                        
+                          <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
+                        
+                          <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
+                        
+                          <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
+                        
+                          <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
+                        
+                          <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
+                        
+                          <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
+                        
+                          <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
+                        
+                          <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
+                        
+                          <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
+                        
+                          <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
+                        
+                          <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
+                        
+                          <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
+                        
+                          <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
+                        
+                          <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
+                        
+                          <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
+                        
+                          <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
+                        
+
+                    
+                  </ul>
+                </nav>
+                </div>
+              </div>
+            </div>
+            <div class="large-9 medium-9 columns">
+
+ <div class="markdown-body">
+<h1>代码重构</h1>
+
+<p>转自：<a href="https://zh.wikipedia.org/wiki/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84">维基百科中的代码重构</a></p>
+<p>一开始我写点啥，但是wiki上写的已经非常完美了。我发现我可以做的只有抄过来了。。</p>
+<p>代码重构（code refactoring）指对软件代码做任何更动以增加可读性或者简化结构而不影响输出结果。</p>
+<p>软件重构需要借助工具完成，重构工具能够修改代码同时修改所有引用该代码的地方。在极限编程的方法学中，重构需要单元测试来支持。</p>
+<h2><a id="%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>重构代码</h2>
+<p>在软件工程学裡，重构代码一词通常是指在不改变代码的外部行为情况下而修改源代码，有时非正式地称为「清理乾淨」。在极限编程或其他敏捷方法学中，重构常常是软件开发循环的一部分：开发者轮流增加新的测试和功能，并重构代码来增进内部的清晰性和一致性。自动化的单元测试保证了重构不至于让代码停止工作。</p>
+<p>重构既不修正错误，又不增加新的功能性。反而它是用于提高代码的可读性或者改变代码内部结构与设计，并且移除死代码，使其在将来更容易被维护。重构代码可以是结构层面抑或是语意层面，不同的重构手段施行时，可能是结构的调整或是语意的转换，但前提是不影响代码在转换前后的行为。特别是，在现有的程序的结构下，给一个程序增加一个新的行为可能会非常困难，因此开发人员可能先重构这部分代码，使加入新的行为变得容易。</p>
+<p>一个重构的小范例是修改一个变量的名称使其具有更明确的含义，例如从单个字母的「i」重构为「interestRate」。较复杂的重构是把一段if区块中的代码变为一个子程序。更复杂一点的重构是用多态性来替换if 条件式。「清理」代码已经发生了几十年，重构中最关键的认知是有意地「清理」代码，透过从已知的纪录里一些常用的重构方法清理代码，把它从增加新功能分开，然后个别的对代码进行测试（任何的行为改变都可能带来错误）。新的实现切合实际需要以改善现有设计，并且不改变原软件的意图或行为。</p>
+<p>重构面对业界调适接受方面的挑战。首先，对重构长远的影响需要更深入研究追踪。再者，重构存于资料库轮廓（database schema）的商业逻辑层几乎是不可能或者非常困难的。最后，对介面造成影响的重构可能造成程序开发上的困境，除非程序员有对所有使用者介面的存取權。例如，程序员若改变某实体中的方法名称，他要么必须对整个专案里头所有连结到旧名的参考都加以编辑，要么屈服于继续维护使用旧名的残株残瓦介面。而该旧名的介面于内部呼叫该方法的新名。</p>
+<h2><a id="%E6%BA%90%E6%B5%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>源流</h2>
+<p>重构这个术语是从数字与多项式的因式分解类比而来。如，x**2 − 1可以被分解为(x + 1)(x − 1)，这样揭示了前面的形式不可见的内部结构（如两个根+1和−1）。同样，在软件重构中，在可见结构上的改变通常会揭示原代码中「隐藏」的内部结构。</p>
+<p>上面数学的例子展示了「重构」的问题。一个表示式不尽然客观地或者处处比另一个更好。它们每个强调不同的方程序的观点，故其实用便多多少少随着个别不同使用情况，以及各个数学家个性与风格变动。这个问题于软件开发领域亦然；个别程序员可能对某既定演算法理想的程序形式实现会有不同的意见。</p>
+<p>为了简化测试，重构是分步骤完成的。当重构结束后，任何行为上的变化无疑都是错误并可透过除错该程序的新行为个别修正。</p>
+<p>马丁·福勒的著作《重构》是一个经典参考书。虽然重构已经非正式的使用了很多年了，威廉·歐普迪克在1993年的博士论文却是第一篇著名的关于的重构的文章，即使所有的理论与机制长久以来就以程序转换系统存在。所有这些资源提供了一种常用重构方法的型录索引──所有重构方法需要描述，包括怎样辨识你需要（或者不需要）套用该方法，以及如何套用的问题。</p>
+<h2><a id="%E9%87%8D%E6%9E%84%E6%96%B9%E6%B3%95%E7%AE%80%E5%8D%95%E5%88%97%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>重构方法简单列表</h2>
+<p>下面是不完整的代码重构清单。长一点的清单可以在福勒的重构书找到。因为研究者们继续努力不懈的发明以及实现重构，完整清单可能永远都不存在。</p>
+<h3><a id="%E5%B0%81%E8%A3%85%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%EF%BC%88encapsulate-field%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>封装成员变量（Encapsulate Field）</h3>
+<p>将仅限于本类使用的变量重写成私有（private）成员变量，并提供访问方法（accessor method）。这种重构方式可以将与外部调用者无关的变量隐藏起来，减少代码的耦合性，并减少意外出错的概率。</p>
+<pre><code class="language-c++">// 重构前
+class SomeClass {
+  public int memberA;
+  ...
+}
+
+// 重构后
+class SomeClass { 
+  private int memberA; 
+  public int getMemberA();
+  public void setMemberA(int a);
+  ...
+}
+</code></pre>
+<h3><a id="%E6%8F%90%E5%8F%96%E6%96%B9%E6%B3%95%EF%BC%88extract-method%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>提取方法（Extract Method）</h3>
+<p>意思是将大段代码中的一部分提取后，构成一个新方法。这种重构可以使整段程序的结构变得更清晰，从而增加可读性。这也对函数（Function）通用。</p>
+<pre><code class="language-c++">// 重构前
+void Process(MyDataSet mds) 
+{   
+　// Step 1 ... 
+　int result = 0;  
+　if (mds.isReady) 
+　{  
+　　int data1 = mds.param[0]; 
+　　int data2 = mds.param[1];  
+　　// Preprocess... 
+　　result = data1 % data2;  
+　} 
+　// Step 2... 
+}
+
+// 重构后
+void Process(MyDataSet mds)
+{  
+　// Step 1 ... 
+　int result = 0;  
+　if (mds.isReady) 
+　　result = CalculateMDS(mds.param[0], mds.param[1]);  
+　// Step 2 ... 
+}      
+
+int CalculateMDS(int data1, int data2)  
+{ 
+　　// Preprocess...  
+　　return data1 % data2; 
+}
+</code></pre>
+<h3><a id="%E7%B1%BB%E4%B8%80%E8%88%AC%E5%8C%96%EF%BC%88generalize-type%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>类一般化（Generalize Type）</h3>
+<p>将多个类/函数共用的类型抽象出可以公用的基类（base class），然后利用多态性追加每个类/函数需要的特殊函数。这种重构可以让结构更加清晰，同时可以增加代码的可维护性。</p>
+<pre><code class="language-c++">// 重构前
+class Rectangle {
+  private:
+  int w, h;
+  public:
+  double Area(){
+    return w*h;
+  }
+}
+class Triangle {
+  private:
+  int w, h;
+  public:
+  double Area(){
+    return w*h/2;
+  }
+}
+
+// 重构后
+class Polygon {
+  private:
+  int w, h;
+  public:
+  virtual double Area() = 0;
+}
+class Rectangle : public Polygon {
+  double Area(){
+  return w*h;
+  }
+}
+class Triangle : public Polygon {
+  double Area() {
+    return w*h/2;
+  }
+}
+</code></pre>
+<h3><a id="%E5%87%BD%E6%95%B0%E5%BD%92%E7%88%B6%EF%BC%88pull-up%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数归父（Pull Up）</h3>
+<p>或译函数上移，指的是方法从子类移动到父类。</p>
+<h3><a id="%E5%87%BD%E6%95%B0%E5%BD%92%E5%AD%90%EF%BC%88push-down%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数归子（Push Down）</h3>
+<p>或译函数下移，指的是方法从父类移动到子类。</p>
+<h3><a id="%E6%96%B9%E6%B3%95%E6%9B%B4%E5%90%8D%EF%BC%88rename-method%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法更名（Rename Method）</h3>
+<p>将方法名称以更好的表达它的用途。</p>
+<pre><code class="language-c++">// 重构前
+public double f(double m, double a);
+
+// 重构后
+public double calculateForce(double mass, double acceleration);
+</code></pre>
+<h2><a id="%E8%BE%9E%E6%BA%90" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>辞源</h2>
+<p>首先使用「重构」一辞于出版文献是于一篇文章：《Refactoring: An Aid in Designing Application Frameworks and Evolving Object-Oriented Systems, Proceedings of the Symposium on Object Oriented Programming Emphasizing Practical Applications (SOOPPA)》，1990年9月，由William F. Opdyke与Ralph E. Johnson联名出版[3]。William Opdyke的博士论文于「重构：物件导向框架」，伊利诺大学，1992年出版[2]。「重构」术语几乎至其后确定。</p>
+<p>就英文新造字学来说，代码重构（Refactoring）清楚地来自数学上的分解（factoring）。</p>
+
+
+</div>
+
+<br /><br />
+<hr />
+
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="17001265069283.html"  title="Previous Post: MAC OS X 常用技巧">&laquo; MAC OS X 常用技巧</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="17001175328385.html" 
+	        title="Next Post: 正确的握笔姿势">正确的握笔姿势 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
+
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
+
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '17001197235131.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
+</div></div>
+
+
+<div class="page-bottom">
+  <div class="row">
+  <hr />
+  <div class="small-9 columns">
+  <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+  <div class="small-3 columns">
+  <p class="copyright text-right"><a href="#header">TOP</a></p>
+  </div>
+   
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+    
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0.4em 0;padding: 0;}
+  figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+
+</style>
+    
+    <script src="asset/js/foundation.min.js"></script>
+    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
+    <script>
+      $(document).foundation();
+
+     
+    </script>
+
+
+  </body>
+</html>

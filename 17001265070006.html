@@ -1,0 +1,995 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  深入理解计算机系统(第二版) 家庭作业 第二章 - DreamEverAfter
+  
+  </title>
+ <meta name="description" content="">
+ <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+<div id="header">
+    <h1><a href="index.html">DreamEverAfter</a></h1>
+</div>
+
+</nav>
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+      <li><a href="index.html">Home</a></li>
+      
+        <li class="divider"></li>
+        <li><label>菜谱</label></li>
+
+          
+            <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>List</label></li>
+
+          
+            <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>杂</label></li>
+
+          
+            <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
+          
+            <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
+          
+            <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
+          
+            <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
+          
+            <li><a title="离骚" href="17001173766480.html">离骚</a></li>
+          
+            <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
+          
+            <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>CS</label></li>
+
+          
+            <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
+          
+            <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
+          
+            <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
+          
+            <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
+          
+            <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
+          
+            <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
+          
+            <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
+          
+            <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
+          
+            <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
+          
+            <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
+          
+            <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
+          
+            <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
+          
+            <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
+          
+            <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
+          
+            <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
+          
+            <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
+          
+            <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
+          
+            <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
+          
+
+      
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+        <section id="main-content" role="main" class="scroll-container">
+
+          <div class="row">
+            <div class="large-3 medium-3 columns">
+              <div class="hide-for-small">
+                <div class="sidebar">
+                <nav>
+                  <ul id="side-nav" class="side-nav">
+
+                    
+                      <li class="side-title"><span>菜谱</span></li>
+                        
+                          <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>List</span></li>
+                        
+                          <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>杂</span></li>
+                        
+                          <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
+                        
+                          <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
+                        
+                          <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
+                        
+                          <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
+                        
+                          <li><a title="离骚" href="17001173766480.html">离骚</a></li>
+                        
+                          <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
+                        
+                          <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>CS</span></li>
+                        
+                          <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
+                        
+                          <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
+                        
+                          <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
+                        
+                          <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
+                        
+                          <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
+                        
+                          <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
+                        
+                          <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
+                        
+                          <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
+                        
+                          <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
+                        
+                          <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
+                        
+                          <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
+                        
+                          <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
+                        
+                          <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
+                        
+                          <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
+                        
+                          <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
+                        
+                          <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
+                        
+                          <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
+                        
+                          <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
+                        
+
+                    
+                  </ul>
+                </nav>
+                </div>
+              </div>
+            </div>
+            <div class="large-9 medium-9 columns">
+
+ <div class="markdown-body">
+<h1>深入理解计算机系统(第二版) 家庭作业 第二章</h1>
+
+<p>正在看《深入理解计算机系统》这本书，课后茫茫多的习题，看着就让人发怵。。</p>
+<p>做的时候也需要验证一下对错，所以在网上找了很多相关的题解。顺便就在这里记一下了。</p>
+<p>先放一下源码地址：</p>
+<p><a href="http://csapp.cs.cmu.edu/2e/code.html">Code Examples</a></p>
+<p>第二章各种编码和绕来套取的计算当时差点把我劝退，做个小结就是一般来说整数用补码编码，浮点数用 IEEE 浮点编码，和小心精度问题。</p>
+<h2><a id="2-55" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.55</h2>
+<p>先上 show-bytes.c 源码：</p>
+<pre><code class="language-c">/* $begin show-bytes */
+#include &lt;stdio.h&gt;
+/* $end show-bytes */
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+/* $begin show-bytes */
+
+typedef unsigned char *byte_pointer;
+
+void show_bytes(byte_pointer start, int len) {
+    int i;
+    for (i = 0; i &lt; len; i++)
+	printf(&quot; %.2x&quot;, start[i]);    //line:data:show_bytes_printf
+    printf(&quot;\n&quot;);
+}
+
+void show_int(int x) {
+    show_bytes((byte_pointer) &amp;x, sizeof(int)); //line:data:show_bytes_amp1
+}
+
+void show_float(float x) {
+    show_bytes((byte_pointer) &amp;x, sizeof(float)); //line:data:show_bytes_amp2
+}
+
+void show_pointer(void *x) {
+    show_bytes((byte_pointer) &amp;x, sizeof(void *)); //line:data:show_bytes_amp3
+}
+/* $end show-bytes */
+
+
+/* $begin test-show-bytes */
+void test_show_bytes(int val) {
+    int ival = val;
+    float fval = (float) ival;
+    int *pval = &amp;ival;
+    show_int(ival);
+    show_float(fval);
+    show_pointer(pval);
+}
+/* $end test-show-bytes */
+
+void simple_show_a() {
+/* $begin simple-show-a */
+int val = 0x87654321;
+byte_pointer valp = (byte_pointer) &amp;val;
+show_bytes(valp, 1); /* A. */
+show_bytes(valp, 2); /* B. */
+show_bytes(valp, 3); /* C. */
+/* $end simple-show-a */
+}
+
+void simple_show_b() {
+/* $begin simple-show-b */
+int val = 0x12345678;
+byte_pointer valp = (byte_pointer) &amp;val;
+show_bytes(valp, 1); /* A. */
+show_bytes(valp, 2); /* B. */
+show_bytes(valp, 3); /* C. */
+/* $end simple-show-b */
+}
+
+void float_eg() {
+  int x = 3490593;
+  float f = (float) x;
+  printf(&quot;For x = %d\n&quot;, x);
+  show_int(x);
+  show_float(f);
+
+  x = 3510593;
+  f = (float) x;
+  printf(&quot;For x = %d\n&quot;, x);
+  show_int(x);
+  show_float(f);
+
+}
+
+void string_ueg() {
+/* $begin show-ustring */
+const char *s = &quot;ABCDEF&quot;;
+show_bytes((byte_pointer) s, strlen(s)); 
+/* $end show-ustring */
+}
+
+void string_leg() {
+/* $begin show-lstring */
+const char *s = &quot;abcdef&quot;;
+show_bytes((byte_pointer) s, strlen(s)); 
+/* $end show-lstring */
+}
+
+void show_twocomp() 
+{
+/* $begin show-twocomp */
+    short x = 12345; 
+    short mx = -x; 
+    
+    show_bytes((byte_pointer) &amp;x, sizeof(short)); 
+    show_bytes((byte_pointer) &amp;mx, sizeof(short)); 
+/* $end show-twocomp */
+}
+
+int main(int argc, char *argv[])
+{
+    int val = 12345;
+
+    if (argc &gt; 1) {
+        if (argc &gt; 1) {
+            val = strtol(argv[1], NULL, 0);
+        }
+        printf(&quot;calling test_show_bytes\n&quot;);
+        test_show_bytes(val);
+    } else {
+        printf(&quot;calling show_twocomp\n&quot;);
+        show_twocomp();
+        printf(&quot;Calling simple_show_a\n&quot;);
+        simple_show_a();
+        printf(&quot;Calling simple_show_b\n&quot;);
+        simple_show_b();
+        printf(&quot;Calling float_eg\n&quot;);
+        float_eg();
+        printf(&quot;Calling string_ueg\n&quot;);
+        string_ueg();
+        printf(&quot;Calling string_leg\n&quot;);
+        string_leg();
+    }
+    return 0;
+}
+
+</code></pre>
+<p>用 GCC 编译：</p>
+<pre><code class="language-shell">// mac os 11.1
+gcc -m64 show-bytes.c -o show-bytes
+</code></pre>
+<p>run 一下：</p>
+<pre><code class="language-shell">./show-bytes
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-shell">calling show_twocomp
+ 39 30
+ c7 cf
+Calling simple_show_a
+ 21
+ 21 43
+ 21 43 65
+Calling simple_show_b
+ 78
+ 78 56
+ 78 56 34
+Calling float_eg
+For x = 3490593
+ 21 43 35 00
+ 84 0c 55 4a
+For x = 3510593
+ 41 91 35 00
+ 04 45 56 4a
+Calling string_ueg
+ 41 42 43 44 45 46
+Calling string_leg
+ 61 62 63 64 65 66
+</code></pre>
+<h2><a id="2-56" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.56</h2>
+<p>可以在后面加参数，就可以试不同的示例值了：</p>
+<pre><code class="language-shell">// 输入
+./show-bytes 1
+
+// 输出 顺便看出来是小端模式。
+calling test_show_bytes
+ 01 00 00 00
+ 00 00 80 3f
+ 58 f9 14 e4 fe 7f 00 00
+
+// 输入
+./show-bytes 996
+
+// 输出
+calling test_show_bytes
+ e4 03 00 00
+ 00 00 79 44
+ 58 79 ad ec fe 7f 00 00
+
+</code></pre>
+<h2><a id="2-57" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.57</h2>
+<p>增加三个函数并修改测试函数：</p>
+<pre><code class="language-c">void show_short(short x) {
+  show_bytes((byte_pointer) &amp;x, sizeof(short));
+}
+
+void show_long(long x) {
+  show_bytes((byte_pointer) &amp;x, sizeof(long));
+}
+
+void show_double(double x) {
+  show_bytes((byte_pointer) &amp;x, sizeof(double));
+}
+
+void test_show_bytes(int val) {
+    int ival = val;
+    float fval = (float) ival;
+    int *pval = &amp;ival;
+    
+    show_int(ival);
+    show_float(fval);
+    show_pointer(pval);
+    
+    short sval = (short) ival;
+    long lval = (long) ival;
+    double dval = (double) ival;
+
+    show_short(sval);
+    show_long(lval);
+    show_double(dval);
+}
+</code></pre>
+<p>重新编译，测试结果如下，注意最后三行输出是新加的：</p>
+<pre><code class="language-shell">// 输入
+./show-bytes 1
+
+// 输出
+calling test_show_bytes
+ 01 00 00 00
+ 00 00 80 3f
+ 58 39 b0 e5 fe 7f 00 00
+ 01 00
+ 01 00 00 00 00 00 00 00
+ 00 00 00 00 00 00 f0 3f
+
+// 输入
+./show-bytes 996
+
+// 输出
+calling test_show_bytes
+ e4 03 00 00
+ 00 00 79 44
+ 58 a9 35 ed fe 7f 00 00
+ e4 03
+ e4 03 00 00 00 00 00 00
+ 00 00 00 00 00 20 8f 40
+
+</code></pre>
+<h2><a id="2-58" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.58</h2>
+<pre><code class="language-c">/*
+ * is-little-endian.c
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+typedef unsigned char* byte_pointer;
+
+int is_little_endian() {
+  int test_num = 0xff;
+  byte_pointer byte_start = (byte_pointer) &amp;test_num;
+
+  if (byte_start[0] == 0xff) {
+    return 1;
+  }
+  return 0;
+}
+
+int is_little_endian_other(){
+    int a = 1;
+    return *((char*)&amp;a);
+}
+
+int main(int argc, char* argv[]) {
+  assert(is_little_endian());
+  return 0;
+}
+</code></pre>
+<h2><a id="2-59" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.59</h2>
+<pre><code class="language-c">(x &amp; 0xFF) | (y &amp; ~0xFF)
+</code></pre>
+<h2><a id="2-60" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.60</h2>
+<pre><code class="language-c">
+/*
+ * replace-byte.c
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+unsigned replace_byte(unsigned x, int i, unsigned char b) {
+  if (i &lt; 0) {
+    printf(&quot;error: i is negetive\n&quot;);
+    return x;
+  }
+  if (i &gt; sizeof(unsigned)-1) {
+    printf(&quot;error: too big i&quot;);
+    return x;
+  }
+
+  // 1 byte 有 8 bits， &lt;&lt; 3 就是 * 8
+  unsigned mask = ((unsigned) 0xFF) &lt;&lt; (i &lt;&lt; 3);
+  unsigned pos_byte = ((unsigned) b) &lt;&lt; (i &lt;&lt; 3);
+
+  return (x &amp; ~mask) | pos_byte;
+}
+
+int main(int argc, char *argv[]) {
+  unsigned rep_0 = replace_byte(0x12345678, 0, 0xAB);
+  unsigned rep_3 = replace_byte(0x12345678, 3, 0xAB);
+
+  assert(rep_0 == 0x123456AB);
+  assert(rep_3 == 0xAB345678);
+  return 0;
+}
+
+</code></pre>
+<h2><a id="2-61" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.61</h2>
+<pre><code class="language-c">
+// A x 的任何位都等于 1
+!~x
+
+// B x 的任何位都等于 0
+!x
+
+// C x 的最高有效字节中的位都等于 1
+!~(x &gt;&gt; ((sizeof(int) - 1) &lt;&lt; 3))
+
+// D x 的最低有效字节中的位都等于 0
+!(x &amp; 0xFF)
+
+</code></pre>
+<h2><a id="2-62" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.62</h2>
+<pre><code class="language-c">/*
+ * int-shifts-are-arithemetic.c
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+int int_shifts_are_arithemetic() {
+  int num = -1;
+  return !(num ^ (num &gt;&gt; 1));
+}
+
+int main(int argc, char* argv[]) {
+  assert(int_shifts_are_arithemetic());
+  return 0;
+}
+</code></pre>
+<h2><a id="2-63" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.63</h2>
+<pre><code class="language-c">/*
+ * srl-sra.c
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+// 将 xrsl 的第 w-k-1 位扩展到前 k 个高位
+int sra(int x, int k) {
+  int xsrl = (unsigned) x &gt;&gt; k;
+
+  int w = sizeof(int) &lt;&lt; 3;
+  // mask 的前 k 高位全是 1
+  int mask = (int) -1 &lt;&lt; (w - k);
+  // m 最高位是 1，其他都是 0
+  int m = 1 &lt;&lt; (w - 1);
+  // x &amp; m，确定符号位是 1 还是 0。
+  // 然后如果符号位是 1，!(x &amp; m) 为 0，0 - 1 等于 -1，mask &amp;= -1 还是他本身。
+  // 如果符号位是 0，!(x &amp; m) 为 1，1 - 1 等于 0，mask &amp;= 0 为 0。
+  mask &amp;= !(x &amp; m) - 1;
+  return xsrl | mask;
+}
+
+// 前 k 高位清零即可
+unsigned srl(unsigned x, int k) {
+  unsigned xsra = (int) x &gt;&gt; k;
+
+  int w = sizeof(int) &lt;&lt; 3;
+  int mask = (int) -1 &lt;&lt; (w - k);
+  return xsra &amp; ~mask;
+}
+
+int main(int argc, char* argv[]) {
+  unsigned test_unsigned = 0x12345678;
+  int test_int = 0x12345678;
+
+  assert(srl(test_unsigned, 4) == test_unsigned &gt;&gt; 4);
+  assert(sra(test_int, 4) == test_int &gt;&gt; 4);
+
+  test_unsigned = 0x87654321;
+    test_int = 0x87654321;
+
+    assert (srl (test_unsigned, 4) == test_unsigned &gt;&gt; 4);
+    assert (sra (test_int, 4) == test_int &gt;&gt; 4);
+
+  return 0;
+}
+</code></pre>
+<h2><a id="2-64" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.64</h2>
+<pre><code class="language-c">int any_even_one(unsigned x) {
+    return !!(0x55555555 &amp; x);
+}
+</code></pre>
+<h2><a id="2-65" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.65</h2>
+<pre><code class="language-c">// x 的每个位进行异或，如果为 0 就说明是偶数个 1，如果为 1 就是奇数个 1 。
+// 通过算数右移一半的位数，相当于把左半部分位数降低到和右半部分一致，只关心右半部分异或结果就好。
+int even_ones(unsigned x){
+    x ^= (x &gt;&gt; 16);
+    x ^= (x &gt;&gt; 8);
+    x ^= (x &gt;&gt; 4);
+    x ^= (x &gt;&gt; 2);
+    x ^= (x &gt;&gt; 1);
+    return !(x &amp; 1);
+} 
+</code></pre>
+<h2><a id="2-66" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.66</h2>
+<p>实现掩膜，数位中只剩下最左边的 1，其他位都是 0。如果 x 为 0,那么函数返回 0。</p>
+<p>利用移位操作，首先将 x 右移再或，分别利用<code>1,2,4,8,16</code>，得到从最左边的 1 后面全部为 1，然后再右移1位，取异或。</p>
+<pre><code class="language-c">int leftmost_one(unsigned x) {
+    x |= (x &gt;&gt; 1);
+    x |= (x &gt;&gt; 2);
+    x |= (x &gt;&gt; 4);
+    x |= (x &gt;&gt; 8);
+    x |= (x &gt;&gt; 16);
+    return x^(x&gt;&gt;1);
+}
+</code></pre>
+<h2><a id="2-67" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.67</h2>
+<p>A：</p>
+<p>If the value of the right operand is negative or is greater than or equal to the width of the promoted left operand, the behavior it undefined.</p>
+<p>32位机器上没有定义移位32次，所以需要分多次左移。</p>
+<pre><code class="language-c">/*
+ * int-size-is-32.c
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+/* The following function does not run properly on some machine */
+/*
+int bad_int_size_is_32() {
+  int set_msb = 1 &lt;&lt; 31;
+  int beyond_msb = 1 &lt;&lt; 32;
+
+  return set_msb &amp;&amp; !beyond_msb;
+}
+*/
+
+int int_size_is_32() {
+  int set_msb = 1 &lt;&lt; 31;
+  int beyond_msb = set_msb &lt;&lt; 1;
+
+  return set_msb &amp;&amp; !beyond_msb;
+}
+
+int int_size_is_32_for_16bit() {
+  int set_msb = 1 &lt;&lt; 15 &lt;&lt; 15 &lt;&lt; 1;
+  int beyond_msb = set_msb &lt;&lt; 1;
+
+  return set_msb &amp;&amp; !beyond_msb;
+}
+
+int main(int argc, char *argv[]) {
+  assert(int_size_is_32());
+  assert(int_size_is_32_for_16bit());
+  return 0;
+}
+
+</code></pre>
+<h2><a id="2-68" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.68</h2>
+<p>让 x 的最低 n 位变 1。</p>
+<pre><code class="language-c">/*
+ * lower-one-mask.c
+ */
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+/*
+ * Mask with least signficant n bits set to 1
+ * Example: n = 6 -&gt; 0x3F, n = 17 -&gt; 0x1FFFF
+ * Assume 1 &lt;= n &lt;= w
+ */
+int lower_one_mask(int n) {
+  int w = sizeof(int) &lt;&lt; 3;
+  return (unsigned) -1 &gt;&gt; (w - n);
+}
+
+int main(int argc, char* argv[]) {
+  assert(lower_one_mask(6) == 0x3F);
+  assert(lower_one_mask(17) == 0x1FFFF);
+  assert(lower_one_mask(32) == 0xFFFFFFFF);
+  return 0;
+}
+</code></pre>
+
+
+</div>
+
+<br /><br />
+<hr />
+
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="17001174083229.html"  title="Previous Post: 观《观山海》">&laquo; 观《观山海》</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="17001150891969.html" 
+	        title="Next Post: 水仙 🌼">水仙 🌼 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
+
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
+
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '17001265070006.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
+</div></div>
+
+
+<div class="page-bottom">
+  <div class="row">
+  <hr />
+  <div class="small-9 columns">
+  <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+  <div class="small-3 columns">
+  <p class="copyright text-right"><a href="#header">TOP</a></p>
+  </div>
+   
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+    
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0.4em 0;padding: 0;}
+  figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+
+</style>
+    
+    <script src="asset/js/foundation.min.js"></script>
+    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
+    <script>
+      $(document).foundation();
+
+     
+    </script>
+
+
+  </body>
+</html>

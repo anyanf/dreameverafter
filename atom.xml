@@ -1,0 +1,2984 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[DreamEverAfter]]></title>
+  <link href="www.dreameverafter.com/atom.xml" rel="self"/>
+  <link href="www.dreameverafter.com/"/>
+  <updated>2023-11-16T18:00:06+08:00</updated>
+  <id>www.dreameverafter.com/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="http://www.mweb.im">MWeb</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[三汁焖锅]]></title>
+    <link href="www.dreameverafter.com/16996865532784.html"/>
+    <updated>2023-11-11T15:09:13+08:00</updated>
+    <id>www.dreameverafter.com/16996865532784.html</id>
+    <content type="html"><![CDATA[
+<p>👉食材：鸡翅、鸡爪、虾、鹌鹑蛋、玉米、土豆…（你喜欢的食材都可以放）<br />
+👉秘制料汁：2勺料酒+4勺生抽+2勺老抽+2勺蚝油+1勺豆瓣酱+1勺甜面酱+4勺番茄酱+1勺胡椒粉+1勺辣椒面（这个料汁，焖啥都好吃！！）</p>
+<span id="more"></span><!-- more -->
+<p>👉步骤：<br />
+1、素菜切块，虾用料酒+姜片腌制；鸡翅划几刀，和鸡爪一起用料酒+姜片+1勺生抽，腌制15分钟左右去腥<br />
+2、煮锅中倒少许油，底下铺上各种素菜，上层铺上肉，倒上料汁，180度焖35分钟左右，出锅放点青红椒和芝麻点缀就可以了</p>
+<p>👉配着三汁焖锅再打一个解腻的的果汁：橙子+雪梨+500ml水！这配方清爽又好喝解腻！</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[别了，中国大陆的Kindle]]></title>
+    <link href="www.dreameverafter.com/17001172774052.html"/>
+    <updated>2023-11-16T14:47:57+08:00</updated>
+    <id>www.dreameverafter.com/17001172774052.html</id>
+    <content type="html"><![CDATA[
+<p><img src="media/17001172774052/kindle.jpg" alt="kindle" /></p>
+<p>这几年 Amazon 一步步退出中国市场，似乎预示着这一天已经不远。果不其然，前阵子 Amazon 官方宣布退出中国电子书业务。今年五月由于疫情在家远程办公一周，苦于 Kindle 放公司忘了带回家无 Kindle 可看，遂准备买个新的 Whitepaper5。找一圈发现，Whitepaper5 在官方渠道没有销售，当时就感觉不太对劲。如今，算是正式开启退出中国市场的计划了。</p>
+<p>我也算是 Kindle 比较早期的用户了，从一开始的标准版，到 Oasis2，到现在的 Whitepaper5，一共使用过 3 个设备。还给媳妇买了个 Kindle，不过她一直没有用这个看书的习惯，基本上属于吃灰的状态。</p>
+<p>在 Kindle 中国商城里买了不少电子书，甚至大部分都没看过，毕竟买过就算是看过了哈哈。退出这个事情正好也刺激了我看书的进度，这段时间把看 Kindle 的优先级调高了很多，有点时间就拿起来看看。</p>
+<p>其实八月是有一个好消息的，那就是 Kindle 支持 epub 的格式转换了，今年我一度因为各种格式的割裂，想做一个全格式支持的本地阅读器应用，由于疫情原因，无限期搁置了。当知道这个消息后，感觉这个阅读器应用的意义不大了。</p>
+<p>对于一直漂来漂去的我来说，可以随时随地买到或找到想看的书，着实比实体书香很多，不占地方，而且搬家也减轻了不少负担。每次搬家，搬家师傅都问我有没有书，被问的我都有点尴尬。有，也不少，两箱。这已经是尽量找电子书的前提了，没办法，很多书要不没有电子版，要不就是不适合小屏幕阅读。</p>
+<p>还好它只是退出中国市场，美服账号还可以继续使用，正好很多英文书在国内不是很方便的购买。不过中国书电子书在往后的一段时间内，质量和数量应该会有些退步了。</p>
+<p>这件事也充分体现出来购买电子化产品的优缺点，以后买电子产品，要认真思考一下要的是什么，是否符合预期，实效性等问题了。</p>
+<p>他来了，掀起一波电子书正版化的潮流，也开发出盖泡面新姿势，现在他走了，应该不会再见了。</p>
+<p>别了，中国大陆的Kindle。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”]]></title>
+    <link href="www.dreameverafter.com/17001265068678.html"/>
+    <updated>2023-11-16T17:21:46+08:00</updated>
+    <id>www.dreameverafter.com/17001265068678.html</id>
+    <content type="html"><![CDATA[
+<p>今天想通过 <code>brew</code> 装 <code>openvc</code>，结果发现根本 <code>search</code> 不到。<br />
+但是网上搜索怎么安装这个库，的确都是用 <code>brew</code>，所以想更新一下 <code>brew</code> 再搜。<br />
+结果更新直接报错如下：</p>
+<pre><code class="language-plain_text">brew update
+
+fatal: Could not resolve HEAD to a revision
+
+Already up-to-date.
+</code></pre>
+<p>看似 <code>Already up-to-date.</code>，实际上什么都没更新下来。<br />
+解决方法如下：</p>
+<h3><a id="1%E6%89%BE%E5%88%B0%E6%9B%B4%E6%96%B0%E6%97%B6%E5%80%99%E5%87%BA%E9%94%99%E7%9A%84%E8%B7%AF%E5%BE%84%E3%80%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 找到更新时候出错的路径。</h3>
+<pre><code class="language-plain_text">brew update --verbose
+
+Checking if we need to fetch /usr/local/Homebrew...
+
+Checking if we need to fetch /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask...
+
+Checking if we need to fetch /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core...
+
+Fetching /usr/local/Homebrew...
+
+Updating /usr/local/Homebrew...
+
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Switched to and reset branch 'master'
+
+Your branch is up to date with 'origin/master'.
+
+Switched to and reset branch 'stable'
+
+Current branch stable is up to date.
+
+Updating /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core...
+
+fatal: Could not resolve HEAD to a revision
+
+Already up-to-date.
+</code></pre>
+<p>不难看出出错的路径是 <code>/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core</code></p>
+<h3><a id="2%E6%89%8B%E5%8A%A8%E6%9B%B4%E6%96%B0%E5%87%BA%E9%94%99%E8%B7%AF%E5%BE%84%E4%BB%93%E5%BA%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 手动更新出错路径仓库</h3>
+<pre><code class="language-plain_text">cd /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core
+
+git fetch --prune origin
+
+git pull --rebase origin master
+
+From https://github.com/Homebrew/homebrew-core
+
+* branch                    master     -&gt; FETCH_HEAD
+</code></pre>
+<p><code>pull</code> 成功后，就已经更新完成，不放心的可以再执行一下 <code>brew update</code> 看还有没有报错。<br />
+更新完后，自然可以正常安装 <code>opencv</code> 了。</p>
+<h3><a id="ps%EF%BC%9A%E5%BB%BA%E8%AE%AE%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90%EF%BC%8C%E6%9C%89%E5%BC%BA%E8%BF%AB%E7%97%87%E7%9A%84%E5%8F%AF%E4%BB%A5%E4%B8%B4%E6%97%B6%E6%9B%B4%E6%8D%A2%E3%80%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>PS： 建议更换国内源，有强迫症的可以临时更换。</h3>
+<pre><code class="language-plain_text"># 临时替换：
+export HOMEBREW_BOTTLE_DOMAIN=&quot;https://mirrors.ustc.edu.cn/homebrew-bottles&quot;
+
+# 永久替换
+# 对于 bash 用户
+echo 'export HOMEBREW_BOTTLE_DOMAIN=&quot;https://mirrors.ustc.edu.cn/homebrew-bottles&quot;' &gt;&gt; ~/.bash_profile
+
+# 对于 zsh 用户
+echo 'export HOMEBREW_BOTTLE_DOMAIN=&quot;https://mirrors.ustc.edu.cn/homebrew-bottles&quot;' &gt;&gt; ~/.zshrc
+</code></pre>
+<p>参考：</p>
+<ol>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/">https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/</a></li>
+<li><a href="https://mirrors.ustc.edu.cn/help/homebrew-bottles.html">https://mirrors.ustc.edu.cn/help/homebrew-bottles.html</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[LiSSA第四代计时器说明书]]></title>
+    <link href="www.dreameverafter.com/17001171363865.html"/>
+    <updated>2023-11-16T14:45:36+08:00</updated>
+    <id>www.dreameverafter.com/17001171363865.html</id>
+    <content type="html"><![CDATA[
+<p><img src="media/17001171363865/LiSSA-header.jpeg" alt="LiSSA-header" /></p>
+<p>之前买了一个LISSA的计时器作为时间管理的工具，发现该计时器是目前我看到最能满足我需求的。如下几个功能是我需要的。</p>
+<ol>
+<li>倒计时</li>
+<li>正计时</li>
+<li>闹钟</li>
+<li>番茄工作及时</li>
+<li>支持蜂鸣提醒，两级音量可调。</li>
+<li>支持振动提醒（这个功能非常有用，尤其是在安静的办公室或者图书馆，支持振动的计时器不多，我也是花功夫找了一阵子才找到）。</li>
+</ol>
+<p>以上文字是我借鉴的，等有时间了自己梳理一下，重点是说明书。</p>
+<p><img src="media/17001171363865/desc1.jpg" alt="desc1" /><br />
+<img src="media/17001171363865/desc2.jpg" alt="desc2" /></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[C++ STL简介]]></title>
+    <link href="www.dreameverafter.com/17001191890787.html"/>
+    <updated>2023-11-16T15:19:49+08:00</updated>
+    <id>www.dreameverafter.com/17001191890787.html</id>
+    <content type="html"><![CDATA[
+<!--more-->
+<pre><code class="language-cpp">vector, 变长数组，倍增的思想
+    size()  返回元素个数
+    empty()  返回是否为空
+    clear()  清空
+    front()/back()
+    push_back()/pop_back()
+    begin()/end()
+    []
+    支持比较运算，按字典序
+</code></pre>
+<pre><code class="language-cpp">pair&lt;int, int&gt;
+    first, 第一个元素
+    second, 第二个元素
+    支持比较运算，以first为第一关键字，以second为第二关键字（字典序）
+</code></pre>
+<pre><code class="language-cpp">string，字符串
+    size()/length()  返回字符串长度
+    empty()
+    clear()
+    substr(起始下标，(子串长度))  返回子串
+    c_str()  返回字符串所在字符数组的起始地址
+</code></pre>
+<pre><code class="language-cpp">queue, 队列
+    size()
+    empty()
+    push()  向队尾插入一个元素
+    front()  返回队头元素
+    back()  返回队尾元素
+    pop()  弹出队头元素
+
+priority_queue, 优先队列，默认是大根堆
+    size()
+    empty()
+    push()  插入一个元素
+    top()  返回堆顶元素
+    pop()  弹出堆顶元素
+    定义成小根堆的方式：priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; q;
+</code></pre>
+<pre><code class="language-cpp">stack, 栈
+    size()
+    empty()
+    push()  向栈顶插入一个元素
+    top()  返回栈顶元素
+    pop()  弹出栈顶元素
+
+deque, 双端队列
+    size()
+    empty()
+    clear()
+    front()/back()
+    push_back()/pop_back()
+    push_front()/pop_front()
+    begin()/end()
+    []
+</code></pre>
+<pre><code class="language-cpp">set, map, multiset, multimap, 基于平衡二叉树（红黑树），动态维护有序序列
+    size()
+    empty()
+    clear()
+    begin()/end()
+    ++, -- 返回前驱和后继，时间复杂度 O(logn)
+
+    set/multiset
+        insert()  插入一个数
+        find()  查找一个数
+        count()  返回某一个数的个数
+        erase()
+            (1) 输入是一个数x，删除所有x   O(k + logn)
+            (2) 输入一个迭代器，删除这个迭代器
+        lower_bound()/upper_bound()
+            lower_bound(x)  返回大于等于x的最小的数的迭代器
+            upper_bound(x)  返回大于x的最小的数的迭代器
+    map/multimap
+        insert()  插入的数是一个pair
+        erase()  输入的参数是pair或者迭代器
+        find()
+        []  注意multimap不支持此操作。 时间复杂度是 O(logn)
+        lower_bound()/upper_bound()
+</code></pre>
+<pre><code class="language-cpp">unordered_set, unordered_map, unordered_multiset, unordered_multimap, 哈希表
+    和上面类似，增删改查的时间复杂度是 O(1)
+    不支持 lower_bound()/upper_bound()， 迭代器的++，--
+</code></pre>
+<pre><code class="language-cpp">bitset, 圧位
+    bitset&lt;10000&gt; s;
+    ~, &amp;, |, ^
+    &gt;&gt;, &lt;&lt;
+    ==, !=
+    []
+
+    count()  返回有多少个1
+
+    any()  判断是否至少有一个1
+    none()  判断是否全为0
+
+    set()  把所有位置成1
+    set(k, v)  将第k位变成v
+    reset()  把所有位变成0
+    flip()  等价于~
+    flip(k) 把第k位取反
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[常用代码模板2——数据结构]]></title>
+    <link href="www.dreameverafter.com/17001178696932.html"/>
+    <updated>2023-11-16T14:57:49+08:00</updated>
+    <id>www.dreameverafter.com/17001178696932.html</id>
+    <content type="html"><![CDATA[
+<h3><a id="%E5%8D%95%E9%93%BE%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>单链表</h3>
+<pre><code class="language-cpp">// head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点
+int head, e[N], ne[N], idx;
+
+// 初始化
+void init()
+{
+    head = -1;
+    idx = 0;
+}
+
+// 在链表头插入一个数a
+void insert(int a)
+{
+    e[idx] = a, ne[idx] = head, head = idx ++ ;
+}
+
+// 将头结点删除，需要保证头结点存在
+void remove()
+{
+    head = ne[head];
+}
+</code></pre>
+<h3><a id="%E5%8F%8C%E9%93%BE%E8%A1%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>双链表</h3>
+<pre><code class="language-cpp">// e[]表示节点的值，l[]表示节点的左指针，r[]表示节点的右指针，idx表示当前用到了哪个节点
+int e[N], l[N], r[N], idx;
+
+// 初始化
+void init()
+{
+    //0是左端点，1是右端点
+    r[0] = 1, l[1] = 0;
+    idx = 2;
+}
+
+// 在节点a的右边插入一个数x
+void insert(int a, int x)
+{
+    e[idx] = x;
+    l[idx] = a, r[idx] = r[a];
+    l[r[a]] = idx, r[a] = idx ++ ;
+}
+
+// 删除节点a
+void remove(int a)
+{
+    l[r[a]] = l[a];
+    r[l[a]] = r[a];
+}
+</code></pre>
+<h3><a id="%E6%A0%88" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>栈</h3>
+<pre><code class="language-cpp">// tt表示栈顶
+int stk[N], tt = 0;
+
+// 向栈顶插入一个数
+stk[ ++ tt] = x;
+
+// 从栈顶弹出一个数
+tt -- ;
+
+// 栈顶的值
+stk[tt];
+
+// 判断栈是否为空
+if (tt &gt; 0)
+{
+
+}
+</code></pre>
+<h3><a id="%E9%98%9F%E5%88%97" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>队列</h3>
+<p>普通队列：</p>
+<pre><code class="language-cpp">// hh 表示队头，tt表示队尾
+int q[N], hh = 0, tt = -1;
+
+// 向队尾插入一个数
+q[ ++ tt] = x;
+
+// 从队头弹出一个数
+hh ++ ;
+
+// 队头的值
+q[hh];
+
+// 判断队列是否为空
+if (hh &lt;= tt)
+{
+
+}
+</code></pre>
+<p>循环队列：</p>
+<pre><code class="language-cpp">// hh 表示队头，tt表示队尾的后一个位置
+int q[N], hh = 0, tt = 0;
+
+// 向队尾插入一个数
+q[tt ++ ] = x;
+if (tt == N) tt = 0;
+
+// 从队头弹出一个数
+hh ++ ;
+if (hh == N) hh = 0;
+
+// 队头的值
+q[hh];
+
+// 判断队列是否为空
+if (hh != tt)
+{
+
+}
+</code></pre>
+<h3><a id="%E5%8D%95%E8%B0%83%E6%A0%88" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>单调栈</h3>
+<pre><code class="language-cpp">常见模型：找出每个数左边离它最近的比它大/小的数
+int tt = 0;
+for (int i = 1; i &lt;= n; i ++ )
+{
+    while (tt &amp;&amp; check(stk[tt], i)) tt -- ;
+    stk[ ++ tt] = i;
+}
+</code></pre>
+<h3><a id="%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>单调队列</h3>
+<pre><code class="language-cpp">常见模型：找出滑动窗口中的最大值/最小值
+int hh = 0, tt = -1;
+for (int i = 0; i &lt; n; i ++ )
+{
+    while (hh &lt;= tt &amp;&amp; check_out(q[hh])) hh ++ ;  // 判断队头是否滑出窗口
+    while (hh &lt;= tt &amp;&amp; check(q[tt], i)) tt -- ;
+    q[ ++ tt] = i;
+}
+</code></pre>
+<h3><a id="kmp" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>KMP</h3>
+<pre><code class="language-cpp">// s[]是长文本，p[]是模式串，n是s的长度，m是p的长度
+求模式串的Next数组：
+for (int i = 2, j = 0; i &lt;= m; i ++ )
+{
+    while (j &amp;&amp; p[i] != p[j + 1]) j = ne[j];
+    if (p[i] == p[j + 1]) j ++ ;
+    ne[i] = j;
+}
+
+// 匹配
+for (int i = 1, j = 0; i &lt;= n; i ++ )
+{
+    while (j &amp;&amp; s[i] != p[j + 1]) j = ne[j];
+    if (s[i] == p[j + 1]) j ++ ;
+    if (j == m)
+    {
+        j = ne[j];
+        // 匹配成功后的逻辑
+    }
+}
+</code></pre>
+<h3><a id="trie%E6%A0%91" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trie树</h3>
+<pre><code class="language-cpp">int son[N][26], cnt[N], idx;
+// 0号点既是根节点，又是空节点
+// son[][]存储树中每个节点的子节点
+// cnt[]存储以每个节点结尾的单词数量
+
+// 插入一个字符串
+void insert(char *str)
+{
+    int p = 0;
+    for (int i = 0; str[i]; i ++ )
+    {
+        int u = str[i] - 'a';
+        if (!son[p][u]) son[p][u] = ++ idx;
+        p = son[p][u];
+    }
+    cnt[p] ++ ;
+}
+
+// 查询字符串出现的次数
+int query(char *str)
+{
+    int p = 0;
+    for (int i = 0; str[i]; i ++ )
+    {
+        int u = str[i] - 'a';
+        if (!son[p][u]) return 0;
+        p = son[p][u];
+    }
+    return cnt[p];
+}
+</code></pre>
+<h3><a id="%E5%B9%B6%E6%9F%A5%E9%9B%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>并查集</h3>
+<pre><code class="language-cpp">(1)朴素并查集：
+
+    int p[N]; //存储每个点的祖宗节点
+
+    // 返回x的祖宗节点
+    int find(int x)
+    {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+
+    // 初始化，假定节点编号是1~n
+    for (int i = 1; i &lt;= n; i ++ ) p[i] = i;
+
+    // 合并a和b所在的两个集合：
+    p[find(a)] = find(b);
+
+(2)维护size的并查集：
+
+    int p[N], size[N];
+    //p[]存储每个点的祖宗节点, size[]只有祖宗节点的有意义，表示祖宗节点所在集合中的点的数量
+
+    // 返回x的祖宗节点
+    int find(int x)
+    {
+        if (p[x] != x) p[x] = find(p[x]);
+        return p[x];
+    }
+
+    // 初始化，假定节点编号是1~n
+    for (int i = 1; i &lt;= n; i ++ )
+    {
+        p[i] = i;
+        size[i] = 1;
+    }
+
+    // 合并a和b所在的两个集合：
+    size[find(b)] += size[find(a)];
+    p[find(a)] = find(b);
+
+(3)维护到祖宗节点距离的并查集：
+
+    int p[N], d[N];
+    //p[]存储每个点的祖宗节点, d[x]存储x到p[x]的距离
+
+    // 返回x的祖宗节点
+    int find(int x)
+    {
+        if (p[x] != x)
+        {
+            int u = find(p[x]);
+            d[x] += d[p[x]];
+            p[x] = u;
+        }
+        return p[x];
+    }
+
+    // 初始化，假定节点编号是1~n
+    for (int i = 1; i &lt;= n; i ++ )
+    {
+        p[i] = i;
+        d[i] = 0;
+    }
+
+    // 合并a和b所在的两个集合：
+    p[find(a)] = find(b);
+    d[find(a)] = distance; // 根据具体问题，初始化find(a)的偏移量
+</code></pre>
+<h3><a id="%E5%A0%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>堆</h3>
+<pre><code class="language-cpp">// h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1
+// ph[k]存储第k个插入的点在堆中的位置
+// hp[k]存储堆中下标是k的点是第几个插入的
+int h[N], ph[N], hp[N], size;
+
+// 交换两个点，及其映射关系
+void heap_swap(int a, int b)
+{
+    swap(ph[hp[a]],ph[hp[b]]);
+    swap(hp[a], hp[b]);
+    swap(h[a], h[b]);
+}
+
+void down(int u)
+{
+    int t = u;
+    if (u * 2 &lt;= size &amp;&amp; h[u * 2] &lt; h[t]) t = u * 2;
+    if (u * 2 + 1 &lt;= size &amp;&amp; h[u * 2 + 1] &lt; h[t]) t = u * 2 + 1;
+    if (u != t)
+    {
+        heap_swap(u, t);
+        down(t);
+    }
+}
+
+void up(int u)
+{
+    while (u / 2 &amp;&amp; h[u] &lt; h[u / 2])
+    {
+        heap_swap(u, u / 2);
+        u &gt;&gt;= 1;
+    }
+}
+
+// O(n)建堆
+for (int i = n / 2; i; i -- ) down(i);
+</code></pre>
+<h3><a id="%E4%B8%80%E8%88%AC%E5%93%88%E5%B8%8C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一般哈希</h3>
+<pre><code class="language-cpp">(1) 拉链法
+    int h[N], e[N], ne[N], idx;
+
+    // 向哈希表中插入一个数
+    void insert(int x)
+    {
+        int k = (x % N + N) % N;
+        e[idx] = x;
+        ne[idx] = h[k];
+        h[k] = idx ++ ;
+    }
+
+    // 在哈希表中查询某个数是否存在
+    bool find(int x)
+    {
+        int k = (x % N + N) % N;
+        for (int i = h[k]; i != -1; i = ne[i])
+            if (e[i] == x)
+                return true;
+
+        return false;
+    }
+
+(2) 开放寻址法
+    int h[N];
+
+    // 如果x在哈希表中，返回x的下标；如果x不在哈希表中，返回x应该插入的位置
+    int find(int x)
+    {
+        int t = (x % N + N) % N;
+        while (h[t] != null &amp;&amp; h[t] != x)
+        {
+            t ++ ;
+            if (t == N) t = 0;
+        }
+        return t;
+    }
+</code></pre>
+<h3><a id="%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>字符串哈希</h3>
+<pre><code class="language-cpp">核心思想：将字符串看成P进制数，P的经验值是131或13331，取这两个值的冲突概率低
+小技巧：取模的数用2^64，这样直接用unsigned long long存储，溢出的结果就是取模的结果
+
+typedef unsigned long long ULL;
+ULL h[N], p[N]; // h[k]存储字符串前k个字母的哈希值, p[k]存储 P^k mod 2^64
+
+// 初始化
+p[0] = 1;
+for (int i = 1; i &lt;= n; i ++ )
+{
+    h[i] = h[i - 1] * P + str[i];
+    p[i] = p[i - 1] * P;
+}
+
+// 计算子串 str[l ~ r] 的哈希值
+ULL get(int l, int r)
+{
+    return h[r] - h[l - 1] * p[r - l + 1];
+}
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[常用代码模板1——基础算法]]></title>
+    <link href="www.dreameverafter.com/17001178251653.html"/>
+    <updated>2023-11-16T14:57:05+08:00</updated>
+    <id>www.dreameverafter.com/17001178251653.html</id>
+    <content type="html"><![CDATA[
+<h3><a id="%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>快速排序算法模板</h3>
+<pre><code class="language-cpp">void quick_sort(int q[], int l, int r)
+{
+    if (l &gt;= r) return;
+
+		int i = l - 1, j = r + 1, x = q[(l + r) &gt;&gt; 1];
+    while (i &lt; j)
+    {
+        do i ++ ; while (q[i] &lt; x);
+        do j -- ; while (q[j] &gt; x);
+        if (i &lt; j) swap(q[i], q[j]);
+    }
+    quick_sort(q, l, j), quick_sort(q, j + 1, r);
+}
+</code></pre>
+<h3><a id="%E5%BF%AB%E9%80%9F%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>快速选择算法模板</h3>
+<pre><code class="language-cpp">int quick_select(int q[], int l, int r, int k) {
+
+    if (l &gt;= r) return q[l];
+    int i = l - 1, j = r + 1, x = q[(l + r) &gt;&gt; 1];
+
+    while (i &lt; j) {
+        while (q[++i] &lt; x);
+        while (q[--j] &gt; x);
+        if (i &lt; j) swap(q[i],  q[j]);
+    }
+
+    if (j - l + 1 &gt;= k) return quick_select(q, l, j, k);
+    else return quick_select(q, j + 1, r, k - (j - l + 1));
+}
+</code></pre>
+<h3><a id="%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>归并排序算法模板</h3>
+<pre><code class="language-cpp">const int N = 1e5 + 10; // 数组元素个数
+
+int a[N], tmp[N];
+
+void merge_sort(int q[], int l, int r)
+{
+    if (l &gt;= r) return;
+
+    int mid = l + r &gt;&gt; 1;
+    merge_sort(q, l, mid);
+    merge_sort(q, mid + 1, r);
+
+    int k = 0, i = l, j = mid + 1;
+    while (i &lt;= mid &amp;&amp; j &lt;= r)
+        if (q[i] &lt;= q[j]) tmp[k ++ ] = q[i ++ ];
+        else tmp[k ++ ] = q[j ++ ];
+
+    while (i &lt;= mid) tmp[k ++ ] = q[i ++ ];
+    while (j &lt;= r) tmp[k ++ ] = q[j ++ ];
+
+    for (i = l, j = 0; i &lt;= r; i ++, j ++ ) q[i] = tmp[j];
+}
+</code></pre>
+<h3><a id="%E6%95%B4%E6%95%B0%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>整数二分算法模板</h3>
+<pre><code class="language-cpp">bool check(int x) {/* ... */} // 检查x是否满足某种性质
+
+// 区间[l, r]被划分成[l, mid]和[mid + 1, r]时使用：
+int bsearch_1(int l, int r)
+{
+    while (l &lt; r)
+    {
+        int mid = l + r &gt;&gt; 1;
+        if (check(mid)) r = mid;    // check()判断mid是否满足性质
+        else l = mid + 1;
+    }
+    return l;
+}
+// 区间[l, r]被划分成[l, mid - 1]和[mid, r]时使用：
+int bsearch_2(int l, int r)
+{
+    while (l &lt; r)
+    {
+        int mid = l + r + 1 &gt;&gt; 1;
+        if (check(mid)) l = mid;
+        else r = mid - 1;
+    }
+    return l;
+}
+</code></pre>
+<h3><a id="%E6%B5%AE%E7%82%B9%E6%95%B0%E4%BA%8C%E5%88%86%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>浮点数二分算法模板</h3>
+<pre><code class="language-cpp">bool check(double x) {/* ... */} // 检查x是否满足某种性质
+
+double bsearch_3(double l, double r)
+{
+    const double eps = 1e-6;   // eps 表示精度，取决于题目对精度的要求
+    while (r - l &gt; eps)
+    {
+        double mid = (l + r) / 2;
+        if (check(mid)) r = mid;
+        else l = mid;
+    }
+    return l;
+}
+</code></pre>
+<h3><a id="%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>高精度加法</h3>
+<pre><code class="language-cpp">// C = A + B, A &gt;= 0, B &gt;= 0
+vector&lt;int&gt; add(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)
+{
+    if (A.size() &lt; B.size()) return add(B, A);
+
+    vector&lt;int&gt; C;
+    int t = 0;
+    for (int i = 0; i &lt; A.size(); i ++ )
+    {
+        t += A[i];
+        if (i &lt; B.size()) t += B[i];
+        C.push_back(t % 10);
+        t /= 10;
+    }
+
+    if (t) C.push_back(t);
+    return C;
+}
+</code></pre>
+<h3><a id="%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%87%8F%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>高精度减法</h3>
+<pre><code class="language-cpp">bool cmp(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)
+{
+    if (A.size() != B.size()) return A.size() &gt; B.size();
+
+    for (int i = A.size() - 1; i &gt;= 0; i -- )
+        if (A[i] != B[i])
+            return A[i] &gt; B[i];
+
+    return true;
+}
+
+// C = A - B, 满足A &gt;= B, A &gt;= 0, B &gt;= 0
+vector&lt;int&gt; sub(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)
+{
+    vector&lt;int&gt; C;
+    for (int i = 0, t = 0; i &lt; A.size(); i ++ )
+    {
+        t = A[i] - t;
+        if (i &lt; B.size()) t -= B[i];
+        C.push_back((t + 10) % 10);
+        if (t &lt; 0) t = 1;
+        else t = 0;
+    }
+
+    while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back();
+    return C;
+}
+</code></pre>
+<h3><a id="%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B9%98%E4%BD%8E%E7%B2%BE%E5%BA%A6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>高精度乘低精度</h3>
+<pre><code class="language-cpp">// C = A * b, A &gt;= 0, b &gt; 0
+vector&lt;int&gt; mul(vector&lt;int&gt; &amp;A, int b)
+{
+    vector&lt;int&gt; C;
+
+    int t = 0;
+    for (int i = 0; i &lt; A.size() || t; i ++ )
+    {
+        if (i &lt; A.size()) t += A[i] * b;
+        C.push_back(t % 10);
+        t /= 10;
+    }
+
+    while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back();
+
+    return C;
+}
+</code></pre>
+<h3><a id="%E9%AB%98%E7%B2%BE%E5%BA%A6%E9%99%A4%E4%BB%A5%E4%BD%8E%E7%B2%BE%E5%BA%A6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>高精度除以低精度</h3>
+<pre><code class="language-cpp">// A / b = C ... r, A &gt;= 0, b &gt; 0
+vector&lt;int&gt; div(vector&lt;int&gt; &amp;A, int b, int &amp;r)
+{
+    vector&lt;int&gt; C;
+    r = 0;
+    for (int i = A.size() - 1; i &gt;= 0; i -- )
+    {
+        r = r * 10 + A[i];
+        C.push_back(r / b);
+        r %= b;
+    }
+    reverse(C.begin(), C.end());
+    while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back();
+    return C;
+}
+</code></pre>
+<h3><a id="%E4%B8%80%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一维前缀和</h3>
+<pre><code class="language-cpp">S[i] = a[1] + a[2] + ... a[i]
+a[l] + ... + a[r] = S[r] - S[l - 1]
+</code></pre>
+<h3><a id="%E4%BA%8C%E7%BB%B4%E5%89%8D%E7%BC%80%E5%92%8C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二维前缀和</h3>
+<pre><code class="language-cpp">S[i, j] = 第i行j列格子左上部分所有元素的和
+以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵的和为：
+S[x2, y2] - S[x1 - 1, y2] - S[x2, y1 - 1] + S[x1 - 1, y1 - 1]
+</code></pre>
+<h3><a id="%E4%B8%80%E7%BB%B4%E5%B7%AE%E5%88%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一维差分</h3>
+<pre><code class="language-cpp">给区间[l, r]中的每个数加上c：B[l] += c, B[r + 1] -= c
+</code></pre>
+<h3><a id="%E4%BA%8C%E7%BB%B4%E5%B7%AE%E5%88%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二维差分</h3>
+<pre><code class="language-cpp">给以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵中的所有元素加上c：
+S[x1, y1] += c, S[x2 + 1, y1] -= c, S[x1, y2 + 1] -= c, S[x2 + 1, y2 + 1] += c
+</code></pre>
+<h3><a id="%E5%8F%8C%E6%8C%87%E9%92%88%E7%AE%97%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>双指针算法</h3>
+<pre><code class="language-cpp">for (int i = 0, j = 0; i &lt; n; i ++ )
+{
+    while (j &lt; i &amp;&amp; check(i, j)) j ++ ;
+
+    // 具体问题的逻辑
+}
+常见问题分类：
+    (1) 对于一个序列，用两个指针维护一段区间
+    (2) 对于两个序列，维护某种次序，比如归并排序中合并两个有序序列的操作
+</code></pre>
+<h3><a id="%E7%A6%BB%E6%95%A3%E5%8C%96" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>离散化</h3>
+<pre><code class="language-cpp">vector&lt;int&gt; alls; // 存储所有待离散化的值
+sort(alls.begin(), alls.end()); // 将所有值排序
+alls.erase(unique(alls.begin(), alls.end()), alls.end());   // 去掉重复元素
+
+// 二分求出x对应的离散化的值
+int find(int x) // 找到第一个大于等于x的位置
+{
+    int l = 0, r = alls.size() - 1;
+    while (l &lt; r)
+    {
+        int mid = l + r &gt;&gt; 1;
+        if (alls[mid] &gt;= x) r = mid;
+        else l = mid + 1;
+    }
+    return r + 1; // 映射到1, 2, ...n
+}
+</code></pre>
+<h3><a id="%E5%8C%BA%E9%97%B4%E5%90%88%E5%B9%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>区间合并</h3>
+<pre><code class="language-cpp">// 将所有存在交集的区间合并
+void merge(vector&lt;PII&gt; &amp;segs)
+{
+    vector&lt;PII&gt; res;
+
+    sort(segs.begin(), segs.end());
+
+    int st = -2e9, ed = -2e9;
+    for (auto seg : segs)
+        if (ed &lt; seg.first)
+        {
+            if (st != -2e9) res.push_back({st, ed});
+            st = seg.first, ed = seg.second;
+        }
+        else ed = max(ed, seg.second);
+
+    if (st != -2e9) res.push_back({st, ed});
+
+    segs = res;
+}
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[代码大全——1.欢迎进入软件构建的世界]]></title>
+    <link href="www.dreameverafter.com/17001195727549.html"/>
+    <updated>2023-11-16T15:26:12+08:00</updated>
+    <id>www.dreameverafter.com/17001195727549.html</id>
+    <content type="html"><![CDATA[
+<p>以下是阅读代码大全摘抄。</p>
+<ol>
+<li>软件构建是软件开发的核心活动；构建活动是每个项目中唯一一项必不可少的工作。</li>
+<li>软件构建的主要活动包括：详细设计、编码、调试、集成、开发者测试（develope texting）（包括单元测试和集成测试）。</li>
+<li>构建也常被称作“编码”和“编程”。</li>
+<li>构建活动的质量对软件的质量有着实质性的影响。</li>
+<li>最后，你对“如何进行构建”的理解程度，决定了你这名程序员的优秀程度——这就是本书其余部分的主题了。</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[终于看完了《扎克·施奈德版正义联盟》]]></title>
+    <link href="www.dreameverafter.com/17001155269640.html"/>
+    <updated>2023-11-16T14:18:46+08:00</updated>
+    <id>www.dreameverafter.com/17001155269640.html</id>
+    <content type="html"><![CDATA[
+<p>开始我是没想到看一个电影会这么难。</p>
+<!--more-->
+<p>上个月突然各种群里都在说扎导版的正义联盟，<a href="https://movie.douban.com/subject/35076714/">豆瓣</a>上一查分还很高，然后我也就跟风下了个准备看看，一打开四个小时差点劝退，然后看了一下影评，大概意思是之前两个小时版本根本讲不清楚，所以还是选择看下去。</p>
+<p>不过看的过程又遇到了一些阻力，字幕没有双语的，都手动设置一下第二字幕，但是那样两个字幕位置差的就很远，体验很不爽。再加上这个好像得用支持HDR的显示器，才能看出来效果，普通显示器看的话，颜色很淡，正好我那个显示器的HDR很渣，跟没有一样，后来用播放器模拟了一下，颜色凑活能看了。</p>
+<p>经过上次种种的阻碍，再看了两个小故事后，暂停了一下，然后就没有然后了。昨天听说国内的视频平台上架了这个电影，今天上午试看感觉不过，字幕是双语的，颜色似乎也正常了（也许是我的眼睛已经适应了这个电影的颜色），所以就斥资六大洋购买了电影，一口气看完了它。</p>
+<p>看到中间渐渐发现，我似乎之前跟媳妇在电影院看过那个两小时版的，接着就在豆瓣上查了一下，的确在2017年11月18日看过了，再次给我惊人的遗忘能力跪了，可能当时也就是看了个热闹。扎导版的确故事讲得更清晰一些，而且也够吸引人，不会觉得冗长乏味。打斗镜头也非常精彩，该燃的地方也很燃。别的就不说什么了，肚子里本来就没啥东西，晃荡不出来什么，豆瓣上各种影评也讲了不少。最后提一句，闪电侠才是yyds！</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[观《观山海》]]></title>
+    <link href="www.dreameverafter.com/17001174083229.html"/>
+    <updated>2023-11-16T14:50:08+08:00</updated>
+    <id>www.dreameverafter.com/17001174083229.html</id>
+    <content type="html"><![CDATA[
+<p>久闻《山海经》大名了，却一直没有细致的看过。可能是潜意识觉得看这本书需要精心挑选一个版本，然后斋戒三日沐浴更衣才能开始看吧。这样的想法反而造成的极大的行为成本，结果就是直到今天才有一个看这本书的契机，没错，还是被动的。</p>
+<p>《观山海》是媳妇前两年买的，当时她不知何故文青气质爆炸，然后就买了这本书。本身我是没打算看的，也就不曾研究这版和原版之间的差异，毕竟是媳妇买的，她开心比什么都重要。前两个月面临夏天可能要搬家的事实，意识到家里各种物件实在太多，回想起上次搬家差点要了老命，就起了把家里的东西“精简”一下的念头。扔是不可能扔的，大方向就是不常用甚至就没用过的，直接邮寄回家了事。至于那好几排的书，得提上日程尽快看完，也邮回家。《观山海》自然是尽快看完的首选，谁让它又大又厚呢。</p>
+<p>书中的插画是真的棒，之前在别的书里也偶有提到《山海经》中的神怪的地方，但是只能自我发挥想象，每个神怪的样子并不是很清晰，有的只是一个符号。这书里的插画让我心中的那些符号有了具体的形象，画风非常细腻，看着很过瘾。</p>
+<p>最让我头大的是，我发现这书，首先是一本地理书，而我是很不擅长记这些的，看过基本上就忘记了，只有一点点方向上的概念，还有特产矿石什么的，完全记不住。里面还会提到一些祭祀的方式，各种怪物吃了有什么功效等等，感觉这就是一本古代的百科全书。听说这版内容不是全的，也无所谓了，反正都记不住，我也就是看个热闹。</p>
+<p>这几年看书功利性很强，包括这本也是带着目的去看的（尽快看完），不过看了部分后，就不再惦记这些，被其内容和插画所吸引，看进去了。很久没有体验过这种毫无负担（记不住）看书过程了，有点小感触，就写在这里了。</p>
+<p><img src="media/17001174083229/17001174544409.jpg" alt="" /></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[深入理解计算机系统(第二版) 家庭作业 第二章]]></title>
+    <link href="www.dreameverafter.com/17001265070006.html"/>
+    <updated>2023-11-16T17:21:46+08:00</updated>
+    <id>www.dreameverafter.com/17001265070006.html</id>
+    <content type="html"><![CDATA[
+<p>正在看《深入理解计算机系统》这本书，课后茫茫多的习题，看着就让人发怵。。</p>
+<p>做的时候也需要验证一下对错，所以在网上找了很多相关的题解。顺便就在这里记一下了。</p>
+<p>先放一下源码地址：</p>
+<p><a href="http://csapp.cs.cmu.edu/2e/code.html">Code Examples</a></p>
+<p>第二章各种编码和绕来套取的计算当时差点把我劝退，做个小结就是一般来说整数用补码编码，浮点数用 IEEE 浮点编码，和小心精度问题。</p>
+<h2><a id="2-55" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.55</h2>
+<p>先上 show-bytes.c 源码：</p>
+<pre><code class="language-c">/* $begin show-bytes */
+#include &lt;stdio.h&gt;
+/* $end show-bytes */
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+/* $begin show-bytes */
+
+typedef unsigned char *byte_pointer;
+
+void show_bytes(byte_pointer start, int len) {
+    int i;
+    for (i = 0; i &lt; len; i++)
+	printf(&quot; %.2x&quot;, start[i]);    //line:data:show_bytes_printf
+    printf(&quot;\n&quot;);
+}
+
+void show_int(int x) {
+    show_bytes((byte_pointer) &amp;x, sizeof(int)); //line:data:show_bytes_amp1
+}
+
+void show_float(float x) {
+    show_bytes((byte_pointer) &amp;x, sizeof(float)); //line:data:show_bytes_amp2
+}
+
+void show_pointer(void *x) {
+    show_bytes((byte_pointer) &amp;x, sizeof(void *)); //line:data:show_bytes_amp3
+}
+/* $end show-bytes */
+
+
+/* $begin test-show-bytes */
+void test_show_bytes(int val) {
+    int ival = val;
+    float fval = (float) ival;
+    int *pval = &amp;ival;
+    show_int(ival);
+    show_float(fval);
+    show_pointer(pval);
+}
+/* $end test-show-bytes */
+
+void simple_show_a() {
+/* $begin simple-show-a */
+int val = 0x87654321;
+byte_pointer valp = (byte_pointer) &amp;val;
+show_bytes(valp, 1); /* A. */
+show_bytes(valp, 2); /* B. */
+show_bytes(valp, 3); /* C. */
+/* $end simple-show-a */
+}
+
+void simple_show_b() {
+/* $begin simple-show-b */
+int val = 0x12345678;
+byte_pointer valp = (byte_pointer) &amp;val;
+show_bytes(valp, 1); /* A. */
+show_bytes(valp, 2); /* B. */
+show_bytes(valp, 3); /* C. */
+/* $end simple-show-b */
+}
+
+void float_eg() {
+  int x = 3490593;
+  float f = (float) x;
+  printf(&quot;For x = %d\n&quot;, x);
+  show_int(x);
+  show_float(f);
+
+  x = 3510593;
+  f = (float) x;
+  printf(&quot;For x = %d\n&quot;, x);
+  show_int(x);
+  show_float(f);
+
+}
+
+void string_ueg() {
+/* $begin show-ustring */
+const char *s = &quot;ABCDEF&quot;;
+show_bytes((byte_pointer) s, strlen(s)); 
+/* $end show-ustring */
+}
+
+void string_leg() {
+/* $begin show-lstring */
+const char *s = &quot;abcdef&quot;;
+show_bytes((byte_pointer) s, strlen(s)); 
+/* $end show-lstring */
+}
+
+void show_twocomp() 
+{
+/* $begin show-twocomp */
+    short x = 12345; 
+    short mx = -x; 
+    
+    show_bytes((byte_pointer) &amp;x, sizeof(short)); 
+    show_bytes((byte_pointer) &amp;mx, sizeof(short)); 
+/* $end show-twocomp */
+}
+
+int main(int argc, char *argv[])
+{
+    int val = 12345;
+
+    if (argc &gt; 1) {
+        if (argc &gt; 1) {
+            val = strtol(argv[1], NULL, 0);
+        }
+        printf(&quot;calling test_show_bytes\n&quot;);
+        test_show_bytes(val);
+    } else {
+        printf(&quot;calling show_twocomp\n&quot;);
+        show_twocomp();
+        printf(&quot;Calling simple_show_a\n&quot;);
+        simple_show_a();
+        printf(&quot;Calling simple_show_b\n&quot;);
+        simple_show_b();
+        printf(&quot;Calling float_eg\n&quot;);
+        float_eg();
+        printf(&quot;Calling string_ueg\n&quot;);
+        string_ueg();
+        printf(&quot;Calling string_leg\n&quot;);
+        string_leg();
+    }
+    return 0;
+}
+
+</code></pre>
+<p>用 GCC 编译：</p>
+<pre><code class="language-shell">// mac os 11.1
+gcc -m64 show-bytes.c -o show-bytes
+</code></pre>
+<p>run 一下：</p>
+<pre><code class="language-shell">./show-bytes
+</code></pre>
+<p>输出：</p>
+<pre><code class="language-shell">calling show_twocomp
+ 39 30
+ c7 cf
+Calling simple_show_a
+ 21
+ 21 43
+ 21 43 65
+Calling simple_show_b
+ 78
+ 78 56
+ 78 56 34
+Calling float_eg
+For x = 3490593
+ 21 43 35 00
+ 84 0c 55 4a
+For x = 3510593
+ 41 91 35 00
+ 04 45 56 4a
+Calling string_ueg
+ 41 42 43 44 45 46
+Calling string_leg
+ 61 62 63 64 65 66
+</code></pre>
+<h2><a id="2-56" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.56</h2>
+<p>可以在后面加参数，就可以试不同的示例值了：</p>
+<pre><code class="language-shell">// 输入
+./show-bytes 1
+
+// 输出 顺便看出来是小端模式。
+calling test_show_bytes
+ 01 00 00 00
+ 00 00 80 3f
+ 58 f9 14 e4 fe 7f 00 00
+
+// 输入
+./show-bytes 996
+
+// 输出
+calling test_show_bytes
+ e4 03 00 00
+ 00 00 79 44
+ 58 79 ad ec fe 7f 00 00
+
+</code></pre>
+<h2><a id="2-57" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.57</h2>
+<p>增加三个函数并修改测试函数：</p>
+<pre><code class="language-c">void show_short(short x) {
+  show_bytes((byte_pointer) &amp;x, sizeof(short));
+}
+
+void show_long(long x) {
+  show_bytes((byte_pointer) &amp;x, sizeof(long));
+}
+
+void show_double(double x) {
+  show_bytes((byte_pointer) &amp;x, sizeof(double));
+}
+
+void test_show_bytes(int val) {
+    int ival = val;
+    float fval = (float) ival;
+    int *pval = &amp;ival;
+    
+    show_int(ival);
+    show_float(fval);
+    show_pointer(pval);
+    
+    short sval = (short) ival;
+    long lval = (long) ival;
+    double dval = (double) ival;
+
+    show_short(sval);
+    show_long(lval);
+    show_double(dval);
+}
+</code></pre>
+<p>重新编译，测试结果如下，注意最后三行输出是新加的：</p>
+<pre><code class="language-shell">// 输入
+./show-bytes 1
+
+// 输出
+calling test_show_bytes
+ 01 00 00 00
+ 00 00 80 3f
+ 58 39 b0 e5 fe 7f 00 00
+ 01 00
+ 01 00 00 00 00 00 00 00
+ 00 00 00 00 00 00 f0 3f
+
+// 输入
+./show-bytes 996
+
+// 输出
+calling test_show_bytes
+ e4 03 00 00
+ 00 00 79 44
+ 58 a9 35 ed fe 7f 00 00
+ e4 03
+ e4 03 00 00 00 00 00 00
+ 00 00 00 00 00 20 8f 40
+
+</code></pre>
+<h2><a id="2-58" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.58</h2>
+<pre><code class="language-c">/*
+ * is-little-endian.c
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+typedef unsigned char* byte_pointer;
+
+int is_little_endian() {
+  int test_num = 0xff;
+  byte_pointer byte_start = (byte_pointer) &amp;test_num;
+
+  if (byte_start[0] == 0xff) {
+    return 1;
+  }
+  return 0;
+}
+
+int is_little_endian_other(){
+    int a = 1;
+    return *((char*)&amp;a);
+}
+
+int main(int argc, char* argv[]) {
+  assert(is_little_endian());
+  return 0;
+}
+</code></pre>
+<h2><a id="2-59" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.59</h2>
+<pre><code class="language-c">(x &amp; 0xFF) | (y &amp; ~0xFF)
+</code></pre>
+<h2><a id="2-60" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.60</h2>
+<pre><code class="language-c">
+/*
+ * replace-byte.c
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+unsigned replace_byte(unsigned x, int i, unsigned char b) {
+  if (i &lt; 0) {
+    printf(&quot;error: i is negetive\n&quot;);
+    return x;
+  }
+  if (i &gt; sizeof(unsigned)-1) {
+    printf(&quot;error: too big i&quot;);
+    return x;
+  }
+
+  // 1 byte 有 8 bits， &lt;&lt; 3 就是 * 8
+  unsigned mask = ((unsigned) 0xFF) &lt;&lt; (i &lt;&lt; 3);
+  unsigned pos_byte = ((unsigned) b) &lt;&lt; (i &lt;&lt; 3);
+
+  return (x &amp; ~mask) | pos_byte;
+}
+
+int main(int argc, char *argv[]) {
+  unsigned rep_0 = replace_byte(0x12345678, 0, 0xAB);
+  unsigned rep_3 = replace_byte(0x12345678, 3, 0xAB);
+
+  assert(rep_0 == 0x123456AB);
+  assert(rep_3 == 0xAB345678);
+  return 0;
+}
+
+</code></pre>
+<h2><a id="2-61" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.61</h2>
+<pre><code class="language-c">
+// A x 的任何位都等于 1
+!~x
+
+// B x 的任何位都等于 0
+!x
+
+// C x 的最高有效字节中的位都等于 1
+!~(x &gt;&gt; ((sizeof(int) - 1) &lt;&lt; 3))
+
+// D x 的最低有效字节中的位都等于 0
+!(x &amp; 0xFF)
+
+</code></pre>
+<h2><a id="2-62" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.62</h2>
+<pre><code class="language-c">/*
+ * int-shifts-are-arithemetic.c
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+int int_shifts_are_arithemetic() {
+  int num = -1;
+  return !(num ^ (num &gt;&gt; 1));
+}
+
+int main(int argc, char* argv[]) {
+  assert(int_shifts_are_arithemetic());
+  return 0;
+}
+</code></pre>
+<h2><a id="2-63" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.63</h2>
+<pre><code class="language-c">/*
+ * srl-sra.c
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+// 将 xrsl 的第 w-k-1 位扩展到前 k 个高位
+int sra(int x, int k) {
+  int xsrl = (unsigned) x &gt;&gt; k;
+
+  int w = sizeof(int) &lt;&lt; 3;
+  // mask 的前 k 高位全是 1
+  int mask = (int) -1 &lt;&lt; (w - k);
+  // m 最高位是 1，其他都是 0
+  int m = 1 &lt;&lt; (w - 1);
+  // x &amp; m，确定符号位是 1 还是 0。
+  // 然后如果符号位是 1，!(x &amp; m) 为 0，0 - 1 等于 -1，mask &amp;= -1 还是他本身。
+  // 如果符号位是 0，!(x &amp; m) 为 1，1 - 1 等于 0，mask &amp;= 0 为 0。
+  mask &amp;= !(x &amp; m) - 1;
+  return xsrl | mask;
+}
+
+// 前 k 高位清零即可
+unsigned srl(unsigned x, int k) {
+  unsigned xsra = (int) x &gt;&gt; k;
+
+  int w = sizeof(int) &lt;&lt; 3;
+  int mask = (int) -1 &lt;&lt; (w - k);
+  return xsra &amp; ~mask;
+}
+
+int main(int argc, char* argv[]) {
+  unsigned test_unsigned = 0x12345678;
+  int test_int = 0x12345678;
+
+  assert(srl(test_unsigned, 4) == test_unsigned &gt;&gt; 4);
+  assert(sra(test_int, 4) == test_int &gt;&gt; 4);
+
+  test_unsigned = 0x87654321;
+    test_int = 0x87654321;
+
+    assert (srl (test_unsigned, 4) == test_unsigned &gt;&gt; 4);
+    assert (sra (test_int, 4) == test_int &gt;&gt; 4);
+
+  return 0;
+}
+</code></pre>
+<h2><a id="2-64" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.64</h2>
+<pre><code class="language-c">int any_even_one(unsigned x) {
+    return !!(0x55555555 &amp; x);
+}
+</code></pre>
+<h2><a id="2-65" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.65</h2>
+<pre><code class="language-c">// x 的每个位进行异或，如果为 0 就说明是偶数个 1，如果为 1 就是奇数个 1 。
+// 通过算数右移一半的位数，相当于把左半部分位数降低到和右半部分一致，只关心右半部分异或结果就好。
+int even_ones(unsigned x){
+    x ^= (x &gt;&gt; 16);
+    x ^= (x &gt;&gt; 8);
+    x ^= (x &gt;&gt; 4);
+    x ^= (x &gt;&gt; 2);
+    x ^= (x &gt;&gt; 1);
+    return !(x &amp; 1);
+} 
+</code></pre>
+<h2><a id="2-66" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.66</h2>
+<p>实现掩膜，数位中只剩下最左边的 1，其他位都是 0。如果 x 为 0,那么函数返回 0。</p>
+<p>利用移位操作，首先将 x 右移再或，分别利用<code>1,2,4,8,16</code>，得到从最左边的 1 后面全部为 1，然后再右移1位，取异或。</p>
+<pre><code class="language-c">int leftmost_one(unsigned x) {
+    x |= (x &gt;&gt; 1);
+    x |= (x &gt;&gt; 2);
+    x |= (x &gt;&gt; 4);
+    x |= (x &gt;&gt; 8);
+    x |= (x &gt;&gt; 16);
+    return x^(x&gt;&gt;1);
+}
+</code></pre>
+<h2><a id="2-67" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.67</h2>
+<p>A：</p>
+<p>If the value of the right operand is negative or is greater than or equal to the width of the promoted left operand, the behavior it undefined.</p>
+<p>32位机器上没有定义移位32次，所以需要分多次左移。</p>
+<pre><code class="language-c">/*
+ * int-size-is-32.c
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+/* The following function does not run properly on some machine */
+/*
+int bad_int_size_is_32() {
+  int set_msb = 1 &lt;&lt; 31;
+  int beyond_msb = 1 &lt;&lt; 32;
+
+  return set_msb &amp;&amp; !beyond_msb;
+}
+*/
+
+int int_size_is_32() {
+  int set_msb = 1 &lt;&lt; 31;
+  int beyond_msb = set_msb &lt;&lt; 1;
+
+  return set_msb &amp;&amp; !beyond_msb;
+}
+
+int int_size_is_32_for_16bit() {
+  int set_msb = 1 &lt;&lt; 15 &lt;&lt; 15 &lt;&lt; 1;
+  int beyond_msb = set_msb &lt;&lt; 1;
+
+  return set_msb &amp;&amp; !beyond_msb;
+}
+
+int main(int argc, char *argv[]) {
+  assert(int_size_is_32());
+  assert(int_size_is_32_for_16bit());
+  return 0;
+}
+
+</code></pre>
+<h2><a id="2-68" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.68</h2>
+<p>让 x 的最低 n 位变 1。</p>
+<pre><code class="language-c">/*
+ * lower-one-mask.c
+ */
+#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+/*
+ * Mask with least signficant n bits set to 1
+ * Example: n = 6 -&gt; 0x3F, n = 17 -&gt; 0x1FFFF
+ * Assume 1 &lt;= n &lt;= w
+ */
+int lower_one_mask(int n) {
+  int w = sizeof(int) &lt;&lt; 3;
+  return (unsigned) -1 &gt;&gt; (w - n);
+}
+
+int main(int argc, char* argv[]) {
+  assert(lower_one_mask(6) == 0x3F);
+  assert(lower_one_mask(17) == 0x1FFFF);
+  assert(lower_one_mask(32) == 0xFFFFFFFF);
+  return 0;
+}
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[水仙 🌼]]></title>
+    <link href="www.dreameverafter.com/17001150891969.html"/>
+    <updated>2023-11-16T14:11:29+08:00</updated>
+    <id>www.dreameverafter.com/17001150891969.html</id>
+    <content type="html"><![CDATA[
+<p>买个安卓手机做导航用的，没成想到手第一件事就是装了个ons模拟器，然后一晚上把水仙1和2玩完了。</p>
+<p><img src="media/17001150891969/17001182613721.png" alt="水仙" /></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[《十万嬉皮》]]></title>
+    <link href="www.dreameverafter.com/17001174848432.html"/>
+    <updated>2023-11-16T14:51:24+08:00</updated>
+    <id>www.dreameverafter.com/17001174848432.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>万能青年旅店</p>
+</blockquote>
+<p>大梦一场的董二千先生</p>
+<p>推开窗户 举起望远镜</p>
+<p>眼底映出 一阵浓烟</p>
+<p>前已无通路 后不见归途</p>
+<p>敌视现实 虚构远方</p>
+<p>东张西望 一无所长</p>
+<p>四体不勤 五谷不分</p>
+<p>文不能测字 武不能防身</p>
+<p>喜欢养狗 不爱洗头</p>
+<p>不事劳作 一无所获</p>
+<p>厌恶争执 不善言说</p>
+<p>终于沦为沉默的帮凶</p>
+<p>借酒消愁 不太能喝</p>
+<p>蛊惑他人 麻醉内心</p>
+<p>浇上汽油 舒展眉头</p>
+<p>纵火的青年 迫近的时间</p>
+<p>大梦一场的董二千先生</p>
+<p>推开窗户 举起望远镜</p>
+<p>眼底映出 一阵浓烟</p>
+<p>前已无通路 后不见归途</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vue 的一些指令和缩写]]></title>
+    <link href="www.dreameverafter.com/17001187952144.html"/>
+    <updated>2023-11-16T15:13:15+08:00</updated>
+    <id>www.dreameverafter.com/17001187952144.html</id>
+    <content type="html"><![CDATA[
+<p>这里得先了解一下vue中的指令(Directives)。</p>
+<p>指令是带有 <code>v-</code> 前缀的特殊 <code>attribute</code>。指令 <code>attribute</code> 的值预期是 <strong>单个 JavaScript 表达式</strong> (<code>v-for</code> 是例外情况，稍后我们再讨论)。指令的职责是，当表达式的值改变时，将其产生的连带影响，响应式地作用于 DOM。回顾我们在介绍中看到的例子：</p>
+<pre><code class="language-html">&lt;p v-if=&quot;seen&quot;&gt;现在你看到我了&lt;/p&gt;
+</code></pre>
+<p>这里，<code>v-if</code> 指令将根据表达式 <code>seen</code> 的值的真假来插入/移除 <code>&lt;p&gt;</code> 元素。</p>
+<p><code>v-</code> 前缀作为一种视觉提示，用来识别模板中 Vue 特定的 attribute。当你在使用 Vue.js 为现有标签添加动态行为 (dynamic behavior) 时，<code>v-</code> 前缀很有帮助，然而，对于一些频繁用到的指令来说，就会感到使用繁琐。</p>
+<p>同时，在构建由 Vue 管理所有模板的 <strong>单页面应用程序 (SPA - single page application)</strong> 时，<code>v-</code> 前缀也变得没那么重要了。因此，Vue 为 <code>v-bind</code> 和 <code>v-on</code> 这两个最常用的指令，提供了特定简写。</p>
+<h2><a id="" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>$</code></h2>
+<p>Vue 实例暴露了一些有用的实例属性与方法。它们都有前缀 <code>$</code>，以便与用户定义的属性区分开来，避免Vue的属性被用户自定义的属性覆盖。</p>
+<h2><a id="%EF%BC%8Cv-bind%E7%BC%A9%E5%86%99" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>:</code>，<code>v-bind</code> 缩写</h2>
+<pre><code class="language-html">&lt;!-- 完整语法 --&gt;
+&lt;a v-bind:href=&quot;url&quot;&gt;...&lt;/a&gt;
+
+&lt;!-- 缩写 --&gt;
+&lt;a :href=&quot;url&quot;&gt;...&lt;/a&gt;
+
+&lt;!-- 动态参数的缩写 (2.6.0+) --&gt;
+&lt;a :[key]=&quot;url&quot;&gt; ... &lt;/a&gt;
+</code></pre>
+<h2><a id="%EF%BC%8Cv-on%E7%BC%A9%E5%86%99" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>@</code>，<code>v-on</code> 缩写</h2>
+<pre><code class="language-html">&lt;!-- 完整语法 --&gt;
+&lt;a v-on:click=&quot;doSomething&quot;&gt;...&lt;/a&gt;
+
+&lt;!-- 缩写 --&gt;
+&lt;a @click=&quot;doSomething&quot;&gt;...&lt;/a&gt;
+
+&lt;!-- 动态参数的缩写 (2.6.0+) --&gt;
+&lt;a @[event]=&quot;doSomething&quot;&gt; ... &lt;/a&gt;
+</code></pre>
+<h2><a id="v-for" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>v-for</code></h2>
+<h3><a id="%E7%94%A8v-for%E6%8A%8A%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%E5%AF%B9%E5%BA%94%E4%B8%BA%E4%B8%80%E7%BB%84%E5%85%83%E7%B4%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>用<code>v-for</code>把一个数组对应为一组元素</h3>
+<p>我们可以用 <code>v-for</code> 指令基于一个数组来渲染一个列表。<code>v-for</code> 指令需要使用 <code>item in items</code> 形式的特殊语法，其中 <code>items</code> 是源数据数组，而 <code>item</code> 则是被迭代的数组元素的<strong>别名</strong>。</p>
+<pre><code class="language-html">&lt;ul id=&quot;example-1&quot;&gt;
+  &lt;li v-for=&quot;item in items&quot; :key=&quot;item.message&quot;&gt;
+    {{ item.message }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>在 <code>v-for</code> 块中，我们可以访问所有父作用域的 property。<code>v-for</code> 还支持一个可选的第二个参数，即当前项的索引。</p>
+<pre><code class="language-html">&lt;ul id=&quot;example-2&quot;&gt;
+  &lt;li v-for=&quot;(item, index) in items&quot;&gt;
+    {{ parentMessage }} - {{ index }} - {{ item.message }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<p>你也可以用 <code>of</code> 替代 <code>in</code> 作为分隔符，因为它更接近 JavaScript 迭代器的语法：</p>
+<pre><code class="language-html">&lt;div v-for=&quot;item of items&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h3><a id="%E5%9C%A8v-for%E9%87%8C%E4%BD%BF%E7%94%A8%E5%AF%B9%E8%B1%A1" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>在 <code>v-for</code> 里使用对象</h3>
+<p>你也可以用 <code>v-for</code> 来遍历一个对象的 property。</p>
+<pre><code class="language-html">&lt;ul id=&quot;v-for-object&quot; class=&quot;demo&quot;&gt;
+  &lt;li v-for=&quot;value in object&quot;&gt;
+    {{ value }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<pre><code class="language-js">new Vue({
+  el: '#v-for-object',
+  data: {
+    object: {
+      title: 'How to do lists in Vue',
+      author: 'Jane Doe',
+      publishedAt: '2016-04-10'
+    }
+  }
+})
+</code></pre>
+<p>还可以用第三个参数作为索引：</p>
+<pre><code class="language-html">&lt;div v-for=&quot;(value, name, index) in object&quot;&gt;
+  {{ index }}. {{ name }}: {{ value }}
+&lt;/div&gt;
+</code></pre>
+<p>在遍历对象时，会按 <code>Object.keys()</code> 的结果遍历，但是<strong>不能</strong>保证它的结果在不同的 JavaScript 引擎下都一致。</p>
+<h3><a id="%E7%BB%B4%E6%8A%A4%E7%8A%B6%E6%80%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>维护状态</h3>
+<p>当 Vue 正在更新使用 <code>v-for</code> 渲染的元素列表时，它默认使用“就地更新”的策略。如果数据项的顺序被改变，Vue 将不会移动 DOM 元素来匹配数据项的顺序，而是就地更新每个元素，并且确保它们在每个索引位置正确渲染。这个类似 Vue 1.x 的 <code>track-by=&quot;$index&quot;</code>。</p>
+<p>这个默认的模式是高效的，但是<strong>只适用于不依赖子组件状态或临时 DOM 状态 (例如：表单输入值) 的列表渲染输出</strong>。</p>
+<p>为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 <code>key</code> attribute：</p>
+<pre><code class="language-html">&lt;div v-for=&quot;item in items&quot; v-bind:key=&quot;item.id&quot;&gt;
+  &lt;!-- 内容 --&gt;
+&lt;/div&gt;
+</code></pre>
+<p>建议尽可能在使用 <code>v-for</code> 时提供 <code>key</code> attribute，除非遍历输出的 DOM 内容非常简单，或者是刻意依赖默认行为以获取性能上的提升。</p>
+<p>因为它是 Vue 识别节点的一个通用机制，<code>key</code> 并不仅与 <code>v-for</code> 特别关联。后面我们将在指南中看到，它还具有其它用途。</p>
+<p>不要使用对象或数组之类的非基本类型值作为 <code>v-for</code> 的 <code>key</code>。请用字符串或数值类型的值。</p>
+<p>更多 <code>key</code> attribute 的细节用法请移步至 <a href="https://cn.vuejs.org/v2/api/#key"><code>key</code> 的 API 文档</a>。</p>
+<h3><a id="%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0%E6%A3%80%E6%B5%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>数组更新检测</h3>
+<p>变更方法：Vue 将被侦听的数组的变更方法进行了包裹，所以它们也将会触发视图更新。这些被包裹过的方法包括：</p>
+<ul>
+<li><code>push()</code></li>
+<li><code>pop()</code></li>
+<li><code>shift()</code></li>
+<li><code>unshift()</code></li>
+<li><code>splice()</code></li>
+<li><code>sort()</code></li>
+<li><code>reverse()</code></li>
+</ul>
+<p>你可以打开控制台，然后对前面例子的 <code>items</code> 数组尝试调用变更方法。比如 <code>example1.items.push({ message: 'Baz' })</code>。</p>
+<p>替换数组：变更方法，顾名思义，会变更调用了这些方法的原始数组。相比之下，也有非变更方法，例如 <code>filter()</code>、<code>concat()</code> 和 <code>slice()</code>。它们不会变更原始数组，而<strong>总是返回一个新数组</strong>。当使用非变更方法时，可以用新数组替换旧数组：</p>
+<pre><code class="language-js">example1.items = example1.items.filter(function (item) {
+  return item.message.match(/Foo/)
+})
+</code></pre>
+<p>你可能认为这将导致 Vue 丢弃现有 DOM 并重新渲染整个列表。幸运的是，事实并非如此。Vue 为了使得 DOM 元素得到最大范围的重用而实现了一些智能的启发式方法，所以用一个含有相同元素的数组去替换原来的数组是非常高效的操作。</p>
+<p>由于 JavaScript 的限制，Vue <strong>不能检测</strong>数组和对象的变化。</p>
+<h3><a id="%E5%9C%A8template%E4%B8%8A%E4%BD%BF%E7%94%A8-v-for" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>在 <code>&lt;template&gt;</code> 上使用 <code>v-for</code></h3>
+<p>类似于 <code>v-if</code>，你也可以利用带有 <code>v-for</code> 的 <code>&lt;template&gt;</code> 来循环渲染一段包含多个元素的内容。比如：</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;template v-for=&quot;item in items&quot;&gt;
+    &lt;li&gt;{{ item.msg }}&lt;/li&gt;
+    &lt;li class=&quot;divider&quot; role=&quot;presentation&quot;&gt;&lt;/li&gt;
+  &lt;/template&gt;
+&lt;/ul&gt;
+</code></pre>
+<h3><a id="v-for%E4%B8%8E-v-if%E4%B8%80%E5%90%8C%E4%BD%BF%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>v-for</code> 与 <code>v-if</code> 一同使用</h3>
+<p>注意我们<strong>不</strong>推荐在同一元素上使用 <code>v-if</code> 和 <code>v-for</code>。</p>
+<p>当它们处于同一节点，<code>v-for</code> 的优先级比 <code>v-if</code> 更高，这意味着 <code>v-if</code> 将分别重复运行于每个 <code>v-for</code> 循环中。当你只想为<em>部分</em>项渲染节点时，这种优先级的机制会十分有用，如下：</p>
+<pre><code class="language-html">&lt;li v-for=&quot;todo in todos&quot; v-if=&quot;!todo.isComplete&quot;&gt;
+  {{ todo }}
+&lt;/li&gt;
+</code></pre>
+<p>上面的代码将只渲染未完成的 todo。</p>
+<p>而如果你的目的是有条件地跳过循环的执行，那么可以将 <code>v-if</code> 置于外层元素 (或 <code>&lt;template&gt;</code>) 上。如：</p>
+<pre><code class="language-html">&lt;ul v-if=&quot;todos.length&quot;&gt;
+  &lt;li v-for=&quot;todo in todos&quot;&gt;
+    {{ todo }}
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p v-else&gt;No todos left!&lt;/p&gt;
+</code></pre>
+<blockquote>
+<p>参考： <a href="https://cn.vuejs.org/">https://cn.vuejs.org/</a></p>
+</blockquote>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OpenGL 术语]]></title>
+    <link href="www.dreameverafter.com/17001265069754.html"/>
+    <updated>2023-11-16T17:21:46+08:00</updated>
+    <id>www.dreameverafter.com/17001265069754.html</id>
+    <content type="html"><![CDATA[
+<p>前两年稍微接触了一些 <code>OpenGL</code>，近期准备把所得总结一下，先把高频词汇列出来把。</p>
+<ul>
+<li>顶点数据（Vertices）</li>
+<li>顶点着色器（Vertex Shader）</li>
+<li>图元装配（Assembly）</li>
+<li>几何着色器（Geometry Shader）</li>
+<li>光栅化（Rasterization）</li>
+<li>片断着色器（Fragment Shader）</li>
+<li>逐片断处理（Per-Fragment Operations）</li>
+<li>帧缓冲（FrameBuffer）</li>
+<li>再经过双缓冲的交换（SwapBuffer），渲染内容就显示到了屏幕上。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[归纳与演绎]]></title>
+    <link href="www.dreameverafter.com/17001177799867.html"/>
+    <updated>2023-11-16T14:56:19+08:00</updated>
+    <id>www.dreameverafter.com/17001177799867.html</id>
+    <content type="html"><![CDATA[
+<h2><a id="%E5%BD%92%E7%BA%B3%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>归纳法</h2>
+<p>归纳法或归纳推理（Inductive reasoning），有时叫做归纳逻辑，是论证的前提支持结论但不确保结论的推理过程。</p>
+<p>它基于对特殊的代表（token）的有限观察，把性质或关系归结到类型；或基于对反复再现的现象的模式（pattern）的有限观察，公式表达规律。</p>
+<p>例如，使用归纳法在如下特殊的命题中：</p>
+<ol>
+<li>冰是冷的。</li>
+<li>弹子球在击打球杆的时候移动。</li>
+</ol>
+<p>推断出普遍的命题如：</p>
+<ol>
+<li>所有冰都是冷的。</li>
+<li>所有弹子球都在击打球杆的时候移动。</li>
+</ol>
+<h2><a id="%E6%BC%94%E7%BB%8E%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>演绎法</h2>
+<p>演绎推理（Deductive Reasoning）、正向推理在传统的亚里士多德逻辑中是「结论，可从叫做‘前提’的已知事实，‘必然地’得出的推理」。如果前提为真，则结论必然为真。这区别于溯因推理和归纳推理：它们的前提可以预测出高概率的结论，但是不确保结论为真。</p>
+<p>“演绎推理”还可以定义为结论在普遍性上不大于前提的推理，或「结论在确定性上，同前提一样」的推理。</p>
+<p>例如：<br />
+任何三角形只可能是锐角三角形、直角三角形和钝角三角形。——大前提</p>
+<p>这个三角形既不是锐角三角形，也不是钝角三角形。——小前提</p>
+<p>所以，它是一个直角三角形。——结论</p>
+<h2><a id="%E6%95%B0%E5%AD%A6%E5%BD%92%E7%BA%B3%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>数学归纳法</h2>
+<p>数学归纳法（Mathematical Induction、MI、ID）是一种数学证明方法，通常被用于证明某个给定命题在整个（或者局部）自然数范围内成立。</p>
+<p>除了自然数以外，广义上的数学归纳法也可以用于证明一般良基结构，例如：集合论中的树。这种广义的数学归纳法应用于数学逻辑和计算机科学领域，称作结构归纳法。</p>
+<p>虽然数学归纳法名字中有“归纳”，但是数学归纳法并非不严谨的归纳推理法，它属于完全严谨的演绎推理法。事实上，所有的数学证明都是演绎法。</p>
+<p>证明有关整数的断言对于 0 以上的所有整数（0、1、2、3……）是否成立。</p>
+<p>假设现在要用数学归纳法来证明“断言 P(n) 对于 0 以上的所有整数 n 都成立”。</p>
+<p>数学归纳法要经过以下两个步骤进行证明。</p>
+<ol>
+<li>证明“P(0) 成立”。</li>
+<li>证明不论 k 为 0 以上的哪个整数，“若 P(k) 成立，则 P(k+1) 也成立”。</li>
+</ol>
+<p>在步骤 1 中，要证明当 k 为 0 时断言 P(0) 时成立。我们将步骤 1 称为基底（base）。</p>
+<p>在步骤 2 中，要证明无论 k 为 0 以上的哪个整数，“若 P(k) 成立，则 P(k+1) 也成立”。我们将步骤 2 称作归纳（induction）。该步骤证明断言若对于 0 以上的某个整数成立，则对于下一个整数也成立。</p>
+<p>若步骤 1 和步骤 2 都能得到证明，就证明了“断言 P(n) 对于 0 以上的所有整数 n 都成立”。</p>
+<p>以上就是数学归纳法的证明方法。</p>
+<p>以上大部分内容来自wiki百科。</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[命令行通过ffmpeg剪切视频]]></title>
+    <link href="www.dreameverafter.com/17001265069516.html"/>
+    <updated>2023-11-16T17:21:46+08:00</updated>
+    <id>www.dreameverafter.com/17001265069516.html</id>
+    <content type="html"><![CDATA[
+<p>ffmpeg的强大自不用多书，有时候遇到只是想简单剪切一下视频，那么可以直接用一下脚本，简单方法，前提是先装上ffmpeg环境。</p>
+<p>以下就是脚本内容。</p>
+<pre><code class="language-python">#!/usr/bin/env PYTHONIOENCODING=UTF-8 /usr/local/anaconda3/bin/python3
+
+import os, sys
+import datetime
+file, start, end, target = sys.argv[1:]
+h0, m0, s0 = [int(i) for i in start.split(&quot;:&quot;)]
+h1, m1, s1 = [int(i) for i in end.split(&quot;:&quot;)]
+t0 = datetime.datetime(2016, 1, 1, h0, m0, s0)
+t1 = datetime.datetime(2016, 1, 1, h1, m1, s1)
+delta = str(t1 - t0)
+c = &quot;ffmpeg -i {} -ss {} -t {} -acodec copy -vcodec copy {}&quot;
+os.system(c.format(file, start, delta, target))
+</code></pre>
+<p>使用也是极其方便，假设脚本名为<code>capture.py</code>且已经拥有相关权限，那么敲下面一行命令即可：</p>
+<pre><code class="language-plain_text">./capture.py {被剪切视频路径} {剪切的起始时间} {剪切的结束时间} {剪切输出视频路径}
+
+// 例子如下
+./capture.py 被剪切视频.mp4 00:00:00 00:10:00 剪切好的视频.mp4
+
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[离骚]]></title>
+    <link href="www.dreameverafter.com/17001173766480.html"/>
+    <updated>2023-11-16T14:49:36+08:00</updated>
+    <id>www.dreameverafter.com/17001173766480.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>先秦•屈原</p>
+</blockquote>
+<p>帝高阳之苗裔兮，朕皇考曰伯庸。</p>
+<p>摄提贞于孟陬兮，惟庚寅吾以降。</p>
+<p>皇览揆余初度兮，肇锡余以嘉名。</p>
+<p>名余曰正则兮，字余曰灵均。</p>
+<p>纷吾既有此内美兮，又重之以修能。</p>
+<p>扈江离与辟芷兮，纫秋兰以为佩。</p>
+<p>汩余若将不及兮，恐年岁之不吾与。</p>
+<p>朝搴阰之木兰兮，夕揽洲之宿莽。</p>
+<p>日月忽其不淹兮，春与秋其代序。</p>
+<p>惟草木之零落兮，恐美人之迟暮。</p>
+<p>不抚壮而弃秽兮，何不改乎此度？</p>
+<p>乘骐骥以驰骋兮，来吾道夫先路！</p>
+<p>昔三后之纯粹兮，固众芳之所在。</p>
+<p>杂申椒与菌桂兮，岂惟纫夫蕙茝！</p>
+<p>彼尧、舜之耿介兮，既遵道而得路。</p>
+<p>何桀纣之昌披兮，夫惟捷径以窘步。</p>
+<p>惟夫党人之偷乐兮，路幽昧以险隘。</p>
+<p>岂余身之殚殃兮，恐皇舆之败绩。</p>
+<p>忽奔走以先后兮，及前王之踵武。</p>
+<p>荃不查余之中情兮，反信谗而齌怒。</p>
+<p>余固知謇謇之为患兮，忍而不能舍也。</p>
+<p>指九天以为正兮，夫惟灵修之故也。</p>
+<p>曰黄昏以为期兮，羌中道而改路。</p>
+<p>初既与余成言兮，后悔遁而有他。</p>
+<p>余既不难夫离别兮，伤灵修之数化。</p>
+<p>余既滋兰之九畹兮，又树蕙之百亩。</p>
+<p>畦留夷与揭车兮，杂杜衡与芳芷。</p>
+<p>冀枝叶之峻茂兮，愿俟时乎吾将刈。</p>
+<p>虽萎绝其亦何伤兮，哀众芳之芜秽。</p>
+<p>众皆竞进以贪婪兮，凭不厌乎求索。</p>
+<p>羌内恕己以量人兮，各兴心而嫉妒。</p>
+<p>忽驰骛以追逐兮，非余心之所急。</p>
+<p>老冉冉其将至兮，恐修名之不立。</p>
+<p>朝饮木兰之坠露兮，夕餐秋菊之落英。</p>
+<p>苟余情其信姱以练要兮，长顑颔亦何伤。</p>
+<p>掔木根以结茝兮，贯薜荔之落蕊。</p>
+<p>矫菌桂以纫蕙兮，索胡绳之纚纚。</p>
+<p>謇吾法夫前修兮，非世俗之所服。</p>
+<p>虽不周于今之人兮，愿依彭咸之遗则。</p>
+<p>长太息以掩涕兮，哀民生之多艰。</p>
+<p>余虽好修姱以鞿羁兮，謇朝谇而夕替。</p>
+<p>既替余以蕙纕兮，又申之以揽茝。</p>
+<p>亦余心之所善兮，虽九死其犹未悔。</p>
+<p>怨灵修之浩荡兮，终不察夫民心。</p>
+<p>众女嫉余之蛾眉兮，谣诼谓余以善淫。</p>
+<p>固时俗之工巧兮，偭规矩而改错。</p>
+<p>背绳墨以追曲兮，竞周容以为度。</p>
+<p>忳郁邑余侘傺兮，吾独穷困乎此时也。</p>
+<p>宁溘死以流亡兮，余不忍为此态也。</p>
+<p>鸷鸟之不群兮，自前世而固然。</p>
+<p>何方圜之能周兮，夫孰异道而相安？</p>
+<p>屈心而抑志兮，忍尤而攘诟。</p>
+<p>伏清白以死直兮，固前圣之所厚。</p>
+<p>悔相道之不察兮，延伫乎吾将反。</p>
+<p>回朕车以复路兮，及行迷之未远。</p>
+<p>步余马于兰皋兮，驰椒丘且焉止息。</p>
+<p>进不入以离尤兮，退将复修吾初服。</p>
+<p>制芰荷以为衣兮，集芙蓉以为裳。</p>
+<p>不吾知其亦已兮，苟余情其信芳。</p>
+<p>高余冠之岌岌兮，长余佩之陆离。</p>
+<p>芳与泽其杂糅兮，唯昭质其犹未亏。</p>
+<p>忽反顾以游目兮，将往观乎四荒。</p>
+<p>佩缤纷其繁饰兮，芳菲菲其弥章。</p>
+<p>民生各有所乐兮，余独好修以为常。</p>
+<p>虽体解吾犹未变兮，岂余心之可惩。</p>
+<p>女嬃之婵媛兮，申申其詈予。</p>
+<p>曰：“鲧婞直以亡身兮，终然夭乎羽之野。</p>
+<p>汝何博謇而好修兮，纷独有此姱节。</p>
+<p>薋菉葹以盈室兮，判独离而不服。</p>
+<p>众不可户说兮，孰云察余之中情。</p>
+<p>世并举而好朋兮，夫何茕独而不予听？</p>
+<p>依前圣以节中兮，喟凭心而历兹。</p>
+<p>济沅、湘以南征兮，就重华而敶词：</p>
+<p>启《九辩》与《九歌》兮，夏康娱以自纵。</p>
+<p>不顾难以图后兮，五子用失乎家衖。</p>
+<p>羿淫游以佚畋兮，又好射夫封狐。</p>
+<p>固乱流其鲜终兮，浞又贪夫厥家。</p>
+<p>浇身被服强圉兮，纵欲而不忍。</p>
+<p>日康娱而自忘兮，厥首用夫颠陨。</p>
+<p>夏桀之常违兮，乃遂焉而逢殃。</p>
+<p>后辛之菹醢兮，殷宗用而不长。</p>
+<p>汤、禹俨而祗敬兮，周论道而莫差。</p>
+<p>举贤才而授能兮，循绳墨而不颇。</p>
+<p>皇天无私阿兮，览民德焉错辅。</p>
+<p>夫维圣哲以茂行兮，苟得用此下土。</p>
+<p>瞻前而顾后兮，相观民之计极。</p>
+<p>夫孰非义而可用兮？孰非善而可服？</p>
+<p>阽余身而危死兮，览余初其犹未悔。</p>
+<p>不量凿而正枘兮，固前修以菹醢。</p>
+<p>曾歔欷余郁邑兮，哀朕时之不当。</p>
+<p>揽茹蕙以掩涕兮，沾余襟之浪浪。</p>
+<p>跪敷衽以陈辞兮，耿吾既得此中正。</p>
+<p>驷玉虬以桀鹥兮，溘埃风余上征。</p>
+<p>朝发轫于苍梧兮，夕余至乎县圃。</p>
+<p>欲少留此灵琐兮，日忽忽其将暮。</p>
+<p>吾令羲和弭节兮，望崦嵫而勿迫。</p>
+<p>路漫漫其修远兮，吾将上下而求索。</p>
+<p>饮余马于咸池兮，总余辔乎扶桑。</p>
+<p>折若木以拂日兮，聊逍遥以相羊。</p>
+<p>前望舒使先驱兮，后飞廉使奔属。</p>
+<p>鸾皇为余先戒兮，雷师告余以未具。</p>
+<p>吾令凤鸟飞腾兮，继之以日夜。</p>
+<p>飘风屯其相离兮，帅云霓而来御。</p>
+<p>纷总总其离合兮，斑陆离其上下。</p>
+<p>吾令帝阍开关兮，倚阊阖而望予。</p>
+<p>时暧暧其将罢兮，结幽兰而延伫。</p>
+<p>世溷浊而不分兮，好蔽美而嫉妒。</p>
+<p>朝吾将济于白水兮，登阆风而绁马。</p>
+<p>忽反顾以流涕兮，哀高丘之无女。</p>
+<p>溘吾游此春宫兮，折琼枝以继佩。</p>
+<p>及荣华之未落兮，相下女之可诒。</p>
+<p>吾令丰隆乘云兮，求宓妃之所在。</p>
+<p>解佩纕以结言兮，吾令謇修以为理。</p>
+<p>纷总总其离合兮，忽纬繣其难迁。</p>
+<p>夕归次于穷石兮，朝濯发乎洧盘。</p>
+<p>保厥美以骄傲兮，日康娱以淫游。</p>
+<p>虽信美而无礼兮，来违弃而改求。</p>
+<p>览相观于四极兮，周流乎天余乃下。</p>
+<p>望瑶台之偃蹇兮，见有娀之佚女。</p>
+<p>吾令鸩为媒兮，鸩告余以不好。</p>
+<p>雄鸠之鸣逝兮，余犹恶其佻巧。</p>
+<p>心犹豫而狐疑兮，欲自适而不可。</p>
+<p>凤皇既受诒兮，恐高辛之先我。</p>
+<p>欲远集而无所止兮，聊浮游以逍遥。</p>
+<p>及少康之未家兮，留有虞之二姚。</p>
+<p>理弱而媒拙兮，恐导言之不固。</p>
+<p>世溷浊而嫉贤兮，好蔽美而称恶。</p>
+<p>闺中既以邃远兮，哲王又不寤。</p>
+<p>怀朕情而不发兮，余焉能忍而与此终古？</p>
+<p>索琼茅以筳篿兮，命灵氛为余占之。</p>
+<p>曰：“两美其必合兮，孰信修而慕之？</p>
+<p>思九州之博大兮，岂惟是其有女？”</p>
+<p>曰：“勉远逝而无狐疑兮，孰求美而释女？</p>
+<p>何所独无芳草兮，尔何怀乎故宇？”</p>
+<p>世幽昧以昡曜兮，孰云察余之善恶？</p>
+<p>民好恶其不同兮，惟此党人其独异！</p>
+<p>户服艾以盈要兮，谓幽兰其不可佩。</p>
+<p>览察草木其犹未得兮，岂珵美之能当？</p>
+<p>苏粪壤以充祎兮，谓申椒其不芳。</p>
+<p>欲从灵氛之吉占兮，心犹豫而狐疑。</p>
+<p>巫咸将夕降兮，怀椒糈而要之。</p>
+<p>百神翳其备降兮，九疑缤其并迎。</p>
+<p>皇剡剡其扬灵兮，告余以吉故。</p>
+<p>曰：“勉升降以上下兮，求矩矱之所同。</p>
+<p>汤、禹俨而求合兮，挚、咎繇而能调。</p>
+<p>苟中情其好修兮，又何必用夫行媒？</p>
+<p>说操筑于傅岩兮，武丁用而不疑。</p>
+<p>吕望之鼓刀兮，遭周文而得举。</p>
+<p>宁戚之讴歌兮，齐桓闻以该辅。</p>
+<p>及年岁之未晏兮，时亦犹其未央。</p>
+<p>恐鹈鴃之先鸣兮，使夫百草为之不芳。”</p>
+<p>何琼佩之偃蹇兮，众薆然而蔽之。</p>
+<p>惟此党人之不谅兮，恐嫉妒而折之。</p>
+<p>时缤纷其变易兮，又何可以淹留？</p>
+<p>兰芷变而不芳兮，荃蕙化而为茅。</p>
+<p>何昔日之芳草兮，今直为此萧艾也？</p>
+<p>岂其有他故兮，莫好修之害也！</p>
+<p>余以兰为可恃兮，羌无实而容长。</p>
+<p>委厥美以从俗兮，苟得列乎众芳。</p>
+<p>椒专佞以慢慆兮，樧又欲充夫佩帏。</p>
+<p>既干进而务入兮，又何芳之能祗？</p>
+<p>固时俗之流从兮，又孰能无变化？</p>
+<p>览椒兰其若兹兮，又况揭车与江离？</p>
+<p>惟兹佩之可贵兮，委厥美而历兹。</p>
+<p>芳菲菲而难亏兮，芬至今犹未沬。</p>
+<p>和调度以自娱兮，聊浮游而求女。</p>
+<p>及余饰之方壮兮，周流观乎上下。</p>
+<p>灵氛既告余以吉占兮，历吉日乎吾将行。</p>
+<p>折琼枝以为羞兮，精琼爢以为粻。</p>
+<p>为余驾飞龙兮，杂瑶象以为车。</p>
+<p>何离心之可同兮？吾将远逝以自疏。</p>
+<p>邅吾道夫昆仑兮，路修远以周流。</p>
+<p>扬云霓之晻蔼兮，鸣玉鸾之啾啾。</p>
+<p>朝发轫于天津兮，夕余至乎西极。</p>
+<p>凤皇翼其承旗兮，高翱翔之翼翼。</p>
+<p>忽吾行此流沙兮，遵赤水而容与。</p>
+<p>麾蛟龙使梁津兮，诏西皇使涉予。</p>
+<p>路修远以多艰兮，腾众车使径待。</p>
+<p>路不周以左转兮，指西海以为期。</p>
+<p>屯余车其千乘兮，齐玉轪而并驰。</p>
+<p>驾八龙之婉婉兮，载云旗之委蛇。</p>
+<p>抑志而弭节兮，神高驰之邈邈。</p>
+<p>奏《九歌》而舞《韶》兮，聊假日以偷乐。</p>
+<p>陟升皇之赫戏兮，忽临睨夫旧乡。</p>
+<p>仆夫悲余马怀兮，蜷局顾而不行。</p>
+<p>乱曰：已矣哉！</p>
+<p>国无人莫我知兮，又何怀乎故都！</p>
+<p>既莫足与为美政兮，吾将从彭咸之所居！</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[人为什么会过分自信]]></title>
+    <link href="www.dreameverafter.com/17001161339218.html"/>
+    <updated>2023-11-16T14:28:53+08:00</updated>
+    <id>www.dreameverafter.com/17001161339218.html</id>
+    <content type="html"><![CDATA[
+<p><strong>为什么人们会过分自信呢？</strong></p>
+<p>这主要是因为人们有很多其他导致自己过分自信的特征。</p>
+<p>比如说人们思维中有<strong>自我归因偏差</strong>：倾向于把好的结果归结为自己能力出众，而把坏的结果归结为不受自己控制的外部原因（比如别人造成的原因或者归咎于运气不好）。</p>
+<p>人们还有<strong>事后诸葛亮的偏差</strong>：当一件事发生后，人们经常会说，我早就知道这事会发生，因此觉得自己的判断力超群。但除了这件事，他可能还预测了很多其他事，但都没发生。这些错误的预测完全没有引起他的注意。</p>
+<p>和事后诸葛亮偏差类似，人们<strong>在收集信息时也会不自觉的忽略和自己观点不一致的信息</strong>，只会处理和加强那些和自己当初观点一致的信息。正是这个原因，我们在生活中很难说服一个人，多数的争吵其实都是在浪费时间。这些人根本不会去接受你提供的新信息；而你也用同样的方式拒绝着别人提供的和自己观点相悖的信息。</p>
+<p>因此在出现矛盾后，更重要的事如何找到双方都能接受的一个解决方式，而不是试图去说服对方（求同存异）。</p>
+<blockquote>
+<p>摘自《理性的非理性金融》—— 余剑峰</p>
+</blockquote>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CMake入门及常用变量指令手册]]></title>
+    <link href="www.dreameverafter.com/17001196451067.html"/>
+    <updated>2023-11-16T15:27:25+08:00</updated>
+    <id>www.dreameverafter.com/17001196451067.html</id>
+    <content type="html"><![CDATA[
+<h2><a id="%E5%AE%9E%E6%88%98" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>实战</h2>
+<p>参考《CMake Practice》。</p>
+<h3><a id="%E9%A1%B9%E7%9B%AE%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>项目目录结构</h3>
+<p>我们项目的名称为CRNode，假设我们项目的所有文件存放再~/workspace/CRNode，之后没有特殊说明的话，我们所指的目录都以此目录为相对路径。<br />
+我们的目录结构如下：</p>
+<pre><code class="language-plain_text">~/workspace/CRNode
+  ├─ src
+  │  ├─ rpc
+  │  │  ├─ CRMasterCaller.h
+  │  │  ├─ CRMasterCaller.cc
+  │  │  ├─ CRNode.h
+  │  │  ├─ CRNode.cc
+  │  │  ├─ Schd_constants.h
+  │  │  ├─ Schd_constants.cc
+  │  │  ├─ CRMaster.h
+  │  │  ├─ CRMaster.cc
+  │  │  ├─ CRNode_server.skeleton.h
+  │  │  ├─ CRNode_server.skeleton.cc
+  │  │  ├─ Schd_types.h
+  │  │  └─ Schd_types.cc
+  │  ├─ task
+  │  │  ├─ TaskExecutor.h
+  │  │  ├─ TaskExecutor.cc
+  │  │  ├─ TaskMonitor.h
+  │  │  └─ TaskMonitor.cc
+  │  ├─ util
+  │  │  ├─ Const.h
+  │  │  ├─ Const.cc
+  │  │  ├─ Globals.h
+  │  │  ├─ Globals.cc
+  │  │  ├─ Properties.h
+  │  │  ├─ Properties.cc
+  │  │  ├─ utils.h
+  │  │  └─ utils.cc
+  │  ├─ main.cc
+  │  └─ CMakeLists.txt
+  ├─ doc
+  │  └─ crnode.txt
+  ├─ COPYRIGHT
+  ├─ README
+  ├─ crnode.sh
+  └─ CMakeLists.txt
+</code></pre>
+<p>其中，src存放源代码文件和一个CMakeLists.txt文件，CMakeLists文件的编写我们稍候介绍；doc目录中存放项目的帮助文档，该文档以及COPYRIGHT和README一起安装到/usr/share/doc/crnode目录中；COPYRIGHT文件存放项目的版权信息，README存放一些说明性文字；crnode.sh存放CRNode的启动命令；CMakeLists.txt文件稍候介绍。</p>
+<p>除此之外，项目还依赖两个外部库：Facebook开发的thrift库，其头文件存放在/usr/include/thrift目录中；log4cpp库，其头文件存放再/usr/include下。</p>
+<h3><a id="cmakelists-txt%E6%96%87%E4%BB%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>CMakeLists.txt文件</h3>
+<p>本工程中使用了两个CMakeLists.txt文件，分别项目的根目录（即~/workspace/CRNode目录，下同）和src目录中（参考以上目录结构）。我们先给出两个CMakeLists.txt的内容，在下一节中再对两个CMakeLists.txt进行详细介绍。两个CMakeLists.txt文件的内容分别如下：</p>
+<h4><a id="%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%ADcmakelists%E5%86%85%E5%AE%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>根目录中CMakeLists内容</h4>
+<pre><code class="language-plain_text">cmake_minimum_required (VERSION 2.6)
+
+project (CRNode)
+
+ADD_SUBDIRECTORY(src bin)
+
+# SET(CMAKE_INSTALL_PREFIX ${PROJECT_BINARY_DIR})
+SET(CMAKE_INSTALL_PREFIX /usr/local)
+
+INSTALL(PROGRAMS crnode.sh DESTINATION bin)
+
+INSTALL(FILES COPYRIGHT README DESTINATION share/doc/crnode)
+
+INSTALL(DIRECTORY doc/ DESTINATION share/doc/crnode)
+</code></pre>
+<h4><a id="srccmakelists-txt%E5%86%85%E5%AE%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>src/CMakeLists.txt内容</h4>
+<pre><code class="language-plain_text">INCLUDE_DIRECTORIES(/usr/include/thrift)
+
+SET(SRC_LIST main.cc
+        rpc/CRMasterCaller.cpp
+        rpc/CRNode_server.skeleton.cpp
+        rpc/Schd_constants.cpp
+        rpc/CRMaster.cpp
+        rpc/CRNode.cpp
+        rpc/Schd_types.cpp
+        task/TaskExecutor.cpp
+        task/TaskMoniter.cpp
+        util/Const.cpp
+        util/Globals.cc
+        util/utils.cc
+        util/Properties.cpp
+        )
+
+ADD_EXECUTABLE(crnode ${SRC_LIST})
+
+TARGET_LINK_LIBRARIES(crnode log4cpp thrift)
+
+INSTALL(TARGETS crnode
+        RUNTIME DESTINATION bin
+)
+</code></pre>
+<h4><a id="cmake%E8%AF%AD%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>CMake语法</h4>
+<ol>
+<li>变量使用${}方式取值,但是在 IF 控制语句中是直接使用变量名；</li>
+<li>指令(参数 1 参数 2…)，参数使用括弧括起,参数之间使用空格或分号分开；</li>
+<li>指令是大小写无关的,参数和变量是大小写相关的。但,推荐你全部使用大写指令。</li>
+</ol>
+<h4><a id="cmakelists-txt%E5%89%96%E6%9E%90" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>CMakeLists.txt剖析</h4>
+<h5><a id="cmake-minimum-required%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmake_minimum_required命令</h5>
+<pre><code class="language-plain_text">cmake_minimum_required (VERSION 2.6)
+</code></pre>
+<p>规定cmake程序的最低版本。这行命令是可选的，我们可以不写这句话，但在有些情况下，如果CMakeLists.txt文件中使用了一些高版本cmake特有的一些命令的时候，就需要加上这样一行，提醒用户升级到该版本之后再执行cmake。</p>
+<h5><a id="project%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>project命令</h5>
+<pre><code class="language-plain_text">project (CRNode)
+</code></pre>
+<p>指定项目的名称。项目最终编译生成的可执行文件并不一定是这个项目名称，而是由另一条命令确定的，稍候我们再介绍。</p>
+<p>但是这个项目名称还是必要的，在cmake中有两个预定义变量：<code>&lt; projectname &gt;_BINARY_DIR</code>以及<code>&lt; projectname &gt;_SOURCE_DIR</code>，在我们的项目中，两个变量分别为：<code>CRNode_BINARY_DIR</code>和<code>CRNode_SOURCE_DIR</code>。内部编译情况下两者相同，后面我们会讲到外部编译,两者所指代的内容会有所不同。要理解这两个变量的定义，我们首先需要了解什么是“外部构建（out-of-source build）”，我们将在下一小节中介绍“外部构建”。</p>
+<p>同时cmake还预定义了PROJECT_BINARY_DIR和PROJECT_SOURCE_DIR变量。在我们的项目中，PROJECT_BINARY_DIR等同于CRNode_BINARY_DIR，PROJECT_SOURCE_DIR等同于CRNode_SOURCE_DIR。在实际的应用用，我强烈推荐使用PROJECT_BINARY_DIR和PROJECT_SOURCE_DIR变量，这样即使项目名称发生变化也不会影响CMakeLists.txt文件。</p>
+<h5><a id="%E5%A4%96%E9%83%A8%E6%9E%84%E5%BB%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>外部构建</h5>
+<p>假设我们此时已经完成了两个CMakeLists.txt文件的编写，可以执行cmake命令生成Makefile文件了。此时我们由两种方法可以执行cmake、编译和安装：</p>
+<pre><code class="language-plain_text">cmake .
+make
+
+# 或者
+
+mkdir build
+cd build
+cmake ..
+make
+</code></pre>
+<p>两种方法最大的不同在于执行cmake和make的工作路径不同。第一种方法中，cmake生成的所有中间文件和可执行文件都会存放在项目目录中；而第二种方法中，中间文件和可执行文件都将存放再build目录中。第二种方法的优点显而易见，它最大限度的保持了代码目录的整洁。同时由于第二种方法的生成、编译和安装是发生在不同于项目目录的其他目录中，所以第二种方法就叫做“外部构建”。</p>
+<p>回到之前的疑问，再外部构建的情况下，PROJECT_SOURCE_DIR指向的目录同内部构建相同，仍然为~/workspace/CRNode，而PROJECT_BINARY_DIR则有所不同，指向~/workspace/CRNode/build目录。<br />
+当然，cmake强烈推荐使用外部构建的方法。</p>
+<h5><a id="add-subdirectory%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ADD_SUBDIRECTORY命令</h5>
+<pre><code class="language-plain_text">ADD_SUBDIRECTORY(src bin)
+</code></pre>
+<p>ADD_SUBDIRECTORY(source_dir [binary_dir] [EXCLUDE_FROM_ALL])这个指令用于向当前工程添加存放源文件的子目录,并可以指定中间二进制和目标二进制存放的位置。EXCLUDE_FROM_ALL 参数的含义是将这个目录从编译过程中排除。比如,工程的 example,可能就需要工程构建完成后,再进入 example 目录单独进行构建。</p>
+<p>在我们的项目中，我们添加了src目录到项目中，而把对应于src目录生成的中间文件和目标文件存放到bin目录下，在上一节举例中“外部构建”的情况下，中间文件和目标文件将存放在build/srcobj目录下。</p>
+<h5><a id="set%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>SET命令</h5>
+<pre><code class="language-plain_text">SET(CMAKE_INSTALL_PREFIX /usr/local)
+</code></pre>
+<p>现阶段,只需要了解SET命令可以用来显式的定义变量即可。在以上的例子中，我们显式的将CMAKE_INSTALL_PREFIX的值定义为/usr/local，如此在外部构建情况下执行make install命令时，make会将生成的可执行文件拷贝到/usr/local/bin目录下。</p>
+<p>当然，可执行文件的安装路径CMAKE_INSTALL_PREFIX也可以在执行cmake命令的时候指定，cmake参数如下：</p>
+<pre><code class="language-plain_text">cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+</code></pre>
+<p>如果cmake参数和CMakeLists.txt文件中都不指定该值的话，则该值为默认的/usr/local。</p>
+<h5><a id="include-directories%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>INCLUDE_DIRECTORIES命令</h5>
+<pre><code class="language-plain_text">INCLUDE_DIRECTORIES(/usr/include/thrift)
+</code></pre>
+<p>INCLUDE_DIRECTORIES类似gcc中的编译参数“-I”，指定编译过程中编译器搜索头文件的路径。当项目需要的头文件不在系统默认的搜索路径时，需要指定该路径。在我们的项目中，log4cpp所需的头文件都存放在/usr/include下，不需要指定；但thrift的头文件没有存放在系统路径下，需要指定搜索其路径。</p>
+<h5><a id="add-executable%E5%92%8Cadd-library" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ADD_EXECUTABLE和ADD_LIBRARY</h5>
+<pre><code class="language-plain_text">SET(SRC_LIST main.cc
+        rpc/CRMasterCaller.cpp
+        rpc/CRNode_server.skeleton.cpp
+        rpc/Schd_constants.cpp
+        rpc/CRMaster.cpp
+        rpc/CRNode.cpp
+        rpc/Schd_types.cpp
+        task/TaskExecutor.cpp
+        task/TaskMoniter.cpp
+        util/Const.cpp
+        util/Globals.cc
+        util/utils.cc
+        util/Properties.cpp
+        )
+
+ADD_EXECUTABLE(CRNode ${SRC_LIST})
+</code></pre>
+<p>ADD_EXECUTABLE定义了这个工程会生成一个文件名为 CRNode 的可执行文件,相关的源文件是 SRC_LIST 中定义的源文件列表。需要注意的是，这里的CRNode和之前的项目名称没有任何关系，可以任意定义。</p>
+<h5><a id="executable-output-path%E5%92%8Clibrary-output-path" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>EXECUTABLE_OUTPUT_PATH和LIBRARY_OUTPUT_PATH</h5>
+<p>我们可以通过 SET 指令重新定义 EXECUTABLE_OUTPUT_PATH 和 LIBRARY_OUTPUT_PATH 变量来指定最终的目标二进制的位置(指最终生成的CRNode可执行文件或者最终的共享库，而不包含编译生成的中间文件)。</p>
+<p>命令如下：</p>
+<pre><code class="language-plain_text">SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
+</code></pre>
+<p>需要注意的是，在哪里 ADD_EXECUTABLE 或 ADD_LIBRARY，如果需要改变目标存放路径,就在哪里加入上述的定义。</p>
+<h5><a id="target-link-libraries%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>TARGET_LINK_LIBRARIES命令</h5>
+<pre><code class="language-plain_text">TARGET_LINK_LIBRARIES(CRNode log4cpp thrift)
+</code></pre>
+<p>这句话指定在链接目标文件的时候需要链接的外部库，其效果类似gcc的编译参数“-l”，可以解决外部库的依赖问题。</p>
+<h5><a id="install%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>INSTALL命令</h5>
+<p>在执行INSTALL命令的时候需要注意CMAKE_INSTALL_PREFIX参数的值。其命令形式如下：</p>
+<pre><code class="language-plain_text">install(TARGETS targets... [EXPORT &lt;export-name&gt;]
+      [[ARCHIVE|LIBRARY|RUNTIME|FRAMEWORK|BUNDLE|
+        PRIVATE_HEADER|PUBLIC_HEADER|RESOURCE]
+       [DESTINATION &lt;dir&gt;]
+       [PERMISSIONS permissions...]
+       [CONFIGURATIONS [Debug|Release|...]]
+       [COMPONENT &lt;component&gt;]
+       [OPTIONAL] [NAMELINK_ONLY|NAMELINK_SKIP]
+      ] [...])
+</code></pre>
+<p>参数中的 TARGETS 后面跟的就是我们通过 ADD_EXECUTABLE 或者 ADD_LIBRARY 定义的目标文件,可能是可执行二进制、动态库、静态库。</p>
+<p>DESTINATION 定义了安装的路径,如果路径以/开头,那么指的是绝对路径,这时候CMAKE_INSTALL_PREFIX 其实就无效了。如果你希望使用 CMAKE_INSTALL_PREFIX 来定义安装路径,就要写成相对路径,即不要以/开头,那么安装后的路径就是${CMAKE_INSTALL_PREFIX} /&lt; destination 定义的路径&gt; 。</p>
+<p>你不需要关心 TARGETS 具体生成的路径,只需要写上 TARGETS 名称就可以了。</p>
+<p>非目标文件的可执行程序安装(比如脚本之类):</p>
+<pre><code class="language-plain_text">INSTALL(PROGRAMS files... DESTINATION &lt; dir &gt;
+	[PERMISSIONS permissions...]
+	[CONFIGURATIONS [Debug|Release|...]]
+	[COMPONENT &lt; component &gt;]
+	[RENAME &lt; name &gt;] [OPTIONAL])
+</code></pre>
+<p>跟上面的 FILES 指令使用方法一样,唯一的不同是安装后权限为OWNER_EXECUTE, GROUP_EXECUTE, 和 WORLD_EXECUTE,即 755 权限目录的安装。</p>
+<p>安装一个目录的命令如下：</p>
+<pre><code class="language-plain_text">INSTALL(DIRECTORY dirs... DESTINATION &lt; dir &gt;
+	[FILE_PERMISSIONS permissions...]
+	[DIRECTORY_PERMISSIONS permissions...]
+	[USE_SOURCE_PERMISSIONS]
+	[CONFIGURATIONS [Debug|Release|...]]
+	[COMPONENT &lt; component &gt;]
+	[[PATTERN &lt; pattern &gt; | REGEX &lt; regex &gt;]
+	[EXCLUDE] [PERMISSIONS permissions...]] [...])
+</code></pre>
+<p>DIRECTORY 后面连接的是所在 Source 目录的相对路径,但务必注意:abc 和 abc/有很大的区别。如果目录名不以/结尾,那么这个目录将被安装为目标路径下的 abc,如果目录名以/结尾,代表将这个目录中的内容安装到目标路径,但不包括这个目录本身。我们来看一个例子:</p>
+<pre><code class="language-plain_text">INSTALL(DIRECTORY icons scripts/ DESTINATION share/myproj
+	PATTERN &quot;CVS&quot; EXCLUDE
+	PATTERN &quot;scripts/*&quot;
+	PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ
+	GROUP_EXECUTE GROUP_READ)
+</code></pre>
+<p>这条指令的执行结果是:</p>
+<p>将 icons 目录安装到 &lt; prefix &gt;/share/myproj，将 scripts/中的内容安装到&lt; prefix &gt;/share/myproj，不包含目录名为 CVS 的目录,对于 scripts/*文件指定权限为 OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ。</p>
+<p>因为crnode.txt 要安装到/&lt; prefix &gt;/share/doc/crnode,所以我们不能直接安装整个 doc 目录,这里采用的方式是安装 doc 目录中的内容,也就是使用”doc/”在工程文件中添加:</p>
+<pre><code class="language-plain_text">INSTALL(DIRECTORY doc/ DESTINATION share/doc/crnode)
+</code></pre>
+<h4><a id="%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>编译安装</h4>
+<p>编译安装结果如下：</p>
+<pre><code class="language-plain_text">[root@sim91 build]# cmake ..
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/fify/workspace/CRNode/build
+
+[root@sim91 build]# make
+Scanning dependencies of target crnode
+[  7%] Building CXX object srcobj/CMakeFiles/crnode.dir/main.cc.o
+[ 15%] Building CXX object srcobj/CMakeFiles/crnode.dir/rpc/CRMasterCaller.cpp.o
+[ 23%] Building CXX object srcobj/CMakeFiles/crnode.dir/rpc/CRNode_server.skeleton.cpp.o
+[ 30%] Building CXX object srcobj/CMakeFiles/crnode.dir/rpc/Schd_constants.cpp.o
+[ 38%] Building CXX object srcobj/CMakeFiles/crnode.dir/rpc/CRMaster.cpp.o
+[ 46%] Building CXX object srcobj/CMakeFiles/crnode.dir/rpc/CRNode.cpp.o
+[ 53%] Building CXX object srcobj/CMakeFiles/crnode.dir/rpc/Schd_types.cpp.o
+[ 61%] Building CXX object srcobj/CMakeFiles/crnode.dir/task/TaskExecutor.cpp.o
+[ 69%] Building CXX object srcobj/CMakeFiles/crnode.dir/task/TaskMoniter.cpp.o
+[ 76%] Building CXX object srcobj/CMakeFiles/crnode.dir/util/Const.cpp.o
+[ 84%] Building CXX object srcobj/CMakeFiles/crnode.dir/util/Globals.cc.o
+[ 92%] Building CXX object srcobj/CMakeFiles/crnode.dir/util/utils.cc.o
+[100%] Building CXX object srcobj/CMakeFiles/crnode.dir/util/Properties.cpp.o
+Linking CXX executable crnode
+
+[root@sim91 build]# make install
+[100%] Built target crnode
+Install the project...
+-- Install configuration: &quot;&quot;
+-- Installing: /usr/local/bin/crnode.sh
+-- Installing: /usr/local/share/doc/crnode/COPYRIGHT
+-- Installing: /usr/local/share/doc/crnode/README
+-- Installing: /usr/local/share/doc/crnode
+-- Installing: /usr/local/share/doc/crnode/crnode.txt
+-- Installing: /usr/local/bin/crnode
+</code></pre>
+<p>大功告成！更多内容请参考《CMake Practice》，再次对《CMake Practice》的作者表示感谢！</p>
+<blockquote>
+<p>这段引用自：<a href="https://www.cnblogs.com/ph829/p/4759124.html">https://www.cnblogs.com/ph829/p/4759124.html</a></p>
+</blockquote>
+<h2><a id="%E9%87%8D%E7%82%B9%E8%AF%B4%E4%B8%80%E4%B8%8Bconfigure-make-make-install%E7%9A%84%E4%BD%9C%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>重点说一下./configure,make,make install的作用</h2>
+<p>这些都是典型的使用GNU的AUTOCONF和AUTOMAKE产生的程序的安装步骤。</p>
+<p><code>./configure</code>是用来检测你的安装平台的目标特征的。比如它会检测你是不是有CC或GCC，并不是需要CC或GCC，它是个脚本。</p>
+<p>make是用来编译的，它从Makefile中读取指令，然后编译。</p>
+<p>make install是用来安装的，它也从Makefile中读取指令，安装到指定的位置。</p>
+<p>AUTOMAKE和AUTOCONF是非常有用的用来发布C程序的东西。</p>
+<h3><a id="configure" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>configure</h3>
+<p>这一步一般用来生成 Makefile，为下一步的编译做准备，你可以通过在 configure 后加上参数来对安装进行控制，比如代码:./configure –prefix=/usr 意思是将该软件安装在 /usr 下面，执行文件就会安装在 /usr/bin （而不是默认的 /usr/local/bin),资源文件就会安装在 /usr/share（而不是默认的/usr/local/share）。同时一些软件的配置文件你可以通过指定 –sys-config= 参数进行设定。有一些软件还可以加上 –with、–enable、–without、–disable 等等参数对编译加以控制，你可以通过允许 ./configure –help 察看详细的说明帮助。</p>
+<h3><a id="make" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>make</h3>
+<p>这一步就是编译，大多数的源代码包都经过这一步进行编译（当然有些perl或python编写的软件需要调用perl或python来进行编译）。如果 在 make 过程中出现 error ，你就要记下错误代码（注意不仅仅是最后一行），然后你可以向开发者提交 bugreport（一般在 INSTALL 里有提交地址），或者你的系统少了一些依赖库等，这些需要自己仔细研究错误代码。</p>
+<h3><a id="make-insatll" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>make insatll</h3>
+<p>这条命令来进行安装（当然有些软件需要先运行 make check 或 make test 来进行一些测试），这一步一般需要你有 root 权限（因为要向系统写入文件）。如果原始码编译无误，且执行结果正确，便可以把程序安装至系统预设的可执行文件存放路径。如果用bin_PROGRAMS宏的话，程序会被安装至/usr/local/bin这个目录。或者库文件拷贝到相应的目录下。</p>
+<p>该命令为一个工程生成安装规则。在某一源文件路径中，调用这条命令所指定的规则会在安装时按顺序执行。在不同路径之间的顺序未定义。</p>
+<p>该命令有诸多版本。其中的一些版本定义了文件以及目标的安装属性。这多个版本的公共属性都有所涉及，但是只有在指定它们的版本中，这些属性才是合法的（下面的DESTIONATION到OPTIONAL的选项列表是公共属性。——译注）。</p>
+<p>DESTINATION选项指定了一个文件会安装到磁盘的哪个路径下。若果给出的是全路径（以反斜杠或者驱动器名开头），它会被直接使用。如果给出的是相对路径，它会被解释为相对CMAKE_INSTALL_PREFIX的值的相对路径。</p>
+<p>PERMISSIONS选项制定了安装文件需要的权限。合法的权限有：OWNER_READ，OWNER_WRITE，OWNER_EXECUTE，GROUP_READ，GROUP_WRITE，GROUP_EXECUTE，WORLD_READ，WORLD_WRITE，WORLD_EXECUTE，SETUID和SETGID。对于在某些特定的平台上没有意义的权限，在这些平台上会忽略这些选项。</p>
+<p>CONFIGURATIONS选项指定了该安装规则将会加诸之上的一系列的构建配置（Debug，Release，等等）。</p>
+<p>COMPONENT选项指定了该安装规则相关的一个安装部件的名字，比如“runtime”或“development”。对于那些指定安装部件的安装过程来说，在安装时只有与给定的部件名相关的安装规则会被执行。对于完整安装，所有部件都会被安装。</p>
+<p>RENAME选项为一个可能不同于原始文件的已经安装的文件指定另一个名字。重命名只有在该命令正在安装一个单一文件时才被允许（猜测是为了防止文件名冲突时覆盖掉旧文件。——译注）。</p>
+<p>OPTIONAL选项表示要安装的文件不存在不会导致错误。</p>
+<h4><a id="targets%E7%89%88%E6%9C%AC%E7%9A%84install%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>TARGETS版本的install命令</h4>
+<pre><code class="language-plain_text">install(TARGETS targets... [EXPORT &lt;export-name&gt;]
+      [[ARCHIVE|LIBRARY|RUNTIME|FRAMEWORK|BUNDLE|
+        PRIVATE_HEADER|PUBLIC_HEADER|RESOURCE]
+       [DESTINATION &lt;dir&gt;]
+       [PERMISSIONS permissions...]
+       [CONFIGURATIONS [Debug|Release|...]]
+       [COMPONENT &lt;component&gt;]
+       [OPTIONAL] [NAMELINK_ONLY|NAMELINK_SKIP]
+      ] [...])
+</code></pre>
+<p>TARGETS格式的install命令规定了安装工程中的目标（targets）的规则。有5中可以被安装的目标文件：ARCHIVE，LIBRARY，RUNTIME，FRAMEWORK，和BUNDLE。除了被标记为MACOSX_BUNDLE属性的可执行文件被当做OS X上的BUNDLE目标外，其他的可执行文件都被当做RUNTIME目标。静态链接的库文件总是被当做ARCHIVE目标。模块库总是被当做LIBRARY目标。对于动态库不是DLL格式的平台来说，动态库会被当做LIBRARY目标来对待，被标记为FRAMEWORK的动态库是例外，它们被当做OS X上的FRAMEWORK目标。对于DLL平台而言，动态库的DLL部分被当做一个RUNTIME目标而对应的导出库被当做是一个ARCHIVE目标。所有基于Windows的系统，包括Cygwin，都是DLL平台。ARCHIVE，LIBRARY，RUNTIME和FRAMEWORK参数改变了后续属性会加诸之上的目标的类型。如果只给出了一种类型，那么只有那种类型的目标会被安装（这样通常只会安装一个DLL或者一个导出库。）</p>
+<p>PRIVATE_HEADER，PUBLIC_HEADER，和RESOURCE选项的功能是，在非苹果平台上，将后续的属性应用在待安装的一个FRAMEWORK共享库目标的相关文件上。这些选项定义的规则在苹果系统上会被忽略掉，因为相关的文件将会被安装到framework文件夹内的合适位置。参见PRIVATE_HEADER，PUBLIC_HEADER和RESOURCE目标属性中更为详细的解释。</p>
+<pre><code class="language-plain_text">可以指定NAMELINK_ONLY或者NAMELINK_SKIP选项作为LIBRARY选项。在一些平台上，版本化的共享库有一个符号链接，比如lib&lt;name&gt;.so -&gt; lib&lt;name&gt;.so.1，其中“lib&lt;name&gt;.so.1”是so库文件名（soname）而“lib&lt;name&gt;.so”是一个符号链接，当指定“-l&lt;name&gt;”选项时，链接器将会查找这个符号链接。如果一个库目标已经被安装，NAMELINK_ONLY选项表示仅仅安装符号链接；而NAME_SKIP选项则表示仅仅安装库文件而不是符号链接。当两种选项都没有给出时，动态库的两个部分都会被安装。在那些版本化的共享库没有符号链接或者库没有被版本化的平台，选项NAMELINK_SKIP安装这个库，而NAMELINK_ONLY选项什么都不会安装。参见VERSION和SOVERSION目标属性，获取关于创建版本化共享库的更多细节。
+</code></pre>
+<p>在该命令的TARGETS版本的一次调用中，可以一次性指定一个或多个属性组。一个目标也可以被多次安装到不同的位置。假设有三个目标myExe，mySharedLib和myStaticLib，下面的代码</p>
+<pre><code class="language-plain_text">install(TARGETS myExe mySharedLib myStaticLib
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib/static)
+install(TARGETS mySharedLib DESTINATION /some/full/path)
+</code></pre>
+<p>将会把myExe安装到<prefix>/bin目录下，把myStaticLib安装到<prefix>/lib/static目录下。在非-DLL平台上，mySharedLib将会被安装到<prefix>/lib和/some/full/path下。在DLL平台上，mySharedLib DLL将会被安装到<prefix>/bin和/some/full/path路径下，它的导出库会被安装到<prefix>/lib/static和/some/full/path路径下。</p>
+<p>EXPORT选项将已经安装的目标文件和一个名为<export-name>的导出文件关联起来。它必须出现在所有RUNTIME，LIBRARY或者ARCHIVE选项之前。为了实际安装导出文件本身（export file），调用install(EXPORT)。参见下述install命令EXPORT版本的文档获取更多的细节。</p>
+<p>将EXCLUDE_FROM_ALL设置为true时，安装一个目标会造成未定义的行为。</p>
+<h4><a id="files%E7%89%88%E6%9C%AC%E7%9A%84install%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>FILES版本的install命令</h4>
+<pre><code class="language-plain_text">install(FILES files... DESTINATION &lt;dir&gt;
+      [PERMISSIONS permissions...]
+      [CONFIGURATIONS [Debug|Release|...]]
+      [COMPONENT &lt;component&gt;]
+      [RENAME &lt;name&gt;] [OPTIONAL])
+</code></pre>
+<p>FILES版本的install命令指定了为一个工程安装文件的规则。在命令中，以相对路径方式给出的文件名是相对于当前源代码路径而言的。以这个版本安装的文件，如果没有指定PERMISSIONS选项，默认会具有OWNER_WRITE，OWNER_READ，GROUP_READ，和WORLD_READ的权限。</p>
+<h4><a id="programs%E7%89%88%E6%9C%AC%E7%9A%84install%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>PROGRAMS版本的install命令</h4>
+<pre><code class="language-plain_text">install(PROGRAMS files... DESTINATION &lt;dir&gt;
+      [PERMISSIONS permissions...]
+      [CONFIGURATIONS [Debug|Release|...]]
+      [COMPONENT &lt;component&gt;]
+      [RENAME &lt;name&gt;] [OPTIONAL])
+</code></pre>
+<p>PROGRAMS版本与FILES版本一样，只在默认权限上有所不同：它还包括了OWNER_EXECUTE，GROUP_EXECUTE和WORLD_EXECUTE选项。INSTALL的这个版本用来安装不是目标的程序，比如shell脚本。使用TARGETS格式安装该工程内部构建的目标。</p>
+<h4><a id="directory%E7%89%88%E6%9C%AC%E7%9A%84install%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>DIRECTORY版本的install命令</h4>
+<pre><code class="language-plain_text">install(DIRECTORY dirs... DESTINATION &lt;dir&gt;
+      [FILE_PERMISSIONS permissions...]
+      [DIRECTORY_PERMISSIONS permissions...]
+      [USE_SOURCE_PERMISSIONS] [OPTIONAL]
+      [CONFIGURATIONS [Debug|Release|...]]
+      [COMPONENT &lt;component&gt;] [FILES_MATCHING]
+      [[PATTERN &lt;pattern&gt; | REGEX &lt;regex&gt;]
+       [EXCLUDE] [PERMISSIONS permissions...]] [...])
+</code></pre>
+<p>INSTALL的DIRECTORY版本将一个或者多个路径下的内容安装到指定的目标地址下。目录结构会原封不动地（verbatim）拷贝到目标地址。每个路径名的最后一部分会追加到目标路径下，但是结尾反斜杠（trailing slash）可以用来避免这一点，因为这样最后一部分就是空的。给定的相对路径名被解释成相对于当前源路径的路径。如果没有指定输入目录名字，目标目录会被创建，但是不会安装任何东西。FILE_PERMISSIONS和DIRECTORY_PERMISSIONS选项指定了赋予目标路径和目标文件的权限。如果指定了USE_SOURCE_PERMISSIONS选项，但没有指定FILE_PERMISSIONS选项，文件权限将沿袭源目录结构的权限，而且这个路径会被赋予PAROGRAMS版本中指定的默认权限。</p>
+<p>通过使用PATTERN或REGEX选项可以对路径安装做出细粒度的控制。这些用于匹配的选项指定了一个查询模式或正则表达式来匹配输入路径内的路径或文件。它们可以用来将特定的选项（见下文）加诸于遇到的文件和路径的一个子集上。每个输入文件或路径的完整路径（反斜杠/开头的路径）将用来匹配该表达式。PATTERN仅仅用来匹配完全文件名：匹配该模式的全路径的那部分必须出现在文件名的结尾，并且必须以一个反斜杠开始。</p>
+<p>正则表达式会用来匹配一个完全路径的任何部分，但是它也可以使用'/'和'$'模仿PATTERN的行为。默认情况下，所有文件和路径不管是否匹配都会被安装。可以在第一个匹配选项之前指定FILE_MATCHING选项，这样就能禁止安装那些不与任何表达式匹配的文件。比如，代码</p>
+<pre><code class="language-plain_text">install(DIRECTORY src/ DESTINATION include/myproj
+      FILES_MATCHING PATTERN &quot;*.h&quot;)
+</code></pre>
+<p>将会精确匹配并安装从源码树上得到的头文件。</p>
+<p>有些选项后面可以跟在PATTERN或者REGEX表达式的后面，这样这些选项只能加诸于匹配PATTERN/REGEX的文件或路径上。EXCLUDE选项将会指示安装过程跳过那些匹配的文件或者路径。PERMISSIONS选项可以覆盖那些匹配PATTERN/REGEX的文件的权限设定。例如，代码</p>
+<pre><code class="language-plain_text">install(DIRECTORY icons scripts/ DESTINATION share/myproj
+      PATTERN &quot;CVS&quot; EXCLUDE
+      PATTERN &quot;scripts/*&quot;
+      PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ
+                  GROUP_EXECUTE GROUP_READ)
+</code></pre>
+<p>会将icons路径安装到share/myproject/icons下，同时把scripts目录安装到share/myproj路径下。icons将具备默认的文件权限，scripts将会被给与指定的权限，但是所有CVS路径排除在外。</p>
+<h4><a id="script%E5%92%8Ccode%E7%89%88%E6%9C%AC%E7%9A%84install%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>SCRIPT和CODE版本的install命令</h4>
+<pre><code class="language-plain_text">install([[SCRIPT &lt;file&gt;] [CODE &lt;code&gt;]] [...])
+</code></pre>
+<p>SCRIPT格式将会在安装期调用给定的脚本文件。如果脚本文件名是一个相对路径，它会被解释为相对于当前的源路径。CODE格式将会在安装期调用给定的CMake代码。code被指定为一个双引号括起来的单独的参数。例如，代码</p>
+<pre><code class="language-plain_text">  install(CODE &quot;MESSAGE(\&quot;Sample install message.\&quot;)&quot;)
+</code></pre>
+<p>会在安装时打印一条消息。</p>
+<h4><a id="export%E7%89%88%E6%9C%AC%E7%9A%84install%E5%91%BD%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>EXPORT版本的install命令</h4>
+<pre><code class="language-plain_text">install(EXPORT &lt;export-name&gt; DESTINATION &lt;dir&gt;
+      [NAMESPACE &lt;namespace&gt;] [FILE &lt;name&gt;.cmake]
+      [PERMISSIONS permissions...]
+      [CONFIGURATIONS [Debug|Release|...]]
+      [COMPONENT &lt;component&gt;])
+</code></pre>
+<p>EXPORT格式的install命令生成并安装一个包含将安装过程的安装树导入到另一个工程中的CMake文件。Target格式的安装过程与上文提及的使用EXPORT选项的install(TARGET ...)格式的命令中的EXPORT <export-name>选项是相关的。NAMESPACE选项会在它们被写入到导入文件时加到目标名字之前。缺省时，生成的文件就是<export-name>.cmake；但是FILE选项可以用来指定不同于次的文件名。FILE选项后面的参数必须是一“.cmake”为扩展名的文件。如果指定了CONFIGURATIONS选项，那么只有那些具名的配置中的一个被安装时，这个文件才会被安装。而且，生成的导入文件只能涉及到匹配的目标配置版本。如果指定了一个COMPONENT选项，并且<component>与那个<export-name>相关的目标指定的部件不匹配，那么行为是未定义的。如果一个库目标被包含在export之中，但是与之关联的库却没有背包含，那么结果是未指定的。</p>
+<p>EXPORT格式可以协助外部工程使用当前工程构建出来并安装的目标。例如，代码</p>
+<pre><code class="language-plain_text">  install(TARGETS myexe EXPORT myproj DESTINATION bin)
+  install(EXPORT myproj NAMESPACE mp_ DESTINATION lib/myproj)
+</code></pre>
+<p>将会把可执行文件myexe安装到<prefix>/bin下，并且将导入它的代码写到文件&quot;<prefix>/lib/myproj/myproj.cmake&quot;中。一个外部工程可以用include命令加载这个文件，并且可以在安装树上使用导入的目标名mp_myexe（前缀_目标名——译注）引用myexe可执行文件，如同这个目标是它自身的构建树的内置目标一样。</p>
+<p>注意：这个命令会取代INSTALL_TARGETS命令以及PRE_INSTALL_SCRIPT和POST_INSTALL_SCRIPT两个目标属性。它也可以取代FILES格式的INSTALL_FILES命令和INSTALL_PROGRAMS命令。由INSTALL命令生成的安装规则相对于那些由INSTALL_TARGETS，INSTALL_FILES和INSTALL_PROGRAMS命令生成的安装规则处理顺序是未定义的。</p>
+<h3><a id="make-clean" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>make clean</h3>
+<p>清除编译产生的可执行文件及目标文件(object file，*.o)。</p>
+<h2><a id="%E6%9F%A5%E8%A1%A8%E6%89%8B%E5%86%8C" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>查表手册</h2>
+<h3><a id="cmake%E5%B8%B8%E7%94%A8%E5%8F%98%E9%87%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmake 常用变量</h3>
+<pre><code class="language-plain_text">CMAKE_BINARY_DIR
+PROJECT_BINARY_DIR
+&lt;projectname&gt;_BINARY_DIR
+</code></pre>
+<p>这三个变量指代的内容是一致的，如果是 in source 编译，指得就是工程顶层目录，如果是 out-of-source 编译，指的是工程编译发生的目录。</p>
+<p>PROJECT_BINARY_DIR 跟其他指令稍有区别，现在，你可以理解为他们是一致的。</p>
+<pre><code class="language-plain_text">CMAKE_SOURCE_DIR
+PROJECT_SOURCE_DIR
+&lt;projectname&gt;_SOURCE_DIR
+</code></pre>
+<p>这三个变量指代的内容是一致的，不论采用何种编译方式，都是工程顶层目录。</p>
+<p>也就是在 in source 编译时，他跟 CMAKE_BINARY_DIR 等变量一致。</p>
+<p>PROJECT_SOURCE_DIR 跟其他指令稍有区别，现在，你可以理解为他们是一致的。</p>
+<pre><code class="language-plain_text">CMAKE_CURRENT_SOURCE_DIR
+</code></pre>
+<p>指的是当前处理的 CMakeLists.txt 所在的路径，比如上面我们提到的 src 子目录。</p>
+<pre><code class="language-plain_text">CMAKE_CURRRENT_BINARY_DIR
+</code></pre>
+<p>如果是 in-source 编译，它跟 CMAKE_CURRENT_SOURCE_DIR 一致，如果是 out-of-source 编译，他指的是 target 编译目录。</p>
+<p>使用ADD_SUBDIRECTORY(src bin)可以更改这个变量的值。</p>
+<p>使用 SET(EXECUTABLE_OUTPUT_PATH &lt;新路径&gt;)并不会对这个变量造成影响,它仅仅修改了最终目标文件存放的路径。</p>
+<pre><code class="language-plain_text">CMAKE_CURRENT_LIST_FILE
+</code></pre>
+<p>输出调用这个变量的 CMakeLists.txt 的完整路径。</p>
+<pre><code class="language-plain_text">CMAKE_CURRENT_LIST_LINE
+</code></pre>
+<p>输出这个变量所在的行。</p>
+<pre><code class="language-plain_text">CMAKE_MODULE_PATH
+</code></pre>
+<p>这个变量用来定义自己的 cmake 模块所在的路径。</p>
+<p>如果你的工程比较复杂,有可能会自己编写一些 cmake 模块，这些 cmake 模块是随你的工程发布的,为了让 cmake 在处理CMakeLists.txt 时找到这些模块，你需要通过 SET 指令，将自己的 cmake 模块路径设置一下。</p>
+<p>比如<code>SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)</code>，这时候你就可以通过 INCLUDE 指令来调用自己的模块了。</p>
+<pre><code class="language-plain_text">EXECUTABLE_OUTPUT_PATH
+LIBRARY_OUTPUT_PATH
+</code></pre>
+<p>分别用来重新定义最终结果的存放目录。</p>
+<pre><code class="language-plain_text">PROJECT_NAME
+</code></pre>
+<p>返回通过 PROJECT 指令定义的项目名称。</p>
+<h3><a id="cmake%E8%B0%83%E7%94%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E5%BC%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmake 调用环境变量的方式</h3>
+<p>使用<code>$ENV{NAME}</code>指令就可以调用系统的环境变量了。</p>
+<p>比如<code>MESSAGE(STATUS “HOME dir: $ENV{HOME}”)</code>。</p>
+<p>设置环境变量的方式是:</p>
+<pre><code class="language-plain_text">SET(ENV{变量名} 值)
+</code></pre>
+<pre><code class="language-plain_text">CMAKE_INCLUDE_CURRENT_DIR
+</code></pre>
+<p>自动添加 CMAKE_CURRENT_BINARY_DIR 和 CMAKE_CURRENT_SOURCE_DIR 到当前处理的 CMakeLists.txt。</p>
+<p>相当于在每个 CMakeLists.txt 加入了如下两行：</p>
+<pre><code class="language-plain_text">INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR}
+${CMAKE_CURRENT_SOURCE_DIR})
+</code></pre>
+<pre><code class="language-plain_text">CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE
+</code></pre>
+<p>将工程提供的头文件目录始终至于系统头文件目录的前面，当你定义的头文件确实跟系统发生冲突时可以提供一些帮助。</p>
+<h3><a id="%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>系统信息</h3>
+<p>1, <code>CMAKE_MAJOR_VERSION</code>，CMAKE 主版本号，比如 2.4.6 中的 2<br />
+2, <code>CMAKE_MINOR_VERSION</code>，CMAKE 次版本号，比如 2.4.6 中的 4<br />
+3, <code>CMAKE_PATCH_VERSION</code>，CMAKE 补丁等级，比如 2.4.6 中的 6<br />
+4, <code>CMAKE_SYSTEM,系统名称</code>，比如 Linux-2.6.22<br />
+5, <code>CMAKE_SYSTEM_NAME</code>，不包含版本的系统名,比如 Linux<br />
+6, <code>CMAKE_SYSTEM_VERSION</code>，系统版本,比如 2.6.22<br />
+7, <code>CMAKE_SYSTEM_PROCESSOR</code>，处理器名称,比如 i686.<br />
+8, <code>UNIX</code>，在所有的类 UNIX 平台为 TRUE，包括 OS X 和 cygwin<br />
+9, <code>WIN32</code>，在所有的 win32 平台为 TRUE，包括 cygwin</p>
+<h3><a id="%E4%B8%BB%E8%A6%81%E7%9A%84%E5%BC%80%E5%85%B3%E9%80%89%E9%A1%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>主要的开关选项</h3>
+<p>1, <code>CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS</code>，用来控制 <code>IF ELSE</code> 语句的书写方式，在下一节语法部分会讲到。<br />
+2, <code>BUILD_SHARED_LIBS</code>，这个开关用来控制默认的库编译方式，如果不进行设置，使用 <code>ADD_LIBRARY</code> 并没有指定库类型的情况下，默认编译生成的库都是静态库。如果 <code>SET(BUILD_SHARED_LIBS ON)</code>后,默认生成的为动态库。<br />
+3,<code>CMAKE_C_FLAGS</code>，设置 C 编译选项,也可以通过指令 <code>ADD_DEFINITIONS()</code>添加。<br />
+4,<code>CMAKE_CXX_FLAGS</code>，设置 C++编译选项,也可以通过指令 <code>ADD_DEFINITIONS()</code>添加。</p>
+<h3><a id="cmake%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>cmake 常用指令</h3>
+<h4><a id="%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>基本指令</h4>
+<h5><a id="add-definitions" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ADD_DEFINITIONS</h5>
+<p>向 C/C++编译器添加-D 定义，参数之间用空格分割。比如:</p>
+<pre><code class="language-plain_text">ADD_DEFINITIONS(-DENABLE_DEBUG -DABC)
+</code></pre>
+<p>如果你的代码中定义了<code>#ifdef ENABLE_DEBUG #endif</code>，这个代码块就会生效。</p>
+<p>如果要添加其他的编译器开关,可以通过 <code>CMAKE_C_FLAGS</code> 变量和 <code>CMAKE_CXX_FLAGS</code> 变量设置。</p>
+<h5><a id="add-dependencies" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ADD_DEPENDENCIES</h5>
+<p>定义 target 依赖的其他 target，确保在编译本 target 之前,其他的 target 已经被构建。</p>
+<pre><code class="language-plain_text">ADD_DEPENDENCIES(target-name depend-target1
+                 depend-target2 ...)
+</code></pre>
+<h5><a id="add-test%E4%B8%8E-enable-testing%E6%8C%87%E4%BB%A4%E3%80%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ADD_TEST 与 ENABLE_TESTING 指令。</h5>
+<p>ENABLE_TESTING 指令用来控制 Makefile 是否构建 test 目标,涉及工程所有目录。语法很简单，没有任何参数，<code>ENABLE_TESTING()</code>，一般情况这个指令放在工程的主CMakeLists.txt 中。</p>
+<p>ADD_TEST 指令的语法是:</p>
+<pre><code class="language-plain_text">ADD_TEST(testname Exename arg1 arg2 ...)
+</code></pre>
+<p>testname 是自定义的 test 名称，Exename 可以是构建的目标文件也可以是外部脚本等等。</p>
+<p>后面连接传递给可执行文件的参数，如果没有在同一个 CMakeLists.txt 中打开<code>ENABLE_TESTING()</code>指令,任何 ADD_TEST 都是无效的。</p>
+<p>比如我们前面的 Helloworld 例子,可以在工程主 CMakeLists.txt 中添加</p>
+<pre><code class="language-plain_text">ADD_TEST(mytest ${PROJECT_BINARY_DIR}/bin/main)
+ENABLE_TESTING()
+</code></pre>
+<p>生成 Makefile 后,就可以运行 make test 来执行测试了。</p>
+<h5><a id="aux-source-directory" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>AUX_SOURCE_DIRECTORY</h5>
+<p>基本语法是:</p>
+<pre><code class="language-plain_text">AUX_SOURCE_DIRECTORY(dir VARIABLE)
+</code></pre>
+<p>作用是发现一个目录下所有的源代码文件并将列表存储在一个变量中，这个指令临时被用来自动构建源文件列表。因为目前 cmake 还不能自动发现新添加的源文件。</p>
+<p>比如</p>
+<pre><code class="language-plain_text">AUX_SOURCE_DIRECTORY(. SRC_LIST)
+ADD_EXECUTABLE(main ${SRC_LIST})
+</code></pre>
+<p>你也可以通过后面提到的 FOREACH 指令来处理这个 LIST。</p>
+<h5><a id="cmake-minimum-required" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>CMAKE_MINIMUM_REQUIRED</h5>
+<p>其语法为</p>
+<pre><code class="language-plain_text">CMAKE_MINIMUM_REQUIRED(VERSION versionNumber [FATAL_ERROR])
+</code></pre>
+<p>比如</p>
+<pre><code class="language-plain_text">CMAKE_MINIMUM_REQUIRED(VERSION 2.5 FATAL_ERROR)
+</code></pre>
+<p>如果 cmake 版本小与 2.5,则出现严重错误,整个过程中止。</p>
+<h5><a id="exec-program" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>EXEC_PROGRAM</h5>
+<p>在 CMakeLists.txt 处理过程中执行命令，并不会在生成的 Makefile 中执行。</p>
+<p>具体语法为:</p>
+<pre><code class="language-plain_text">EXEC_PROGRAM(Executable [directory in which to run]
+                [ARGS &lt;arguments to executable&gt;]
+                [OUTPUT_VARIABLE &lt;var&gt;]
+                [RETURN_VALUE &lt;var&gt;])
+</code></pre>
+<p>用于在指定的目录运行某个程序，通过 ARGS 添加参数,如果要获取输出和返回值，可通过OUTPUT_VARIABLE 和 RETURN_VALUE 分别定义两个变量。</p>
+<p>这个指令可以帮助你在 CMakeLists.txt 处理过程中支持任何命令，比如根据系统情况去修改代码文件等等。</p>
+<p>举个简单的例子,我们要在 src 目录执行 ls 命令,并把结果和返回值存下来。</p>
+<p>可以直接在 src/CMakeLists.txt 中添加:</p>
+<pre><code class="language-plain_text">EXEC_PROGRAM(ls ARGS &quot;*.c&quot; OUTPUT_VARIABLE LS_OUTPUT RETURN_VALUE
+LS_RVALUE)
+IF(not LS_RVALUE)
+MESSAGE(STATUS &quot;ls result: &quot; ${LS_OUTPUT})
+ENDIF(not LS_RVALUE)
+</code></pre>
+<p>在 cmake 生成 Makefile 的过程中，就会执行 ls 命令，如果返回 0，则说明成功执行，那么就输出 ls *.c 的结果。关于 IF 语句，后面的控制指令会提到。</p>
+<h5><a id="file%E6%8C%87%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>FILE 指令</h5>
+<p>文件操作指令,基本语法为:</p>
+<pre><code class="language-plain_text">FILE(WRITE filename &quot;message to write&quot;... )
+FILE(APPEND filename &quot;message to write&quot;... )
+FILE(READ filename variable)
+FILE(GLOB variable [RELATIVE path] [globbing expression_r_rs]...)
+FILE(GLOB_RECURSE variable [RELATIVE path] [globbing expression_r_rs]...)
+FILE(REMOVE [directory]...)
+FILE(REMOVE_RECURSE [directory]...)
+FILE(MAKE_DIRECTORY [directory]...)
+FILE(RELATIVE_PATH variable directory file)
+FILE(TO_CMAKE_PATH path result)
+FILE(TO_NATIVE_PATH path result)
+</code></pre>
+<h5><a id="include%E6%8C%87%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>INCLUDE 指令</h5>
+<p>用来载入 CMakeLists.txt 文件,也用于载入预定义的 cmake 模块。</p>
+<pre><code class="language-plain_text">INCLUDE(file1 [OPTIONAL])
+INCLUDE(module [OPTIONAL])
+</code></pre>
+<p>OPTIONAL 参数的作用是文件不存在也不会产生错误。</p>
+<p>你可以指定载入一个文件,如果定义的是一个模块，那么将在 CMAKE_MODULE_PATH 中搜索这个模块并载入。</p>
+<p>载入的内容将在处理到 INCLUDE 语句是直接执行。</p>
+<h4><a id="find%E6%8C%87%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>FIND_指令</h4>
+<p>FIND_系列指令主要包含一下指令:</p>
+<pre><code class="language-plain_text"># VAR 变量代表找到的文件全路径,包含文件名
+FIND_FILE(&lt;VAR&gt; name1 path1 path2 ...)
+
+# VAR 变量表示找到的库全路径,包含库文件名
+FIND_LIBRARY(&lt;VAR&gt; name1 path1 path2 ...)
+
+# VAR 变量代表包含这个文件的路径。
+FIND_PATH(&lt;VAR&gt; name1 path1 path2 ...)
+
+# VAR 变量代表包含这个程序的全路径。
+FIND_PROGRAM(&lt;VAR&gt; name1 path1 path2 ...)
+
+# 用来调用预定义在 CMAKE_MODULE_PATH 下的 Find&lt;name&gt;.cmake 模块,你也可以自己定义 Find&lt;name&gt;模块,通过 SET(CMAKE_MODULE_PATH dir)将其放入工程的某个目录中供工程使用,我们在后面的章节会详细介绍 FIND_PACKAGE 的使用方法和 Find 模块的编写。
+FIND_PACKAGE(&lt;name&gt; [major.minor] [QUIET] [NO_MODULE]
+                [[REQUIRED|COMPONENTS] [componets...]])
+
+</code></pre>
+<p>FIND_LIBRARY 示例：</p>
+<pre><code class="language-plain_text">FIND_LIBRARY(libX X11 /usr/lib)
+IF(NOT libX)
+MESSAGE(FATAL_ERROR “libX not found”)
+ENDIF(NOT libX)
+</code></pre>
+<h5><a id="link-directories" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>link_directories</h5>
+<p>指定连接器查找库的路径。</p>
+<pre><code class="language-plain_text">link_directories(directory1 directory2 ...)
+</code></pre>
+<p>指定连接器搜索库文件时的路径。该命令仅仅能用在那些在它被调用后才生成的目标上。由于历史上的原因，为该命令指定的相对路径将会不加改变地传递给连接器（不像许多其他CMake命令那样解释为相对于当前源路径的相对路径。）</p>
+<h4><a id="%E6%8E%A7%E5%88%B6%E6%8C%87%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>控制指令:</h4>
+<h5><a id="if%E6%8C%87%E4%BB%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>IF 指令</h5>
+<p>基本语法为:</p>
+<pre><code class="language-plain_text">IF(expression_r_r)
+# THEN section.
+    COMMAND1(ARGS ...)
+    COMMAND2(ARGS ...)
+ ...
+ELSE(expression_r_r)
+# ELSE section.
+    COMMAND1(ARGS ...)
+    COMMAND2(ARGS ...)
+ ...
+ENDIF(expression_r_r)
+</code></pre>
+<p>另外一个指令是 ELSEIF，总体把握一个原则，凡是出现 IF 的地方一定要有对应的ENDIF，出现 ELSEIF 的地方，ENDIF 是可选的。</p>
+<p>表达式的使用方法如下:</p>
+<pre><code class="language-plain_text">IF(var),如果变量不是:空,0,N, NO, OFF, FALSE, NOTFOUND 或&lt;var&gt;_NOTFOUND 时,表达式为真。
+IF(NOT var ),与上述条件相反。
+IF(var1 AND var2),当两个变量都为真是为真。
+IF(var1 OR var2),当两个变量其中一个为真时为真。
+IF(COMMAND cmd),当给定的 cmd 确实是命令并可以调用是为真。
+IF(EXISTS dir)或者 IF(EXISTS file),当目录名或者文件名存在时为真。
+IF(file1 IS_NEWER_THAN file2),当 file1 比 file2 新,或者 file1/file2 其中有一个不存在时为真,文件名请使用完整路径。
+IF(IS_DIRECTORY dirname),当 dirname 是目录时,为真。
+IF(variable MATCHES regex)
+IF(string MATCHES regex)
+</code></pre>
+<p>当给定的变量或者字符串能够匹配正则表达式 regex 时为真。比如：</p>
+<pre><code class="language-plain_text"># 数字比较表达式
+IF(&quot;hello&quot; MATCHES &quot;ell&quot;)
+MESSAGE(&quot;true&quot;)
+ENDIF(&quot;hello&quot; MATCHES &quot;ell&quot;)
+IF(variable LESS number)
+IF(string LESS number)
+IF(variable GREATER number)
+IF(string GREATER number)
+IF(variable EQUAL number)
+IF(string EQUAL number)
+
+# 按照字母序的排列进行比较.
+IF(variable STRLESS string)
+IF(string STRLESS string)
+IF(variable STRGREATER string)
+IF(string STRGREATER string)
+IF(variable STREQUAL string)
+IF(string STREQUAL string)
+
+</code></pre>
+<p><code>IF(DEFINED variable)</code>，如果变量被定义,为真。</p>
+<p>一个小例子,用来判断平台差异:</p>
+<pre><code class="language-plain_text">IF(WIN32)
+    MESSAGE(STATUS “This is windows.”)
+    #作一些 Windows 相关的操作
+ELSE(WIN32)
+    MESSAGE(STATUS “This is not windows”)
+    #作一些非 Windows 相关的操作
+ENDIF(WIN32)
+</code></pre>
+<p>上述代码用来控制在不同的平台进行不同的控制，但是，阅读起来却并不是那么舒服。</p>
+<p>ELSE(WIN32)之类的语句很容易引起歧义。</p>
+<p>这就用到了我们在“常用变量”一节提到的 <code>CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS</code> 开关。<br />
+可以 <code>SET(CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS ON)</code></p>
+<p>这时候就可以写成：</p>
+<pre><code class="language-plain_text">IF(WIN32)
+ELSE()
+ENDIF()
+</code></pre>
+<p>如果配合 ELSEIF 使用，可能的写法是这样：</p>
+<pre><code class="language-plain_text">IF(WIN32)
+# do something related to WIN32
+ELSEIF(UNIX)
+# do something related to UNIX
+ELSEIF(APPLE)
+# do something related to APPLE
+ENDIF(WIN32)
+</code></pre>
+<h5><a id="while" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>WHILE</h5>
+<p>WHILE 指令的语法是:</p>
+<pre><code class="language-plain_text">WHILE(condition)
+    COMMAND1(ARGS ...)
+    COMMAND2(ARGS ...)
+    ...
+ENDWHILE(condition)
+</code></pre>
+<p>其真假判断条件可以参考 IF 指令。</p>
+<h5><a id="foreach" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>FOREACH</h5>
+<p>FOREACH 指令的使用方法有三种形式：</p>
+<p>1 列表</p>
+<pre><code class="language-plain_text">FOREACH(loop_var arg1 arg2 ...)
+    COMMAND1(ARGS ...)
+    COMMAND2(ARGS ...)
+    ...
+ENDFOREACH(loop_var)
+</code></pre>
+<p>像我们前面使用的 AUX_SOURCE_DIRECTORY 的例子：</p>
+<pre><code class="language-plain_text">AUX_SOURCE_DIRECTORY(. SRC_LIST)
+FOREACH(F ${SRC_LIST})
+    MESSAGE(${F})
+ENDFOREACH(F)
+</code></pre>
+<p>2 范围</p>
+<pre><code class="language-plain_text">FOREACH(loop_var RANGE total)
+ENDFOREACH(loop_var)
+</code></pre>
+<p>从 0 到 total 以1为步进。</p>
+<p>举例如下:</p>
+<pre><code class="language-plain_text">FOREACH(VAR RANGE 10)
+MESSAGE(${VAR})
+ENDFOREACH(VAR)
+</code></pre>
+<p>最终得到的输出是:</p>
+<pre><code class="language-plain_text">0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</code></pre>
+<p>3 范围和步进</p>
+<pre><code class="language-plain_text">FOREACH(loop_var RANGE start stop [step])
+ENDFOREACH(loop_var)
+</code></pre>
+<p>从 start 开始到 stop 结束,以 step 为步进。</p>
+<p>举例如下：</p>
+<pre><code class="language-plain_text">FOREACH(A RANGE 5 15 3)
+MESSAGE(${A})
+ENDFOREACH(A)
+</code></pre>
+<p>最终得到的结果是:</p>
+<pre><code class="language-plain_text">5
+8
+11
+14
+</code></pre>
+<p>这个指令需要注意的是,知道遇到 ENDFOREACH 指令,整个语句块才会得到真正的执行。</p>
+<h2><a id="ios%E4%BD%BF%E7%94%A8cmake%E7%BC%96%E8%AF%91framework" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>ios使用cmake编译framework</h2>
+<p>编译方式采用cmake，toochain中为iOS工具链iOS.cmake，目录结构如下：</p>
+<pre><code class="language-plain_text">├─ toochain
+│  ├─ iOS.cmake
+├─ CMakeLists.txt
+├─ Info.plist
+├─ ShellScript
+</code></pre>
+<h3><a id="cmake%E7%BC%96%E8%AF%91%E8%84%9A%E6%9C%AC%E5%A6%82%E4%B8%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>CMake编译脚本如下：</h3>
+<pre><code class="language-plain_text">#****************************This is Project Info****************************
+PROJECT(SKYObject)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+#****************************This is Compile Flag****************************
+ if(DEBUG)
+ message( STATUS &quot;==============================debug==============================&quot; )
+ ADD_DEFINITIONS(-g)
+ ADD_DEFINITIONS(-D AVX_DEBUG_LEVEL=AVX_DEBUG_DEBUG)
+else(DEBUG)
+ message( STATUS &quot;==============================release==============================&quot; )
+ ADD_DEFINITIONS(-O2)
+ ADD_DEFINITIONS(-D AVX_DEBUG_LEVEL=AVX_DEBUG_INFO)
+ endif()
+
+ADD_DEFINITIONS(&quot;-Wall&quot;)
+ADD_DEFINITIONS(&quot;-fPIC&quot;)
+ADD_DEFINITIONS(&quot;-Wl,-lm&quot;)
+ADD_DEFINITIONS(&quot;-std=c++11&quot;)
+SET(IPHONE_VERSION_MIN &quot;10.0&quot; CACHE STRING &quot;IOS minimum os version.&quot;)
+SET(CMAKE_CXX_FLAGS &quot;-Wall -fPIC -Wl,-lm -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS&quot;)
+
+SET(CMAKE_CXX_FLAGS &quot;${CMAKE_CXX_FLAGS} -fobjc-abi-version=2 -fobjc-arc -std=gnu++11 -stdlib=libc++ -isysroot ${CMAKE_OSX_SYSROOT} -framework AVX -miphoneos-version-min=${IPHONE_VERSION_MIN}&quot;)
+SET(CMAKE_C_FLAGS &quot;${CMAKE_C_FLAGS} -fobjc-abi-version=2 -fobjc-arc -isysroot ${CMAKE_OSX_SYSROOT} -framework AVX -miphoneos-version-min=${IPHONE_VERSION_MIN}&quot;)
+
+#****************************This is Include File/Directories****************************
+#INCLUDE_DIRECTORIES( ${CMAKE_CURRENT_SOURCE_DIR}/)
+INCLUDE_DIRECTORIES(../../../)
+INCLUDE_DIRECTORIES(../../../Library/Include)
+INCLUDE_DIRECTORIES(../../../Library/IOS/include)
+INCLUDE_DIRECTORIES(../../../Library/IOS/include/libevent)
+INCLUDE_DIRECTORIES(../../../Include)
+#****************************This is Source File/Directories****************************
+#AUX_SOURCE_DIRECTORY(../../Object/ Object_SRCS)
+AUX_SOURCE_DIRECTORY(../../../Source/ Source_SRCS)
+SET(DIR_SRCS ${Source_SRCS})
+
+#****************************This is Library Directories****************************
+LINK_DIRECTORIES(./)
+LINK_DIRECTORIES(../../../Bin/IOS)
+LINK_DIRECTORIES(../../../Library/IOS/lib)
+
+#****************************This is 3Party Library****************************
+LINK_LIBRARIES(pthread dl)
+
+#****************************This is Output Directory****************************
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/../../../Bin/IOS)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/../../../Bin/IOS)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/../../../Bin/IOS)
+
+#****************************This is Output Library****************************
+ADD_LIBRARY(${PROJECT_NAME} SHARED ${DIR_SRCS} )
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} pthread dl)
+set_target_properties(${PROJECT_NAME} PROPERTIES FRAMEWORK TRUE MACOSX_FRAMEWORK_IDENTIFIER com.skylight.SKYObject MACOSX_FRAMEWORK_INFO_PLIST Info.plist PUBLIC_HEADER ../SKYObect.h XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY &quot;iPhone Developer&quot;)
+</code></pre>
+<p>CMake说明：</p>
+<ul>
+<li>PROJECT(SKYObject)中SKYObject为framework的名字。</li>
+<li>IPHONE_VERSION_MIN 为支持的iOS的最低系统，与Info.plist中MinimumOSVersion值相对应。</li>
+<li>链接其他的framework使用-framework XXX。</li>
+<li>INCLUDE_DIRECTORIES为头文件路径。</li>
+<li>LINK_DIRECTORIES为库路径。</li>
+<li>set_target_properties中MACOSX_FRAMEWORK_IDENTIFIER后边紧跟的值为Info.plist中CFBundleIdentifier，必须设置；MACOSX_FRAMEWORK_INFO_PLIST为使用自己的Info.plist模板，后边紧跟的值为Info.plist的相对路径；PUBLIC_HEADER指定需要的头文件，后边紧跟的值为头文件的相对路径。</li>
+</ul>
+<h3><a id="info-plist%E5%A6%82%E4%B8%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Info.plist如下：</h3>
+<pre><code class="language-plain_text">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+	&lt;key&gt;CFBundleDevelopmentRegion&lt;/key&gt;
+	&lt;string&gt;English&lt;/string&gt;
+	&lt;key&gt;CFBundleExecutable&lt;/key&gt;
+	&lt;string&gt;SKYObject&lt;/string&gt;
+	&lt;key&gt;CFBundleIdentifier&lt;/key&gt;
+	&lt;string&gt;com.skylight.SKYObject&lt;/string&gt;
+	&lt;key&gt;MinimumOSVersion&lt;/key&gt;
+	&lt;string&gt;10.0&lt;/string&gt;
+	&lt;key&gt;CFBundleInfoDictionaryVersion&lt;/key&gt;
+	&lt;string&gt;6.0&lt;/string&gt;
+	&lt;key&gt;CFBundleName&lt;/key&gt;
+	&lt;string&gt;SKYObject&lt;/string&gt;
+	&lt;key&gt;CFBundlePackageType&lt;/key&gt;
+	&lt;string&gt;FMWK&lt;/string&gt;
+	&lt;key&gt;CFBundleShortVersionString&lt;/key&gt;
+	&lt;string&gt;1.0&lt;/string&gt;
+	&lt;key&gt;CFBundleVersion&lt;/key&gt;
+	&lt;string&gt;1&lt;/string&gt;
+	&lt;key&gt;NSPrincipalClass&lt;/key&gt;
+	&lt;string&gt;&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+<h3><a id="shell%E8%84%9A%E6%9C%AC%E5%A6%82%E4%B8%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>shell脚本如下：</h3>
+<pre><code class="language-plain_text">#!/bin/bash
+rm -rf CMakeCache.txt
+rm -r CMakeFiles
+rm -rf cmake_install.cmake
+rm -rf Makefile
+rm -rf CTestTestfile.cmake
+
+if [ “$@“ =~ &quot;-d&quot; ];then
+        echo &quot;----------------------------cmake debug----------------------------&quot;
+        cmake -DDEBUG=ON -DCMAKE_TOOLCHAIN_FILE=./toolchain/IOS.cmake -DIOS_PLATFORM=OS -DBUILD_ARM64=1 .
+else
+        echo &quot;----------------------------cmake release----------------------------&quot;
+        cmake -DDEBUG=NO -DCMAKE_TOOLCHAIN_FILE=./toolchain/IOS.cmake -DIOS_PLATFORM=OS -DBUILD_ARM64=1 .
+fi
+
+make
+
+rm -rf CMakeCache.txt
+rm -r CMakeFiles
+rm -rf cmake_install.cmake~~~~
+rm -rf Makefile
+rm -rf CTestTestfile.cmake
+
+install_name_tool -id @rpath/Frameworks/SKYObject.framework/SKYObject  ../../../Bin/IOS/SKYObject.framework/SKYObject
+
+</code></pre>
+<h3><a id="toochain%E5%B7%A5%E5%85%B7%E9%93%BEios-cmake%E5%A6%82%E4%B8%8B%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>toochain工具链iOS.cmake如下：</h3>
+<pre><code class="language-plain_text"># This file is based off of the Platform/Darwin.cmake and Platform/UnixPaths.cmake
+# files which are included with CMake 2.8.4
+# It has been altered for iOS development
+
+# Options:
+#
+# IOS_PLATFORM = OS (default) or SIMULATOR or SIMULATOR64
+#   This decides if SDKS will be selected from the iPhoneOS.platform or iPhoneSimulator.platform folders
+#   OS - the default, used to build for iPhone and iPad physical devices, which have an arm arch.
+#   SIMULATOR - used to build for the Simulator platforms, which have an x86 arch.
+#
+# CMAKE_IOS_DEVELOPER_ROOT = automatic(default) or /path/to/platform/Developer folder
+#   By default this location is automatcially chosen based on the IOS_PLATFORM value above.
+#   If set manually, it will override the default location and force the user of a particular Developer Platform
+#
+# CMAKE_IOS_SDK_ROOT = automatic(default) or /path/to/platform/Developer/SDKs/SDK folder
+#   By default this location is automatcially chosen based on the CMAKE_IOS_DEVELOPER_ROOT value.
+#   In this case it will always be the most up-to-date SDK found in the CMAKE_IOS_DEVELOPER_ROOT path.
+#   If set manually, this will force the use of a specific SDK version
+
+# Macros:
+#
+# set_xcode_property (TARGET XCODE_PROPERTY XCODE_VALUE)
+#  A convenience macro for setting xcode specific properties on targets
+#  example: set_xcode_property (myioslib IPHONEOS_DEPLOYMENT_TARGET &quot;3.1&quot;)
+#
+# find_host_package (PROGRAM ARGS)
+#  A macro used to find executable programs on the host system, not within the iOS environment.
+#  Thanks to the android-cmake project for providing the command
+
+# Standard settings
+set (CMAKE_SYSTEM_NAME Darwin)
+set (CMAKE_SYSTEM_VERSION 1)
+set (UNIX True)
+set (APPLE True)
+set (IOS True)
+
+# Required as of cmake 2.8.10
+set (CMAKE_OSX_DEPLOYMENT_TARGET &quot;&quot; CACHE STRING &quot;Force unset of the deployment target for iOS&quot; FORCE)
+
+# Determine the cmake host system version so we know where to find the iOS SDKs
+find_program (CMAKE_UNAME uname /bin /usr/bin /usr/local/bin)
+if (CMAKE_UNAME)
+	exec_program(uname ARGS -r OUTPUT_VARIABLE CMAKE_HOST_SYSTEM_VERSION)
+	string (REGEX REPLACE &quot;^([0-9]+)\\.([0-9]+).*$&quot; &quot;\\1&quot; DARWIN_MAJOR_VERSION &quot;${CMAKE_HOST_SYSTEM_VERSION}&quot;)
+endif (CMAKE_UNAME)
+
+# Force the compilers to gcc for iOS
+include (CMakeForceCompiler)
+CMAKE_FORCE_C_COMPILER (/usr/bin/gcc Apple)
+CMAKE_FORCE_CXX_COMPILER (/usr/bin/g++ Apple)
+set(CMAKE_AR ar CACHE FILEPATH &quot;&quot; FORCE)
+
+# Skip the platform compiler checks for cross compiling
+set (CMAKE_CXX_COMPILER_WORKS TRUE)
+set (CMAKE_C_COMPILER_WORKS TRUE)
+
+# All iOS/Darwin specific settings - some may be redundant
+set (CMAKE_SHARED_LIBRARY_PREFIX &quot;lib&quot;)
+set (CMAKE_SHARED_LIBRARY_SUFFIX &quot;.dylib&quot;)
+set (CMAKE_SHARED_MODULE_PREFIX &quot;lib&quot;)
+set (CMAKE_SHARED_MODULE_SUFFIX &quot;.so&quot;)
+set (CMAKE_MODULE_EXISTS 1)
+set (CMAKE_DL_LIBS &quot;&quot;)
+
+set (CMAKE_C_OSX_COMPATIBILITY_VERSION_FLAG &quot;-compatibility_version &quot;)
+set (CMAKE_C_OSX_CURRENT_VERSION_FLAG &quot;-current_version &quot;)
+set (CMAKE_CXX_OSX_COMPATIBILITY_VERSION_FLAG &quot;${CMAKE_C_OSX_COMPATIBILITY_VERSION_FLAG}&quot;)
+set (CMAKE_CXX_OSX_CURRENT_VERSION_FLAG &quot;${CMAKE_C_OSX_CURRENT_VERSION_FLAG}&quot;)
+
+# Hidden visibilty is required for cxx on iOS 
+set (CMAKE_C_FLAGS_INIT &quot;&quot;)
+set (CMAKE_CXX_FLAGS_INIT &quot;-fvisibility=hidden -fvisibility-inlines-hidden&quot;)
+
+set (CMAKE_C_LINK_FLAGS &quot;-Wl,-search_paths_first ${CMAKE_C_LINK_FLAGS}&quot;)
+set (CMAKE_CXX_LINK_FLAGS &quot;-Wl,-search_paths_first ${CMAKE_CXX_LINK_FLAGS}&quot;)
+
+set (CMAKE_PLATFORM_HAS_INSTALLNAME 1)
+set (CMAKE_SHARED_LIBRARY_CREATE_C_FLAGS &quot;-dynamiclib -headerpad_max_install_names&quot;)
+set (CMAKE_SHARED_MODULE_CREATE_C_FLAGS &quot;-bundle -headerpad_max_install_names&quot;)
+set (CMAKE_SHARED_MODULE_LOADER_C_FLAG &quot;-Wl,-bundle_loader,&quot;)
+set (CMAKE_SHARED_MODULE_LOADER_CXX_FLAG &quot;-Wl,-bundle_loader,&quot;)
+set (CMAKE_FIND_LIBRARY_SUFFIXES &quot;.dylib&quot; &quot;.so&quot; &quot;.a&quot;)
+
+# hack: if a new cmake (which uses CMAKE_INSTALL_NAME_TOOL) runs on an old build tree
+# (where install_name_tool was hardcoded) and where CMAKE_INSTALL_NAME_TOOL isn't in the cache
+# and still cmake didn't fail in CMakeFindBinUtils.cmake (because it isn't rerun)
+# hardcode CMAKE_INSTALL_NAME_TOOL here to install_name_tool, so it behaves as it did before, Alex
+if (NOT DEFINED CMAKE_INSTALL_NAME_TOOL)
+	find_program(CMAKE_INSTALL_NAME_TOOL install_name_tool)
+endif (NOT DEFINED CMAKE_INSTALL_NAME_TOOL)
+
+# Setup iOS platform unless specified manually with IOS_PLATFORM
+if (NOT DEFINED IOS_PLATFORM)
+	set (IOS_PLATFORM &quot;OS&quot;)
+endif (NOT DEFINED IOS_PLATFORM)
+set (IOS_PLATFORM ${IOS_PLATFORM} CACHE STRING &quot;Type of iOS Platform&quot;)
+
+# Setup building for arm64 or not
+if (NOT DEFINED BUILD_ARM64)
+    set (BUILD_ARM64 true)
+endif (NOT DEFINED BUILD_ARM64)
+set (BUILD_ARM64 ${BUILD_ARM64} CACHE STRING &quot;Build arm64 arch or not&quot;)
+
+# Check the platform selection and setup for developer root
+if (${IOS_PLATFORM} STREQUAL &quot;OS&quot;)
+	set (IOS_PLATFORM_LOCATION &quot;iPhoneOS.platform&quot;)
+
+	# This causes the installers to properly locate the output libraries
+	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS &quot;-iphoneos&quot;)
+elseif (${IOS_PLATFORM} STREQUAL &quot;SIMULATOR&quot;)
+    set (SIMULATOR true)
+	set (IOS_PLATFORM_LOCATION &quot;iPhoneSimulator.platform&quot;)
+
+	# This causes the installers to properly locate the output libraries
+	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS &quot;-iphonesimulator&quot;)
+elseif (${IOS_PLATFORM} STREQUAL &quot;SIMULATOR64&quot;)
+    set (SIMULATOR true)
+	set (IOS_PLATFORM_LOCATION &quot;iPhoneSimulator.platform&quot;)
+
+	# This causes the installers to properly locate the output libraries
+	set (CMAKE_XCODE_EFFECTIVE_PLATFORMS &quot;-iphonesimulator&quot;)
+else (${IOS_PLATFORM} STREQUAL &quot;OS&quot;)
+	message (FATAL_ERROR &quot;Unsupported IOS_PLATFORM value selected. Please choose OS or SIMULATOR&quot;)
+endif (${IOS_PLATFORM} STREQUAL &quot;OS&quot;)
+
+# Setup iOS developer location unless specified manually with CMAKE_IOS_DEVELOPER_ROOT
+# Note Xcode 4.3 changed the installation location, choose the most recent one available
+exec_program(/usr/bin/xcode-select ARGS -print-path OUTPUT_VARIABLE CMAKE_XCODE_DEVELOPER_DIR)
+set (XCODE_POST_43_ROOT &quot;${CMAKE_XCODE_DEVELOPER_DIR}/Platforms/${IOS_PLATFORM_LOCATION}/Developer&quot;)
+set (XCODE_PRE_43_ROOT &quot;/Developer/Platforms/${IOS_PLATFORM_LOCATION}/Developer&quot;)
+if (NOT DEFINED CMAKE_IOS_DEVELOPER_ROOT)
+	if (EXISTS ${XCODE_POST_43_ROOT})
+		set (CMAKE_IOS_DEVELOPER_ROOT ${XCODE_POST_43_ROOT})
+	elseif(EXISTS ${XCODE_PRE_43_ROOT})
+		set (CMAKE_IOS_DEVELOPER_ROOT ${XCODE_PRE_43_ROOT})
+	endif (EXISTS ${XCODE_POST_43_ROOT})
+endif (NOT DEFINED CMAKE_IOS_DEVELOPER_ROOT)
+set (CMAKE_IOS_DEVELOPER_ROOT ${CMAKE_IOS_DEVELOPER_ROOT} CACHE PATH &quot;Location of iOS Platform&quot;)
+
+# Find and use the most recent iOS sdk unless specified manually with CMAKE_IOS_SDK_ROOT
+if (NOT DEFINED CMAKE_IOS_SDK_ROOT)
+	file (GLOB _CMAKE_IOS_SDKS &quot;${CMAKE_IOS_DEVELOPER_ROOT}/SDKs/*&quot;)
+	if (_CMAKE_IOS_SDKS) 
+		list (SORT _CMAKE_IOS_SDKS)
+		list (REVERSE _CMAKE_IOS_SDKS)
+		list (GET _CMAKE_IOS_SDKS 0 CMAKE_IOS_SDK_ROOT)
+	else (_CMAKE_IOS_SDKS)
+		message (FATAL_ERROR &quot;No iOS SDK's found in default search path ${CMAKE_IOS_DEVELOPER_ROOT}. Manually set CMAKE_IOS_SDK_ROOT or install the iOS SDK.&quot;)
+	endif (_CMAKE_IOS_SDKS)
+	message (STATUS &quot;Toolchain using default iOS SDK: ${CMAKE_IOS_SDK_ROOT}&quot;)
+endif (NOT DEFINED CMAKE_IOS_SDK_ROOT)
+set (CMAKE_IOS_SDK_ROOT ${CMAKE_IOS_SDK_ROOT} CACHE PATH &quot;Location of the selected iOS SDK&quot;)
+
+# Set the sysroot default to the most recent SDK
+set (CMAKE_OSX_SYSROOT ${CMAKE_IOS_SDK_ROOT} CACHE PATH &quot;Sysroot used for iOS support&quot;)
+
+# set the architecture for iOS armv7 armv7s
+if (${IOS_PLATFORM} STREQUAL &quot;OS&quot;)
+    set (IOS_ARCH  arm64)
+elseif (${IOS_PLATFORM} STREQUAL &quot;SIMULATOR&quot;)
+    set (IOS_ARCH i386)
+elseif (${IOS_PLATFORM} STREQUAL &quot;SIMULATOR64&quot;)
+    set (IOS_ARCH x86_64)
+endif (${IOS_PLATFORM} STREQUAL &quot;OS&quot;)
+
+set (CMAKE_OSX_ARCHITECTURES ${IOS_ARCH} CACHE string  &quot;Build architecture for iOS&quot;)
+
+# Set the find root to the iOS developer roots and to user defined paths
+set (CMAKE_FIND_ROOT_PATH ${CMAKE_IOS_DEVELOPER_ROOT} ${CMAKE_IOS_SDK_ROOT} ${CMAKE_PREFIX_PATH} CACHE string  &quot;iOS find search path root&quot;)
+
+# default to searching for frameworks first
+set (CMAKE_FIND_FRAMEWORK FIRST)
+
+# set up the default search directories for frameworks
+set (CMAKE_SYSTEM_FRAMEWORK_PATH
+	${CMAKE_IOS_SDK_ROOT}/System/Library/Frameworks
+	${CMAKE_IOS_SDK_ROOT}/System/Library/PrivateFrameworks
+	${CMAKE_IOS_SDK_ROOT}/Developer/Library/Frameworks
+)
+
+# only search the iOS sdks, not the remainder of the host filesystem
+set (CMAKE_FIND_ROOT_PATH_MODE_PROGRAM ONLY)
+set (CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set (CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+
+
+# This little macro lets you set any XCode specific property
+macro (set_xcode_property TARGET XCODE_PROPERTY XCODE_VALUE)
+	set_property (TARGET ${TARGET} PROPERTY XCODE_ATTRIBUTE_${XCODE_PROPERTY} ${XCODE_VALUE})
+endmacro (set_xcode_property)
+
+
+# This macro lets you find executable programs on the host system
+macro (find_host_package)
+	set (CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+	set (CMAKE_FIND_ROOT_PATH_MODE_LIBRARY NEVER)
+	set (CMAKE_FIND_ROOT_PATH_MODE_INCLUDE NEVER)
+	set (IOS FALSE)
+
+	find_package(${ARGN})
+
+	set (IOS TRUE)
+	set (CMAKE_FIND_ROOT_PATH_MODE_PROGRAM ONLY)
+	set (CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+	set (CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+endmacro (find_host_package)
+
+
+
+</code></pre>
+
+]]></content>
+  </entry>
+  
+</feed>

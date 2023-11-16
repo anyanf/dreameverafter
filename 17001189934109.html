@@ -1,0 +1,587 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  C语言数据类型和const、static关键字 - DreamEverAfter
+  
+  </title>
+ <meta name="description" content="">
+ <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+    <script src="asset/highlightjs/highlight.pack.js"></script>
+    <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+<div id="header">
+    <h1><a href="index.html">DreamEverAfter</a></h1>
+</div>
+
+</nav>
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+      <li><a href="index.html">Home</a></li>
+      
+        <li class="divider"></li>
+        <li><label>菜谱</label></li>
+
+          
+            <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>List</label></li>
+
+          
+            <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>杂</label></li>
+
+          
+            <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
+          
+            <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
+          
+            <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
+          
+            <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
+          
+            <li><a title="离骚" href="17001173766480.html">离骚</a></li>
+          
+            <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
+          
+            <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
+          
+
+      
+        <li class="divider"></li>
+        <li><label>CS</label></li>
+
+          
+            <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
+          
+            <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
+          
+            <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
+          
+            <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
+          
+            <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
+          
+            <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
+          
+            <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
+          
+            <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
+          
+            <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
+          
+            <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
+          
+            <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
+          
+            <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
+          
+            <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
+          
+            <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
+          
+            <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
+          
+            <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
+          
+            <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
+          
+            <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
+          
+
+      
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+        <section id="main-content" role="main" class="scroll-container">
+
+          <div class="row">
+            <div class="large-3 medium-3 columns">
+              <div class="hide-for-small">
+                <div class="sidebar">
+                <nav>
+                  <ul id="side-nav" class="side-nav">
+
+                    
+                      <li class="side-title"><span>菜谱</span></li>
+                        
+                          <li><a title="三汁焖锅" href="16996865532784.html">三汁焖锅</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>List</span></li>
+                        
+                          <li><a title="水仙 🌼" href="17001150891969.html">水仙 🌼</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>杂</span></li>
+                        
+                          <li><a title="别了，中国大陆的Kindle" href="17001172774052.html">别了，中国大陆的Kindle</a></li>
+                        
+                          <li><a title="LiSSA第四代计时器说明书" href="17001171363865.html">LiSSA第四代计时器说明书</a></li>
+                        
+                          <li><a title="观《观山海》" href="17001174083229.html">观《观山海》</a></li>
+                        
+                          <li><a title="《十万嬉皮》" href="17001174848432.html">《十万嬉皮》</a></li>
+                        
+                          <li><a title="离骚" href="17001173766480.html">离骚</a></li>
+                        
+                          <li><a title="人为什么会过分自信" href="17001161339218.html">人为什么会过分自信</a></li>
+                        
+                          <li><a title="正确的握笔姿势" href="17001175328385.html">正确的握笔姿势</a></li>
+                        
+
+                    
+                      <li class="side-title"><span>CS</span></li>
+                        
+                          <li><a title="HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”" href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a></li>
+                        
+                          <li><a title="OpenGL 术语" href="17001265069754.html">OpenGL 术语</a></li>
+                        
+                          <li><a title="命令行通过ffmpeg剪切视频" href="17001265069516.html">命令行通过ffmpeg剪切视频</a></li>
+                        
+                          <li><a title="CMake入门及常用变量指令手册" href="17001196451067.html">CMake入门及常用变量指令手册</a></li>
+                        
+                          <li><a title="MeshLab" href="17001265069165.html">MeshLab</a></li>
+                        
+                          <li><a title="centos7 mysql数据库安装和配置" href="17001188677503.html">centos7 mysql数据库安装和配置</a></li>
+                        
+                          <li><a title="解决Mac下Cornerstone无法查看SVN日志的问题" href="17001197697594.html">解决Mac下Cornerstone无法查看SVN日志的问题</a></li>
+                        
+                          <li><a title="WxWidgets类列表" href="17001265068913.html">WxWidgets类列表</a></li>
+                        
+                          <li><a title="在 Mac OS X 上安装 TensorFlow" href="17001182998798.html">在 Mac OS X 上安装 TensorFlow</a></li>
+                        
+                          <li><a title="虚拟机 Linux 上编 slice3r perl Build.PL 报错" href="17001265069881.html">虚拟机 Linux 上编 slice3r perl Build.PL 报错</a></li>
+                        
+                          <li><a title="升级 Mac OS  10.13 High Sierra 后 ruby 报错" href="17001265069032.html">升级 Mac OS  10.13 High Sierra 后 ruby 报错</a></li>
+                        
+                          <li><a title="SQL语句的语法" href="17001180357944.html">SQL语句的语法</a></li>
+                        
+                          <li><a title="零宽空格 - 如幽灵一般的空格" href="17001265068802.html">零宽空格 - 如幽灵一般的空格</a></li>
+                        
+                          <li><a title="HTTP请求报文和HTTP响应报文,以及工作原理" href="17001181867505.html">HTTP请求报文和HTTP响应报文,以及工作原理</a></li>
+                        
+                          <li><a title="Vim 快捷键整理" href="17001265069634.html">Vim 快捷键整理</a></li>
+                        
+                          <li><a title="Git 命令" href="17001265069390.html">Git 命令</a></li>
+                        
+                          <li><a title="MAC OS X 常用技巧" href="17001265069283.html">MAC OS X 常用技巧</a></li>
+                        
+                          <li><a title="代码重构" href="17001197235131.html">代码重构</a></li>
+                        
+
+                    
+                  </ul>
+                </nav>
+                </div>
+              </div>
+            </div>
+            <div class="large-9 medium-9 columns">
+
+ <div class="markdown-body">
+<h1>C语言数据类型和const、static关键字</h1>
+
+<h2><a id="%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>基本数据类型</h2>
+<h3><a id="int" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>int</h3>
+<ul>
+<li>long int、long：8个字节  %ld</li>
+<li>short int、short：2个字节 %d %i</li>
+<li>unsigned int、unsigned：4个字节 %zd</li>
+<li>signed int、signed、int：4个字节 %d %i</li>
+</ul>
+<h3><a id="float%E3%80%81double" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>float、double</h3>
+<ul>
+<li>float ：4个字节 %f</li>
+<li>double：8个字节 %f</li>
+</ul>
+<h3><a id="char" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>char</h3>
+<p>1个字节 %c %d</p>
+<p>char类型保存在内存中的是它的ASCII值  'A' --&gt; 65</p>
+<h2><a id="%E6%9E%84%E9%80%A0%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>构造类型</h2>
+<h3><a id="%E6%95%B0%E7%BB%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>数组</h3>
+<ul>
+<li>只能由同一种类型的数据组成</li>
+<li>定义：数据类型 数组名[元素个数];</li>
+</ul>
+<h3><a id="%E7%BB%93%E6%9E%84%E4%BD%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>结构体</h3>
+<p>可以由不同类型的数据组成</p>
+<p>先定义类型，再利用类型定义变量</p>
+<p>可以定义结构体和数组变量的同时进行一次性赋值。定义完变量是不可以再进行一次性赋值的。因为数组名代表第一个数的地址，地址值是常量，不可以更改。结构体相当于多元化的数组。</p>
+<h2><a id="%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>指针类型</h2>
+<ol>
+<li>
+<p>变量的定义 int *p;</p>
+</li>
+<li>
+<p>间接操作变量的值</p>
+</li>
+</ol>
+<pre><code class="language-c">int a = 10;
+
+p = &amp;a;
+
+*p = 20;
+</code></pre>
+<h2><a id="%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>枚举类型</h2>
+<p>使用场合：当一个变量只允许有几个固定取值时，可以使用枚举类型，看起来会优雅很多。</p>
+<pre><code class="language-c">enum DAY
+{
+      MON=1, TUE, WED, THU, FRI, SAT, SUN
+};
+</code></pre>
+<h2><a id="const%E5%85%B3%E9%94%AE%E5%AD%97" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>const 关键字</h2>
+<pre><code class="language-c">const int a;
+
+int const a;
+
+const int *a;
+
+int const *a;
+
+int * const a;
+
+int const * const a;
+</code></pre>
+<ol>
+<li>前两个的作用是一样：a 是一个常整型数</li>
+<li>第三、四个意味着 a 是一个指向常整型数的指针(整型数是不可修改的，但指针可以)</li>
+<li>第五个的意思：a 是一个指向整型数的常指针(指针指向的整型数是可以修改的，但指针是不可修改的)</li>
+<li>最后一个意味着：a 是一个指向常整型数的常指针(指针指向的整型数是不可修改的，同时指针也是不可修改的)</li>
+</ol>
+<h2><a id="static%E5%85%B3%E9%94%AE%E5%AD%97" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>static 关键字</h2>
+<h3><a id="static%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>static 全局变量</h3>
+<p>当一个进程的全局变量被声明为static之后，它的中文名叫静态全局变量。</p>
+<p>静态全局变量和其他的全局变量的存储地点并没有区别，都是在.data段（已初始化）或者.bss段（未初始化）内，但是它只在定义它的源文件内有效，其他源文件无法访问它。</p>
+<h3><a id="static%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>static 局部变量</h3>
+<p>普通的局部变量在栈空间上分配，这个局部变量所在的函数被多次调用时，每次调用这个局部变量在栈上的位置都不一定相同。局部变量也可以在堆上动态分配，但是记得使用完这个堆空间后要释放。</p>
+<p>static 局部变量中文名叫静态局部变量。它与普通的局部变量比起来有如下几个区别：</p>
+<ol>
+<li>位置：静态局部变量被编译器放在全局存储区.data（注意：不在.bss段内）），所以它虽然是局部的，但是在程序的整个生命周期中存在。</li>
+<li>访问权限：静态局部变量只能被其作用域内的变量或函数访问。也就是说虽然它会在程序的整个生命周期中存在，由于它是static的，它不能被其他的函数和源文件访问。</li>
+<li>值：静态局部变量如果没有被用户初始化，则会被编译器自动赋值为0，以后每次调用静态局部变量的时候都用上次调用后的值。这个比较好理解，每次函数调用静态局部变量的时候都修改它然后离开，下次读的时候从全局存储区读出的静态局部变量就是上次修改后的值。</li>
+</ol>
+<h3><a id="static%E5%87%BD%E6%95%B0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>static 函数</h3>
+<p>static函数的作用域是本源文件，相当于面向对象语言中对private函数。</p>
+<h2><a id="%E5%8F%82%E8%80%83" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考</h2>
+<blockquote>
+<p><a href="https://blog.csdn.net/keyeagle/article/details/6708077">https://blog.csdn.net/keyeagle/article/details/6708077</a></p>
+</blockquote>
+
+
+</div>
+
+<br /><br />
+<hr />
+
+<div class="row clearfix">
+  <div class="large-6 columns">
+	<div class="text-left" style="padding:15px 0px;">
+		
+	        <a href="17001191228771.html"  title="Previous Post: C语言指针小结">&laquo; C语言指针小结</a>
+	    
+	</div>
+  </div>
+  <div class="large-6 columns">
+	<div class="text-right" style="padding:15px 0px;">
+		
+	        <a href="17001186638477.html" 
+	        title="Next Post: 使用mpvue开发微信小程序">使用mpvue开发微信小程序 &raquo;</a>
+	    
+	</div>
+  </div>
+</div>
+
+<div class="row">
+<div style="padding:0px 0.93em;" class="share-comments">
+
+</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		var currentURL = '17001189934109.html';
+		$('#side-nav a').each(function(){
+			if($(this).attr('href') == currentURL){
+				$(this).parent().addClass('active');
+			}
+		});
+	});
+</script>  
+</div></div>
+
+
+<div class="page-bottom">
+  <div class="row">
+  <hr />
+  <div class="small-9 columns">
+  <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+  <div class="small-3 columns">
+  <p class="copyright text-right"><a href="#header">TOP</a></p>
+  </div>
+   
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+    
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0.4em 0;padding: 0;}
+  figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+
+</style>
+    
+    <script src="asset/js/foundation.min.js"></script>
+    <script src="asset/js/foundation/foundation.offcanvas.js"></script>
+    <script>
+      $(document).foundation();
+
+     
+    </script>
+
+
+  </body>
+</html>
