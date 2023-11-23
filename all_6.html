@@ -83,8 +83,6 @@
     <li><label>Categories</label></li>
 
         
-            <li><a href="Pages.html">Pages</a></li>
-        
             <li><a href="CS.html">CS</a></li>
         
             <li><a href="List.html">List</a></li>
@@ -111,173 +109,6 @@
 	<div class="large-8 medium-8 columns">
 		<div class="markdown-body home-categories">
 		
-			<div class="article">
-                <a class="clearlink" href="17001892554638.html">
-                
-                  <h1>iOS自动化埋点的实现</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2><a id="%E4%B8%80%E3%80%81%E5%9F%8B%E7%82%B9%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一、埋点的作用：</h2>
-<ol>
-<li>应用趋势分析：清晰展现应用的新增用户、活跃用户、启动次数、版本分布、行业指标等数据，方便从整体掌控应用的运营情况及增长动态。</li>
-<li>渠道分析：在哪里推广最有效？从哪里获取的用户最有价值？通过数据对比评估不同渠道的用户质量和活跃程度，从而衡量推广效果。</li>
-<li>留存分析：可以掌握每日(周/月)的新增用户在初次使用后一段时间内的留存率，留存率的高低一定程度上反映了产品和用户质量的好坏。</li>
-<li>用户属性：用户的基本属性和行为特征，全面了解用户。</li>
-<li>行为分析：针对性地进行应用内的数据统计，了解用户的产品使用细节及行为特征，帮助团队寻找产品改进的突破点，评估产品优化的效果。</li>
-</ol>
-<h2><a id="%E4%BA%8C%E3%80%81%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%8B%E7%82%B9sdk%E7%9A%84%E7%A0%94%E5%8F%91%E8%83%8C%E6%99%AF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二、自动化埋点SDK的研发背景</h2>
-<h3><a id="1%E3%80%81%E4%BB%A3%E7%A0%81%E5%9F%8B%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1、代码埋点</h3>
-<p>优点：灵活性高，能满足大量个性化需求。</p>
-<p>缺点：开发者需要手动在需要埋点的节点植入埋点代码，可能埋点代码也需要植入一定的业务逻辑。<br />
-​     代码耦合严重，复用性差，工作量大，难以维护。</p>
-<h3><a id="2%E3%80%81%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%8B%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2、自动化埋点</h3>
-<p>优点：</p>
-<ol>
-<li>可以较大程度降低开发成本，不受版本更新影响 。</li>
-<li>解耦业务代码，易维护，可移植性强。</li>
-<li>解决了数据回溯问题，可查看历史数据。</li>
-<li>避免了使用三方SDK可能造成用户关键数据丢失及企业泄密等问题。</li>
-</ol>
-<p>缺点：未解决个性化自定义获取数据的问题，缺乏数据获取的灵活性。</p>
-<h3><a id="%E4%B8%89%E3%80%81%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>三、数据采集</h3>
-<p>数据采集原理：利用object-c的runtime机制，对有需要的类和事件进行方法交换，进行事件拦截，注入埋点代码，实现数据统计的功能，具体做法是：</p>
-<p>重载类的<code>+(void)load</code>方法，在程序加载到内存时利用runtime的<code>method_exchangeImplementations</code>等接口,<br />
-将方法(设为M)的实现互相交换,当方法M被调用时就会被Hook，执行我们的方法。</p>
-<pre><code class="language-swift">/// ClickKit 类
-+ (void)swapMethod:(Class)class origMethod:(SEL)origSelector newMethod:(SEL)newSelector{
-    Method originalMethod = class_getInstanceMethod(class, origSelector);
-    Method swizzledMethod = class_getInstanceMethod(class, newSelector);
-    method_exchangeImplementations(originalMethod, swizzledMethod);
-}
-
-+ (BOOL)addMethod:(Class)class sel:(SEL)sel method:(IMP)method
-{
-    return class_addMethod(class, sel, method, &quot;v@:@@&quot;);
-}
-</code></pre>
-<h3><a id="%EF%BC%881%EF%BC%89%E9%A1%B5%E9%9D%A2%E7%BB%9F%E8%AE%A1%EF%BC%88pv%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（1）页面统计（PV）</h3>
-<p>PV统计原理：通过hook UIViewController的以下函数，达到采集类名等功能：</p>
-<p>特别注意：必须实现以下三个函数的super调用，否则，页面自动化埋点无法触发</p>
-<pre><code class="language-swift">- (void)viewDidLoad;
-- (void)viewDidAppear:(BOOL)animated;
-- (void)viewDidDisappear:(BOOL)animated;
-</code></pre>
-<h3><a id="%EF%BC%882%EF%BC%89%E4%BA%8B%E4%BB%B6%E7%BB%9F%E8%AE%A1%EF%BC%88event%EF%BC%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（2）事件统计（event）</h3>
-<p>事件id：通过对点击事件进行方法拦截，获取当前点击控件及控件所属target，根据点击视图的响应者链，逐级取到控件的所属view tree，建议点击视图增加tag。</p>
-<p>针对单一点击事件，以UIControl为例：</p>
-<pre><code class="language-swift">@implementation UIControl (ClickKit)
-
-+ (void)load
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&amp;onceToken, ^{
-        [ClickKit swapMethod:[self class]
-                  origMethod:@selector(sendAction:to:forEvent:)
-                   newMethod:@selector(swizzle_sendAction:to:forEvent:)];
-    });
-}
-
-- (void)swizzle_sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event
-{
-    [self swizzle_sendAction:action to:target forEvent:event];
-    
-	/// 收集数据
-}
-
-@end
-</code></pre>
-<p>针对列表点击事件，以UITableView为例：</p>
-<pre><code class="language-swift">@implementation UIScrollView (ClickKit)
-
-+ (void)load
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&amp;onceToken, ^{
-        [ClickKit swapMethod:[self class]
-                    origMethod:@selector(setDelegate:)
-                     newMethod:@selector(swizzle_setDelegate:)];
-    });
-}
-
-
-- (void)swizzle_setDelegate:(id&lt;UIScrollViewDelegate&gt;)delegate
-{
-    [self swizzle_setDelegate:delegate];
-
-    if ([self isKindOfClass:[UITableView class]]) {
-            [(UITableView *)self swizzle_tableViewDidSelectRowAtIndexPathInClass:delegate];
-    }
-    else if ([self isKindOfClass:[UICollectionView class]]) {
-            [(UICollectionView *)self swizzle_collectionViewDidSelectRowAtIndexPathInClass:delegate];
-    }
-}
-
-@end
-    
-@implementation UITableView (ClickKit)
-
-- (void)swizzle_tableViewDidSelectRowAtIndexPathInClass:(id)delegate
-{
-
-    if ([delegate isKindOfClass:[UITableView class]]) {
-        return;
-    }
-    if ([ClickKit hasMethod:[delegate class] sel:@selector(tableView:didSelectRowAtIndexPath:)])
-    {
-        SEL swizSel = NSSelectorFromString(@&quot;swizzle_didSelectRowAtIndexPath&quot;);
-        if ([ClickKit addMethod:[delegate class] sel:swizSel method:(IMP)swizzle_didSelectRowAtIndexPath]) {
-            [ClickKit swapMethod:[delegate class] origMethod:swizSel newMethod:@selector(tableView:didSelectRowAtIndexPath:)];
-        }
-    }
-}
-
-void swizzle_didSelectRowAtIndexPath(id self, SEL _cmd, id tableView, id indexPath)
-{
-    SEL selector = NSSelectorFromString(@&quot;swizzle_didSelectRowAtIndexPath&quot;);
-    ((void(*)(id, SEL, id, id))objc_msgSend)(self, selector, tableView, indexPath);
-
-    /// 收集数据
-
-}
-
-@end
-</code></pre>
-<h2><a id="%E5%9B%9B%E3%80%81%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>四、数据存储</h2>
-<p>埋点数据采用db方式进行数据存储，一般依据事件类型，db结构由启动表、pv表和event表组成。具体怎么组织数据结构，需要上报什么数据，需要和大数据沟通。</p>
-<h2><a id="%E4%BA%94%E3%80%81%E6%95%B0%E6%8D%AE%E4%B8%8A%E6%8A%A5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>五、数据上报</h2>
-<p>上报策略：<br />
-1、采用实时上传和离线上传相结合的方式,wifi和4G模式下，pv采用实时上报的方式，事件是随着下一个pv同时上传。<br />
-2、离线上传：其它网络情况下只做存储处理。</p>
-<p>这个策略也只是建议，具体还看业务需求。</p>
-<p><img src="media/17001892554638/17001909398580.png" alt="" /></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/10/17</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='iOS.html'>iOS</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
 			<div class="article">
                 <a class="clearlink" href="17001186638477.html">
                 
@@ -746,6 +577,41 @@ NSLog(@&quot;%@&quot;, bundlePath);
                 </div>
               </div><!-- article -->
         
+			<div class="article">
+                <a class="clearlink" href="17001892554109.html">
+                
+                  <h1>iOS脚本打包 ipa（.app转.ipa）</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>Mac OS 升级到10.13后，iTunes 没有了应用程序，导致不能把 build 出来的 .app 文件通过拖动到 iTunes 的方式转成 .ipa 包了，后来找到了一个更简单的方法，直接跑一个脚本即可。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001892554109.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2018/04/18</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='iOS.html'>iOS</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
               
 
 
@@ -798,8 +664,6 @@ NSLog(@&quot;%@&quot;, bundlePath);
 
       	<p class="cat-list">
         
-            <a href="Pages.html"><strong>Pages</strong></a>
-        
             <a href="CS.html"><strong>CS</strong></a>
         
             <a href="List.html"><strong>List</strong></a>
@@ -821,12 +685,6 @@ NSLog(@&quot;%@&quot;, bundlePath);
 	      
 		      
 			      <li class="post">
-			        <a href="17005448149061.html">贴牌品牌</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
 			        <a href="16996865532784.html">三汁焖锅</a>
 			      </li>
 		     
@@ -846,6 +704,12 @@ NSLog(@&quot;%@&quot;, bundlePath);
 		      
 			      <li class="post">
 			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001171363865.html">LiSSA第四代计时器说明书</a>
 			      </li>
 		     
 		  

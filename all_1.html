@@ -83,8 +83,6 @@
     <li><label>Categories</label></li>
 
         
-            <li><a href="Pages.html">Pages</a></li>
-        
             <li><a href="CS.html">CS</a></li>
         
             <li><a href="List.html">List</a></li>
@@ -111,138 +109,6 @@
 	<div class="large-8 medium-8 columns">
 		<div class="markdown-body home-categories">
 		
-			<div class="article">
-                <a class="clearlink" href="17001875302707.html">
-                
-                  <h1>LeetCode 70 爬楼梯(青蛙跳台阶)</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
-<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
-<p>注意：给定 n 是一个正整数。</p>
-<p>示例 1：</p>
-<pre><code class="language-plain_text">输入： 2
-输出： 2
-解释： 有两种方法可以爬到楼顶。
-1.  1 阶 + 1 阶
-2.  2 阶
-</code></pre>
-<p>示例 2：</p>
-<pre><code class="language-plain_text">输入： 3
-输出： 3
-解释： 有三种方法可以爬到楼顶。
-1.  1 阶 + 1 阶 + 1 阶
-2.  1 阶 + 2 阶
-3.  2 阶 + 1 阶
-</code></pre>
-<h2><a id="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>动态规划</h2>
-<p>\(f(n)\) 表示爬到第 \(n\) 级台阶的方案数，根据题意，最后一步只有两种可能：跨了一级台阶，或者跨了两级台阶。</p>
-<p>所以爬 \(n\) 级台阶的方案总数是爬到第 \(x−1\) 级台阶的方案数和爬到第 \(x−2\) 级台阶的方案数的和。</p>
-<p>可以列以下动态规划的转移方程：</p>
-<p>\(f(n)=f(n−1)+f(n−2)\)</p>
-<p>然后再考虑以下边界条件:</p>
-<ol>
-<li>从第 0 级爬到第 0 级只有一种方案，\(f(0) = 1\)。</li>
-<li>从第 0 级爬到第 1 级只有一种方案，\(f(1) = 1\)。</li>
-</ol>
-<p>根据这两个边界条件再结合转移方程就可以推导出第 \(n\) 级台阶的方案数。</p>
-<p>递归解法就不写了，下面列出for循环解法和降低空间复杂度解法。</p>
-<pre><code class="language-c++">
-// for循环解法
-class Solution {
-public:
-    int climbStairs(int n) {
-        const int N = 1e5 + 10;
-    	int dp[N] = {};
-        dp[0] = 1;
-        dp[1] = 1;
-        for (int i = 2; i &lt;= n; ++i) {
-            dp[i] = dp[i - 1] + dp[i - 2];
-        }
-        return dp[n];
-    }
-};
-
-// 由于 f(n) 只跟 f(n−1) 和 f(n−2) 有关，所以不需要长度为 n 的数组记录所有的方案数。
-// 只需要 p 和 q 两个变量轮着记录就可以了。
-class Solution {
-public:
-    int climbStairs(int n) {
-        int p = 0, q = 0, r = 1;
-        for (int i = 1; i &lt;= n; ++i) {
-            p = q; 
-            q = r; 
-            r = p + q;
-        }
-        return r;
-    }
-};
-
-</code></pre>
-<p>时间复杂度：循环执行 \(n\) 次，每次花费常数的时间代价，故渐进时间复杂度为 \(O(n)\)。</p>
-<p>空间复杂度：这里只用了常数个变量作为辅助空间，故渐进空间复杂度为 \(O(1)\)。</p>
-<h2><a id="%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E9%80%9A%E9%A1%B9%E5%85%AC%E5%BC%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>斐波那契数列通项公式</h2>
-<p>经过观察可以看出来方案数很像斐波那契数列，那么就可以直接用通项公式了。</p>
-<p>主意斐波那契数列（0、1、1、2、3、5、8、13、21、34、……）和题目方案数列（1、1、2、3、5、8、13、21、34、……）开始的时候不太一样，所以在用主意斐波那契数列通项公式计算的时候， \(n\) 需要加一。</p>
-<p>推导过程如下：</p>
-<p>根据线性递推数列方程 \(f(n)=f(n−1)+f(n−2)\)，可知道其特征方程为</p>
-<p>\(x^2=x+1\)</p>
-<p>解得 \(x_1 = {1 + \sqrt{5} \over 2}，x_2 = {1 - \sqrt{5} \over 2}\)</p>
-<p>则 \(f(n) = c_1x_1^n+c_2x_2^n\)</p>
-<p>因为 \(f(1) = f(2) = 1\)</p>
-<p>所以 \(c_1x_1+c_2x_2 = c_1x_1^2+c_2x_2^2 = 1\)</p>
-<p>解得 \(c_1 = {1 \over \sqrt{5}}，c_2 = -{1 \over \sqrt{5}}，\)</p>
-<p>所以 \(f(n) = {1 \over \sqrt{5}}[({1 + \sqrt{5} \over 2})^n - ({1 - \sqrt{5} \over 2})^n]\)</p>
-<p>只要我们把这个公式转换成代码就可以求解了。</p>
-<pre><code class="language-c++">class Solution {
-public:
-    int climbStairs(int n) {
-        double sqrt5 = sqrt(5);
-        // 主意这里是 n + 1
-        double fibn = pow((1 + sqrt5) / 2, n + 1) - pow((1 - sqrt5) / 2, n + 1);
-        return (int)round(fibn / sqrt5);
-    }
-};
-</code></pre>
-<h2><a id="%E7%88%AC%E6%A5%BC%E6%A2%AF%E5%8D%87%E7%BA%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>爬楼梯升级</h2>
-<p>条件改为每次你可以爬 \(1\) 到 \(n\) 个台阶。那么有多少种不同的方法可以爬到楼顶呢？</p>
-<p>根据上题目的规律，可以得出下面公式：</p>
-<p>\(f(n)=f(0)+f(1)+f(2)+…+f(n-2)+f(n-1)\)</p>
-<p>因为 \(f(n-1)=f(0)+f(1)+f(2)+…f(n-2)\)</p>
-<p>所以 \(f(n)=2f(n-1)\)</p>
-<p>因为 \(f(0) = f(1) = 1\)</p>
-<p>所以 \(f(2)=2f(1)=2，f(3)=2f(2)=4，f(4)=2f(3)=8\)</p>
-<p>所以 \(f(n)=2^{n-1}\)</p>
-<p>其实还有一个更巧妙的思路：一共要上 \(n\) 个台阶，每次都可以爬 \(1\) 到 \(n\) 个台阶，算一共又多少种方法，那么到第 \(n\) 个台阶的时候，把前面 \(n-1\) 个台阶被踩和不被踩的可能性数量统计出来就是答案了，也就是 \(2^{n-1}\)。</p>
-<p>代码过于简单，就不列出来了。</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2021/05/05</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='LeetCode.html'>LeetCode</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
 			<div class="article">
                 <a class="clearlink" href="17001155269640.html">
                 
@@ -712,6 +578,436 @@ public:
                 </div>
               </div><!-- article -->
         
+			<div class="article">
+                <a class="clearlink" href="17001892556510.html">
+                
+                  <h1>浅谈iOS中的weak</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2><a id="weak%E6%8E%A2%E7%A9%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>__weak探究</h2>
+<p>程序中添加了一个 <code>__weak</code> 变量，查看调用堆栈，看到下一个调用的是 <code>objc_initWeak</code> 函数。</p>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak%E5%85%A5%E5%8F%A3.jpg" alt="__weak调用的函数" /></p>
+<p>所以我们就 <code>objc_initWeak</code> 函数作为入口，探究 <code>weak</code>。</p>
+<h2><a id="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>数据结构</h2>
+<p>首先了解以下的变量，这些变量在这章的数据结构、函数形参中使用：</p>
+<pre><code class="language-swift">__weak id weakPtr = o
+location            newObj
+refferer            reffenent
+引用者               被引用者
+</code></pre>
+<h3><a id="stripedmap" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>StripedMap</h3>
+<p>下面从 <code>SideTables()</code> 函数为入口，了解 <code>weak</code> 相关的数据结构。</p>
+<pre><code class="language-CPP">static StripedMap&lt;SideTable&gt;&amp; SideTables() {
+    return *reinterpret_cast&lt;StripedMap&lt;SideTable&gt;*&gt;(SideTableBuf);
+}
+</code></pre>
+<p>这个函数返回 <code>StripedMap</code> 结构，<code>StripedMap</code> 是一个模板类，函数体内将SideTableBuf强制转换为 <code>StripedMap&lt;SideTable&gt;</code></p>
+<p><code>StripedMap</code> 定义如下：</p>
+<pre><code class="language-CPP">template&lt;typename T&gt;
+class StripedMap {
+    struct PaddedT {
+        T value alignas(64);
+    };
+
+    PaddedT array[64];
+};
+</code></pre>
+<p>上面代码是 <code>StripedMap</code> 的简化定义，<code>StripedMap</code> 是个模板类，根据模板参数 <code>T</code> 生成实例类，我们给模板参数传递的实参是 <code>SideTable</code>，<code>StripedMap</code> 内部只定义了一个数据成员 <code>PaddedT array[64]</code>，<code>PaddedT</code> 就是 <code>64</code> 位对齐后的 <code>SideTable</code>。</p>
+<p>进一步简化：</p>
+<pre><code class="language-cpp">SideTable array[64];
+</code></pre>
+<p>所以 <code>StripedMap</code> 就是 <code>SideTable</code> 型的数组，数组有 <code>64</code> 个成员。</p>
+<p><code>SideTable</code> 的结构如下：</p>
+<pre><code class="language-cpp">struct SideTable {
+    spinlock_t slock;
+    RefcountMap refcnts;
+    weak_table_t weak_table;
+}
+</code></pre>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_sideTable.png" alt="weak_sideTable" /></p>
+<p>可以看出SideTable的大小是62，64位对齐后是64。其中weak_talbe存储着weak相关的内容。其他的两个成员refcnts、slock不在本文的研究范围内。</p>
+<p>所以数组 <code>SideTable array[64]</code> 中元素的大小就是 <code>64</code>。整个 <code>array</code> 共占用 <code>64*64=4096</code> 字节。回到没有简化前的版本，<code>StripedMap&lt;SideTable&gt;</code> 本质是一个数组，数组的元素是模板参数类型 — <code>SideTable</code>，大小为 <code>64</code>。</p>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/stripmap_memory_struct.png" alt="StripedMap 内存结构" /></p>
+<p>函数 <code>SideTables()</code> 是将 <code>SideTableBuf</code> 转化为 <code>StripedMap&lt;SideTable&gt;</code> 的。所以下面了解 <code>SideTableBuf</code> 的定义。</p>
+<h3><a id="sidetablebuf" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>SideTableBuf</h3>
+<p>SideTableBuf的定义：</p>
+<pre><code class="language-cpp">alignas(StripedMap&lt;SideTable&gt;) static uint8_t
+    SideTableBuf[sizeof(StripedMap&lt;SideTable&gt;)];
+</code></pre>
+<p>前面的 <code>alignas(StripedMap)</code> 是对齐的。<code>sizeof(StripedMap&lt;SideTable&gt;)</code> 根据上面分析是 <code>4096</code>，所以上面的代码简化为：</p>
+<pre><code class="language-cpp">static uint8_t SideTableBuf[4096];
+</code></pre>
+<p>所以 <code>SideTableBuf</code> 就是一个包含 <code>4096</code> 个 <code>uint8_t</code> 的数组 。</p>
+<p>所以，函数 <code>SideTables()</code> 就相当将 <code>uint8_t SideTableBuf[4096]</code> 重新解释为 <code>SideTable array[64]</code>。</p>
+<pre><code class="language-cpp">static StripedMap&lt;SideTable&gt;&amp; SideTables() {
+    return *reinterpret_cast&lt;StripedMap&lt;SideTable&gt;*&gt;(SideTableBuf);
+}
+</code></pre>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/stripedMap.png" alt="SideTableBuf转化为StripedMap 内存示意图" /></p>
+<h3><a id="weak-table-t" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>weak_table_t</h3>
+<pre><code class="language-cpp">// 全局的弱引用表
+struct weak_table_t {
+    weak_entry_t *weak_entries; 
+    size_t    num_entries; // 实体的数量
+    uintptr_t mask;
+    uintptr_t max_hash_displacement;
+};
+</code></pre>
+<ol>
+<li><code>weak_entries</code> 一个数组，数组每个元素是 <code>weak_entry_t</code> 结构体，一个 <code>weak_entry_t</code> 结构存储了一个 <code>reffenent</code>，以及指向 <code>reffenent</code> 的弱引用者们。</li>
+<li><code>num_entries</code> 是实体 <code>weak_entry_t</code> 的数量</li>
+<li><code>mask</code> 是容量减 <code>1</code>.</li>
+</ol>
+<h3><a id="weak-entry-t" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>weak_entry_t</h3>
+<pre><code class="language-cpp">struct weak_entry_t {
+    DisguisedPtr&lt;objc_object&gt; referent; 
+    union {
+        struct {
+            weak_referrer_t *referrers; 
+            uintptr_t        out_of_line : 1; // 变量名是 out_of_line ，占 1 个 bit
+            uintptr_t        num_refs : PTR_MINUS_1; // 数组中有几个元素，即 referent 有几个弱引用
+            uintptr_t        mask;
+            uintptr_t        max_hash_displacement;
+        };
+        struct {
+            // out_of_line=0 is LSB of one of these (don't care which)
+            weak_referrer_t  inline_referrers[WEAK_INLINE_COUNT];
+        };
+    };
+};
+</code></pre>
+<p>这个结构看着比较复杂：</p>
+<ol>
+<li><code>referent</code> 存储被弱引用的对象。</li>
+<li>第二个成员是一个 <code>union</code>，存储弱引用者 <code>refferer</code>。如果 <code>referent</code> 的弱引用者小于四个，也就是 <code>out_of_line</code> 为 <code>0</code> 时，弱引用者就存储在 <code>inline_referrers</code> 数组中。 否则，就存储在 <code>referrers</code> 中，这时 <code>out_of_line</code> 为 <code>1</code>，<code>referrers</code> 是个二级指针，里面存的是指向 <code>referent</code> 的对象们的地址。<code>num_refs</code> 是弱引用着的个数。<code>mask</code> 是容量减 <code>1</code>。</li>
+</ol>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_entry_t.png" alt="SideTableBuf转化为StripedMap" /></p>
+<h3><a id="%E5%B0%8F%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>小结</h3>
+<p>上面分析了weak相关的结构，现在画一张总图：</p>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_data_overal.png" alt="SideTableBuf转化为StripedMap" /></p>
+<p>上面是详细的数据结构，比较复杂，下面列出我认为核心的结构，核心结构就是三级hash表。</p>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_table%E4%B8%89%E7%BA%A7%E8%A1%A8.png" alt="SideTableBuf转化为StripedMap" /></p>
+<h2><a id="%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%A3" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数接口</h2>
+<pre><code class="language-cpp">id objc_storeWeakOrNil(id *location, id newObj);
+id objc_initWeak(id *location, id newObj);
+void objc_destroyWeak(id *location);
+</code></pre>
+<p>下面章节的代码只是简化的代码，为了方便理解，可能缺失部分细节。</p>
+<h3><a id="objc-initweak" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>objc_initWeak</h3>
+<pre><code class="language-cpp">id
+objc_initWeak(id *location, id newObj)
+{
+    if (!newObj) {
+        *location = nil;
+        return nil;
+    }
+
+    return storeWeak&lt;DontHaveOld, DoHaveNew, DoCrashIfDeallocating&gt;
+        (location, (objc_object*)newObj);
+}
+</code></pre>
+<p><code>objc_initWeak</code> 内部只调用了 <code>storeWeak</code> 函数。</p>
+<h3><a id="objc-storeweak" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>objc_storeWeak</h3>
+<pre><code class="language-cpp">id
+objc_storeWeak(id *location, id newObj)
+{
+
+    return storeWeak&lt;true/*old*/,
+                    true/*new*/,
+                    true/*crash*/&gt;
+        (location, (objc_object *)newObj);
+}
+</code></pre>
+<h3><a id="objc-destroyweak" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>objc_destroyWeak</h3>
+<pre><code class="language-cpp">objc_destroyWeak(id *location)
+{
+    (void)storeWeak&lt;true/*old*/, false/*new*/, false/*crash*/&gt;
+        (location, nil);
+}
+</code></pre>
+<p>可以看出 <code>objc_initWeak</code>、 <code>objc_storeWeak</code>、 <code>objc_destroyWeak</code> 的关键内容都是调用 <code>storeWeak</code> 函数，只是模板参数传递的不一样。</p>
+<h3><a id="storeweak" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>storeWeak</h3>
+<p>下面讲解storeWeak函数，下面只关注添加的过程。删除的过程没有关注。</p>
+<pre><code class="language-cpp">template &lt;HaveOld haveOld, HaveNew haveNew,
+          CrashIfDeallocating crashIfDeallocating&gt;
+static id 
+storeWeak(id *location, objc_object *newObj)
+{
+    assert(haveOld  ||  haveNew);
+    if (!haveNew) assert(newObj == nil);
+
+    Class previouslyInitializedClass = nil;
+    id oldObj;
+    SideTable *oldTable;
+    SideTable *newTable;
+
+    if (haveNew) {
+        newTable = &amp;SideTables()[newObj];
+    } else {
+        newTable = nil;
+    }
+
+
+    // Assign new value, if any.
+    if (haveNew) {
+        newObj = (objc_object *)
+            weak_register_no_lock(&amp;newTable-&gt;weak_table, (id)newObj, location, 
+                                  crashIfDeallocating);
+    }
+    return (id)newObj;
+}
+</code></pre>
+<pre><code class="language-cpp">if (haveNew) {
+        newTable = &amp;SideTables()[newObj];
+    } else {
+        newTable = nil;
+    }
+</code></pre>
+<p>就是根据 <code>newObj</code> 找到存储 <code>newObj</code> 的地址对应的 <code>SideTable</code>。</p>
+<pre><code class="language-cpp">static unsigned int indexForPointer(const void *p) {
+       uintptr_t addr = reinterpret_cast&lt;uintptr_t&gt;(p);
+       return ((addr &gt;&gt; 4) ^ (addr &gt;&gt; 9)) % StripeCount;
+}
+
+public:
+   T&amp; operator[] (const void *p) { 
+       return array[indexForPointer(p)].value; 
+}
+</code></pre>
+<p><code>StripedMap</code> 重载了 <code>[]</code> 操作符，内部调用了 <code>indexForPointer</code>，<code>indexForPointer</code> 就是将对象的地址做某些操作，相当于 <code>hash</code>。然后将 <code>hash</code> 的结果和 <code>64</code> 取余，得到 <code>0~63</code> 的值，这个值就可以当做数组的索引使用。</p>
+<p><code>storeWeak</code> 函数接着调用了 <code>weak_register_no_lock</code> 函数：</p>
+<pre><code class="language-cpp">id 
+weak_register_no_lock(weak_table_t *weak_table, id referent_id, 
+                      id *referrer_id, bool crashIfDeallocating)
+{
+    objc_object *referent = (objc_object *)referent_id;
+    objc_object **referrer = (objc_object **)referrer_id;  
+
+    // now remember it and where it is being stored
+    weak_entry_t *entry;
+    // 找到 referent 所在的 entry
+    if ((entry = weak_entry_for_referent(weak_table, referent))) {
+        // 将 referrer 添加进这个 entry 中，这样 referrer 就成为 referent 的弱引用之一了
+        append_referrer(entry, referrer);
+    }
+    // 如果没有找到对应的 entry ，那么说明 referent 还没有弱引用，就为其新建一个 entry
+    else {
+        weak_entry_t new_entry;
+        new_entry.referent = referent;
+        new_entry.out_of_line = 0;
+        new_entry.inline_referrers[0] = referrer;
+        // 数组中 4 个referrer全部初始化为 nil
+        for (size_t i = 1; i &lt; WEAK_INLINE_COUNT; i++) {
+            new_entry.inline_referrers[i] = nil;
+        }
+        // 检查一下需不需要扩容
+        weak_grow_maybe(weak_table);
+        // 将新建的 entry 插入 weak table 中
+        weak_entry_insert(weak_table, &amp;new_entry);
+    }
+    return referent_id;
+}
+</code></pre>
+<p>这个函数的功能就是讲 <code>referrer_id</code> 插入到正确的位置，分为两种情况：</p>
+<ol>
+<li>如果根据 <code>referent_id</code> 可以找到一个 <code>weak_entry_t</code> 类型的实体 <code>entry</code>，就调用将 <code>append_referrer</code> 将 <code>referrer_id</code> 插入到 <code>entry</code>（相当于三级hash表）中。</li>
+<li>如果没有，就需要新建一个 <code>weak_entry_t</code> 类型的实体 <code>new_entry</code>。然后调用 <code>weak_entry_insert</code> 将 <code>new_entry</code> 插入到二级hash表中。</li>
+</ol>
+<pre><code class="language-cpp">static weak_entry_t *
+weak_entry_for_referent(weak_table_t *weak_table, objc_object *referent)
+{
+    // 不能是 nil
+    assert(referent);
+
+    // weak_table 中存的实体数组
+    weak_entry_t *weak_entries = weak_table-&gt;weak_entries;
+
+    if (!weak_entries) {
+        return nil;
+    }
+
+    // 通过 Hash 的方法找到 referent 所在的索引，不过实在看不懂
+    size_t index = hash_pointer(referent) &amp; weak_table-&gt;mask;
+    size_t hash_displacement = 0;
+    while (weak_table-&gt;weak_entries[index].referent != referent) {
+        index = (index+1) &amp; weak_table-&gt;mask;
+        hash_displacement++;
+        if (hash_displacement &gt; weak_table-&gt;max_hash_displacement) {
+            return nil;
+        }
+    }
+    
+    // 返回找到的 weak_entry_t，这里可以证明 weak_entries 确实是一个数组
+    return &amp;weak_table-&gt;weak_entries[index];
+}
+</code></pre>
+<p><code>weak_entry_for_referent</code> 根据给的的 <code>referent</code> 在 <code>weak_table-&gt;weak_entries</code> 中遍历，是否有相同的，如果相同就返回对应的 <code>weak_entry_t</code> 类型的实体，如果没有 <code>nil</code>。</p>
+<p><code>hash_pointer</code> 就是对对象 <code>referent</code> 的地址做个 <code>hash</code>，然后和 <code>weak_table-&gt;mask</code> 做<code>与</code>操作，返回的结果小于 <code>weak_table-&gt;mask</code> ，当做数组的索引。</p>
+<p><code>hash_displacement</code> 记录的就是最佳位置和实际存储位置的偏移量。</p>
+<pre><code class="language-cpp">static void weak_entry_insert(weak_table_t *weak_table, weak_entry_t *new_entry)
+{
+    weak_entry_t *weak_entries = weak_table-&gt;weak_entries;
+    assert(weak_entries != nil);
+
+    // 通过 hash 决定 索引
+    size_t index = hash_pointer(new_entry-&gt;referent) &amp; (weak_table-&gt;mask);
+    size_t hash_displacement = 0;
+    
+    // 如果该索引中已经有 entry，那么这个索引就不能用了，就找下一个索引
+    while (weak_entries[index].referent != nil) {
+        index = (index+1) &amp; weak_table-&gt;mask;
+        hash_displacement++;
+    }
+
+    // 将 new_entry 放入指定的索引中
+    weak_entries[index] = *new_entry;
+    weak_table-&gt;num_entries++;
+
+    if (hash_displacement &gt; weak_table-&gt;max_hash_displacement) {
+        weak_table-&gt;max_hash_displacement = hash_displacement;
+    }
+}
+</code></pre>
+<p><code>weak_entry_insert</code> 就是在二级 <code>hash</code> 表中插入一个新的实体 <code>new_entry</code>。通过 <code>hash_pointer</code> 找到一个最佳位置 <code>index</code>，如果最佳位置已经有内容了，就接着查找下一个位置，直到找到空位置。记录下 <code>index</code>。在 <code>index</code> 处插入 <code>new_entry</code>。同时将 <code>num_entries</code> 累加 <code>1</code>。</p>
+<pre><code class="language-cpp">static void append_referrer(weak_entry_t *entry, objc_object **new_referrer)
+{
+    // out_of_line == 0 的情况
+    if (! entry-&gt;out_of_line) {
+        // Try to insert inline.
+        // inline_referrers 还放得下，就放在 inline_referrers 里
+        for (size_t i = 0; i &lt; WEAK_INLINE_COUNT; i++) {
+            if (entry-&gt;inline_referrers[i] == nil) {
+                entry-&gt;inline_referrers[i] = new_referrer;
+                return;
+            }
+        }
+
+        weak_referrer_t *new_referrers = (weak_referrer_t *)
+            calloc(WEAK_INLINE_COUNT, sizeof(weak_referrer_t));
+    
+        
+        // 将 inline_referrers 存的 4 个对象拷贝到 new_referrers 中
+        for (size_t i = 0; i &lt; WEAK_INLINE_COUNT; i++) {
+            new_referrers[i] = entry-&gt;inline_referrers[i];
+        }
+        entry-&gt;referrers = new_referrers;
+        entry-&gt;num_refs = WEAK_INLINE_COUNT;
+        entry-&gt;out_of_line = 1;
+        entry-&gt;mask = WEAK_INLINE_COUNT-1;
+        entry-&gt;max_hash_displacement = 0;
+    }
+
+    assert(entry-&gt;out_of_line);
+
+    if (entry-&gt;num_refs &gt;= TABLE_SIZE(entry) * 3/4) {
+        return grow_refs_and_insert(entry, new_referrer);
+    }
+    
+    size_t index = w_hash_pointer(new_referrer) &amp; (entry-&gt;mask);
+    size_t hash_displacement = 0;
+    // 找到可以存放 new_referrer 的索引位置
+    while (entry-&gt;referrers[index] != NULL) {
+        index = (index+1) &amp; entry-&gt;mask;
+        hash_displacement++;
+    }
+    if (hash_displacement &gt; entry-&gt;max_hash_displacement) {
+        entry-&gt;max_hash_displacement = hash_displacement;
+    }
+    // 将 index 处的对象替换成 new_referrer
+    weak_referrer_t &amp;ref = entry-&gt;referrers[index];
+    ref = new_referrer;
+    // 总数加一
+    entry-&gt;num_refs++;
+}
+</code></pre>
+<p><code>append_referrer</code> 是在三级 <code>hash</code> 表 <code>entry</code> 中出入一个新的弱引用着 <code>new_referrer</code>。</p>
+<p>分为三种情况：</p>
+<ol>
+<li>如果 <code>inline_referrers</code> 没有存储满，直接存储到 <code>inline_referrers</code> 中。</li>
+<li>如果 <code>inline_referrers</code> 个数是4个了，再插入，就需要将 <code>inline_referrers</code> 拷贝到 <code>referrers</code>，然后进入第三步。</li>
+<li>如果 <code>referrers</code> 存储满了，判断是否需要扩容，然后将数据存储到 <code>referrers</code> 中。</li>
+</ol>
+<p>存储到 <code>inline_referrers</code> 的代码是：</p>
+<pre><code class="language-cpp">for (size_t i = 0; i &lt; WEAK_INLINE_COUNT; i++) {
+    if (entry-&gt;inline_referrers[i] == nil) {
+        entry-&gt;inline_referrers[i] = new_referrer;
+        return;
+    }
+}
+</code></pre>
+<p>存储完成后，直接返回了，所以后面的代码就是存储在 <code>referrers</code> 的情况。</p>
+<pre><code class="language-cpp">weak_referrer_t *new_referrers = (weak_referrer_t *)
+    calloc(WEAK_INLINE_COUNT, sizeof(weak_referrer_t));
+    
+    
+// 将 inline_referrers 存的 4 个对象拷贝到 new_referrers 中
+for (size_t i = 0; i &lt; WEAK_INLINE_COUNT; i++) {
+    new_referrers[i] = entry-&gt;inline_referrers[i];
+}
+entry-&gt;referrers = new_referrers;
+entry-&gt;num_refs = WEAK_INLINE_COUNT;
+entry-&gt;out_of_line = 1;
+entry-&gt;mask = WEAK_INLINE_COUNT-1;
+entry-&gt;max_hash_displacement = 0;
+</code></pre>
+<p>这段代码的功能是 <code>inline_referrers</code> 正好4个，如果再次添加，肯定放不下了，所以将 <code>inline_referrers</code> 中的数据移到 <code>referrers</code> 中。</p>
+<pre><code class="language-cpp">if (entry-&gt;num_refs &gt;= TABLE_SIZE(entry) * 3/4) {
+    return grow_refs_and_insert(entry, new_referrer);
+}
+</code></pre>
+<p>如果使用超过 <code>3/4</code>，就先扩容，然后再插入。</p>
+<pre><code class="language-cpp">size_t index = w_hash_pointer(new_referrer) &amp; (entry-&gt;mask);
+size_t hash_displacement = 0;
+// 找到可以存放 new_referrer 的索引位置
+while (entry-&gt;referrers[index] != NULL) {
+    index = (index+1) &amp; entry-&gt;mask;
+    hash_displacement++;
+}
+if (hash_displacement &gt; entry-&gt;max_hash_displacement) {
+    entry-&gt;max_hash_displacement = hash_displacement;
+}
+// 将 index 处的对象替换成 new_referrer
+weak_referrer_t &amp;ref = entry-&gt;referrers[index];
+ref = new_referrer;
+// 总数加一
+entry-&gt;num_refs++;
+</code></pre>
+<p>上面的代码是通过弱引用着 <code>new_referrer</code> 找到 <code>index</code> 。然后从 <code>index</code> 开始，寻址空位置，将 <code>new_referrer</code> 插入到 <code>entry-&gt;referrers[index]</code> 位置处。同时将 <code>entry-&gt;num_refs</code> 累加。</p>
+<h2><a id="%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
+<p><code>weak</code> 即是一个三级 <code>hash</code> 表。</p>
+<ol>
+<li>第一级用来提高效率的，可以想象，很多对象，放到一个 <code>hash</code> 表中，降低了效率。所有将多有的对象散列到64个表中。</li>
+<li>二级缓存存储被弱引用的对象。</li>
+<li>三级缓存存储某个对象的所有的弱引用者。</li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2020/08/26</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
               
 
 
@@ -764,8 +1060,6 @@ public:
 
       	<p class="cat-list">
         
-            <a href="Pages.html"><strong>Pages</strong></a>
-        
             <a href="CS.html"><strong>CS</strong></a>
         
             <a href="List.html"><strong>List</strong></a>
@@ -787,12 +1081,6 @@ public:
 	      
 		      
 			      <li class="post">
-			        <a href="17005448149061.html">贴牌品牌</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
 			        <a href="16996865532784.html">三汁焖锅</a>
 			      </li>
 		     
@@ -812,6 +1100,12 @@ public:
 		      
 			      <li class="post">
 			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001171363865.html">LiSSA第四代计时器说明书</a>
 			      </li>
 		     
 		  

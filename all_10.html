@@ -83,8 +83,6 @@
     <li><label>Categories</label></li>
 
         
-            <li><a href="Pages.html">Pages</a></li>
-        
             <li><a href="CS.html">CS</a></li>
         
             <li><a href="List.html">List</a></li>
@@ -111,45 +109,6 @@
 	<div class="large-8 medium-8 columns">
 		<div class="markdown-body home-categories">
 		
-			<div class="article">
-                <a class="clearlink" href="17001892558541.html">
-                
-                  <h1>Objective-C_04.内存管理</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h3><a id="%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一、基本原理</h3>
-<h4><a id="%EF%BC%88%E4%B8%80%EF%BC%89%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E3%80%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（一）为什么要进行内存管理。</h4>
-<p>由于移动设备的内存极其有限，所以每个APP所占的内存也是有限制的，当app所占用的内存较多时，系统就会发出内存警告，这时需要回收一些不需要再继续使用的内存空间，比如回收一些不再使用的对象和变量等。</p>
-<p>管理范围：任何继承 NSObjec t的对象，对其他的基本数据类型无效。</p>
-<p>本质原因是因为对象和其他数据类型在系统中的存储空间不一样，其它局部变量主要存放于栈中，而对象存储于堆中，当代码块结束时这个代码块中涉及的所有局部变量会被回收，指向对象的指针也被回收，此时对象已经没有指针指向，但依然存在于内存中，造成内存泄露。</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="17001892558541.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2015/11/01</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
 			<div class="article">
                 <a class="clearlink" href="17001892558647.html">
                 
@@ -819,6 +778,59 @@ NSString *const NotifationTest = @&quot;notificationTest&quot;;
                 </div>
               </div><!-- article -->
         
+			<div class="article">
+                <a class="clearlink" href="17001892556891.html">
+                
+                  <h1>NSDate基本用法</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>简单的记录一下关于时间的API和基本用法:</p>
+<h2><a id="nsdate" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>NSDate</h2>
+<h4><a id="1%E5%88%9B%E5%BB%BA%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F-nsdateformatter%E7%9A%84%E6%A0%BC%E5%BC%8F%E7%BA%A6%E5%AE%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 创建时间格式NSDateFormatter的格式约定</h4>
+<pre><code class="language-swift">// 设置格式
+
+hh : 12小时制
+
+HH : 24小时制
+
+mm : 分
+
+ss : 秒
+
+yyyy : 年
+
+MM : 月
+
+dd : 日
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001892556891.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2015/02/13</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
               
 
 
@@ -871,8 +883,6 @@ NSString *const NotifationTest = @&quot;notificationTest&quot;;
 
       	<p class="cat-list">
         
-            <a href="Pages.html"><strong>Pages</strong></a>
-        
             <a href="CS.html"><strong>CS</strong></a>
         
             <a href="List.html"><strong>List</strong></a>
@@ -894,12 +904,6 @@ NSString *const NotifationTest = @&quot;notificationTest&quot;;
 	      
 		      
 			      <li class="post">
-			        <a href="17005448149061.html">贴牌品牌</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
 			        <a href="16996865532784.html">三汁焖锅</a>
 			      </li>
 		     
@@ -919,6 +923,12 @@ NSString *const NotifationTest = @&quot;notificationTest&quot;;
 		      
 			      <li class="post">
 			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001171363865.html">LiSSA第四代计时器说明书</a>
 			      </li>
 		     
 		  
