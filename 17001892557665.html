@@ -1,0 +1,650 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  Objective-C_12.description方法和sel - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Objective-C_12.description方法和sel</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2015/11/01</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='OC.html'>OC</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h3><a id="%E4%B8%80%E3%80%81description%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一、description方法</h3>
+<p>Description方法包括类方法和对象方法。（NSObject类所包含）</p>
+<h4><a id="%EF%BC%88%E4%B8%80%EF%BC%89%E5%9F%BA%E6%9C%AC%E7%9F%A5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（一）基本知</h4>
+<pre><code class="language-swift">- description（对象方法）
+</code></pre>
+<span id="more"></span><!-- more -->
+<p>使用NSLog和@%输出某个对象时，会调用对象的description方法，并拿到返回值进行输出。</p>
+<pre><code class="language-swift">+ description（类方法）
+</code></pre>
+<p>使用NSLog和@%输出某个对象时，会调用类对象的description方法，并拿到返回值进行输出，把整个对象一次性打印出来，打印对象使用%@。<br />
+使用@%打印对象如（“@%”,P）默认打印输出为&lt;类名：内存地址]] &gt;，虽然字符串也是对象，但字符串在使用@%打印时情况特殊。</p>
+<pre><code class="language-swift">// Person 类的声明
+@interface Person : NSObject
+// 两个成员变量
+@property (nonatomic, assign) int age;
+@property (nonatomic, strong) NSString *name;
+
+@end
+
+/// Person类的实现
+@implementation Person
+
+
+@end
+
+Person *p = [[Person alloc] init];
+// 点语法 本质是调用 set 和 get 方法
+p.age = 10;
+p.name = @&quot;小明&quot;;
+// 直接用 NSLog 和 %@ 打印对象
+NSLog(@&quot;%@&quot;,p);
+
+// 打印结果
+2016-07-30 18:40:53.937 test[1728:627451] &lt;Person: 0x7fdf8a41e0b0&gt;
+</code></pre>
+<p>那么应该怎么实现打印对象的所有属性呢？在类的实现中重写description方法。</p>
+<h4><a id="%EF%BC%88%E4%BA%8C%EF%BC%89%E5%AE%9E%E7%8E%B0%E6%89%93%E5%8D%B0%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%89%80%E6%9C%89%E5%B1%9E%E6%80%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（二）实现打印对象的所有属性</h4>
+<pre><code class="language-swift">// Person 类的声明
+@interface Person : NSObject
+// 两个成员变量
+@property (nonatomic, assign) int age;
+@property (nonatomic, strong) NSString *name;
+
+@end
+
+/// Person类的实现
+@implementation Person
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@&quot;age=%d, name=%@&quot;, _age,_name];
+}
+
+@end
+
+Person *p = [[Person alloc] init];
+// 点语法 本质是调用 set 和 get 方法
+p.age = 10;
+p.name = @&quot;小明&quot;;
+// 直接用 NSLog 和 %@ 打印对象
+NSLog(@&quot;%@&quot;,p);
+// 获取Person的“类对象”
+Class c = [Person class];
+NSLog(@&quot;%@&quot;,c);
+
+// 打印结果
+2016-07-30 18:47:41.546 test[1795:650822] age=10, name=小明
+2016-07-30 18:47:41.546 test[1795:650822] Person
+</code></pre>
+<h4><a id="%EF%BC%88%E4%B8%89%EF%BC%89%E5%8C%BA%E5%88%AB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（三）区别</h4>
+<pre><code class="language-swift">+ description 决定了类对象的输出结果，即类本身
+- description 方法决定了实例对象的输出结果，即Person创建的对象。
+</code></pre>
+<h4><a id="%EF%BC%88%E5%9B%9B%EF%BC%89%E6%89%93%E5%8D%B0%E7%9B%B8%E5%85%B3%E8%A1%A5%E5%85%85" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（四）打印相关补充</h4>
+<pre><code class="language-swift">// 1. 打印对象地址
+Person *p = [[Person alloc] init];
+NSLog(@&quot;%@&quot;,p);
+// 2. 打印当前代码行号
+NSLog(@&quot;%d&quot;, __LINE__);
+// 3. 打印当前文件路径
+NSLog(@&quot;%s&quot;, __FILE__);
+// 4. 打印所属的方法或函数名
+NSLog(@&quot;%s&quot;, __func__);
+
+// 打印结果
+2016-07-30 18:52:14.556 test[1857:670721] age=0, name=(null)
+2016-07-30 18:52:14.556 test[1857:670721] 29
+2016-07-30 18:52:14.557 test[1857:670721] /Users/kangan/Desktop/test/test/ViewController.m
+2016-07-30 18:52:14.557 test[1857:670721] -[ViewController viewDidLoad]
+</code></pre>
+<h3><a id="%E4%BA%8C%E3%80%81sel" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二、SEL</h3>
+<p>SEL:全称Selector 表示方法的存储位置。</p>
+<p>方法在内存中是怎么存储的？</p>
+<p><img src="media/17001892557665/17007340033471.jpg" alt="" /></p>
+<pre><code class="language-swift">Person *p=[[Person alloc] init];
+[p test];
+</code></pre>
+<p>寻找方法的过程：</p>
+<ol>
+<li>首先把test这个方法名包装成sel类型的数据；</li>
+<li>根据SEL数据找到对应的方法地址；</li>
+<li>根据方法地址调用相应的方法。</li>
+<li>注意:在这个操作过程中有缓存，第一次找的时候是一个一个的找，非常耗性能，之后再用到的时候就直接使用。</li>
+</ol>
+<p>关于_cmd:每个方法的内部都有一个-cmd,代表着当前方法。</p>
+<blockquote>
+  注意：SEL其实是对方法的一种包装，将方法包装成一个SEL类型的数据，去寻找对应的方法地址，找到方法地址后就可以调用方法。这些都是运行时特性，发消息就是发送SEL，然后根据SEL找到地址，调用方法。
+</blockquote>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="17001892557564.html" 
+          title="Previous Post: Objective-C_13.BLOCK和协议">&laquo; Objective-C_13.BLOCK和协议</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="17001892557766.html" 
+          title="Next Post: Objective-C_11.类的深入研究和分类">Objective-C_11.类的深入研究和分类 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>

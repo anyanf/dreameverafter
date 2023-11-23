@@ -1,0 +1,627 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  Description方法和NSLog函数 - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Description方法和NSLog函数</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2015/03/07</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='OC.html'>OC</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h3><a id="1-description%E6%96%B9%E6%B3%95%E6%98%AF-nsobject%E8%87%AA%E5%B8%A6%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8C%E5%8C%85%E6%8B%AC%E7%B1%BB%E6%96%B9%E6%B3%95%E5%92%8C%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. description 方法是 NSObject 自带的方法，包括类方法和对象方法</h3>
+<pre><code class="language-swift">+ (NSString *)description; // 默认返回 类名
+- (NSString *)description; // 默认返回 &lt;类名：内存地址&gt;
+</code></pre>
+<span id="more"></span><!-- more -->
+<h3><a id="2%E9%BB%98%E8%AE%A4%E6%83%85%E5%86%B5%E4%B8%8B%E5%88%A9%E7%94%A8-nslog%E5%92%8C%E8%BE%93%E5%87%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%97%B6%E8%BF%94%E5%9B%9E%E7%9A%84%E5%B0%B1%E6%98%AF%E7%B1%BB%E5%90%8D%E5%92%8C%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.默认情况下利用 NSLog 和 %@ 输出对象的时返回的就是类名和内存地址</h3>
+<h3><a id="3%E4%BF%AE%E6%94%B9-nslog%E5%92%8C%E7%9A%84%E9%BB%98%E8%AE%A4%E8%BE%93%E5%87%BA%EF%BC%9A%E9%87%8D%E5%86%99%E7%B1%BB%E5%AF%B9%E8%B1%A1%E6%88%96%E8%80%85%E5%AE%9E%E4%BE%8B%E5%AF%B9%E8%B1%A1%E7%9A%84-description%E6%96%B9%E6%B3%95%E5%8D%B3%E5%8F%AF%E3%80%82%E5%9B%A0%E4%B8%BA-nslog%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%89%93%E5%8D%B0%E7%9A%84%E6%97%B6%E5%80%99%E4%BC%9A%E8%87%AA%E5%8A%A8%E8%B0%83%E7%94%A8-description%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.修改 NSLog 和 %@ 的默认输出：重写类对象或者实例对象的 description 方法即可。因为 NSLog 函数进行打印的时候会自动调用 description 方法</h3>
+<pre><code class="language-swift">/******************************** Person.h文件*********************************/
+#import &lt;Foundation/Foundation.h&gt;
+
+@interface Person : NSObject
+
++ (NSString *)description;
+- (NSString *)description;
+
+@property int age;
+@property NSString *name;
+
+@end
+
+
+
+/******************************** Person.m文件*********************************/
+#import &quot;Person.h&quot;
+@implementation Person
+
+#pragma mark 类对象输出的结果
++ (NSString *)description
+{
+    return @&quot;AAA&quot;;
+}
+
+
+#pragma mark 实例对象输出的结果
+- (NSString *)description
+{
+    // NSLog(@&quot;%@&quot;,self); 引发死循环
+    return [NSString stringWithFormat:@&quot;name = %@ age = %d&quot;,_name,_age];
+}
+@end
+
+
+/******************************** main.m文件***********************************/
+#import &lt;Foundation/Foundation.h&gt;
+#import &quot;Person.h&quot;
+int main(int argc, const char * argv[])
+{
+    Class c = [Person class];
+    NSLog(@&quot;%@&quot;,c);
+
+    Person *person = [[Person alloc] init];
+    person.name = @&quot;John&quot;;
+    person.age = 20;
+
+    // 执行NSLog函数的时候会调用description方法默认返回&lt;类名/对象名: 地址&gt;
+    NSLog(@&quot;%@&quot;,person);
+
+}
+
+
+/**************************** 丰富日志输出 **********************************/
+#import &lt;Foundation/Foundation.h&gt;
+#import &quot;Person.h&quot;
+
+int main(int argc, const char * argv[])
+{
+    Person *person = [[Person alloc] init];
+
+    // 打印person对象地址
+    NSLog(@&quot;%@&quot;,person); // &lt;Person: 0x100200ae0&gt;
+    // 打印person指针的地址
+    NSLog(@&quot;%p&quot;,person); // 0x100200ae0 对象和指针地址一致
+
+    // 指针变量的地址
+    NSLog(@&quot;%p&quot;,&amp;person);// 0x7fff5fbff8e8
+
+    // NSLog不能%s无法输出带有中文的文件路径,可以用c语言中的printf和%s来代替
+    // NSLog(@&quot;%s&quot;,__FILE__);
+    printf(&quot;%s&quot;,__FILE__);
+
+    // 输出当前方法
+    NSLog(@&quot;%s&quot;,__FUNCTION__);  // 返回 main
+
+}
+</code></pre>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="17001265069283.html" 
+          title="Previous Post: MAC OS X 常用技巧">&laquo; MAC OS X 常用技巧</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="17001892556891.html" 
+          title="Next Post: NSDate基本用法">NSDate基本用法 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>

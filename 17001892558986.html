@@ -1,0 +1,806 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  Objective-C Type Encodings - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Objective-C Type Encodings</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2019/04/30</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='OC.html'>OC</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>转自：<a href="https://nshipster.cn/type-encodings/">nshipster</a>，觉得再某些场景上有点用，就直接抄过来了。</p>
+<p>@encode，@编译器指令 之一，返回一个给定类型编码为一种内部表示的字符串（例如，@encode(int) → i），类似于 ANSI C 的 typeof 操作。苹果的 Objective-C 运行时库内部利用类型编码帮助加快消息分发。</p>
+<p>这里有一个所有不同的 Objective-C 类型编码的概要：</p>
+<p>Objective-C Type Encodings</p>
+<table>
+<thead>
+<tr>
+<th><strong>编码</strong></th>
+<th><strong>意义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c</code></td>
+<td><code>A char</code></td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td><code>An int</code></td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td><code>A short</code></td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td><code>A longl is treated as a 32-bit quantity on 64-bit programs.</code></td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td><code>A long long</code></td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td><code>An unsigned char</code></td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td><code>An unsigned int</code></td>
+</tr>
+<tr>
+<td><code>S</code></td>
+<td><code>An unsigned short</code></td>
+</tr>
+<tr>
+<td><code>L</code></td>
+<td><code>An unsigned long</code></td>
+</tr>
+<tr>
+<td><code>Q</code></td>
+<td><code>An unsigned long long</code></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td><code>A float</code></td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td><code>A double</code></td>
+</tr>
+<tr>
+<td><code>B</code></td>
+<td><code>A C++ bool or a C99 _Bool</code></td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td><code>A void</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td><code>A character string (char *)</code></td>
+</tr>
+<tr>
+<td><code>@</code></td>
+<td><code>An object (whether statically typed or typed id)</code></td>
+</tr>
+<tr>
+<td><code>#</code></td>
+<td><code>A class object (Class)</code></td>
+</tr>
+<tr>
+<td><code>:</code></td>
+<td><code>A method selector (</code>SEL<code>)</code></td>
+</tr>
+<tr>
+<td><code>[*array type*]</code></td>
+<td><code>An array</code></td>
+</tr>
+<tr>
+<td><code>{*name=type...*}</code></td>
+<td><code>A structure</code></td>
+</tr>
+<tr>
+<td><code>(*name*=*type...*)</code></td>
+<td><code>A union</code></td>
+</tr>
+<tr>
+<td><code>bnum</code></td>
+<td><code>A bit field of *num* bits</code></td>
+</tr>
+<tr>
+<td><code>^type</code></td>
+<td><code>A pointer to type</code></td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td><code>An unknown type (among other things, this code is used for function pointers)</code></td>
+</tr>
+</tbody>
+</table>
+<p>当然，用图表很不错，但是用代码实践更好：</p>
+<pre><code class="language-swift">NSLog(@&quot;int        : %s&quot;, @encode(int));
+NSLog(@&quot;float      : %s&quot;, @encode(float));
+NSLog(@&quot;float *    : %s&quot;, @encode(float*));
+NSLog(@&quot;char       : %s&quot;, @encode(char));
+NSLog(@&quot;char *     : %s&quot;, @encode(char *));
+NSLog(@&quot;BOOL       : %s&quot;, @encode(BOOL));
+NSLog(@&quot;void       : %s&quot;, @encode(void));
+NSLog(@&quot;void *     : %s&quot;, @encode(void *));
+
+NSLog(@&quot;NSObject * : %s&quot;, @encode(NSObject *));
+NSLog(@&quot;NSObject   : %s&quot;, @encode(NSObject));
+NSLog(@&quot;[NSObject] : %s&quot;, @encode(typeof([NSObject class])));
+NSLog(@&quot;NSError ** : %s&quot;, @encode(typeof(NSError **)));
+
+int intArray[5] = {1, 2, 3, 4, 5};
+NSLog(@&quot;int[]      : %s&quot;, @encode(typeof(intArray)));
+
+float floatArray[3] = {0.1f, 0.2f, 0.3f};
+NSLog(@&quot;float[]    : %s&quot;, @encode(typeof(floatArray)));
+
+typedef struct _struct {
+    short a;
+    long long b;
+    unsigned long long c;
+} Struct;
+NSLog(@&quot;struct     : %s&quot;, @encode(typeof(Struct)));
+</code></pre>
+<p>结果：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th><strong>编码</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td><code>i</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td><code>f</code></td>
+</tr>
+<tr>
+<td><code>float *</code></td>
+<td><code>^f</code></td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td><code>c</code></td>
+</tr>
+<tr>
+<td><code>char *</code></td>
+<td><code>*</code></td>
+</tr>
+<tr>
+<td><code>BOOL</code></td>
+<td><code>c</code></td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>v</code></td>
+</tr>
+<tr>
+<td><code>void *</code></td>
+<td><code>^v</code></td>
+</tr>
+<tr>
+<td><code>NSObject *</code></td>
+<td><code>@</code></td>
+</tr>
+<tr>
+<td><code>NSObject</code></td>
+<td><code>#</code></td>
+</tr>
+<tr>
+<td><code>[NSObject]</code></td>
+<td><code>{NSObject=#}</code></td>
+</tr>
+<tr>
+<td><code>NSError **</code></td>
+<td><code>^@</code></td>
+</tr>
+<tr>
+<td><code>int[]</code></td>
+<td><code>[5i]</code></td>
+</tr>
+<tr>
+<td><code>float[]</code></td>
+<td><code>[3f]</code></td>
+</tr>
+<tr>
+<td><code>struct</code></td>
+<td><code>{_struct=sqQ}</code></td>
+</tr>
+</tbody>
+</table>
+<p>这里有一些特别需要注意的：</p>
+<ul>
+<li>指针的标准编码是加一个前置的 <code>^</code>，而 <code>char *</code> 拥有自己的编码 <code>*</code>。这在概念上是很好理解的，因为 C 的字符串被认为是一个实体，而不是指针。</li>
+<li><code>BOOL</code> 是 <code>c</code>，而不是某些人以为的 <code>i</code>。原因是 <code>char</code> 比 <code>int</code> 小，且在 80 年代 Objective-C 最开始设计的时候，每一个 bit 位都比今天的要值钱（就像美元一样）。<code>BOOL</code> 更确切地说是 <code>signed char</code> （即使设置了 <code>-funsigned-char</code> 参数），以在不同编译器之间保持一致，因为 <code>char</code> 可以是 <code>signed</code> 或者 <code>unsigned</code>。</li>
+<li>直接传入 <code>NSObject</code> 将产生 <code>#</code>。但是传入 <code>[NSObject class]</code> 产生一个名为 <code>NSObject</code>只有一个类字段的结构体。很明显，那就是 <code>isa</code> 字段，所有的 <code>NSObject</code> 实例都用它来表示自己的类型。</li>
+</ul>
+<h2><a id="%E6%96%B9%E6%B3%95%E7%BC%96%E7%A0%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法编码</h2>
+<p>如苹果的 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html">“Objective-C Runtime Programming Guide”</a> 中所提到的，有一大把内部使用的类型编码无法用 <code>@encode()</code> 返回。</p>
+<p>以下是协议中声明的方法的类型修饰符：</p>
+<p>Objective-C Method Encodings</p>
+<table>
+<thead>
+<tr>
+<th><strong>编码</strong></th>
+<th><strong>意义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td><code>const</code></td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td><code>in</code></td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td><code>inout</code></td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td><code>out</code></td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td><code>bycopy</code></td>
+</tr>
+<tr>
+<td><code>R</code></td>
+<td><code>byref</code></td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td><code>oneway</code></td>
+</tr>
+</tbody>
+</table>
+<p>对于那些熟悉 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSDistantObject_Class/Reference/Reference.html">NSDistantObject</a> 的人，你无疑会认出这些是 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/DistrObjects/DistrObjects.html#//apple_ref/doc/uid/10000102i">Distributed Objects</a> 的残留。</p>
+<p>尽管 DO (Distributed Objects) 在 iOS 时代已经不那么时髦了，它仍是用于 Cocoa 应用程序进程间通信的协议————甚至用于网络上的不同机器之间。在这些约束下，上下文里附加的内容就带来了很多好处。</p>
+<p>例如，分页式的对象消息的参数默认是用代理传递的。在那些没必要用到低效的代理的情况下，增加一个 <code>bycopy</code> 修饰符以保证发送了一份完整的拷贝。同样，默认情况下，带用 <code>inout</code> 的参数表明它在发消息时对象即可传入又可传出。将参数特别标注为 <code>in</code> 或 <code>out</code>，程序将避免一些来回的开销。</p>
+<hr />
+<p>我们从对 Objective-C 的类型编码的全新理解上能得到什么呢？ 不瞒您说，其实没多少（除非你在做一些疯狂的元编程）。</p>
+<p>但是就如我们最开始所说的，在追求破译密文的过程中要用到不少智慧。</p>
+<p>看看类型编码为我们展现的有关 Objective-C 内部的细节，这本身就是一种高尚的追求。如果刨根问到底的话，我们需要了解一下 Distributed Objects 神秘的历史以及那 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSNumberFormatter_Class/Reference/Reference.html%23jumpTo_22">至今仍然存在</a> 的复杂的参数修饰符。</p>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="17001875302904.html" 
+          title="Previous Post: LeetCode 5 Longest Palindromic Substring(最长回文字串)">&laquo; LeetCode 5 Longest Palindromic Substring(最长回文字串)</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="17001892556042.html" 
+          title="Next Post: Objective-C：为什么分类中不能直接添加属性">Objective-C：为什么分类中不能直接添加属性 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>

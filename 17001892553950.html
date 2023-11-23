@@ -1,0 +1,685 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  SwiftUI基本控件 - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>SwiftUI基本控件</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2022/06/24</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='UI.html'>UI</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>准备用SwiftUI撸个小项目玩一下，边做边记录用到的东西。</p>
+<span id="more"></span><!-- more -->
+<h2><a id="text" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Text</h2>
+<pre><code class="language-swift">Text(&quot;文字&quot;)
+    .font(.custom(&quot;BradleyHandITCTT-Bold&quot;, size: 36))
+    .frame(width: 200, height: 80, alignment: .bottomTrailing)
+</code></pre>
+<h2><a id="textfield" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>TextField</h2>
+<pre><code class="language-swift">TextField(&quot;User Name&quot;, text: $username, onEditingChanged: { (value) in
+	    print(&quot;onEditingChanged:\(self.username)&quot;)
+	}) {
+	    print(&quot;onCommit:\(self.username)&quot;)
+	}.textFieldStyle(RoundedBorderTextFieldStyle())
+	//密码输入框
+    Text(&quot;Your password is \(password)!&quot;)
+    
+    SecureField(&quot;Your password&quot;, text: $password) {
+        print(&quot;Your password is \(self.password)!&quot;)
+    }
+    .textFieldStyle(RoundedBorderTextFieldStyle())
+</code></pre>
+<h2><a id="button" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Button</h2>
+<pre><code class="language-swift">Button(action: {
+	print(&quot;---Third button action.&quot;)
+    }) {
+	Image(systemName: &quot;clock&quot;)
+	Text(&quot;Third button&quot;)
+    }
+    .foregroundColor(Color.white)
+    .background(Color.orange)
+    
+ Button(action: {
+	print(&quot;---Button with image.&quot;)
+    }){
+	HStack {
+	    Image(systemName: &quot;star&quot;)
+	    Text(&quot;Button with image&quot;)
+	}
+	.padding()
+	    .background(Color.yellow)
+    }
+</code></pre>
+<h2><a id="spacer%E6%98%AF%E4%B8%80%E4%B8%AA%E7%81%B5%E6%B4%BB%E7%9A%84%E7%A9%BA%E9%97%B4%E8%A7%86%E5%9B%BE%EF%BC%8C%E5%9C%A8%E4%B8%A4%E4%B8%AAx%E6%88%96y%E8%BD%B4%E4%B8%8A%E8%BF%9B%E8%A1%8C%E6%89%A9%E5%B1%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spacer是一个灵活的空间视图，在两个x或y轴上进行扩展</h2>
+<pre><code class="language-swift">HStack {
+     Image(systemName: &quot;clock&quot;)
+     Spacer(minLength: 50)
+     Text(&quot;\(Date())&quot;)
+}
+</code></pre>
+<h2><a id="divider" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Divider</h2>
+<p>分割线，和容器方向垂直。</p>
+<pre><code class="language-swift"> Image(systemName: &quot;clock&quot;)
+ Divider()
+    .background(Color.purple)
+    .scaleEffect(CGSize(width: 1, height: 10))
+ Text(&quot;\(Date())&quot;)
+</code></pre>
+<h2><a id="image" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Image</h2>
+<pre><code class="language-swift">Image(&quot;imageName&quot;)
+	.resizable()
+	.aspectRatio(contentMode: .fit)
+Image(&quot;imageName&quot;)
+	.blur(radius: CGFloat(2), opaque: true)
+Image(&quot;imageName&quot;)
+        .mask(Circle())
+Image(&quot;texture&quot;)
+        .resizable()
+        .frame(width: 300, height: 300)
+        .mask(
+Text(&quot;SWIFT UI!&quot;)
+	.font(Font.system(size: 64).bold()))
+Image(&quot;girlPicture&quot;)
+	.scaleEffect(0.8)
+</code></pre>
+<h2><a id="picker%E7%9B%B8%E5%BD%93%E4%BA%8Euikit%E4%B8%AD%E7%9A%84uipickerview" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Picker相当于UIKit中的UIPickerView</h2>
+<pre><code class="language-swift"> struct ContentView : View {
+
+ var number = [&quot;first&quot;, &quot;second&quot;, &quot;third&quot;]
+ @State private var selectedItem = 0
+
+ var body: some View {
+    VStack {
+        
+       Picker(selection: $selectedItem, label: Text(&quot;Number&quot;)) {
+          ForEach(0 ..&lt; number.count) {
+            Text(self.number[$0]).tag($0).foregroundColor(self.colors[$0])
+          }
+       }
+       Text(&quot;Your choice: &quot;)
+        + Text(&quot;\(number[selectedItem])&quot;).foregroundColor(self.colors[selectedItem])
+    }
+ }
+}
+</code></pre>
+<h2><a id="pickerdate" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>PickerDate</h2>
+<pre><code class="language-swift"> DatePicker(selection: $selectedDate, displayedComponents: DatePickerComponents.date) {
+        Text(&quot;Date&quot;)
+    }
+</code></pre>
+<h2><a id="slider" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slider</h2>
+<pre><code class="language-swift">   Slider(value: $temperature, in: -20...40) { (item) in
+        print(item)
+    }
+</code></pre>
+<h2><a id="stepper" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stepper</h2>
+<pre><code class="language-swift">    Stepper(onIncrement: {
+        self.temperature += 1
+    }, onDecrement: {
+        self.temperature -= 1
+    }, label: { Text(&quot;Temperature: \(Int(temperature))&quot;) })
+
+</code></pre>
+<h2><a id="segment%E4%BC%BC%E4%BA%8Euikit%E4%B8%AD%E7%9A%84uisegmentedcontrol" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Segment似于UIKit中的UISegmentedControl</h2>
+<pre><code class="language-swift">Picker(selection: $selectedAnimal, label: Text(&quot;animals&quot;)) {
+       ForEach(0 ..&lt; animals.count) {
+        Text(self.animals[$0]).tag($0)
+       }
+    }.pickerStyle(SegmentedPickerStyle())
+
+</code></pre>
+<h2><a id="toggle" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Toggle</h2>
+<pre><code class="language-swift">Toggle(isOn: $showNotification) {
+        Text(&quot;Show notification:&quot;)
+    }.padding()
+</code></pre>
+<h2><a id="tabview" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>TabView</h2>
+<pre><code class="language-swift">TabView {
+    Text(&quot;The home page.&quot;)
+	.font(.system(size: 21))
+	.tabItem({
+	    Image(systemName: &quot;imageName&quot;)
+	    Text(&quot;Home&quot;) })
+	.tag(0)
+
+    Text(&quot;The settings page&quot;)
+	.font(.system(size: 21))
+	.tabItem({
+	    Image(systemName: &quot;gear&quot;)
+	    Text(&quot;Settings&quot;)
+	})
+	.tag(1)
+}
+</code></pre>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="17001265068678.html" 
+          title="Previous Post: HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”">&laquo; HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="17001171363865.html" 
+          title="Next Post: LiSSA第四代计时器说明书">LiSSA第四代计时器说明书 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>

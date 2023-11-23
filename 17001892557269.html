@@ -1,0 +1,849 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  Objective-C_16.Foundation框架—集合 - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Objective-C_16.Foundation框架—集合</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2015/11/01</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='OC.html'>OC</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h3><a id="%E4%B8%80%E3%80%81nsarray%E5%92%8Cnsmutablearray" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一、NSArray和NSMutableArray</h3>
+<h4><a id="%EF%BC%88%E4%B8%80%EF%BC%89nsarray%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E7%BB%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（一）NSArray不可变数组</h4>
+<h5><a id="%EF%BC%881%EF%BC%89nsarray%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（1）NSArray的基本介绍</h5>
+<p>NSArray是OC中使用的数组，是面向对象的，以面向对象的形式操纵对象，是不可变数组。</p>
+<p>C语言数组有一个缺点即数组中只能存放同种数据类型的元素。</p>
+<p>OC数组只能存放OC对象，不能存放非OC对象，如int，结构体和枚举等。</p>
+<span id="more"></span><!-- more -->
+<h5><a id="%EF%BC%882%EF%BC%89nsarray%E7%9A%84%E5%88%9B%E5%BB%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（2）NSArray的创建</h5>
+<pre><code class="language-swift">// 普通数组的创建
+int a = 5;
+int ages[10] = {1, 2, 3, 4};
+
+// 创建一个Person对象的数组
+Person *p = [[Person alloc] init];
+Person *persons[5] = {p, [[Person alloc] init]};
+
+// NSArray 的创建
+NSArray *array = [NSArray array];
+// 0. 这个array永远是个空数组
+
+NSArray *array2 = [NSArray arrayWithObject:@&quot;ehe&quot;];
+// 1. 这个数组只有一个元素，且永远只有一个元素
+
+// nil 是数组元素结束的标记
+NSArray *array3 = [NSArray arrayWithObjects:@&quot;xiaoming&quot;, @&quot;xiaohong&quot;, nil];
+// 2. 这个数组中有多个元素，以nil结尾
+
+// 3.快速创建一个NSArray对象
+NSArray *array4 = @[@&quot;jack&quot;, @&quot;rose&quot;, @&quot;134234&quot;];
+</code></pre>
+<h5><a id="%EF%BC%883%EF%BC%89nsarray%E7%9A%84%E8%AE%BF%E9%97%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（3）NSArray的访问</h5>
+<pre><code class="language-swift">// 获取 NSArray 的元素个数
+// 使用 count 方法
+
+[array2 count];
+NSLog(@&quot;%ld&quot;, array2.count);
+
+// NSArray中元素的访问
+// 1. 使用索引
+NSLog(@&quot;%@&quot;, [array2 objectAtIndex:0]);
+// 2. 像c语言数组一样使用下标
+NSLog(@&quot;%@&quot;, array2[0]);
+
+
+</code></pre>
+<h5><a id="%C2%A0%EF%BC%884%EF%BC%89nsarray%E7%9A%84%E9%81%8D%E5%8E%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a> （4）NSArray的遍历</h5>
+<p>数组的遍历有以下几种方式：</p>
+<p>首先创建一个数组</p>
+<pre><code class="language-swift">Person *p = [[Person alloc] init];
+NSArray *array = @[p, @&quot;heh&quot;, @&quot;jack&quot;];
+</code></pre>
+<p>第一种方法：使用for循环遍历</p>
+<pre><code class="language-swift">// 2. 快速便利
+// id obj 代表着数组中的每个元素
+int i = 0;
+for (id obj in array)
+{
+    // 找出 obj 元素中在数组中的位置
+    NSUInteger i = [array indexOfObject:obj];
+    NSLog(@&quot;%ld - %@&quot;, i,obj);
+
+    // 结束便利
+    if (i == 1)
+    {
+        break;
+    }
+}
+
+// 3. 使用block遍历
+// 每遍历到一个元素，就会调用一次block
+// 并且当前元素和索引位置当做参数传给block
+[array enumerateObjectsUsingBlock:
+ ^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
+{
+    NSLog(@&quot;%ld - %@&quot;, idx, obj);
+
+    if (idx == 0)
+    {
+        // 停止遍历
+        *stop = YES;
+    }
+}];
+</code></pre>
+<p>Block遍历的深入研究：</p>
+<pre><code class="language-swift">  
+/// 现在此方法会报错了
+void ^(myBlock)(id, NSUInteger, BOOL *) = ^(id obj, NSUInteger idx, BOOL *stop)
+{
+    NSLog(@&quot;%ld - %@&quot;, idx, obj);
+
+    if (idx == 0)
+    {
+        // 停止遍历
+        *stop = YES;
+    }
+};
+
+for (int i = 0; i &lt; array.count; i++)
+{
+    // 用来标记是否需要停止遍历
+    BOOL isStop = NO;
+    // 取出元素
+    id obj = array[i];
+    myBlock(obj, i, &amp;isStop);
+
+    if (isStop)
+    {
+        break;
+    }
+
+}
+</code></pre>
+<p>每拿到一个元素，就传递给obj，就会调用一次block，并且把当前的元素和索引位置当做参数传递给block。</p>
+<blockquote>
+<p>注意1：break只使用在两种场合，即switch和循环结构中。</p>
+<p>注意2：stop参数用来停止遍历，其值若为YES，则停止。</p>
+</blockquote>
+<h4><a id="%EF%BC%88%E4%BA%8C%EF%BC%89nsmutablearray%E5%8F%AF%E5%8F%98%E6%95%B0%E7%BB%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（二）NSMutableArray可变数组</h4>
+<h5><a id="%EF%BC%881%EF%BC%89nsmutablearray%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（1）NSMutableArray的基本使用</h5>
+<p>注意：NSMutableArray 继承自 NSArray，几乎拥有 NSArray 的一切方法。</p>
+<pre><code class="language-swift">// 创建一个可变数组
+NSMutableArray *array = [NSMutableArray arrayWithObjects:@&quot;xiaoming&quot;, nil];
+
+// 添加元素
+// 添加一个 Person 类对象元素
+[array addObject:[[Person alloc] init]];
+// 添加一个字符串对象元素
+[array addObject:@&quot;xiaoming&quot;];
+// 错误写法
+// oc数组中得元素不能为空值
+//    [array addObject:nil];
+
+// 删除元素
+// 删除所有的元素
+[array removeAllObjects];
+// 删除指定的对象
+[array removeObject:@&quot;xiaoming&quot;];
+//删除指定索引的元素
+[array removeObjectAtIndex:0];
+
+// 打印数组
+
+NSLog(@&quot;%@&quot;, array);
+NSLog(@&quot;%ld&quot;, array.count);
+</code></pre>
+<h3><a id="%E4%BA%8C%E3%80%81nsset%E5%92%8Cnsmutableset" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二、NSSet和NSMutableSet</h3>
+<h4><a id="%EF%BC%88%E4%B8%80%EF%BC%89nsset%E4%B8%8D%E5%8F%AF%E5%8F%98%E9%9B%86%E5%90%88" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（一）NSSet不可变集合</h4>
+<p>基本使用：</p>
+<pre><code class="language-swift">// 创建一个NSSet
+NSSet *s = [NSSet set];
+// 因为不可变，所以 s 永远都为空
+
+// 创建一个有多个元素的 NSSet
+NSSet *s2 = [NSSet setWithObjects:@&quot;xiaoming&quot;,@&quot;haha&quot;, nil];
+
+// 随机取出一个元素
+NSString *str = [s2 anyObject];
+
+// 打印
+NSLog(@&quot;%@&quot;, str);
+
+// 打印结果
+2016-07-31 01:02:20.904 test[3904:1421519] xiaoming
+</code></pre>
+<h4><a id="%EF%BC%88%E4%BA%8C%EF%BC%89nsmutableset%E5%8F%AF%E5%8F%98%E9%9B%86%E5%90%88" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（二）NSMutableSet可变集合</h4>
+<p>基本使用：</p>
+<pre><code class="language-swift">// 创建一个 NSMutableSet
+NSMutableSet *s = [NSMutableSet set];
+
+// 添加元素
+[s addObject:@&quot;xiaoming&quot;];
+
+// 删除元素
+// 删除指定元素
+[s removeObject:(nonnull id)];
+// 删除所有元素
+[s removeAllObjects];
+
+</code></pre>
+<h4><a id="%EF%BC%88%E4%B8%89%EF%BC%89nsset%E5%92%8Cnsarray%E7%9A%84%E5%AF%B9%E6%AF%94" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（三）NSSet和NSArray的对比</h4>
+<h5><a id="%EF%BC%881%EF%BC%89%E5%85%B1%E5%90%8C%E7%82%B9%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（1）共同点：</h5>
+<ol>
+<li>
+<p>都是集合，都能够存放多个对象</p>
+</li>
+<li>
+<p>只能存放oc对象，不能存放非oc对象类型（如int等基本数据类型和结构体，枚举等）。</p>
+</li>
+<li>
+<p>本身都不可变，都有一个可变的子类。</p>
+</li>
+</ol>
+<h5><a id="%EF%BC%882%EF%BC%89%E4%B8%8D%E5%90%8C%E7%82%B9%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（2）不同点：</h5>
+<p>NSArray 有顺序，NSSet 没有顺序</p>
+<h3><a id="%E4%B8%89%E3%80%81nsdictionary%E5%92%8C-nsmutabledictionary" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>三、NSDictionary 和 NSMutableDictionary</h3>
+<h4><a id="%EF%BC%88%E4%B8%80%EF%BC%89nsdictionary%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%AD%97%E5%85%B8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（一）NSDictionary 不可变字典</h4>
+<h5><a id="%EF%BC%881%EF%BC%89%E4%BB%8B%E7%BB%8D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（1）介绍</h5>
+<p>现实中的字典：根据索引找到具体的内容</p>
+<p>OC 中的 NSDictionary：根据 key 找到 value。里面存储的东西都是键值对。</p>
+<h5><a id="%EF%BC%882%EF%BC%89nsdictionary%E7%9A%84%E5%88%9B%E5%BB%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（2）NSDictionary的创建</h5>
+<pre><code class="language-swift">// 创建字典
+// 第一种方式
+NSDictionary *dict = [NSDictionary dictionaryWithObject:@&quot;jack&quot; forKey:@&quot;name&quot;];
+
+// 第二种方式
+NSArray *keys = @[@&quot;name&quot;, @&quot;address&quot;];
+NSArray *objects = @[@&quot;yangeyong&quot;, @&quot;南昌&quot;];
+NSDictionary *dict1 = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+
+// 第三种方式
+NSDictionary *dic1 = [NSDictionary dictionaryWithObjectsAndKeys:
+                      @&quot;xiaoming&quot;, @&quot;name&quot;,
+                      @&quot;北京&quot;, @&quot;Address&quot;,
+                      @&quot;1348494949&quot;, @&quot;qq&quot;,
+                      nil];
+
+// 第三种方式，快速创建
+NSDictionary *dic2 = @{@&quot;name&quot; : @&quot;xiaoming&quot;,
+                       @&quot;address&quot; : @&quot;北京&quot;};
+
+</code></pre>
+<p>注意：快速创建字典是编译器特性。</p>
+<h5><a id="%EF%BC%883%EF%BC%89nsdictionary%E7%9A%84%E8%AE%BF%E9%97%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（3）NSDictionary的访问</h5>
+<pre><code class="language-swift">// 基本使用
+// 根据 key 获取对应的值
+id obj = [dict objectForKey:@&quot;name&quot;];
+// 快速访问
+id obj1 = dict[@&quot;name&quot;];
+
+// 打印
+NSLog(@&quot;%@&quot;, obj);
+// 返回的是键值对的个数
+// count 方法获取当前字典中键值对的个数
+NSLog(@&quot;%ld&quot;, dict.count);
+</code></pre>
+<h5><a id="%EF%BC%884%EF%BC%89nsdictionary%E7%9A%84%E9%81%8D%E5%8E%86" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（4）NSDictionary的遍历</h5>
+<pre><code class="language-swift">// 字典不允许有相同的 key ，但允许有相同的 value （object）
+// 字典是无序的
+// 快速创建一个字典
+NSDictionary *dict = @
+{
+    @&quot;adress&quot; : @&quot;北京&quot;,
+    @&quot;name&quot; : @&quot;jack&quot;,
+    @&quot;name2&quot; : @&quot;xiaoming&quot;
+};
+
+// 字典的便利
+// 第一种方式，使用for循环
+NSArray *keys = [dict allKeys];
+[keys enumerateObjectsUsingBlock:^
+(NSString *key, NSUInteger idx, BOOL * _Nonnull stop)
+{
+    NSString *object = dict[key];
+
+    NSLog(@&quot;%@, %@&quot;, key, object);
+}];
+
+// 第二种方式，使用block
+[dict enumerateKeysAndObjectsUsingBlock:^
+(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop)
+{
+    NSLog(@&quot;%@ - %@&quot;, key, obj);
+}];
+</code></pre>
+<h4><a id="%EF%BC%88%E4%BA%8C%EF%BC%89nsmutabledictionary%E5%8F%AF%E5%8F%98%E5%AD%97%E5%85%B8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（二）NSMutableDictionary可变字典</h4>
+<h5><a id="%EF%BC%881%EF%BC%89nsmutabledictionary%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（1）NSMutableDictionary的基本使用</h5>
+<pre><code class="language-swift">// 可变字典的基本使用
+// 创建一个空的可变字典
+NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+
+// 添加键值对
+[dict setObject:@&quot;xiaoming&quot; forKey:@&quot;name&quot;];
+[dict setObject:@&quot;北京&quot; forKey:@&quot;address&quot;];
+[dict setObject:@&quot;rese&quot; forKey:@&quot;name&quot;];
+
+// 删除键值对
+// 删除特定键值对
+[dict removeObjectForKey:(nonnull id)];
+// 删除所有得键值对
+[dict removeAllObjects];
+
+// 获取 namekey 对应的值
+NSString *str = dict[@&quot;name&quot;];
+
+// 打印数组
+NSLog(@&quot;%@&quot;, @[@&quot;XIAOMING&quot;, @&quot;ROSE&quot;]);
+// 打印字典
+NSLog(@&quot;%@&quot;, dict);
+
+// 打印结果
+
+2016-07-31 01:33:36.466 test[4260:1513182] (
+    XIAOMING,
+    ROSE
+)
+2016-07-31 01:33:36.466 test[4260:1513182] {
+}
+
+</code></pre>
+<h5><a id="%EF%BC%882%EF%BC%89nsmutabledictionary%E7%9A%84%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（2）NSMutableDictionary的使用注意</h5>
+<pre><code class="language-swift">// 字典的使用注意
+NSMutableDictionary *dict = @{@&quot;name&quot; : @&quot;j&quot;};  //这样会报警
+[dict setObject:@&quot;xiaoming&quot; forKey:@&quot;name&quot;];
+</code></pre>
+<blockquote>
+<p>注意：这种快速创建的方式只适用于不可变字典。</p>
+</blockquote>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="17001892556604.html" 
+          title="Previous Post: iOS中nil 、NULL、 Nil 、NSNull的区别">&laquo; iOS中nil 、NULL、 Nil 、NSNull的区别</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="17001892557369.html" 
+          title="Next Post: Objective-C_15.Foundation框架—字符串">Objective-C_15.Foundation框架—字符串 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1090 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  iOS 网络小结 - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>iOS 网络小结</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2016/05/06</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='iOS.html'>iOS</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h2><a id="%E4%B8%80http%E5%8D%8F%E8%AE%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一.HTTP协议</h2>
+<h3><a id="1%E4%BB%80%E4%B9%88%E6%98%AF-http%E5%8D%8F%E8%AE%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.什么是HTTP协议</h3>
+<p>HTTP协议的全称: 超文本传输协议, 定制传输数据的规范(客户端和服务器之间的数据传输规范)。</p>
+<h3><a id="2-http%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. HTTP 通信过程</h3>
+<h4><a id="1%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; 请求</h4>
+<p>客户端 --&gt; 服务器</p>
+<span id="more"></span><!-- more -->
+<p>请求的内容：</p>
+<p>&quot;请求行&quot; : 请求方法\请求资源路径\HTTP协议版本</p>
+<pre><code class="language-plain_text">GET /Server/login?username=123&amp;pwd=123&amp;method=get&amp;type=JSON HTTP/1.1
+</code></pre>
+<p>&quot;请求头&quot; : 客户端的信息</p>
+<pre><code class="language-plain_text">Host: 192.168.1.200:8080
+User-Agent: iPhone Simulator; iPhone OS 9.1; en_US
+Accept: text/html
+Accept-Language: zh-cn,zh;q=0.8,en-us;q=0.5,en;q=0.3
+Accept-Encoding: gzip, deflate
+</code></pre>
+<p>&quot;请求体&quot; : POST请求才需要有, 存放具体数据</p>
+<ol>
+<li>比如文件数据</li>
+</ol>
+<pre><code class="language-plain_text">2. 比如POST请求的参数数据
+</code></pre>
+<h4><a id="2%E5%93%8D%E5%BA%94" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; 响应</h4>
+<p>服务器 --&gt; 客户端</p>
+<p>响应的内容:</p>
+<p>&quot;状态行&quot; : HTTP协议版本\状态码\状态信息, 也可称为&quot;响应行&quot;</p>
+<pre><code class="language-plain_text">HTTP/1.1 200 OK
+</code></pre>
+<p>&quot;响应头&quot; : 服务器信息\返回数据的类型\返回数据的长度</p>
+<pre><code class="language-plain_text">Server: Apache-Coyote/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 248
+</code></pre>
+<p>&quot;实体内容&quot; : 返回给客户端的具体内容, 也可称为&quot;响应体&quot;</p>
+<ol>
+<li>
+<p>比如服务器返回的JSON数据</p>
+</li>
+<li>
+<p>比如服务器返回的文件数据</p>
+</li>
+</ol>
+<h3><a id="3-http%E8%AF%B7%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.HTTP请求的方法</h3>
+<h4><a id="1-get" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; GET</h4>
+<ol>
+<li>
+<p>参数都拼接在URL后面</p>
+</li>
+<li>
+<p>参数有限制</p>
+</li>
+</ol>
+<h4><a id="2-post" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; POST</h4>
+<ol>
+<li>
+<p>参数都在请求体</p>
+</li>
+<li>
+<p>参数没有限制</p>
+</li>
+<li>
+<p>文件上传只能用POST</p>
+</li>
+</ol>
+<h4><a id="3-head%E8%8E%B7%E5%BE%97%E5%93%8D%E5%BA%94%E5%A4%B4%E4%BF%A1%E6%81%AF%E4%B8%8D%E8%8E%B7%E5%8F%96%E5%93%8D%E5%BA%94%E4%BD%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3&gt; HEAD : 获得响应头信息, 不获取响应体</h4>
+<h3><a id="4-ios%E4%B8%AD%E5%8F%91%E9%80%81get-post%E8%AF%B7%E6%B1%82%E7%9A%84%E6%89%8B%E6%AE%B5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.iOS中发送GET\POST请求的手段</h3>
+<h4><a id="1-nsurlconnection" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; NSURLConnection</h4>
+<ol>
+<li>
+<p>苹果原生</p>
+</li>
+<li>
+<p>使用起来, 比ASI\AFN复杂</p>
+</li>
+</ol>
+<h4><a id="2-asi" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; ASI</h4>
+<ol>
+<li>
+<p>基于CFNetwork</p>
+</li>
+<li>
+<p>提供了非常多强大的功能, 使用简单</p>
+</li>
+</ol>
+<h4><a id="3-afn" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3&gt; AFN</h4>
+<ol>
+<li>
+<p>基于NSURLConnection</p>
+</li>
+<li>
+<p>提供了常用的功能, 使用简单</p>
+</li>
+</ol>
+<h4><a id="4%E5%BB%BA%E8%AE%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4&gt; 建议</h4>
+<ol>
+<li>
+<p>为了提高开发效率和减少调试花费的时间, 尽量使用著名的简单的第三方框架</p>
+</li>
+<li>
+<p>因此, 处理HTTP请求, 更建议使用ASI或者AFN</p>
+</li>
+</ol>
+<h2><a id="%E4%BA%8Cnsurlconnection" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二.NSURLConnection</h2>
+<h3><a id="1%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.发送请求</h3>
+<h4><a id="1%E5%8F%91%E9%80%81%E4%B8%80%E4%B8%AA%E5%90%8C%E6%AD%A5%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; 发送一个同步请求</h4>
+<pre><code class="language-swift">+ (NSData *)sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse **)response error:(NSError **)error;
+</code></pre>
+<h4><a id="2%E5%8F%91%E9%80%81%E4%B8%80%E4%B8%AA%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82-block" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; 发送一个异步请求(block)</h4>
+<pre><code class="language-swift">+ (void)sendAsynchronousRequest:(NSURLRequest*) request
+queue:(NSOperationQueue*) queue
+completionHandler:(void (^)(NSURLResponse* response, NSData* data, NSError* connectionError)) handler;
+</code></pre>
+<h4><a id="3%E5%8F%91%E9%80%81%E4%B8%80%E4%B8%AA%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E4%BB%A3%E7%90%86%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3&gt; 发送一个异步请求(代理方法)</h4>
+<pre><code class="language-swift">[NSURLConnection connectionWithRequest:request delegate:self];
+[[NSURLConnection alloc] initWithRequest:request delegate:self];
+[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+ 
+NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
+[conn start];
+</code></pre>
+<h3><a id="2%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.文件下载(大文件下载)</h3>
+<p>实现方案 : 边下载边写入(写到沙盒的某个文件中)</p>
+<p>具体实现步骤:</p>
+<p>在接收到服务器的响应时</p>
+<pre><code class="language-swift">// 创建一个空文件 - NSFileManager
+[mgr createFileAtPath:self.destPath contents:nil attributes:nil];
+ 
+// 创建一个跟空文件相关联的句柄对象 - NSFileHandle
+self.writeHandle = [NSFileHandle fileHandleForWritingAtPath:self.destPath];
+</code></pre>
+<p>在接收到服务器的数据时</p>
+<pre><code class="language-swift">// 利用句柄对象将服务器返回的数据写到文件的末尾
+// 移动到文件的尾部
+[self.writeHandle seekToEndOfFile];
+// 从当前移动的位置(文件尾部)开始写入数据
+[self.writeHandle writeData:data];
+</code></pre>
+<p>在接收完服务器返回的数据时</p>
+<pre><code class="language-swift">// 关闭句柄
+[self.writeHandle closeFile];
+self.writeHandle = nil;
+</code></pre>
+<h3><a id="3%E6%96%AD%E7%82%B9%E4%B8%8B%E8%BD%BD" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.断点下载</h3>
+<p>关键技术点:设置请求头Range, 告诉服务器下载哪一段数据</p>
+<h3><a id="4%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.文件上传</h3>
+<h4><a id="1%E6%98%8E%E7%A1%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; 明确</h4>
+<ol>
+<li>只能用POST请求</li>
+</ol>
+<pre><code class="language-plain_text">2. 请求参数都在请求体(文件参数\非文件类型的普通参数)
+</code></pre>
+<h4><a id="2%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; 实现步骤</h4>
+<p><strong>拼接请求体(文件参数\非文件类型的普通参数)</strong></p>
+<p>文件参数</p>
+<pre><code class="language-plain_text">// 参数的开始标记(分割线)
+--kannng\r\n
+// 参数描述(参数名...)
+Content-Disposition: form-data; name=&quot;参数名&quot;; filename=&quot;文件名&quot;\r\n
+// 文件类型
+Content-Type: 文件的类型MIMEType\r\n
+// 文件的二进制数据(参数值)
+\r\n
+文件的二进制数据
+\r\n
+</code></pre>
+<p>非文件参数(普通参数)</p>
+<pre><code class="language-plain_text">// 参数的开始标记(分割线)
+--kannng\r\n
+// 参数描述(参数名...)
+Content-Disposition: form-data; name=&quot;参数名&quot;\r\n
+// 参数值
+\r\n
+参数值
+\r\n
+</code></pre>
+<p>所有参数结束的标记</p>
+<pre><code class="language-plain_text">--heima--\r\n
+</code></pre>
+<p><strong>设置请求头</strong></p>
+<p>请求体的长度</p>
+<pre><code class="language-plain_text">Content-Length : 请求体的长度(字节长度)
+</code></pre>
+<p>请求数据的类型</p>
+<pre><code class="language-plain_text">Content-Type :
+// 普通POST请求: application/x-www-form-urlencoded
+// 上传文件的POST请求 : multipart/form-data; boundary=--heima
+</code></pre>
+<h2><a id="%E4%B8%89nsurlcache" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>三.NSURLCache</h2>
+<h3><a id="1%EF%BC%8C%E7%BC%93%E5%AD%98%E7%9A%84%E5%AE%9E%E7%8E%B0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1，缓存的实现</h3>
+<p>一般只对GET请求进行缓存，不必对POST请求进行缓存。</p>
+<p>GET请求一般用来查询数据。</p>
+<p>POST请求一般是发大量数据给服务器处理（变动性比较大）。</p>
+<p>在iOS中，可以使用NSURLCache类缓存数据。</p>
+<p>iOS 5之前：只支持内存缓存。</p>
+<p>iOS 5开始：同时支持内存缓存和硬盘缓存。</p>
+<p>缓存原理：一个 NSURLRequest对 应一个 NSCachedURLResponse。</p>
+<p>缓存技术：数据库。</p>
+<h3><a id="2%EF%BC%8Cnsurlcache%E7%9A%84%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2，NSURLCache的常见方法</h3>
+<pre><code class="language-swift">// 获得全局缓存对象（没必要手动创建）
+NSURLCache*cache = [NSURLCache sharedURLCache];
+//设置内存缓存的最大容量（字节为单位，默认为512KB）
+- (void)setMemoryCapacity:(NSUInteger)memoryCapacity;
+//设置硬盘缓存的最大容量（字节为单位，默认为10M）
+- (void)setDiskCapacity:(NSUInteger)diskCapacity;
+// 硬盘缓存的位置：沙盒/Library/Caches
+ 
+// 取得某个请求的缓存
+- (NSCachedURLResponse *)cachedResponseForRequest:(NSURLRequest*)request;
+// 清除某个请求的缓存
+- (void)removeCachedResponseForRequest:(NSURLRequest*)request;
+// 清除所有的缓存
+- (void)removeAllCachedResponses;
+</code></pre>
+<h3><a id="3%EF%BC%8C%E8%AE%BE%E7%BD%AE%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5cachepolicy" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3，设置缓存策略cachePolicy</h3>
+<pre><code class="language-swift">NSURLRequestUseProtocolCachePolicy = 0,                //默认缓存策略
+NSURLRequestReloadIgnoringLocalCacheData = 1,          // 忽略本地缓存数据,每次都从服务器加载数据,用在断点续传
+
+// 以下两个选项,需要先判断用户的网络状态,如果没有连线,才会使用!
+// 越来越多的应用,没有网络就不让用户使用!一定要让用户联网
+NSURLRequestReturnCacheDataElseLoad = 2,               如果有缓存,就不去服务器加载,极少用
+NSURLRequestReturnCacheDataDontLoad = 3,               只返回缓存,永远不去服务器加载  
+
+NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:0 timeoutInterval:2.0];
+
+定期处理缓存示例：
+    if (缓存没有达到7天) {
+        request.cachePolicy = NSURLRequestReturnCacheDataElseLoad;
+    }
+    // 获得全局的缓存对象
+    NSURLCache *cache = [NSURLCache sharedURLCache];
+    if (缓存达到7天) {
+        [cache removeCachedResponseForRequest:request];
+    }
+</code></pre>
+<h3><a id="4%EF%BC%8C%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4，缓存的使用注意</h3>
+<p>缓存看起来很美好，但需要谨慎使用。</p>
+<p>如果请求某个URL的返回数据。</p>
+<p>经常更新：不能用缓存！比如股票、彩票数据。</p>
+<p>一成不变：果断用缓存。</p>
+<p>偶尔更新：可以定期更改缓存策略 或者 清除缓存。</p>
+<p>如果大量使用缓存，会越积越大，建议。</p>
+<p>定期清除缓存。</p>
+<h2><a id="%E5%9B%9Basi" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>四.ASI</h2>
+<h3><a id="1%E7%BC%93%E5%AD%98%E7%9A%84%E4%BD%BF%E7%94%A8%E6%AD%A5%E9%AA%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.缓存的使用步骤</h3>
+<h4><a id="1%E7%BC%93%E5%AD%98%E5%8D%95%E4%B8%AA%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; 缓存单个请求</h4>
+<pre><code class="language-swift">// 1.获得全局的缓存对象(决定缓存的存储路径, 存储到什么地方)
+ASIDownloadCache *cache = [ASIDownloadCache sharedCache];
+// 设置默认的缓存加载策略
+cache.defaultCachePolicy = ASIDoNotReadFromCacheCachePolicy;
+ 
+// 2.设置请求对象的缓存对象(使用哪个缓存对象)
+request.downloadCache = cache;
+ 
+// 3.设置请求对象的缓存加载策略
+request.cachePolicy = ASIOnlyLoadIfNotCachedCachePolicy;
+// 如果没有缓存, 才发送请求
+ 
+// 4.设置请求对象的缓存存储策略(存储的时长) 
+request.cacheStoragePolicy = ASICachePermanentlyCacheStoragePolicy;// 永久存储
+</code></pre>
+<p>注意, 缓存加载策略的优先级 : request.cachePolicy &gt; cache.defaultCachePolicy</p>
+<h4><a id="2%E7%BC%93%E5%AD%98%E6%89%80%E6%9C%89%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; 缓存所有请求</h4>
+<pre><code class="language-swift">// 1.获得全局的缓存对象(决定缓存的存储路径, 存储到什么地方)
+ASIDownloadCache *cache = [ASIDownloadCache sharedCache];
+// 设置默认的缓存加载策略
+cache.defaultCachePolicy = ASIOnlyLoadIfNotCachedCachePolicy;
+ 
+// 2.设置全局缓存对象
+[ASIHTTPRequest setDefaultCache:cache];
+</code></pre>
+<h3><a id="2%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.发送请求</h3>
+<h4><a id="1%E5%90%8C%E6%AD%A5%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; 同步请求</h4>
+<pre><code class="language-swift">[request startSynchronous];
+</code></pre>
+<h4><a id="2%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; 异步请求</h4>
+<pre><code class="language-swift">[request startAsynchronous];
+</code></pre>
+<h3><a id="3-get-post" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.GET\POST</h3>
+<h4><a id="1-get%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; GET请求</h4>
+<pre><code class="language-swift">ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+</code></pre>
+<h4><a id="2-post%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; POST请求</h4>
+<pre><code class="language-swift">ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+// 添加普通参数(非文件参数)
+[request setPostValue:@&quot;zhangsan&quot; forKey:@&quot;username&quot;];
+[request setPostValue:@&quot;123&quot; forKey:@&quot;pwd&quot;];
+</code></pre>
+<h3><a id="4%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.文件下载</h3>
+<pre><code class="language-swift">// 文件的存储路径(文件下载到什么地方)
+request.downloadDestinationPath = filepath;
+// 设置下载代理(监听下载进度)
+request.downloadProgressDelegate = self.circleView;
+// 支持断点下载
+request.allowResumeForFileDownloads = YES;
+</code></pre>
+<h3><a id="5%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5.文件上传</h3>
+<pre><code class="language-swift">// 添加文件参数(file : 需要上传文件的路径)
+[request setFile:file forKey:@&quot;file&quot;];
+[request setFile:file withFileName:@&quot;123.txt&quot; andContentType:@&quot;text/plain&quot; forKey:@&quot;file&quot;];
+[request setData:data withFileName:@&quot;minion.png&quot; andContentType:@&quot;image/png&quot; forKey:@&quot;file&quot;];
+ 
+// 设置上传代理(监听上传进度)
+request.uploadProgressDelegate = self.circleView;
+</code></pre>
+<h3><a id="6%E7%9B%91%E5%90%AC%E8%AF%B7%E6%B1%82%E7%9A%84%E8%BF%87%E7%A8%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>6.监听请求的过程</h3>
+<h4><a id="1%E4%BB%A3%E7%90%86%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; 代理方法</h4>
+<pre><code class="language-swift">// 设置代理
+request.delegate = self;
+// 遵守协议
+ASIHTTPRequestDelegate
+// 实现协议中的代理方法
+- (void)requestStarted:(ASIHTTPRequest *)request;
+- (void)request:(ASIHTTPRequest *)request didReceiveData:(NSData *)data
+- (void)requestFinished:(ASIHTTPRequest *)request;
+- (void)requestFailed:(ASIHTTPRequest *)request;
+</code></pre>
+<h4><a id="2-sel" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; SEL</h4>
+<pre><code class="language-swift">// 设置代理
+request.delegate = self;
+// 设置方法名
+[request setDidStartSelector:@selector(start)]; // 开始发送请求, 就会调用代理的start方法
+// ....
+</code></pre>
+<h4><a id="3-block" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3&gt; block</h4>
+<pre><code class="language-swift">[request setStartedBlock:^{
+    NSLog(@&quot;setStartedBlock ----&quot;);
+}];
+ 
+[request setDataReceivedBlock:^(NSData *data) {
+    NSLog(@&quot;setDataReceivedBlock ----&quot;);
+}];
+ 
+[request setCompletionBlock:^{
+    NSLog(@&quot;setCompletionBlock ----&quot;);
+}];
+ 
+[self setFailedBlock:^{
+    NSLog(@&quot;setFailedBlock ----&quot;);
+}];
+</code></pre>
+<h3><a id="7%E9%80%9A%E8%BF%87-request%E5%AF%B9%E8%B1%A1%E8%8E%B7%E5%BE%97%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%93%8D%E5%BA%94" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>7.通过request对象获得服务器的响应</h3>
+<h4><a id="1%E8%8E%B7%E5%BE%97%E5%93%8D%E5%BA%94%E5%A4%B4%E4%BF%A1%E6%81%AF" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; 获得响应头信息</h4>
+<pre><code class="language-swift">@property (atomic, retain) NSDictionary *responseHeaders;
+</code></pre>
+<h4><a id="2%E8%8E%B7%E5%BE%97%E5%93%8D%E5%BA%94%E4%BD%93%E5%AE%9E%E4%BD%93%E5%86%85%E5%AE%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; 获得响应体(实体内容)</h4>
+<pre><code class="language-swift">- (NSData *)responseData; // 直接返回服务器的二进制数据
+- (NSString *)responseString; // 将二进制数据转成字符串(方便调试)
+</code></pre>
+<h2><a id="%E4%BA%94afn" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>五.AFN</h2>
+<h3><a id="1-get-post" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.GET\POST</h3>
+<h4><a id="1-get%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1&gt; GET请求</h4>
+<pre><code class="language-swift">// 1.获得请求管理者
+AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+
+// 2.封装请求参数
+NSMutableDictionary *params = [NSMutableDictionary dictionary];
+params[@&quot;username&quot;] = @&quot;123&quot;;
+params[@&quot;pwd&quot;] = @&quot;123&quot;;
+ 
+// 3.发送GET请求
+[mgr GET:@&quot;http://192.168.1.200:8080/MJServer/login&quot; parameters:params
+ success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     NSLog(@&quot;请求成功---%@&quot;, responseObject);
+ }
+ failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+     NSLog(@&quot;请求失败---%@&quot;, error);
+ }];
+</code></pre>
+<h4><a id="2-post%E8%AF%B7%E6%B1%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2&gt; POST请求</h4>
+<pre><code class="language-swift">// 1.获得请求管理者
+AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+ 
+// 2.封装请求参数
+NSMutableDictionary *params = [NSMutableDictionary dictionary];
+params[@&quot;username&quot;] = @&quot;123&quot;;
+params[@&quot;pwd&quot;] = @&quot;123&quot;;
+ 
+// 3.发送POST请求
+[mgr POST:@&quot;http://192.168.1.200:8080/MJServer/login&quot; parameters:params
+ success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     NSLog(@&quot;请求成功---%@&quot;, responseObject);
+ }
+ failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+     NSLog(@&quot;请求失败---%@&quot;, error);
+ }];
+</code></pre>
+<h3><a id="2%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.文件上传</h3>
+<pre><code class="language-swift">// 1.获得请求管理者
+AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+
+// 2.发送请求(做文件上传)
+#warning parameters : 只能放非文件参数
+NSMutableDictionary *params = [NSMutableDictionary dictionary];
+params[@&quot;username&quot;] = @&quot;zhangsan&quot;;
+
+[mgr POST:@&quot;http://192.168.1.200:8080/MJServer/upload&quot; parameters:params
+ constructingBodyWithBlock:^(id&lt;AFMultipartFormData&gt; formData) {
+     // 一定要在这个block中添加文件参数
+
+     // 加载文件数据
+     NSString *file = [[NSBundle mainBundle] pathForResource:@&quot;test.txt&quot; ofType:nil];
+     NSData *data = [NSData dataWithContentsOfFile:file];
+
+     // 拼接文件参数
+     [formData appendPartWithFileData:data name:@&quot;file&quot; fileName:@&quot;123.txt&quot; mimeType:@&quot;text/plain&quot;];
+ }
+ success:^(AFHTTPRequestOperation *operation, id responseObject) {
+     NSLog(@&quot;上传成功----%@&quot;, responseObject);
+ } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+     NSLog(@&quot;上传失败----%@&quot;, error);
+ }];
+</code></pre>
+<h2><a id="%E5%85%AD%E7%BD%91%E7%BB%9C%E7%8A%B6%E6%80%81%E7%9B%91%E6%8E%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>六.网络状态监控</h2>
+<h3><a id="1-reachability" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.Reachability</h3>
+<pre><code class="language-swift">// 监听网络状态改变的通知
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(networkStateChange) name:kReachabilityChangedNotification object:nil];
+ 
+// 创建Reachability
+self.conn = [Reachability reachabilityForInternetConnection];
+// 开始监控网络(一旦网络状态发生改变, 就会发出通知kReachabilityChangedNotification)
+[self.conn startNotifier];
+ 
+// 处理网络状态改变
+- (void)networkStateChange
+{
+    // 1.检测wifi状态
+    Reachability *wifi = [Reachability reachabilityForLocalWiFi];
+   
+    // 2.检测手机是否能上网络(WIFI\3G\2.5G)
+    Reachability *conn = [Reachability reachabilityForInternetConnection];
+   
+    // 3.判断网络状态
+    if ([wifi currentReachabilityStatus] != NotReachable) { // 有wifi
+        NSLog(@&quot;有wifi&quot;);
+    } else if ([conn currentReachabilityStatus] != NotReachable) { // 没有使用wifi, 使用手机自带网络进行上网
+        NSLog(@&quot;使用手机自带网络进行上网&quot;);
+    } else { // 没有网络
+        NSLog(@&quot;没有网络&quot;);
+    }
+}
+</code></pre>
+<h3><a id="2-afn" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.AFN</h3>
+<pre><code class="language-swift">// 1.获得网络监控的管理者
+AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+ 
+// 2.设置网络状态改变后的处理
+[mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+    // 当网络状态改变了, 就会调用这个block
+    switch (status) {
+        case AFNetworkReachabilityStatusUnknown: // 未知网络
+            NSLog(@&quot;未知网络&quot;);
+            break;
+           
+        case AFNetworkReachabilityStatusNotReachable: // 没有网络(断网)
+            NSLog(@&quot;没有网络(断网)&quot;);
+            break;
+           
+        case AFNetworkReachabilityStatusReachableViaWWAN: // 手机自带网络
+            NSLog(@&quot;手机自带网络&quot;);
+            break;
+           
+        case AFNetworkReachabilityStatusReachableViaWiFi: // WIFI
+            NSLog(@&quot;WIFI&quot;);
+            break;
+    }
+}];
+ 
+// 3.开始监控
+[mgr startMonitoring];
+</code></pre>
+<h2><a id="%E4%B8%83asi%E5%92%8Cafn%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>七.ASI和AFN有什么区别</h2>
+<h3><a id="1%E6%80%A7%E8%83%BD%E9%87%8D%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.性能(重点)</h3>
+<ul>
+<li>
+<p>ASI基于底层的CFNetwork框架</p>
+</li>
+<li>
+<p>AFN基于NSURLConnection</p>
+</li>
+<li>
+<p>运行性能: ASI &gt; ASN</p>
+</li>
+</ul>
+<h3><a id="2%E5%A4%84%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%95%B0%E6%8D%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.处理服务器数据</h3>
+<ol>
+<li>AFN : 根据服务器返回数据的数据, 进行自动解析
+<ol>
+<li>服务器返回的是JSON数据, 自动转换为NSDictionary或者NSArray</li>
+<li>服务器返回的是XML数据, 自动转换为NSXMLParser</li>
+</ol>
+</li>
+<li>ASI : 并没有对服务器的数据进行解析, 直接返回NSData二进制数据</li>
+<li>处理请求的过程
+<ol>
+<li>AFN : success和failure两个block</li>
+<li>ASI : 有3种方式处理请求过程(代理方法\SEL\block)</li>
+</ol>
+</li>
+</ol>
+<h3><a id="3-asi%E7%9A%84%E7%89%B9%E8%89%B2%E9%87%8D%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.ASI的特色(重点)</h3>
+<ol>
+<li>缓存</li>
+<li>下载和上传
+<ol>
+<li>轻松监听请求进度</li>
+<li>轻松实现断点下载(ASI没有断点上传功能, 断点上传得使用socket技术)</li>
+</ol>
+</li>
+<li>提供了很多扩展接口(比如做数据压缩)
+<ol>
+<li>ASIDataCompressor.h</li>
+<li>ASIDataDecompressor.h</li>
+</ol>
+</li>
+<li>ASIHttpRequest继承自NSOperation
+<ol>
+<li>能用队列统一管理所有请求</li>
+<li>请求之间能依赖</li>
+</ol>
+</li>
+<li>ASINetworkQueue
+<ol>
+<li>统一管理所有请求</li>
+<li>5个下载\上传请求 --&gt; ASINetworkQueue : 监听5个请求的总进度</li>
+<li>监听所有请求的开始\失败\完毕</li>
+<li>ouldCancelAllRequestsOnFailure:
+<ol>
+<li>YES : 队列中某个请求失败了, 其他所有请求都取消</li>
+<li>NO : 队列中的某个请求失败了, 其他请求不受影响, 继续请求</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3><a id="4-afn%E7%9A%84%E7%89%B9%E8%89%B2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.AFN的特色</h3>
+<ol>
+<li>使用简单</li>
+<li>自带了网络监控功能</li>
+</ol>
+<h3><a id="5%E7%BD%91%E7%BB%9C%E5%B0%8F%E6%8A%80%E5%B7%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 网络小技巧</h3>
+<ol>
+<li>4G 100M bitps 600M Byte电影需要多长时间,6s* 8</li>
+<li>将Safari浏览器改为开发者模式命令：defaults write com.apple.Safari IncludeDebugMenu 1</li>
+<li><a href="http://127.0.0.1/">http://127.0.0.1/</a></li>
+<li>href中 h表示超文本，ref表示引用</li>
+</ol>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="17001892554030.html" 
+          title="Previous Post: UIApplication">&laquo; UIApplication</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="17001892556324.html" 
+          title="Next Post: NSString的各种处理">NSString的各种处理 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>

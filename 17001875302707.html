@@ -1,0 +1,643 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  LeetCode 70 爬楼梯(青蛙跳台阶) - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>LeetCode 70 爬楼梯(青蛙跳台阶)</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2021/05/05</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='LeetCode.html'>LeetCode</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
+<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<p>注意：给定 n 是一个正整数。</p>
+<p>示例 1：</p>
+<pre><code class="language-plain_text">输入： 2
+输出： 2
+解释： 有两种方法可以爬到楼顶。
+1.  1 阶 + 1 阶
+2.  2 阶
+</code></pre>
+<p>示例 2：</p>
+<pre><code class="language-plain_text">输入： 3
+输出： 3
+解释： 有三种方法可以爬到楼顶。
+1.  1 阶 + 1 阶 + 1 阶
+2.  1 阶 + 2 阶
+3.  2 阶 + 1 阶
+</code></pre>
+<h2><a id="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>动态规划</h2>
+<p>\(f(n)\) 表示爬到第 \(n\) 级台阶的方案数，根据题意，最后一步只有两种可能：跨了一级台阶，或者跨了两级台阶。</p>
+<p>所以爬 \(n\) 级台阶的方案总数是爬到第 \(x−1\) 级台阶的方案数和爬到第 \(x−2\) 级台阶的方案数的和。</p>
+<p>可以列以下动态规划的转移方程：</p>
+<p>\(f(n)=f(n−1)+f(n−2)\)</p>
+<p>然后再考虑以下边界条件:</p>
+<ol>
+<li>从第 0 级爬到第 0 级只有一种方案，\(f(0) = 1\)。</li>
+<li>从第 0 级爬到第 1 级只有一种方案，\(f(1) = 1\)。</li>
+</ol>
+<p>根据这两个边界条件再结合转移方程就可以推导出第 \(n\) 级台阶的方案数。</p>
+<p>递归解法就不写了，下面列出for循环解法和降低空间复杂度解法。</p>
+<pre><code class="language-c++">
+// for循环解法
+class Solution {
+public:
+    int climbStairs(int n) {
+        const int N = 1e5 + 10;
+    	int dp[N] = {};
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i &lt;= n; ++i) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+};
+
+// 由于 f(n) 只跟 f(n−1) 和 f(n−2) 有关，所以不需要长度为 n 的数组记录所有的方案数。
+// 只需要 p 和 q 两个变量轮着记录就可以了。
+class Solution {
+public:
+    int climbStairs(int n) {
+        int p = 0, q = 0, r = 1;
+        for (int i = 1; i &lt;= n; ++i) {
+            p = q; 
+            q = r; 
+            r = p + q;
+        }
+        return r;
+    }
+};
+
+</code></pre>
+<p>时间复杂度：循环执行 \(n\) 次，每次花费常数的时间代价，故渐进时间复杂度为 \(O(n)\)。</p>
+<p>空间复杂度：这里只用了常数个变量作为辅助空间，故渐进空间复杂度为 \(O(1)\)。</p>
+<h2><a id="%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E9%80%9A%E9%A1%B9%E5%85%AC%E5%BC%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>斐波那契数列通项公式</h2>
+<p>经过观察可以看出来方案数很像斐波那契数列，那么就可以直接用通项公式了。</p>
+<p>主意斐波那契数列（0、1、1、2、3、5、8、13、21、34、……）和题目方案数列（1、1、2、3、5、8、13、21、34、……）开始的时候不太一样，所以在用主意斐波那契数列通项公式计算的时候， \(n\) 需要加一。</p>
+<p>推导过程如下：</p>
+<p>根据线性递推数列方程 \(f(n)=f(n−1)+f(n−2)\)，可知道其特征方程为</p>
+<p>\(x^2=x+1\)</p>
+<p>解得 \(x_1 = {1 + \sqrt{5} \over 2}，x_2 = {1 - \sqrt{5} \over 2}\)</p>
+<p>则 \(f(n) = c_1x_1^n+c_2x_2^n\)</p>
+<p>因为 \(f(1) = f(2) = 1\)</p>
+<p>所以 \(c_1x_1+c_2x_2 = c_1x_1^2+c_2x_2^2 = 1\)</p>
+<p>解得 \(c_1 = {1 \over \sqrt{5}}，c_2 = -{1 \over \sqrt{5}}，\)</p>
+<p>所以 \(f(n) = {1 \over \sqrt{5}}[({1 + \sqrt{5} \over 2})^n - ({1 - \sqrt{5} \over 2})^n]\)</p>
+<p>只要我们把这个公式转换成代码就可以求解了。</p>
+<pre><code class="language-c++">class Solution {
+public:
+    int climbStairs(int n) {
+        double sqrt5 = sqrt(5);
+        // 主意这里是 n + 1
+        double fibn = pow((1 + sqrt5) / 2, n + 1) - pow((1 - sqrt5) / 2, n + 1);
+        return (int)round(fibn / sqrt5);
+    }
+};
+</code></pre>
+<h2><a id="%E7%88%AC%E6%A5%BC%E6%A2%AF%E5%8D%87%E7%BA%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>爬楼梯升级</h2>
+<p>条件改为每次你可以爬 \(1\) 到 \(n\) 个台阶。那么有多少种不同的方法可以爬到楼顶呢？</p>
+<p>根据上题目的规律，可以得出下面公式：</p>
+<p>\(f(n)=f(0)+f(1)+f(2)+…+f(n-2)+f(n-1)\)</p>
+<p>因为 \(f(n-1)=f(0)+f(1)+f(2)+…f(n-2)\)</p>
+<p>所以 \(f(n)=2f(n-1)\)</p>
+<p>因为 \(f(0) = f(1) = 1\)</p>
+<p>所以 \(f(2)=2f(1)=2，f(3)=2f(2)=4，f(4)=2f(3)=8\)</p>
+<p>所以 \(f(n)=2^{n-1}\)</p>
+<p>其实还有一个更巧妙的思路：一共要上 \(n\) 个台阶，每次都可以爬 \(1\) 到 \(n\) 个台阶，算一共又多少种方法，那么到第 \(n\) 个台阶的时候，把前面 \(n-1\) 个台阶被踩和不被踩的可能性数量统计出来就是答案了，也就是 \(2^{n-1}\)。</p>
+<p>代码过于简单，就不列出来了。</p>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="17001178251653.html" 
+          title="Previous Post: 常用代码模板1——基础算法">&laquo; 常用代码模板1——基础算法</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="17001155269640.html" 
+          title="Next Post: 终于看完了《扎克·施奈德版正义联盟》">终于看完了《扎克·施奈德版正义联盟》 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>

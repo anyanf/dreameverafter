@@ -1,0 +1,599 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  iOS平台编译Ogre游戏引擎库 - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>iOS平台编译Ogre游戏引擎库</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2018/10/13</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='iOS.html'>iOS</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <p>Ogre 是个老牌的游戏引擎了，前段时间有点需求需要改里面源码，所以研究了一下如何编译，没想到坑有点深，爬完赶紧过来记录一下，省得再陷进去。。</p>
+<h2><a id="%E5%87%86%E5%A4%87%E9%98%B6%E6%AE%B5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>准备阶段</h2>
+<p>需要下载 <a href="https://bitbucket.org/sinbad/ogre/src/default/">Ogre源码</a>和 <a href="https://bitbucket.org/cabalistic/ogredeps/src/default/">Ogre 依赖的一些库</a>，先把这些依赖的库编好放在 iOSDependencies 文件夹中，头文件放在 include 文件夹中，库放进 lib 文件夹中。</p>
+<p>安装 <a href="http://www.cmake.org">cmake</a> 工具。</p>
+<p>然后就开始编 Ogre了。</p>
+<p>其实编译这些依赖库的时候也遇到了一些坑，不过我的大脑保护机制选择删除了这段记忆，实在想不起来了，不过网上好像有直接编译好的包，所以如果实在编译不成功可以网上找找或者联系我。</p>
+<h2><a id="ogre1-10-11-ios%E6%BA%90%E7%A0%81-build" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>OGRE1.10.11 iOS 源码 Build</h2>
+<p>第一步，把 iOSDependencies 文件夹拷贝到 Ogre 源码的根目录。</p>
+<p>第二步，创建 build 文件夹，然后 cd 进 build。</p>
+<pre><code class="language-plain_text">mkdir build
+cd build
+</code></pre>
+<p>第三步，设置 cmake 相关参数并生成 Xcode 工程，注意命令最后的两个点不要丢掉，那是路径设置。</p>
+<pre><code class="language-plain_text"># 参数中需要改动有两点
+# DIOS_PLATFORM              编译真机还是模拟器（OS或者SIMULATOR）
+# DOGRE_DEPENDENCIES_DIR     ogre依赖库的路径，要写成绝对路径，不要问我为什么。。
+
+cmake -DOGRE_BUILD_PLATFORM_APPLE_IOS:BOOL=TRUE -DIOS_PLATFORM=SIMULATOR -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DAPPLE_IOS:BOOL=TRUE -DOGRE_DEPENDENCIES_DIR=&quot;/Users/ankang/Documents/Git/OGRE/ogre1.10.11/iOSDependencies&quot; -G Xcode ..
+</code></pre>
+<p>最后一步，编译生成的 Xcode 工程。</p>
+<pre><code class="language-plain_text">cmake --build .
+</code></pre>
+<p>如果编译完成的就是 iOS 平台的 ogre 的库了。。</p>
+<hr />
+<p>下面是当初 Ogre 1.9 的爬坑之旅，只是记录，如果不需要编老版本库的话，就不要看了，看了心烦。。</p>
+<hr />
+<h2><a id="ogre1-9-ios%E6%BA%90%E7%A0%81-build" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>OGRE1.9 iOS 源码 Build</h2>
+<p>下载源码<br />
+需要下载两套源码：</p>
+<ol>
+<li>OGRE源码</li>
+<li>ogredeps</li>
+</ol>
+<p>添加 iOS 依赖库</p>
+<ol>
+<li>在 ogre 根目录创建目录： iOSDependencies ，然后放着先别管他。</li>
+<li>进入下载的 ogredeps 源码根目录。</li>
+<li>用 cmake 构建一个 ogredeps 的 xcode 工程，方法同上。</li>
+<li>打开 ogredeps 工程，选择 install target，编译一下。</li>
+<li>编译完成后，在工程目录下，有个 ogredeps 目录，拷贝目录里面的 inclued 和 lib 两个文件夹，粘贴到 iOSDependencies 之中。（debug 和 release 的真机和模拟器都要弄）</li>
+</ol>
+<p>通过 CMAKE build iOS工程</p>
+<ol>
+<li>下载 cmake APP 打开。</li>
+<li>在 source code 处，选择 ogre 根目录。</li>
+<li>在 build 处，选择需要 build 出来的工程的地方。</li>
+<li>点击 Add Entry，Name : OGRE_BUILD_PLATFORM_APPLE_IOS , Type : BOOL, value : 打对勾。然后点击OK</li>
+<li>点击 Configure，等等配置结束，再次点击 Configure。再次等待。然后点击Generate。等待一段时间，工程已经构建完成。但是这时候是跑不起来工程的。还需要添加一下 iOS 依赖库。</li>
+</ol>
+<p>跑 OGRE SDK  编译脚本 （可省略 (通过 CMAKE build iOS工程) 步骤）</p>
+<ol>
+<li>进入 ogre/SDK/iOS 目录。</li>
+<li>执行 make_ios.sh 脚本，坐等一个小时左右。</li>
+<li>在此目录下会生成 build 文件夹。里面就是 iOS 工程。</li>
+<li>完事，跑工程即可。</li>
+</ol>
+<p>参考：<a href="https://github.com/aphcoder/ogre-ios-helloworld">https://github.com/aphcoder/ogre-ios-helloworld</a></p>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="17001265068913.html" 
+          title="Previous Post: WxWidgets类列表">&laquo; WxWidgets类列表</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="17001182998798.html" 
+          title="Next Post: 在 Mac OS X 上安装 TensorFlow">在 Mac OS X 上安装 TensorFlow &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,1875 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  OC - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="17001892556510.html">
+                
+                  <h1>浅谈iOS中的weak</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2><a id="weak%E6%8E%A2%E7%A9%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>__weak探究</h2>
+<p>程序中添加了一个 <code>__weak</code> 变量，查看调用堆栈，看到下一个调用的是 <code>objc_initWeak</code> 函数。</p>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak%E5%85%A5%E5%8F%A3.jpg" alt="__weak调用的函数" /></p>
+<p>所以我们就 <code>objc_initWeak</code> 函数作为入口，探究 <code>weak</code>。</p>
+<h2><a id="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>数据结构</h2>
+<p>首先了解以下的变量，这些变量在这章的数据结构、函数形参中使用：</p>
+<pre><code class="language-swift">__weak id weakPtr = o
+location            newObj
+refferer            reffenent
+引用者               被引用者
+</code></pre>
+<h3><a id="stripedmap" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>StripedMap</h3>
+<p>下面从 <code>SideTables()</code> 函数为入口，了解 <code>weak</code> 相关的数据结构。</p>
+<pre><code class="language-CPP">static StripedMap&lt;SideTable&gt;&amp; SideTables() {
+    return *reinterpret_cast&lt;StripedMap&lt;SideTable&gt;*&gt;(SideTableBuf);
+}
+</code></pre>
+<p>这个函数返回 <code>StripedMap</code> 结构，<code>StripedMap</code> 是一个模板类，函数体内将SideTableBuf强制转换为 <code>StripedMap&lt;SideTable&gt;</code></p>
+<p><code>StripedMap</code> 定义如下：</p>
+<pre><code class="language-CPP">template&lt;typename T&gt;
+class StripedMap {
+    struct PaddedT {
+        T value alignas(64);
+    };
+
+    PaddedT array[64];
+};
+</code></pre>
+<p>上面代码是 <code>StripedMap</code> 的简化定义，<code>StripedMap</code> 是个模板类，根据模板参数 <code>T</code> 生成实例类，我们给模板参数传递的实参是 <code>SideTable</code>，<code>StripedMap</code> 内部只定义了一个数据成员 <code>PaddedT array[64]</code>，<code>PaddedT</code> 就是 <code>64</code> 位对齐后的 <code>SideTable</code>。</p>
+<p>进一步简化：</p>
+<pre><code class="language-cpp">SideTable array[64];
+</code></pre>
+<p>所以 <code>StripedMap</code> 就是 <code>SideTable</code> 型的数组，数组有 <code>64</code> 个成员。</p>
+<p><code>SideTable</code> 的结构如下：</p>
+<pre><code class="language-cpp">struct SideTable {
+    spinlock_t slock;
+    RefcountMap refcnts;
+    weak_table_t weak_table;
+}
+</code></pre>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_sideTable.png" alt="weak_sideTable" /></p>
+<p>可以看出SideTable的大小是62，64位对齐后是64。其中weak_talbe存储着weak相关的内容。其他的两个成员refcnts、slock不在本文的研究范围内。</p>
+<p>所以数组 <code>SideTable array[64]</code> 中元素的大小就是 <code>64</code>。整个 <code>array</code> 共占用 <code>64*64=4096</code> 字节。回到没有简化前的版本，<code>StripedMap&lt;SideTable&gt;</code> 本质是一个数组，数组的元素是模板参数类型 — <code>SideTable</code>，大小为 <code>64</code>。</p>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/stripmap_memory_struct.png" alt="StripedMap 内存结构" /></p>
+<p>函数 <code>SideTables()</code> 是将 <code>SideTableBuf</code> 转化为 <code>StripedMap&lt;SideTable&gt;</code> 的。所以下面了解 <code>SideTableBuf</code> 的定义。</p>
+<h3><a id="sidetablebuf" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>SideTableBuf</h3>
+<p>SideTableBuf的定义：</p>
+<pre><code class="language-cpp">alignas(StripedMap&lt;SideTable&gt;) static uint8_t
+    SideTableBuf[sizeof(StripedMap&lt;SideTable&gt;)];
+</code></pre>
+<p>前面的 <code>alignas(StripedMap)</code> 是对齐的。<code>sizeof(StripedMap&lt;SideTable&gt;)</code> 根据上面分析是 <code>4096</code>，所以上面的代码简化为：</p>
+<pre><code class="language-cpp">static uint8_t SideTableBuf[4096];
+</code></pre>
+<p>所以 <code>SideTableBuf</code> 就是一个包含 <code>4096</code> 个 <code>uint8_t</code> 的数组 。</p>
+<p>所以，函数 <code>SideTables()</code> 就相当将 <code>uint8_t SideTableBuf[4096]</code> 重新解释为 <code>SideTable array[64]</code>。</p>
+<pre><code class="language-cpp">static StripedMap&lt;SideTable&gt;&amp; SideTables() {
+    return *reinterpret_cast&lt;StripedMap&lt;SideTable&gt;*&gt;(SideTableBuf);
+}
+</code></pre>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/stripedMap.png" alt="SideTableBuf转化为StripedMap 内存示意图" /></p>
+<h3><a id="weak-table-t" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>weak_table_t</h3>
+<pre><code class="language-cpp">// 全局的弱引用表
+struct weak_table_t {
+    weak_entry_t *weak_entries; 
+    size_t    num_entries; // 实体的数量
+    uintptr_t mask;
+    uintptr_t max_hash_displacement;
+};
+</code></pre>
+<ol>
+<li><code>weak_entries</code> 一个数组，数组每个元素是 <code>weak_entry_t</code> 结构体，一个 <code>weak_entry_t</code> 结构存储了一个 <code>reffenent</code>，以及指向 <code>reffenent</code> 的弱引用者们。</li>
+<li><code>num_entries</code> 是实体 <code>weak_entry_t</code> 的数量</li>
+<li><code>mask</code> 是容量减 <code>1</code>.</li>
+</ol>
+<h3><a id="weak-entry-t" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>weak_entry_t</h3>
+<pre><code class="language-cpp">struct weak_entry_t {
+    DisguisedPtr&lt;objc_object&gt; referent; 
+    union {
+        struct {
+            weak_referrer_t *referrers; 
+            uintptr_t        out_of_line : 1; // 变量名是 out_of_line ，占 1 个 bit
+            uintptr_t        num_refs : PTR_MINUS_1; // 数组中有几个元素，即 referent 有几个弱引用
+            uintptr_t        mask;
+            uintptr_t        max_hash_displacement;
+        };
+        struct {
+            // out_of_line=0 is LSB of one of these (don't care which)
+            weak_referrer_t  inline_referrers[WEAK_INLINE_COUNT];
+        };
+    };
+};
+</code></pre>
+<p>这个结构看着比较复杂：</p>
+<ol>
+<li><code>referent</code> 存储被弱引用的对象。</li>
+<li>第二个成员是一个 <code>union</code>，存储弱引用者 <code>refferer</code>。如果 <code>referent</code> 的弱引用者小于四个，也就是 <code>out_of_line</code> 为 <code>0</code> 时，弱引用者就存储在 <code>inline_referrers</code> 数组中。 否则，就存储在 <code>referrers</code> 中，这时 <code>out_of_line</code> 为 <code>1</code>，<code>referrers</code> 是个二级指针，里面存的是指向 <code>referent</code> 的对象们的地址。<code>num_refs</code> 是弱引用着的个数。<code>mask</code> 是容量减 <code>1</code>。</li>
+</ol>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_entry_t.png" alt="SideTableBuf转化为StripedMap" /></p>
+<h3><a id="%E5%B0%8F%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>小结</h3>
+<p>上面分析了weak相关的结构，现在画一张总图：</p>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_data_overal.png" alt="SideTableBuf转化为StripedMap" /></p>
+<p>上面是详细的数据结构，比较复杂，下面列出我认为核心的结构，核心结构就是三级hash表。</p>
+<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_table%E4%B8%89%E7%BA%A7%E8%A1%A8.png" alt="SideTableBuf转化为StripedMap" /></p>
+<h2><a id="%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%A3" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数接口</h2>
+<pre><code class="language-cpp">id objc_storeWeakOrNil(id *location, id newObj);
+id objc_initWeak(id *location, id newObj);
+void objc_destroyWeak(id *location);
+</code></pre>
+<p>下面章节的代码只是简化的代码，为了方便理解，可能缺失部分细节。</p>
+<h3><a id="objc-initweak" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>objc_initWeak</h3>
+<pre><code class="language-cpp">id
+objc_initWeak(id *location, id newObj)
+{
+    if (!newObj) {
+        *location = nil;
+        return nil;
+    }
+
+    return storeWeak&lt;DontHaveOld, DoHaveNew, DoCrashIfDeallocating&gt;
+        (location, (objc_object*)newObj);
+}
+</code></pre>
+<p><code>objc_initWeak</code> 内部只调用了 <code>storeWeak</code> 函数。</p>
+<h3><a id="objc-storeweak" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>objc_storeWeak</h3>
+<pre><code class="language-cpp">id
+objc_storeWeak(id *location, id newObj)
+{
+
+    return storeWeak&lt;true/*old*/,
+                    true/*new*/,
+                    true/*crash*/&gt;
+        (location, (objc_object *)newObj);
+}
+</code></pre>
+<h3><a id="objc-destroyweak" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>objc_destroyWeak</h3>
+<pre><code class="language-cpp">objc_destroyWeak(id *location)
+{
+    (void)storeWeak&lt;true/*old*/, false/*new*/, false/*crash*/&gt;
+        (location, nil);
+}
+</code></pre>
+<p>可以看出 <code>objc_initWeak</code>、 <code>objc_storeWeak</code>、 <code>objc_destroyWeak</code> 的关键内容都是调用 <code>storeWeak</code> 函数，只是模板参数传递的不一样。</p>
+<h3><a id="storeweak" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>storeWeak</h3>
+<p>下面讲解storeWeak函数，下面只关注添加的过程。删除的过程没有关注。</p>
+<pre><code class="language-cpp">template &lt;HaveOld haveOld, HaveNew haveNew,
+          CrashIfDeallocating crashIfDeallocating&gt;
+static id 
+storeWeak(id *location, objc_object *newObj)
+{
+    assert(haveOld  ||  haveNew);
+    if (!haveNew) assert(newObj == nil);
+
+    Class previouslyInitializedClass = nil;
+    id oldObj;
+    SideTable *oldTable;
+    SideTable *newTable;
+
+    if (haveNew) {
+        newTable = &amp;SideTables()[newObj];
+    } else {
+        newTable = nil;
+    }
+
+
+    // Assign new value, if any.
+    if (haveNew) {
+        newObj = (objc_object *)
+            weak_register_no_lock(&amp;newTable-&gt;weak_table, (id)newObj, location, 
+                                  crashIfDeallocating);
+    }
+    return (id)newObj;
+}
+</code></pre>
+<pre><code class="language-cpp">if (haveNew) {
+        newTable = &amp;SideTables()[newObj];
+    } else {
+        newTable = nil;
+    }
+</code></pre>
+<p>就是根据 <code>newObj</code> 找到存储 <code>newObj</code> 的地址对应的 <code>SideTable</code>。</p>
+<pre><code class="language-cpp">static unsigned int indexForPointer(const void *p) {
+       uintptr_t addr = reinterpret_cast&lt;uintptr_t&gt;(p);
+       return ((addr &gt;&gt; 4) ^ (addr &gt;&gt; 9)) % StripeCount;
+}
+
+public:
+   T&amp; operator[] (const void *p) { 
+       return array[indexForPointer(p)].value; 
+}
+</code></pre>
+<p><code>StripedMap</code> 重载了 <code>[]</code> 操作符，内部调用了 <code>indexForPointer</code>，<code>indexForPointer</code> 就是将对象的地址做某些操作，相当于 <code>hash</code>。然后将 <code>hash</code> 的结果和 <code>64</code> 取余，得到 <code>0~63</code> 的值，这个值就可以当做数组的索引使用。</p>
+<p><code>storeWeak</code> 函数接着调用了 <code>weak_register_no_lock</code> 函数：</p>
+<pre><code class="language-cpp">id 
+weak_register_no_lock(weak_table_t *weak_table, id referent_id, 
+                      id *referrer_id, bool crashIfDeallocating)
+{
+    objc_object *referent = (objc_object *)referent_id;
+    objc_object **referrer = (objc_object **)referrer_id;  
+
+    // now remember it and where it is being stored
+    weak_entry_t *entry;
+    // 找到 referent 所在的 entry
+    if ((entry = weak_entry_for_referent(weak_table, referent))) {
+        // 将 referrer 添加进这个 entry 中，这样 referrer 就成为 referent 的弱引用之一了
+        append_referrer(entry, referrer);
+    }
+    // 如果没有找到对应的 entry ，那么说明 referent 还没有弱引用，就为其新建一个 entry
+    else {
+        weak_entry_t new_entry;
+        new_entry.referent = referent;
+        new_entry.out_of_line = 0;
+        new_entry.inline_referrers[0] = referrer;
+        // 数组中 4 个referrer全部初始化为 nil
+        for (size_t i = 1; i &lt; WEAK_INLINE_COUNT; i++) {
+            new_entry.inline_referrers[i] = nil;
+        }
+        // 检查一下需不需要扩容
+        weak_grow_maybe(weak_table);
+        // 将新建的 entry 插入 weak table 中
+        weak_entry_insert(weak_table, &amp;new_entry);
+    }
+    return referent_id;
+}
+</code></pre>
+<p>这个函数的功能就是讲 <code>referrer_id</code> 插入到正确的位置，分为两种情况：</p>
+<ol>
+<li>如果根据 <code>referent_id</code> 可以找到一个 <code>weak_entry_t</code> 类型的实体 <code>entry</code>，就调用将 <code>append_referrer</code> 将 <code>referrer_id</code> 插入到 <code>entry</code>（相当于三级hash表）中。</li>
+<li>如果没有，就需要新建一个 <code>weak_entry_t</code> 类型的实体 <code>new_entry</code>。然后调用 <code>weak_entry_insert</code> 将 <code>new_entry</code> 插入到二级hash表中。</li>
+</ol>
+<pre><code class="language-cpp">static weak_entry_t *
+weak_entry_for_referent(weak_table_t *weak_table, objc_object *referent)
+{
+    // 不能是 nil
+    assert(referent);
+
+    // weak_table 中存的实体数组
+    weak_entry_t *weak_entries = weak_table-&gt;weak_entries;
+
+    if (!weak_entries) {
+        return nil;
+    }
+
+    // 通过 Hash 的方法找到 referent 所在的索引，不过实在看不懂
+    size_t index = hash_pointer(referent) &amp; weak_table-&gt;mask;
+    size_t hash_displacement = 0;
+    while (weak_table-&gt;weak_entries[index].referent != referent) {
+        index = (index+1) &amp; weak_table-&gt;mask;
+        hash_displacement++;
+        if (hash_displacement &gt; weak_table-&gt;max_hash_displacement) {
+            return nil;
+        }
+    }
+    
+    // 返回找到的 weak_entry_t，这里可以证明 weak_entries 确实是一个数组
+    return &amp;weak_table-&gt;weak_entries[index];
+}
+</code></pre>
+<p><code>weak_entry_for_referent</code> 根据给的的 <code>referent</code> 在 <code>weak_table-&gt;weak_entries</code> 中遍历，是否有相同的，如果相同就返回对应的 <code>weak_entry_t</code> 类型的实体，如果没有 <code>nil</code>。</p>
+<p><code>hash_pointer</code> 就是对对象 <code>referent</code> 的地址做个 <code>hash</code>，然后和 <code>weak_table-&gt;mask</code> 做<code>与</code>操作，返回的结果小于 <code>weak_table-&gt;mask</code> ，当做数组的索引。</p>
+<p><code>hash_displacement</code> 记录的就是最佳位置和实际存储位置的偏移量。</p>
+<pre><code class="language-cpp">static void weak_entry_insert(weak_table_t *weak_table, weak_entry_t *new_entry)
+{
+    weak_entry_t *weak_entries = weak_table-&gt;weak_entries;
+    assert(weak_entries != nil);
+
+    // 通过 hash 决定 索引
+    size_t index = hash_pointer(new_entry-&gt;referent) &amp; (weak_table-&gt;mask);
+    size_t hash_displacement = 0;
+    
+    // 如果该索引中已经有 entry，那么这个索引就不能用了，就找下一个索引
+    while (weak_entries[index].referent != nil) {
+        index = (index+1) &amp; weak_table-&gt;mask;
+        hash_displacement++;
+    }
+
+    // 将 new_entry 放入指定的索引中
+    weak_entries[index] = *new_entry;
+    weak_table-&gt;num_entries++;
+
+    if (hash_displacement &gt; weak_table-&gt;max_hash_displacement) {
+        weak_table-&gt;max_hash_displacement = hash_displacement;
+    }
+}
+</code></pre>
+<p><code>weak_entry_insert</code> 就是在二级 <code>hash</code> 表中插入一个新的实体 <code>new_entry</code>。通过 <code>hash_pointer</code> 找到一个最佳位置 <code>index</code>，如果最佳位置已经有内容了，就接着查找下一个位置，直到找到空位置。记录下 <code>index</code>。在 <code>index</code> 处插入 <code>new_entry</code>。同时将 <code>num_entries</code> 累加 <code>1</code>。</p>
+<pre><code class="language-cpp">static void append_referrer(weak_entry_t *entry, objc_object **new_referrer)
+{
+    // out_of_line == 0 的情况
+    if (! entry-&gt;out_of_line) {
+        // Try to insert inline.
+        // inline_referrers 还放得下，就放在 inline_referrers 里
+        for (size_t i = 0; i &lt; WEAK_INLINE_COUNT; i++) {
+            if (entry-&gt;inline_referrers[i] == nil) {
+                entry-&gt;inline_referrers[i] = new_referrer;
+                return;
+            }
+        }
+
+        weak_referrer_t *new_referrers = (weak_referrer_t *)
+            calloc(WEAK_INLINE_COUNT, sizeof(weak_referrer_t));
+    
+        
+        // 将 inline_referrers 存的 4 个对象拷贝到 new_referrers 中
+        for (size_t i = 0; i &lt; WEAK_INLINE_COUNT; i++) {
+            new_referrers[i] = entry-&gt;inline_referrers[i];
+        }
+        entry-&gt;referrers = new_referrers;
+        entry-&gt;num_refs = WEAK_INLINE_COUNT;
+        entry-&gt;out_of_line = 1;
+        entry-&gt;mask = WEAK_INLINE_COUNT-1;
+        entry-&gt;max_hash_displacement = 0;
+    }
+
+    assert(entry-&gt;out_of_line);
+
+    if (entry-&gt;num_refs &gt;= TABLE_SIZE(entry) * 3/4) {
+        return grow_refs_and_insert(entry, new_referrer);
+    }
+    
+    size_t index = w_hash_pointer(new_referrer) &amp; (entry-&gt;mask);
+    size_t hash_displacement = 0;
+    // 找到可以存放 new_referrer 的索引位置
+    while (entry-&gt;referrers[index] != NULL) {
+        index = (index+1) &amp; entry-&gt;mask;
+        hash_displacement++;
+    }
+    if (hash_displacement &gt; entry-&gt;max_hash_displacement) {
+        entry-&gt;max_hash_displacement = hash_displacement;
+    }
+    // 将 index 处的对象替换成 new_referrer
+    weak_referrer_t &amp;ref = entry-&gt;referrers[index];
+    ref = new_referrer;
+    // 总数加一
+    entry-&gt;num_refs++;
+}
+</code></pre>
+<p><code>append_referrer</code> 是在三级 <code>hash</code> 表 <code>entry</code> 中出入一个新的弱引用着 <code>new_referrer</code>。</p>
+<p>分为三种情况：</p>
+<ol>
+<li>如果 <code>inline_referrers</code> 没有存储满，直接存储到 <code>inline_referrers</code> 中。</li>
+<li>如果 <code>inline_referrers</code> 个数是4个了，再插入，就需要将 <code>inline_referrers</code> 拷贝到 <code>referrers</code>，然后进入第三步。</li>
+<li>如果 <code>referrers</code> 存储满了，判断是否需要扩容，然后将数据存储到 <code>referrers</code> 中。</li>
+</ol>
+<p>存储到 <code>inline_referrers</code> 的代码是：</p>
+<pre><code class="language-cpp">for (size_t i = 0; i &lt; WEAK_INLINE_COUNT; i++) {
+    if (entry-&gt;inline_referrers[i] == nil) {
+        entry-&gt;inline_referrers[i] = new_referrer;
+        return;
+    }
+}
+</code></pre>
+<p>存储完成后，直接返回了，所以后面的代码就是存储在 <code>referrers</code> 的情况。</p>
+<pre><code class="language-cpp">weak_referrer_t *new_referrers = (weak_referrer_t *)
+    calloc(WEAK_INLINE_COUNT, sizeof(weak_referrer_t));
+    
+    
+// 将 inline_referrers 存的 4 个对象拷贝到 new_referrers 中
+for (size_t i = 0; i &lt; WEAK_INLINE_COUNT; i++) {
+    new_referrers[i] = entry-&gt;inline_referrers[i];
+}
+entry-&gt;referrers = new_referrers;
+entry-&gt;num_refs = WEAK_INLINE_COUNT;
+entry-&gt;out_of_line = 1;
+entry-&gt;mask = WEAK_INLINE_COUNT-1;
+entry-&gt;max_hash_displacement = 0;
+</code></pre>
+<p>这段代码的功能是 <code>inline_referrers</code> 正好4个，如果再次添加，肯定放不下了，所以将 <code>inline_referrers</code> 中的数据移到 <code>referrers</code> 中。</p>
+<pre><code class="language-cpp">if (entry-&gt;num_refs &gt;= TABLE_SIZE(entry) * 3/4) {
+    return grow_refs_and_insert(entry, new_referrer);
+}
+</code></pre>
+<p>如果使用超过 <code>3/4</code>，就先扩容，然后再插入。</p>
+<pre><code class="language-cpp">size_t index = w_hash_pointer(new_referrer) &amp; (entry-&gt;mask);
+size_t hash_displacement = 0;
+// 找到可以存放 new_referrer 的索引位置
+while (entry-&gt;referrers[index] != NULL) {
+    index = (index+1) &amp; entry-&gt;mask;
+    hash_displacement++;
+}
+if (hash_displacement &gt; entry-&gt;max_hash_displacement) {
+    entry-&gt;max_hash_displacement = hash_displacement;
+}
+// 将 index 处的对象替换成 new_referrer
+weak_referrer_t &amp;ref = entry-&gt;referrers[index];
+ref = new_referrer;
+// 总数加一
+entry-&gt;num_refs++;
+</code></pre>
+<p>上面的代码是通过弱引用着 <code>new_referrer</code> 找到 <code>index</code> 。然后从 <code>index</code> 开始，寻址空位置，将 <code>new_referrer</code> 插入到 <code>entry-&gt;referrers[index]</code> 位置处。同时将 <code>entry-&gt;num_refs</code> 累加。</p>
+<h2><a id="%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
+<p><code>weak</code> 即是一个三级 <code>hash</code> 表。</p>
+<ol>
+<li>第一级用来提高效率的，可以想象，很多对象，放到一个 <code>hash</code> 表中，降低了效率。所有将多有的对象散列到64个表中。</li>
+<li>二级缓存存储被弱引用的对象。</li>
+<li>三级缓存存储某个对象的所有的弱引用者。</li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2020/08/26</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892557079.html">
+                
+                  <h1>当对象接收到不能处理的消息时调用的方法</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>当对象接收到不能处理的消息时调用的方法，下面三个方法会按顺序调用。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001892557079.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2020/03/03</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892558986.html">
+                
+                  <h1>Objective-C Type Encodings</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>转自：<a href="https://nshipster.cn/type-encodings/">nshipster</a>，觉得再某些场景上有点用，就直接抄过来了。</p>
+<p>@encode，@编译器指令 之一，返回一个给定类型编码为一种内部表示的字符串（例如，@encode(int) → i），类似于 ANSI C 的 typeof 操作。苹果的 Objective-C 运行时库内部利用类型编码帮助加快消息分发。</p>
+<p>这里有一个所有不同的 Objective-C 类型编码的概要：</p>
+<p>Objective-C Type Encodings</p>
+<table>
+<thead>
+<tr>
+<th><strong>编码</strong></th>
+<th><strong>意义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>c</code></td>
+<td><code>A char</code></td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td><code>An int</code></td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td><code>A short</code></td>
+</tr>
+<tr>
+<td><code>l</code></td>
+<td><code>A longl is treated as a 32-bit quantity on 64-bit programs.</code></td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td><code>A long long</code></td>
+</tr>
+<tr>
+<td><code>C</code></td>
+<td><code>An unsigned char</code></td>
+</tr>
+<tr>
+<td><code>I</code></td>
+<td><code>An unsigned int</code></td>
+</tr>
+<tr>
+<td><code>S</code></td>
+<td><code>An unsigned short</code></td>
+</tr>
+<tr>
+<td><code>L</code></td>
+<td><code>An unsigned long</code></td>
+</tr>
+<tr>
+<td><code>Q</code></td>
+<td><code>An unsigned long long</code></td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td><code>A float</code></td>
+</tr>
+<tr>
+<td><code>d</code></td>
+<td><code>A double</code></td>
+</tr>
+<tr>
+<td><code>B</code></td>
+<td><code>A C++ bool or a C99 _Bool</code></td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td><code>A void</code></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td><code>A character string (char *)</code></td>
+</tr>
+<tr>
+<td><code>@</code></td>
+<td><code>An object (whether statically typed or typed id)</code></td>
+</tr>
+<tr>
+<td><code>#</code></td>
+<td><code>A class object (Class)</code></td>
+</tr>
+<tr>
+<td><code>:</code></td>
+<td><code>A method selector (</code>SEL<code>)</code></td>
+</tr>
+<tr>
+<td><code>[*array type*]</code></td>
+<td><code>An array</code></td>
+</tr>
+<tr>
+<td><code>{*name=type...*}</code></td>
+<td><code>A structure</code></td>
+</tr>
+<tr>
+<td><code>(*name*=*type...*)</code></td>
+<td><code>A union</code></td>
+</tr>
+<tr>
+<td><code>bnum</code></td>
+<td><code>A bit field of *num* bits</code></td>
+</tr>
+<tr>
+<td><code>^type</code></td>
+<td><code>A pointer to type</code></td>
+</tr>
+<tr>
+<td><code>?</code></td>
+<td><code>An unknown type (among other things, this code is used for function pointers)</code></td>
+</tr>
+</tbody>
+</table>
+<p>当然，用图表很不错，但是用代码实践更好：</p>
+<pre><code class="language-swift">NSLog(@&quot;int        : %s&quot;, @encode(int));
+NSLog(@&quot;float      : %s&quot;, @encode(float));
+NSLog(@&quot;float *    : %s&quot;, @encode(float*));
+NSLog(@&quot;char       : %s&quot;, @encode(char));
+NSLog(@&quot;char *     : %s&quot;, @encode(char *));
+NSLog(@&quot;BOOL       : %s&quot;, @encode(BOOL));
+NSLog(@&quot;void       : %s&quot;, @encode(void));
+NSLog(@&quot;void *     : %s&quot;, @encode(void *));
+
+NSLog(@&quot;NSObject * : %s&quot;, @encode(NSObject *));
+NSLog(@&quot;NSObject   : %s&quot;, @encode(NSObject));
+NSLog(@&quot;[NSObject] : %s&quot;, @encode(typeof([NSObject class])));
+NSLog(@&quot;NSError ** : %s&quot;, @encode(typeof(NSError **)));
+
+int intArray[5] = {1, 2, 3, 4, 5};
+NSLog(@&quot;int[]      : %s&quot;, @encode(typeof(intArray)));
+
+float floatArray[3] = {0.1f, 0.2f, 0.3f};
+NSLog(@&quot;float[]    : %s&quot;, @encode(typeof(floatArray)));
+
+typedef struct _struct {
+    short a;
+    long long b;
+    unsigned long long c;
+} Struct;
+NSLog(@&quot;struct     : %s&quot;, @encode(typeof(Struct)));
+</code></pre>
+<p>结果：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th><strong>编码</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td><code>i</code></td>
+</tr>
+<tr>
+<td><code>float</code></td>
+<td><code>f</code></td>
+</tr>
+<tr>
+<td><code>float *</code></td>
+<td><code>^f</code></td>
+</tr>
+<tr>
+<td><code>char</code></td>
+<td><code>c</code></td>
+</tr>
+<tr>
+<td><code>char *</code></td>
+<td><code>*</code></td>
+</tr>
+<tr>
+<td><code>BOOL</code></td>
+<td><code>c</code></td>
+</tr>
+<tr>
+<td><code>void</code></td>
+<td><code>v</code></td>
+</tr>
+<tr>
+<td><code>void *</code></td>
+<td><code>^v</code></td>
+</tr>
+<tr>
+<td><code>NSObject *</code></td>
+<td><code>@</code></td>
+</tr>
+<tr>
+<td><code>NSObject</code></td>
+<td><code>#</code></td>
+</tr>
+<tr>
+<td><code>[NSObject]</code></td>
+<td><code>{NSObject=#}</code></td>
+</tr>
+<tr>
+<td><code>NSError **</code></td>
+<td><code>^@</code></td>
+</tr>
+<tr>
+<td><code>int[]</code></td>
+<td><code>[5i]</code></td>
+</tr>
+<tr>
+<td><code>float[]</code></td>
+<td><code>[3f]</code></td>
+</tr>
+<tr>
+<td><code>struct</code></td>
+<td><code>{_struct=sqQ}</code></td>
+</tr>
+</tbody>
+</table>
+<p>这里有一些特别需要注意的：</p>
+<ul>
+<li>指针的标准编码是加一个前置的 <code>^</code>，而 <code>char *</code> 拥有自己的编码 <code>*</code>。这在概念上是很好理解的，因为 C 的字符串被认为是一个实体，而不是指针。</li>
+<li><code>BOOL</code> 是 <code>c</code>，而不是某些人以为的 <code>i</code>。原因是 <code>char</code> 比 <code>int</code> 小，且在 80 年代 Objective-C 最开始设计的时候，每一个 bit 位都比今天的要值钱（就像美元一样）。<code>BOOL</code> 更确切地说是 <code>signed char</code> （即使设置了 <code>-funsigned-char</code> 参数），以在不同编译器之间保持一致，因为 <code>char</code> 可以是 <code>signed</code> 或者 <code>unsigned</code>。</li>
+<li>直接传入 <code>NSObject</code> 将产生 <code>#</code>。但是传入 <code>[NSObject class]</code> 产生一个名为 <code>NSObject</code>只有一个类字段的结构体。很明显，那就是 <code>isa</code> 字段，所有的 <code>NSObject</code> 实例都用它来表示自己的类型。</li>
+</ul>
+<h2><a id="%E6%96%B9%E6%B3%95%E7%BC%96%E7%A0%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>方法编码</h2>
+<p>如苹果的 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjCRuntimeGuide/Articles/ocrtTypeEncodings.html">“Objective-C Runtime Programming Guide”</a> 中所提到的，有一大把内部使用的类型编码无法用 <code>@encode()</code> 返回。</p>
+<p>以下是协议中声明的方法的类型修饰符：</p>
+<p>Objective-C Method Encodings</p>
+<table>
+<thead>
+<tr>
+<th><strong>编码</strong></th>
+<th><strong>意义</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td><code>const</code></td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td><code>in</code></td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td><code>inout</code></td>
+</tr>
+<tr>
+<td><code>o</code></td>
+<td><code>out</code></td>
+</tr>
+<tr>
+<td><code>O</code></td>
+<td><code>bycopy</code></td>
+</tr>
+<tr>
+<td><code>R</code></td>
+<td><code>byref</code></td>
+</tr>
+<tr>
+<td><code>V</code></td>
+<td><code>oneway</code></td>
+</tr>
+</tbody>
+</table>
+<p>对于那些熟悉 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSDistantObject_Class/Reference/Reference.html">NSDistantObject</a> 的人，你无疑会认出这些是 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/DistrObjects/DistrObjects.html#//apple_ref/doc/uid/10000102i">Distributed Objects</a> 的残留。</p>
+<p>尽管 DO (Distributed Objects) 在 iOS 时代已经不那么时髦了，它仍是用于 Cocoa 应用程序进程间通信的协议————甚至用于网络上的不同机器之间。在这些约束下，上下文里附加的内容就带来了很多好处。</p>
+<p>例如，分页式的对象消息的参数默认是用代理传递的。在那些没必要用到低效的代理的情况下，增加一个 <code>bycopy</code> 修饰符以保证发送了一份完整的拷贝。同样，默认情况下，带用 <code>inout</code> 的参数表明它在发消息时对象即可传入又可传出。将参数特别标注为 <code>in</code> 或 <code>out</code>，程序将避免一些来回的开销。</p>
+<hr />
+<p>我们从对 Objective-C 的类型编码的全新理解上能得到什么呢？ 不瞒您说，其实没多少（除非你在做一些疯狂的元编程）。</p>
+<p>但是就如我们最开始所说的，在追求破译密文的过程中要用到不少智慧。</p>
+<p>看看类型编码为我们展现的有关 Objective-C 内部的细节，这本身就是一种高尚的追求。如果刨根问到底的话，我们需要了解一下 Distributed Objects 神秘的历史以及那 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSNumberFormatter_Class/Reference/Reference.html%23jumpTo_22">至今仍然存在</a> 的复杂的参数修饰符。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/04/30</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892556042.html">
+                
+                  <h1>Objective-C：为什么分类中不能直接添加属性</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>为什么分类中不能直接添加属性，这个也是一个经典的面试题了。</p>
+<p>搜了一些相关文章，再结合源码做了一个小小的总结。</p>
+<p>其实通过这个问题，也可以一瞥 OC 中类的实现。</p>
+<h2><a id="%E6%BA%90%E7%A0%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>源码</h2>
+<p>先晒一下OC类和分类的部分源码：</p>
+<pre><code class="language-swift">typedef struct objc_class *Class;
+
+struct objc_class : objc_object {
+    // Class ISA;
+    Class superclass;
+    cache_t cache;             // formerly cache pointer and vtable
+    class_data_bits_t bits;    // class_rw_t * plus custom rr/alloc flags
+
+    ...
+}
+
+
+struct class_data_bits_t {
+    ...
+
+    class_rw_t* data() {
+        return (class_rw_t *)(bits &amp; FAST_DATA_MASK);
+    }
+
+    ...
+}
+
+struct class_rw_t {
+    // Be warned that Symbolication knows the layout of this structure.
+    uint32_t flags;
+    uint32_t version;
+
+    const class_ro_t *ro;
+    
+    method_array_t methods;
+    property_array_t properties;
+    protocol_array_t protocols;
+
+    Class firstSubclass;
+    Class nextSiblingClass;
+
+    char *demangledName;
+
+    ...
+}
+
+struct class_ro_t {
+    uint32_t flags;
+    uint32_t instanceStart;
+    uint32_t instanceSize;
+#ifdef __LP64__
+    uint32_t reserved;
+#endif
+
+    const uint8_t * ivarLayout;
+    
+    const char * name;
+    method_list_t * baseMethodList;
+    protocol_list_t * baseProtocols;
+    const ivar_list_t * ivars;
+
+    const uint8_t * weakIvarLayout;
+    property_list_t *baseProperties;
+
+    method_list_t *baseMethods() const {
+        return baseMethodList;
+    }
+};
+</code></pre>
+<p>从上面可以看出来Objective-C类是由Class类型来表示的，它实际上是一个指向objc_class结构体的指针。<br />
+ivars是objc_ivar_list（成员变量列表）指针，其在objc_class中关系如下。</p>
+<pre><code class="language-swift">objc_class -&gt; class_data_bits_t bits -&gt; class_rw_t* data() -&gt; const class_ro_t *ro -&gt; const ivar_list_t * ivars;
+</code></pre>
+<p>再看一下Category的定义。</p>
+<pre><code class="language-swift">typedef struct category_t *Category;
+
+struct category_t {
+    const char *name;
+    classref_t cls;
+    struct method_list_t *instanceMethods;
+    struct method_list_t *classMethods;
+    struct protocol_list_t *protocols;
+    struct property_list_t *instanceProperties;
+    // Fields below this point are not always present on disk.
+    struct property_list_t *_classProperties;
+
+    method_list_t *methodsForMeta(bool isMeta) {
+        if (isMeta) return classMethods;
+        else return instanceMethods;
+    }
+
+    property_list_t *propertiesForMeta(bool isMeta, struct header_info *hi);
+};
+</code></pre>
+<p>从Category的定义也可以看出Category有实例方法，类方法，甚至可以实现协议，添加属性，但是没有实例变量。</p>
+<h2><a id="%E5%88%86%E6%9E%90" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>分析</h2>
+<p>参考了位博主文章之后，这里再补充一下。</p>
+<p>博主文章链接：<a href="http://www.jianshu.com/p/935142af6a47">http://www.jianshu.com/p/935142af6a47</a></p>
+<p>通过上面的文章里面的详细介绍以及打印输出，可以看到，在一个分类中添加了一个属性，Xcode不会自动的为其生成一个下划线开头的成员变量及set和get方法。</p>
+<p>如果你没有手动的实现这两个方法，直接在外面通过点语法调用这个属性，肯定就直接挂了，Unrecognised selector send to instance。</p>
+<p>因为他就没有这两个方法，能不挂吗？所以当你真的在分类中声明了一个属性的时候，就要手动的去实现这个属性的set和get方法，这个时候就要用到运行时机制了，关联上去这个属性的存取过程。</p>
+<h2><a id="%E7%BB%93%E8%AE%BA" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>结论</h2>
+<p>为什么不能为手动添加一个下划线开头的成员变量，然后在实现存取器方法的时候对这个成员变量来存取呢？非要用到所谓的运行时吗？</p>
+<p>答案是因为：成员变量是一个类的东西，分类本身就不是一个类，它并没有自己的bits，以及后面的一些东西，分类本来就是OC里面通过运行时动态的为一个类添加的一些方法和属性等，不是一个真正的类，你怎么给他添加成员变量呢。</p>
+<p>而因为在运行期，对象的内存布局已经确定，如果添加实例变量就会破坏类的内部布局，这对编译型语言来说是灾难性的。</p>
+<p>总结一下，其实分类中是可以为一个类添加属性的，但是一定做不到添加成员变量，不要混淆了成员变量和属性的概念。</p>
+<p>只是说现在Xcode自动会给属性生成成员变量让大家对这个概念有点混淆。Property是Property，Ivar是Ivar。</p>
+<p>有兴趣可以研究一下类是怎么被创建出来的，类最开始生成了很多基本属性，比如IvarList，MethodList，分类只会将自己的method attach到主类，并不会影响到主类的IvarList。</p>
+<p>这就是为什么分类里面不能增加成员变量的原因。</p>
+<h2><a id="%E5%8F%82%E8%80%83" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考</h2>
+<blockquote>
+<p><a href="https://blog.csdn.net/JGL357/article/details/79127483">https://blog.csdn.net/JGL357/article/details/79127483</a><br />
+<a href="https://www.jianshu.com/p/8aa63f7e98d1">https://www.jianshu.com/p/8aa63f7e98d1</a><br />
+<a href="https://blog.csdn.net/mumuyinyin/article/details/72854579">https://blog.csdn.net/mumuyinyin/article/details/72854579</a><br />
+<a href="https://tech.meituan.com/DiveIntoCategory.html">https://tech.meituan.com/DiveIntoCategory.html</a></p>
+</blockquote>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/16</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892555950.html">
+                
+                  <h1>Objc源码分析-runtime-Class</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>看了一段时间<a href="https://opensource.apple.com/source/objc4/objc4-723/">objc</a>的源码，准备开个大坑，写一下了解到的东西，这一时半会是完工不了了，一篇一篇慢慢写吧。</p>
+<p>先看一下官方对objc的介绍。</p>
+<p>Objective-C is the primary programming language you use when writing software for OS X and iOS. It’s a superset of the C programming language and provides object-oriented capabilities and a dynamic runtime. Objective-C inherits the syntax, primitive types, and flow control statements of C and adds syntax for defining classes and methods. It also adds language-level support for object graph management and object literals while providing dynamic typing and binding, deferring many responsibilities until runtime.</p>
+<p>（Objective-C是您在为OS X和iOS编写软件时使用的主要编程语言。 它是C编程语言的超集，提供面向对象的功能和动态运行时。 Objective-C继承了C的语法，原始类型和流控制语句，并添加了用于定义类和方法的语法。 它还为对象图管理和对象文字添加语言级支持，同时提供动态类型和绑定，将许多职责推迟到运行时。）</p>
+<p>显然运行时是objc的这个语言非常重要的特性，它可以把很多静态语言（显然objc是动态语言）在编译和链接时期做的事情推迟到运行时期在做。这样写代码就有很大的灵活性，比如把消息转发给我们想要的对象，或者随意交换一个方法的实现等。</p>
+<p>所以说objc除了编译器之外，还需要一个运行时系统 (runtime system) 来执行编译后的代码。Objective-C Runtime 就是这个运行时系统了，这个库使得C有了面向对象的能力。</p>
+<p>下面我们就分析一下runtime是如何做到的。</p>
+<p>由于日常接触的最多的是类与对象，所以我准备就从这里开始写起。</p>
+<h2><a id="class" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class</h2>
+<p>OC的对象都是需要继承NSObject的，那么我们先看看NSObject。</p>
+<pre><code class="language-swift">@interface NSObject &lt;NSObject&gt; {
+    Class isa  OBJC_ISA_AVAILABILITY;
+    // 这个 isa 其实没啥用，已经被废弃了， isa 存在 objc_object 中，并且是 isa_t 结构体类型的
+    // 即使写 anObject-&gt;isa
+    // Xcode 也报错：Direct accesss to Objective-C's isa deprecated in favor of object_getClass()
+    // 建议我们用 object_getClass(), 它会返回 isa_t 中存的 Class cls
+    // 如果这段注释看不懂可以跳过，最后回顾时自然会明白。
+}
+...
+@end
+</code></pre>
+<p>发现除了常用了一些objc的方法外，有个Class类的isa指针。Class类在平时使用的时候会多多少少遇到过，比如说判断某对象是不是某类的实例。</p>
+<pre><code class="language-swift">[foobar isMemberOfClass:[SomeClass class]]
+</code></pre>
+<p>通过看源码我们可以看到其实现。</p>
+<pre><code class="language-swift">- (BOOL)isMemberOfClass:(Class)cls {
+    return [self class] == cls;
+}
+
+// isMemberOfClass 中 [self class]调用的是- (Class)class方法 
+- (Class)class {
+    return object_getClass(self);
+}
+
+// isMemberOfClass 中 [SomeClass class]调用的是+ (Class)class方法 
++ (Class)class {
+    return self;
+}
+</code></pre>
+<p>由以上代码可以看出，其实判断OC对象的类型，就是判断类型为Class的对象是否相等，那么Class到底是什么呢。</p>
+<pre><code class="language-swift">typedef struct objc_class *Class;
+</code></pre>
+<p>可以看到Class其实就是指向objc_class结构体的指针（又被称为类对象）。</p>
+<p>objc_class结构体里主要的成员如下。</p>
+<pre><code class="language-swift">struct objc_class : objc_object {
+    // Class ISA;
+    Class superclass;
+    cache_t cache;             // formerly cache pointer and vtable
+    class_data_bits_t bits;    // class_rw_t * plus custom rr/alloc flags
+    
+    // 省略以下成员
+}
+</code></pre>
+<p>现在我们可以说isMemberOfClass方法其实就是判断两个结构体（objc_class）实例的指针地址是否相同。</p>
+<p>objc_class 又继承于objc_object，那么我们再看看objc_object的主要结构。</p>
+<pre><code class="language-swift">struct objc_object {
+private:
+    isa_t isa;
+
+public:
+
+    // ISA() assumes this is NOT a tagged pointer object
+    Class ISA();
+
+    // getIsa() allows this to be a tagged pointer object
+    Class getIsa();
+    
+    // 再次省略一下成员
+}
+</code></pre>
+<p>看objc_object的名字也可以猜到这个应该和NSObject有关系，那么他们是怎么产生联系的呢？</p>
+<p>在 <code>clang -rewrite-objc</code> （把oc代码转写成c/c++代码）后有这么一段：</p>
+<pre><code class="language-swift">#ifndef _REWRITER_typedef_NSObject
+
+#define _REWRITER_typedef_NSObject
+
+typedef struct objc_object NSObject;
+
+typedef struct {} _objc_exc_NSObject;
+
+#endif
+</code></pre>
+<p>这下清楚了。。其实NSObject就是objc_object，一个OC对象其实就是objc_object或继承于objc_object的结构体的指针。。</p>
+<p>objc_object结构体中也有一个isa_t类型的isa的成员，这个isa其实才是大家平时经常说的isa，之前在NSObject中的那个，其实是无效的，就是让大家看一下，如同runtime.h中的objc_class结构体定义一样，其实都已经失效了，真正的实现都被隐藏掉了，不过思路是正确的，依旧可以参考。</p>
+<p>好，继续看isa_t是哪路神仙。</p>
+<pre><code class="language-swift">union isa_t 
+{
+    isa_t() { }
+    isa_t(uintptr_t value) : bits(value) { }
+
+    // 以下两个数据成员，同一时间只能储存一个
+    // 也就是说如果或者是cls或者是bits
+    // 这样可以达到节省内存的目的
+    Class cls;
+    uintptr_t bits;
+    
+    /// 再再次省略下面的代码，下面代码要展开谈的话，篇幅太大，等下次单开一篇详谈。
+}
+</code></pre>
+<p>原来isa_t是个union，对union不了解的同学可以看<a href="http://www.anyanf.com/2018/union-in-c/">这篇文章</a>，大概意思可以看上面那段代码的注释。</p>
+<p>其中cls就不用多解释了吧，bits不仅仅保存了指针，并对此做了优化，其中还包含了引用计数，析构状态，被其他 weak 变量引用情况，将来一一细表。</p>
+<p>到此从整体上浏览了一下Class的结构，其中发现了一个很有意思的现象：</p>
+<p>objc_object里有isa_t结构体类型的isa，这个isa包含当前objc_object的类的信息，其中有objc_class的指针，然后</p>
+<p>objc_class又继承于objc_object，所以里面又有isa。。绕来绕去有点让人懵逼。别怕，让我们细细的捋一捋，结合后面那张图品味，味道更佳。</p>
+<p>前面说过了，OC中的类其实就是一个指向objc_class结构体的指针（Class Object类对象），为了把OC中的类和对象区分开来，引入了一个叫做元类的概念（Meta Class），类对象的isa成员（也就是类对象的类）就是元类。它用来表述类对象本身所具备的元数据。类方法就定义于此处，因为这些方法可以理解成类对象的实例方法。每个类仅有一个类对象，而每个类对象仅有一个与之相关的元类。当你发出一个类似 <code>[NSObject alloc]</code> 的消息时，你事实上是把这个消息发给了一个类对象，这个类对象必须是一个元类的实例，而这个元类同时也是一个根元类 (root meta class) 的实例。所有的元类最终都指向根元类为其超类。所有的元类的方法列表都有能够响应消息的类方法。所以当 <code>[NSObject alloc]</code> 这条消息发给类对象的时候，<code>objc_msgSend()</code> 会去它的元类里面去查找能够响应消息的方法，如果找到了，然后对这个类对象执行方法调用。</p>
+<p><img src="media/17001892555950/17001912055438.jpg" alt="" /></p>
+<p>关于Class的简单介绍就到此为止了，其实简单来说还是我上面说了好几次的，OC的实例对象就是一个指向objc_object的指针，objc_object中有一个isa_t的成员isa，isa包含当前对象指向的类的信息，OC中的类是一个objc_class的结构体，该结构体继承于objc_object，所以OC中的类也是一个对象，类对象中的<code>isa_t</code>结构体包含了类对象指向的元类(meta-class，元类也是objc_class类型)的信息。</p>
+<p>如同绕口令一般。</p>
+<h2><a id="oc%E5%AF%B9%E8%B1%A1" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>OC对象</h2>
+<p>我们先定义一个类。</p>
+<pre><code class="language-swift">@interface FoobarClass : NSObject {
+    
+    NSString *foobarStr;
+    int foobarInt;
+
+}
+</code></pre>
+<p>还是通过 <code>clang -rewrite-objc</code> （把oc代码转写成c/c++代码）转之后，代码如下。</p>
+<pre><code class="language-swift">#ifndef _REWRITER_typedef_NSObject
+#define _REWRITER_typedef_NSObject
+typedef struct objc_object NSObject;
+typedef struct {} _objc_exc_NSObject;
+#endif
+
+struct NSObject_IMPL {
+	Class isa;
+};
+
+
+#ifndef _REWRITER_typedef_FoobarClass
+#define _REWRITER_typedef_FoobarClass
+typedef struct objc_object FoobarClass;
+typedef struct {} _objc_exc_FoobarClass;
+#endif
+
+struct FoobarClass_IMPL {
+	struct NSObject_IMPL NSObject_IVARS; // 通过这样的方式达到继承的目的
+	NSString *foobarStr;
+	int foobarInt;
+};
+</code></pre>
+<p>通过以上代码可以看出FoobarClass类实例化的对象在内存中的是什么样子。</p>
+<pre><code class="language-swift">Class isa;
+NSString *foobarStr;
+int foobarInt;
+</code></pre>
+<p>之前说过OC的对象是指向结构体实例的指针，所以有两个结论：</p>
+<ol>
+<li>成员isa的地址就是对象的首地址的值。</li>
+<li>其他成员变量的地址就是对象的首地址地址加上相应的偏移量。</li>
+</ol>
+<p>请看下面例子。</p>
+<pre><code class="language-swift">@implementation FoobarClass
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+        foobarStr = @&quot;hehe&quot;;
+        
+        NSLog(@&quot;foobarStr address : %p&quot;, &amp;foobarStr);
+
+        foobarInt = 10;
+        
+        NSLog(@&quot;foobarInt address : %p&quot;, &amp;foobarInt);
+
+        
+    }
+    return self;
+}
+
+@end
+
+// 实例化一个对象
+FoobarClass *foobar =  [FoobarClass new];
+NSLog(@&quot;foobar address : %p&quot;, foobar);
+
+// 打印结果
+foobarStr address : 0x10064cc68
+foobarInt address : 0x10064cc70
+foobar address : 0x10064cc60
+
+</code></pre>
+<p><img src="media/17001892555950/17001912055451.png" alt="" /></p>
+<p>在之前已经介绍过类对象和元类，以及他们的关系，在这里需要强调一下的是，一个OC对象的对象（-）方法，是在类对象里保存的；而类（+）方法，是在元类里保存的。</p>
+<p><img src="media/17001892555950/17001912055459.png" alt="" /></p>
+<p>通过这个巧妙的设计，可以很方面的区分对象方法和类方法，使得OC中的对象和类达到了结构上的统一。方法的调用的逻辑看着也非常简约：</p>
+<ol>
+<li>对象方法调用时，通过OC对象的isa在类中查找方法的实现。</li>
+<li>类方法调用时，通过类对象的isa（OC对象的isa的isa）在元类中获取方法的实现。（OC对象的类方法，就是元类中的对象方法）</li>
+</ol>
+<h2><a id="%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>总结</h2>
+<p>为了有个整体的理解，开篇全讲类和对象了，很多东西都是浅尝辄止，后面会进行深入的探讨，一一补全。</p>
+<h2><a id="%E5%8F%82%E8%80%83" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>参考</h2>
+<ol>
+<li>
+<p><a href="https://developer.apple.com/library/ios/documentation/Cocoa/Reference/ObjCRuntimeRef/">Objective-C Runtime Reference</a></p>
+</li>
+<li>
+<p><a href="http://southpeak.github.io/2014/10/25/objective-c-runtime-1/">Objective-C Runtime 运行时之一：类与对象</a></p>
+</li>
+<li>
+<p><a href="https://www.jianshu.com/p/e3445ad41dbf">Objective-C对象解析</a></p>
+</li>
+<li>
+<p><a href="http://yulingtianxia.com/blog/2014/11/05/objective-c-runtime/">Objective-C Runtime</a></p>
+</li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/10/19</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892556229.html">
+                
+                  <h1>Objective-C 中禁止调用指定的方法</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>在一些场景可能我们不希望用户调用默认的方法以避免一些无法控制的事情发生。<br />
+可以通过<code>unavailable</code>来禁用那些不想让用户调用的方法。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001892556229.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2018/03/02</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892556129.html">
+                
+                  <h1>OC优缺点以及常见bug</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h3><a id="objc%E4%BC%98%E7%82%B9%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>objc优点：</h3>
+<ol>
+<li>Cateogies : 非常实用的扩展机制，可以很方便的为一个已有的类添加属性或者方法，而不需要笨拙的去继承他</li>
+<li>Posing : 可以让一个类的对象动态的以其他类行为去执行，也许可以理解成动态replace所有的method（不确定是否可以这么理解）</li>
+<li>动态识别，比较常见的动态语言的特性，涉及的点就多了，举个简单的例子，判断一个对象是否是某个类的成员</li>
+<li>指针计算</li>
+<li>弹性讯息传递 : 方法(method)的动态处理，譬如当你调用一个没有的方法的时候，系统将是再运行时跑出异常而不是编译时给出错误</li>
+<li>不是一个过度复杂的 C 衍生语言</li>
+<li>Objective-C 与 C++ 可混合编程, 直接改.m文件类型名即可</li>
+</ol>
+<h3><a id="%E7%BC%BA%E7%82%B9" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>缺点:</h3>
+<ol>
+<li>不支持命名空间 : 写过c#等其他语言的应该比较清楚，可以通过命名空间将相同名字的类进行分类，而objc中不得不通过前缀进行区分，这也是为什么苹果的类库都有UIXXX NSXXX等统一前缀了。</li>
+<li>不支持运算符重载</li>
+<li>不支持多重继承</li>
+<li>使用动态运行时类型，所有的方法都是函数调用，所以很多编译时优化方法都用不到。（如内联函数等），性能低劣。</li>
+</ol>
+<h3><a id="oc%E6%AF%94%E8%BE%83%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BB%A3%E7%A0%81bug" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>OC比较常见的代码bug</h3>
+<p>比较常见的崩溃基本都源于代码bug，比如数组越界、插空、空引用、引用未定义方法、多线程安全性、访问野指针、发送未实现的selector等。</p>
+<h3><a id="%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>调试技巧</h3>
+<ol>
+<li>打印层次结构</li>
+<li>条件断点（满足一定条件）在断点处调  add edit breakPoint  </li>
+<li>全局断点  add Exception breakPoint</li>
+<li>静态分析 Analyzs</li>
+<li>profile</li>
+<li>编译时静态检测</li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/10/26</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892555848.html">
+                
+                  <h1>runtime——运行时简单使用</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2><a id="%E8%BF%90%E8%A1%8C%E6%97%B6%E6%80%BB%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>运行时总结</h2>
+<p>什么是runtime？</p>
+<ol>
+<li>runtime是一套底层的C语言API（包含很多强大实用的C语言数据类型、C语言函数）</li>
+<li>实际上，平时我们编写的OC代码，底层都是基于runtime实现的</li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001892555848.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2016/09/21</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892556604.html">
+                
+                  <h1>iOS中nil 、NULL、 Nil 、NSNull的区别</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2><a id="1-nil" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.nil</h2>
+<p>Defines the id of a null instance.</p>
+<p>定义一个实例为空, 指向 oc 中对象的空指针.</p>
+<p>示例代码：</p>
+<pre><code class="language-swift">NSString *someString = nil;
+NSURL *someURL = nil;
+id someObject = nil;
+if (anotherObject == nil) // do something
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001892556604.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2015/12/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892557269.html">
+                
+                  <h1>Objective-C_16.Foundation框架—集合</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h3><a id="%E4%B8%80%E3%80%81nsarray%E5%92%8Cnsmutablearray" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一、NSArray和NSMutableArray</h3>
+<h4><a id="%EF%BC%88%E4%B8%80%EF%BC%89nsarray%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E7%BB%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（一）NSArray不可变数组</h4>
+<h5><a id="%EF%BC%881%EF%BC%89nsarray%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（1）NSArray的基本介绍</h5>
+<p>NSArray是OC中使用的数组，是面向对象的，以面向对象的形式操纵对象，是不可变数组。</p>
+<p>C语言数组有一个缺点即数组中只能存放同种数据类型的元素。</p>
+<p>OC数组只能存放OC对象，不能存放非OC对象，如int，结构体和枚举等。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001892557269.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2015/11/01</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			 <a href="OC_1.html">&raquo; Next Page</a> 
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>

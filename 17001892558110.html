@@ -1,0 +1,627 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  Objective-C_08.点语法和变量作用域 - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>Objective-C_08.点语法和变量作用域</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2015/11/01</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='OC.html'>OC</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h3><a id="%E4%B8%80%E3%80%81%E7%82%B9%E8%AF%AD%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>一、点语法</h3>
+<h4><a id="%EF%BC%88%E4%B8%80%EF%BC%89%E8%AE%A4%E8%AF%86%E7%82%B9%E8%AF%AD%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（一）认识点语法</h4>
+<span id="more"></span><!-- more -->
+<p>声明一个Person类:</p>
+<pre><code class="language-swift">#import &lt;Foundation/Foundation.h&gt;
+
+@interface Person : NSObject
+{
+    int _age; //默认为@protected
+}
+- (void)setAge:(int)age;
+- (int)age;
+@end
+</code></pre>
+<p>Person类的实现：</p>
+<pre><code class="language-swift">#import&quot;Person.h&quot;
+ 
+@implementation Person
+- (void)setAge:(int)age
+{
+    _age = age;// 不能写成self.age = newAge,相当与 [self setAge:newAge];
+}
+
+- (int)age  //get方法
+{
+    return _age;
+}
+
+@end
+
+
+</code></pre>
+<p>点语法的使用：</p>
+<pre><code class="language-swift">#import &lt;Foundation/Foundation.h&gt;
+#import&quot;Person.h&quot;
+
+main(int argc, constchar * argv[]) {
+    @autoreleasepool {
+        // insert code here...
+        Person *person = [[Person alloc] init];
+        //[person setAge:10];
+        person.age = 10;//点语法，等效与[person setAge:10];
+        //这里并不是给person的属性赋值，而是调用person的setAge方法
+        //int age = [person age];
+        int age = person.age;//等效与int age = [person age]
+        NSLog(@&quot;age is %i&quot;, age);
+        [person release];
+    }
+return0;
+}
+
+</code></pre>
+<h4><a id="%EF%BC%88%E4%BA%8C%EF%BC%89%E7%82%B9%E8%AF%AD%E6%B3%95%E7%9A%84%E4%BD%9C%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（二）点语法的作用</h4>
+<p>OC设计点语法的目的，是为了让其他语言的开发者可以很快的上手OC语言开发，使用点语法，让它和其他面向对象的语言如java很像。</p>
+<h4><a id="%EF%BC%88%E4%B8%89%EF%BC%89%E7%82%B9%E8%AF%AD%E6%B3%95%E7%9A%84%E6%9C%AC%E8%B4%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（三）点语法的本质</h4>
+<p>点语法的本质是方法的调用，而不是访问成员变量，当使用点语法时，编译器会自动展开成相应的方法。切记点语法的本质是转换成相应的set和get方法，如果没有set和get方法，则不能使用点语法。</p>
+<p>如：</p>
+<p><code>Stu.age = 10;</code>  展开为：<code>[stu setAge:10];</code></p>
+<p><code>int a = stu.age; </code>  展开为：<code>[stu age];</code></p>
+<p>编译器如何知道是set方法还是get方法？主要是看赋值（可以使用断点调试来查看）。</p>
+<p>在OC中访问成员变量只有一种方式即使用-&gt; 如stu-&gt;age，这种情况要求在@public的前提下。</p>
+<h4><a id="%EF%BC%88%E5%9B%9B%EF%BC%89%E7%82%B9%E8%AF%AD%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（四）点语法的使用注意</h4>
+<p>下面的使用方式是一个死循环：</p>
+<ol>
+<li>
+<p>在set方法中，<code>self.age=age;</code>相当于是<code>[self setAge:age];</code></p>
+</li>
+<li>
+<p>在get方法中，<code>return self.age;</code>相当于是<code>[self age];</code></p>
+</li>
+</ol>
+<h3><a id="%E4%BA%8C%E3%80%81%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>二、变量作用域</h3>
+<h4><a id="%EF%BC%88%E4%B8%80%EF%BC%89%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%BB%E8%A6%81%E5%88%86%E4%B8%BA%E5%9B%9B%E7%A7%8D%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（一）变量的作用域主要分为四种：</h4>
+<ol>
+<li><code>@public</code>(公开的)在有对象的前提下，任何地方都可以直接访问。</li>
+<li><code>@protected</code>（受保护的）只能在当前类和子类的对象方法中访问。</li>
+<li><code>@private</code> （私有的）只能在当前类的对象方法中才能直接访问。</li>
+<li><code>@package</code>（框架级别的）作用域介于私有和公开之间，只要处于同一个框架中就可以直接通过变量名访问</li>
+</ol>
+<h4><a id="%EF%BC%88%E4%BA%8C%EF%BC%89%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E5%92%8C%E8%A1%A5%E5%85%85" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>（二）使用注意和补充</h4>
+<ol>
+<li>在类的实现即.m文件中也可以声明成员变量，但是因为在其他文件中通常都只是包含头文件而不会包含实现文件，所以在这里声明的成员变量是@private的。在.m中定义的成员变量不能和它的头文件.h中的成员变量同名，在这期间使用<code>@public</code>等关键字也是徒劳的。</li>
+<li>在<code>@interface  @end</code>之间声明的成员变量如果不做特别的说明，那么其默认是<code>protected</code>的。</li>
+<li>一个类继承了另一个类，那么就拥有了父类的所有成员变量和方法，注意所有的成员变量它都拥有，只是有的它不能直接访问。</li>
+</ol>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+          <a href="17001892557981.html" 
+          title="Previous Post: Objective-C_09.@property @synthesize和id">&laquo; Objective-C_09.@property @synthesize和id</a>
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="17001892558216.html" 
+          title="Next Post: Objective-C_07.面向对象—多态">Objective-C_07.面向对象—多态 &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="asset/prism.js"></script>
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>

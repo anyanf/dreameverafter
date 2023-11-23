@@ -83,6 +83,8 @@
     <li><label>Categories</label></li>
 
         
+            <li><a href="Pages.html">Pages</a></li>
+        
             <li><a href="CS.html">CS</a></li>
         
             <li><a href="List.html">List</a></li>
@@ -110,6 +112,208 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="17001875302707.html">
+                
+                  <h1>LeetCode 70 爬楼梯(青蛙跳台阶)</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
+<p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
+<p>注意：给定 n 是一个正整数。</p>
+<p>示例 1：</p>
+<pre><code class="language-plain_text">输入： 2
+输出： 2
+解释： 有两种方法可以爬到楼顶。
+1.  1 阶 + 1 阶
+2.  2 阶
+</code></pre>
+<p>示例 2：</p>
+<pre><code class="language-plain_text">输入： 3
+输出： 3
+解释： 有三种方法可以爬到楼顶。
+1.  1 阶 + 1 阶 + 1 阶
+2.  1 阶 + 2 阶
+3.  2 阶 + 1 阶
+</code></pre>
+<h2><a id="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>动态规划</h2>
+<p>\(f(n)\) 表示爬到第 \(n\) 级台阶的方案数，根据题意，最后一步只有两种可能：跨了一级台阶，或者跨了两级台阶。</p>
+<p>所以爬 \(n\) 级台阶的方案总数是爬到第 \(x−1\) 级台阶的方案数和爬到第 \(x−2\) 级台阶的方案数的和。</p>
+<p>可以列以下动态规划的转移方程：</p>
+<p>\(f(n)=f(n−1)+f(n−2)\)</p>
+<p>然后再考虑以下边界条件:</p>
+<ol>
+<li>从第 0 级爬到第 0 级只有一种方案，\(f(0) = 1\)。</li>
+<li>从第 0 级爬到第 1 级只有一种方案，\(f(1) = 1\)。</li>
+</ol>
+<p>根据这两个边界条件再结合转移方程就可以推导出第 \(n\) 级台阶的方案数。</p>
+<p>递归解法就不写了，下面列出for循环解法和降低空间复杂度解法。</p>
+<pre><code class="language-c++">
+// for循环解法
+class Solution {
+public:
+    int climbStairs(int n) {
+        const int N = 1e5 + 10;
+    	int dp[N] = {};
+        dp[0] = 1;
+        dp[1] = 1;
+        for (int i = 2; i &lt;= n; ++i) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[n];
+    }
+};
+
+// 由于 f(n) 只跟 f(n−1) 和 f(n−2) 有关，所以不需要长度为 n 的数组记录所有的方案数。
+// 只需要 p 和 q 两个变量轮着记录就可以了。
+class Solution {
+public:
+    int climbStairs(int n) {
+        int p = 0, q = 0, r = 1;
+        for (int i = 1; i &lt;= n; ++i) {
+            p = q; 
+            q = r; 
+            r = p + q;
+        }
+        return r;
+    }
+};
+
+</code></pre>
+<p>时间复杂度：循环执行 \(n\) 次，每次花费常数的时间代价，故渐进时间复杂度为 \(O(n)\)。</p>
+<p>空间复杂度：这里只用了常数个变量作为辅助空间，故渐进空间复杂度为 \(O(1)\)。</p>
+<h2><a id="%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97%E9%80%9A%E9%A1%B9%E5%85%AC%E5%BC%8F" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>斐波那契数列通项公式</h2>
+<p>经过观察可以看出来方案数很像斐波那契数列，那么就可以直接用通项公式了。</p>
+<p>主意斐波那契数列（0、1、1、2、3、5、8、13、21、34、……）和题目方案数列（1、1、2、3、5、8、13、21、34、……）开始的时候不太一样，所以在用主意斐波那契数列通项公式计算的时候， \(n\) 需要加一。</p>
+<p>推导过程如下：</p>
+<p>根据线性递推数列方程 \(f(n)=f(n−1)+f(n−2)\)，可知道其特征方程为</p>
+<p>\(x^2=x+1\)</p>
+<p>解得 \(x_1 = {1 + \sqrt{5} \over 2}，x_2 = {1 - \sqrt{5} \over 2}\)</p>
+<p>则 \(f(n) = c_1x_1^n+c_2x_2^n\)</p>
+<p>因为 \(f(1) = f(2) = 1\)</p>
+<p>所以 \(c_1x_1+c_2x_2 = c_1x_1^2+c_2x_2^2 = 1\)</p>
+<p>解得 \(c_1 = {1 \over \sqrt{5}}，c_2 = -{1 \over \sqrt{5}}，\)</p>
+<p>所以 \(f(n) = {1 \over \sqrt{5}}[({1 + \sqrt{5} \over 2})^n - ({1 - \sqrt{5} \over 2})^n]\)</p>
+<p>只要我们把这个公式转换成代码就可以求解了。</p>
+<pre><code class="language-c++">class Solution {
+public:
+    int climbStairs(int n) {
+        double sqrt5 = sqrt(5);
+        // 主意这里是 n + 1
+        double fibn = pow((1 + sqrt5) / 2, n + 1) - pow((1 - sqrt5) / 2, n + 1);
+        return (int)round(fibn / sqrt5);
+    }
+};
+</code></pre>
+<h2><a id="%E7%88%AC%E6%A5%BC%E6%A2%AF%E5%8D%87%E7%BA%A7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>爬楼梯升级</h2>
+<p>条件改为每次你可以爬 \(1\) 到 \(n\) 个台阶。那么有多少种不同的方法可以爬到楼顶呢？</p>
+<p>根据上题目的规律，可以得出下面公式：</p>
+<p>\(f(n)=f(0)+f(1)+f(2)+…+f(n-2)+f(n-1)\)</p>
+<p>因为 \(f(n-1)=f(0)+f(1)+f(2)+…f(n-2)\)</p>
+<p>所以 \(f(n)=2f(n-1)\)</p>
+<p>因为 \(f(0) = f(1) = 1\)</p>
+<p>所以 \(f(2)=2f(1)=2，f(3)=2f(2)=4，f(4)=2f(3)=8\)</p>
+<p>所以 \(f(n)=2^{n-1}\)</p>
+<p>其实还有一个更巧妙的思路：一共要上 \(n\) 个台阶，每次都可以爬 \(1\) 到 \(n\) 个台阶，算一共又多少种方法，那么到第 \(n\) 个台阶的时候，把前面 \(n-1\) 个台阶被踩和不被踩的可能性数量统计出来就是答案了，也就是 \(2^{n-1}\)。</p>
+<p>代码过于简单，就不列出来了。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2021/05/05</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='LeetCode.html'>LeetCode</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001155269640.html">
+                
+                  <h1>终于看完了《扎克·施奈德版正义联盟》</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>开始我是没想到看一个电影会这么难。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001155269640.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2021/05/05</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Movies.html'>Movies</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001174083229.html">
+                
+                  <h1>观《观山海》</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>久闻《山海经》大名了，却一直没有细致的看过。可能是潜意识觉得看这本书需要精心挑选一个版本，然后斋戒三日沐浴更衣才能开始看吧。这样的想法反而造成的极大的行为成本，结果就是直到今天才有一个看这本书的契机，没错，还是被动的。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001174083229.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2021/05/03</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="17001265070006.html">
                 
                   <h1>深入理解计算机系统(第二版) 家庭作业 第二章</h1>
@@ -131,6 +335,120 @@
                     <span>posted in&nbsp;</span> 
           				  
           					    <span class="posted-in"><a href='CSAPP.html'>CSAPP</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892555760.html">
+                
+                  <h1>Swift Module 如何被全局引用</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>今天一个iOS大佬问我一个小问题，他用 <code>cocoapods</code> 集成了一个 <code>swift</code> 的 <code>json</code> 库：<code>SwiftyJSON</code>，用的时候发现有一丝丝不方便的地方，就是在每个用到 <code>SwiftyJSON</code> 的文件中，都需要 <code>import</code> 一下这个 <code>module</code>。</p>
+<p>平时他在主工程里写代码的时候，由于都在一个 <code>module</code> 之下，所以基本上没有怎么用过 <code>import</code> 了，所以问我为什么会这样，以及有没有一个类似于 <code>PCH</code> 的文件，把 <code>SwiftyJSON</code> 全局引用。</p>
+<p>至于为什么会这样，其实刚刚已经说了，就是因为没有在一个 <code>module</code> 中嘛。有没有类似 <code>PCH</code> 的东西呢，其实也是有的。</p>
+<p>可以直接创建一个 <code>swift</code> 文件（类似 <code>PCH</code> ），在这个文件中使用 <code>@_exported import</code> 来导入：</p>
+<pre><code class="language-swift">@_exported import SwiftyJSON 
+</code></pre>
+<p>这就好了，没错，智慧就是这么简单。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2020/11/20</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='Swift.html'>Swift</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001875302574.html">
+                
+                  <h1>LeetCode 398  随机数索引</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>给定一个可能含有重复元素的整数数组，要求随机输出给定的数字的索引。 您可以假设给定的数字一定存在于数组中。</p>
+<p>注意：</p>
+<p>数组大小可能非常大。 使用太多额外空间的解决方案将不会通过测试。</p>
+<p>示例:</p>
+<pre><code class="language-plain_text">int[] nums = new int[] {1,2,3,3,3};
+Solution solution = new Solution(nums);
+
+// pick(3) 应该返回索引 2,3 或者 4。每个索引的返回概率应该相等。
+solution.pick(3);
+
+// pick(1) 应该返回 0。因为只有nums[0]等于1。
+solution.pick(1);
+</code></pre>
+<p>解：</p>
+<p>(蓄水池抽样)</p>
+<p>利用一个unordered_map&lt;int, vector<int>&gt; um存储每个数值对应的下标，那么随机返回一个索引，其实就是生成一个0-um[target].size() - 1的一个随机数，这样如果存在多次pick，那么每次都是O(1)O(1)的效率。</p>
+<pre><code class="language-c++">class Solution {
+public:
+
+    unordered_map&lt;int, vector&lt;int&gt;&gt; um;
+    
+    Solution(vector&lt;int&gt;&amp; nums) {
+        for (int i = 0; i &lt; nums.size(); i ++) {
+            um[nums[i]].push_back(i);
+        }
+    }
+    
+    int pick(int target) {
+        return um[target][rand() % um[target].size()];
+    }
+};
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution* obj = new Solution(nums);
+ * int param_1 = obj-&gt;pick(target);
+ */
+
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2020/10/12</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='LeetCode.html'>LeetCode</a></span>
           				   
                     
 
@@ -255,14 +573,119 @@
               </div><!-- article -->
         
 			<div class="article">
-                <a class="clearlink" href="17001265069754.html">
+                <a class="clearlink" href="17001875302498.html">
                 
-                  <h1>OpenGL 术语</h1>
+                  <h1>LeetCode 486 Predict the Winner(预测赢家)</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<p>前两年稍微接触了一些 <code>OpenGL</code>，近期准备把所得总结一下，先把高频词汇列出来把。</p>
+                        	<h2><a id="%E9%A2%98%E7%9B%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>题目</h2>
+<p>给定一个表示分数的非负整数数组。 玩家 1 从数组任意一端拿取一个分数，随后玩家 2 继续从剩余数组任意一端拿取分数，然后玩家 1 拿，…… 。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。</p>
+<p>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
+<p>Given an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player picks a number, that number will not be available for the next player. This continues until all the scores have been chosen. The player with the maximum score wins.</p>
+<p>Given an array of scores, predict whether player 1 is the winner. You can assume each player plays to maximize his score.</p>
+<p>示例 1：</p>
+<pre><code class="language-plain_text">输入：[1, 5, 2]
+输出：False
+解释：一开始，玩家1可以从1和2中进行选择。
+如果他选择 2（或者 1 ），那么玩家 2 可以从 1（或者 2 ）和 5 中进行选择。如果玩家 2 选择了 5 ，那么玩家 1 则只剩下 1（或者 2 ）可选。
+所以，玩家 1 的最终分数为 1 + 2 = 3，而玩家 2 为 5 。
+因此，玩家 1 永远不会成为赢家，返回 False 。
+</code></pre>
+<p>示例 2：</p>
+<pre><code class="language-plain_text">输入：[1, 5, 233, 7]
+输出：True
+解释：玩家 1 一开始选择 1 。然后玩家 2 必须从 5 和 7 中进行选择。无论玩家 2 选择了哪个，玩家 1 都可以选择 233 。
+     最终，玩家 1（234 分）比玩家 2（12 分）获得更多的分数，所以返回 True，表示玩家 1 可以成为赢家。
+</code></pre>
+<p>提示：</p>
+<ul>
+<li>1 &lt;= 给定的数组长度 &lt;= 20.</li>
+<li>数组里所有分数都为非负数且不会大于 10000000 。</li>
+<li>如果最终两个玩家的分数相等，那么玩家 1 仍为赢家。</li>
+</ul>
+<h2><a id="%E8%A7%A3%E9%A2%98" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>解题</h2>
+<p>设：总分 = 先手得分 - 后手得分。</p>
+<p>当所有分数都被拿走后，如果总分&gt;=0，就是先手胜，反之就是后手胜利。</p>
+<p>由于是两个人分别拿，所以需要 <code>turn</code> 的正负来表示先手还是后手，在所有计算分数的地方都乘以 <code>turn</code>，使得总分就是差值。</p>
+<p>最直观的思路就是用递归做出来，设数组两头的下标为 <code>start</code> 和 <code>end</code>。</p>
+<p>递归函数中分别选择一个下标，计算选择下标之后递归计算出数组剩下的分被选择后的总分。</p>
+<p>下标的分加上剩下的总分共有两种情况，取最大值，就是当前递归函数的总分。</p>
+<p>递归中止条件为 <code>start == end</code>， 这时候直接返回当前下标的值就好了。</p>
+<h2><a id="%E9%80%92%E5%BD%92%E8%A7%A3%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>递归解法</h2>
+<p>解：</p>
+<pre><code class="language-cpp">
+class Solution {
+public:
+    bool PredictTheWinner(vector&lt;int&gt;&amp; nums) {
+        return total(nums, 0, nums.size() - 1, 1) &gt;= 0;
+    }
+
+    int total(vector&lt;int&gt;&amp; nums, int start, int end, int turn) {
+        if (start == end) {
+            return nums[start] * turn;
+        }
+        int scoreStart = nums[start] * turn + total(nums, start + 1, end, -turn);
+        int scoreEnd = nums[end] * turn + total(nums, start, end - 1, -turn);
+        return max(scoreStart * turn, scoreEnd * turn) * turn;
+    }
+};
+
+</code></pre>
+<p>时间复杂度：<code>O(2^n)</code>，其中 <code>n</code> 是数组的长度。</p>
+<p>空间复杂度：O(n)，其中 <code>n</code> 是数组的长度。空间复杂度取决于递归使用的栈空间。</p>
+<h2><a id="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E8%A7%A3%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>动态规划解法</h2>
+<p>使用递归，存在大量重复计算，因此时间复杂度很高。可以试用动归解决这个问题。</p>
+<p>用一个二维数组，记录计算过的总分。</p>
+<p><code>dp[i][j]</code> 为当前玩家在数组中，下标 <code>i</code> 到下标 <code>j</code> 的分数之差的最大值，当前玩家不一定是先手玩家。</p>
+<p>根据题意，i不可能大于j。</p>
+<p>当i==j时，dp[i][j] = nums[i];</p>
+<p>计算分数的之差的最大值（状态转移）的公式是：</p>
+<pre><code class="language-cpp">dp[i][j] = max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);
+</code></pre>
+<p>注意状态转移的方向，保证依赖的值已经有解。</p>
+<pre><code class="language-cpp">class Solution {
+public:
+    bool PredictTheWinner(vector&lt;int&gt;&amp; nums) {
+        int length = nums.size();
+        auto dp = vector&lt;vector&lt;int&gt;&gt; (length, vector&lt;int&gt;(length));
+        for (int i = 0; i &lt; length; i++) {
+            dp[i][i] = nums[i];
+        }
+        // - 2是因为i == length - 1，这个值在刚刚已经算过了，只有一个值，即dp[i][i]
+        for (int i = length - 2; i &gt;= 0; i--) {
+            for (int j = i + 1; j &lt; length; j++) {
+                dp[i][j] = max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);
+            }
+        }
+        return dp[0][length - 1] &gt;= 0;
+    }
+};
+</code></pre>
+<p>经过观察，<code>dp[i][j]</code> 的值只和 <code>dp[i+1][j]</code> 与 <code>dp[i][j−1]</code> 有关。</p>
+<p>即在计算第 <code>i</code> 行的值时，只使用到 <code>dp</code> 的第 <code>i</code> 行和第 <code>i+1</code> 行的值，而 <code>j=i+1</code> ，所以大于 <code>i+1</code> 后面的行，都用不到了，可以借给 <code>j</code> 用。</p>
+<p>列也只在意 <code>j</code> 和 <code>j - 1</code> 的值，所以就可以用一个数组来记录。</p>
+<p>可以优化一下空间，把二维数组换成一维数组。</p>
+<pre><code class="language-cpp">class Solution {
+public:
+    bool PredictTheWinner(vector&lt;int&gt;&amp; nums) {
+        int length = nums.size();
+        auto dp = vector&lt;int&gt;(length);
+        for (int i = 0; i &lt; length; i++) {
+            dp[i] = nums[i];
+        }
+        for (int i = length - 2; i &gt;= 0; i--) {
+            for (int j = i + 1; j &lt; length; j++) {
+                dp[j] = max(nums[i] - dp[j], nums[j] - dp[j - 1]);
+            }
+        }
+        return dp[length - 1] &gt;= 0;
+    }
+};
+</code></pre>
+<p>时间复杂度：<code>O(n^2)</code>，其中 <code>n</code> 是数组的长度。需要计算每个子数组对应的 <code>dp</code> 的值，共有 <code>n(n+1)/2</code> 个子数组。</p>
+<p>空间复杂度：<code>O(n)</code>，其中 <code>n</code> 是数组的长度。空间复杂度取决于额外创建的数组 <code>dp</code>，如果不优化空间，则空间复杂度是 <code>O(n^2)</code>，使用一维数组优化之后空间复杂度可以降至 <code>O(n)</code>。</p>
 
                         
                       </div>
@@ -270,191 +693,11 @@
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-                   <a href="17001265069754.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2020/08/06</span>
+                  
+                    <span class="date">2020/09/01</span>
                     <span>posted in&nbsp;</span> 
           				  
-          					    <span class="posted-in"><a href='CS.html'>CS</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="17001177799867.html">
-                
-                  <h1>归纳与演绎</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2><a id="%E5%BD%92%E7%BA%B3%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>归纳法</h2>
-<p>归纳法或归纳推理（Inductive reasoning），有时叫做归纳逻辑，是论证的前提支持结论但不确保结论的推理过程。</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="17001177799867.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2020/03/13</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>算法与数据结构</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="17001265069516.html">
-                
-                  <h1>命令行通过ffmpeg剪切视频</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>ffmpeg的强大自不用多书，有时候遇到只是想简单剪切一下视频，那么可以直接用一下脚本，简单方法，前提是先装上ffmpeg环境。</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="17001265069516.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2020/02/22</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='CS.html'>CS</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="17001173766480.html">
-                
-                  <h1>离骚</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
-<p>先秦•屈原</p>
-</blockquote>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="17001173766480.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2020/01/22</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="17001161339218.html">
-                
-                  <h1>人为什么会过分自信</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p><strong>为什么人们会过分自信呢？</strong></p>
-<p>这主要是因为人们有很多其他导致自己过分自信的特征。</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="17001161339218.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2019/11/29</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="17001196451067.html">
-                
-                  <h1>CMake入门及常用变量指令手册</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h2><a id="%E5%AE%9E%E6%88%98" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>实战</h2>
-<p>参考《CMake Practice》。</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="17001196451067.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2019/09/21</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='CS.html'>CS</a></span>
+          					    <span class="posted-in"><a href='LeetCode.html'>LeetCode</a></span>
           				   
                     
 
@@ -521,6 +764,8 @@
 
       	<p class="cat-list">
         
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
             <a href="CS.html"><strong>CS</strong></a>
         
             <a href="List.html"><strong>List</strong></a>
@@ -542,6 +787,12 @@
 	      
 		      
 			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="16996865532784.html">三汁焖锅</a>
 			      </li>
 		     
@@ -560,13 +811,7 @@
 		  
 		      
 			      <li class="post">
-			        <a href="17001171363865.html">LiSSA第四代计时器说明书</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="17001191890787.html">C++ STL简介</a>
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
 			      </li>
 		     
 		  

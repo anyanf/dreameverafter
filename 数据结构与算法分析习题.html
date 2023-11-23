@@ -1,0 +1,1531 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  数据结构与算法分析习题 - DreamEverAfter
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="DreamEverAfter" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+ 
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:www.dreameverafter.com ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="_self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li id=""><a target="_self" href="tools.html">工具</a></li>
+        
+        <li id=""><a target="_self" href="about.html">About</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="https://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; DreamEverAfter</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        
+        <li><a target="_self" href="index.html">Home</a></li>
+        
+        <li><a target="_self" href="archives.html">Archives</a></li>
+        
+        <li><a target="_self" href="tools.html">工具</a></li>
+        
+        <li><a target="_self" href="about.html">About</a></li>
+        
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="Pages.html">Pages</a></li>
+        
+            <li><a href="CS.html">CS</a></li>
+        
+            <li><a href="List.html">List</a></li>
+        
+            <li><a href="%E6%9D%82.html">杂</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="17001875302970.html">
+                
+                  <h1>数据结构与算法解析习题2.23：实现对分查找使得在每次迭代中只有一个二路比较</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>这个题目说每次迭代只有一个二路比较不太明确是什么意思，我觉得应该是只比较一次吧，那就把判断mid的逻辑放在迭代之后了。</p>
+<p>也不知道这么理解对不对，希望有明白人给解解惑。。</p>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+
+int BinarySearch( const int a[], int x, int n ) {
+    int low, mid, high;
+
+    low = 0;
+    high = n - 1;
+
+    mid = ( low + high ) / 2;
+
+    while( ( low &lt;= high ) &amp;&amp;  ( a[mid] != x ) ) {
+        if( a[mid] &gt; x ) {
+            high = mid - 1;
+            mid = ( low + high ) / 2;
+        }
+        else if( a[mid] &lt; x ) {
+            low = mid + 1;
+            mid = ( low + high ) / 2;
+        }
+    }
+
+    if( a[mid] == x )
+        return mid;
+    else
+        return -1;              // not found
+}
+
+
+
+int main() {
+
+    int arr[5] = {3,5,6,7,8};
+
+    printf(&quot;%d \n&quot;, BinarySearch(arr, 7, 5));
+
+}
+
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B9%A0%E9%A2%98.html'>数据结构与算法分析习题</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001875303045.html">
+                
+                  <h1>数据结构与算法解析习题2.19：寻找主要元素 Majority Element</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>题干:大小为N的数组,其主元素是一个出现超过N/2的元素。</p>
+<p>首先找出主元素的一个候选元,第二步确认该候选元是否为主元素。为找出数组A中的候选元,先构造一个数组B,比较A1和A2,如果相等,则放入到数组B中,然后比较A3和A4以此类推,直到比完整个数组A。然后递归地寻找数组B中的候选元,它也是数组A中的候选元。</p>
+<h3><a id="%E5%88%86%E6%9E%90" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>分析</h3>
+<p>首先, 这个算法只对偶数成立, 先证明一下算法的正确性:</p>
+<p>比如N = 10, 主要元素是3，则3出现的次数&gt;=6</p>
+<h4><a id="%E9%9C%80%E8%A6%81%E8%AF%81%E6%98%8E%E7%9A%84%E7%82%B91%EF%BC%9A6%E4%B8%AA3%E9%9A%8F%E6%9C%BA%E5%88%86%E5%B8%83%E5%9C%A8%E5%A4%A7%E5%B0%8F%E4%B8%BA10%E7%9A%84%E5%AE%B9%E5%99%A8%E4%B8%AD%EF%BC%8C%E5%BF%85%E5%AE%9A%E6%9C%89%E8%87%B3%E5%B0%911%E6%AC%A1%E7%9A%84%E8%BF%9E%E7%BB%AD%E4%B8%8B%E6%A0%87%E7%9A%842%E4%B8%AA%E5%85%83%E7%B4%A0%E5%9D%87%E4%B8%BA3%E3%80%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>需要证明的点1：6个3随机分布在大小为10的容器中，必定有至少1次的连续下标的2个元素均为3。</h4>
+<pre><code class="language-plain_text">反证：任意2个3都不连续（也就是1次都没有）的极端情况是5个3依次被另一个元素隔开：3，1，3，1，3，1，3，1，3，1  所以用第6个3替换1的任意一个的位置，都会出现至少1次连续的2个3。
+</code></pre>
+<h4><a id="%E9%9C%80%E8%A6%81%E8%AF%81%E6%98%8E%E7%9A%84%E7%82%B92%EF%BC%9A%E8%BF%9E%E7%BB%AD%E7%9A%84%E4%B8%A4%E4%B8%AA3%E5%87%BA%E7%8E%B0%E7%9A%84%E4%BD%8D%E7%BD%AE%E4%B8%8B%E6%A0%87%EF%BC%8C%E5%BF%85%E5%AE%9A%E6%98%AFi-2%EF%BC%8Ci-2-1" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>需要证明的点2：连续的两个3出现的位置下标，必定是i<em>2，i</em>2+1</h4>
+<pre><code class="language-plain_text">反证：任意2个连续的3的下标都是i*2+1，(i + 1) * 2的极端情况是：1，3，3，1，1，3，3，1，1，3  所以用第6个3替换1的任意一个的位置，都会出现至少1次连续的两个3出现的位置下标，必定是i*2，i*2+1  据此可以证明B数组中一定包含候选元.
+</code></pre>
+<h4><a id="%E9%9C%80%E8%A6%81%E8%AF%81%E6%98%8E%E7%9A%84%E7%82%B93%EF%BC%9Ab%E6%95%B0%E7%BB%84%E4%B8%AD%E5%80%99%E9%80%89%E5%85%83%E7%9A%84%E4%B8%AA%E6%95%B0%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0-countb2" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>需要证明的点3：B数组中候选元的个数出现次数&gt;CountB/2</h4>
+<pre><code class="language-plain_text">反证：如果B中候选元的个数出现次数&lt;=CountB/2，举个B的极端情况，3，3，3，1，2，4  根据“比较A1和A2，如果它们相等则取其中之一加到数组B中；否则什么都不做”规则反推A，A必定包含3，3，3，3，3，3，1，1，2，2，4，4(这些元素组成的数组我们定义为A的子数组A`，D后面可能还有其他元素，我们定义为A的子数组A``)，分情况讨论:
+
+1：A``的元素个数为0，那么在A中3的个数 = CountA` / 2 + 0 / 2 = CountA/2，A中3的个数不满足&gt;CountA/2的条件。
+
+2：A``的元素个数大于0，最好情况有1半都是3，（因为如果A``的3超过一半，根据证明1和证明2，B中必定会在现有元素基础上多出至少1个候选元3），此时A中3的个数 CountA` / 2+ CountA`` / 2 = CountA/2，A中3的个数不满足&gt;CountA/2的条件。
+</code></pre>
+<p>所以B数组中候选元的个数出现次数&gt;CountB/2。</p>
+<h3><a id="%E9%97%AE%E7%AD%94" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>问答</h3>
+<p>(1)、递归何时停止?<br />
+当数组 B 中只有两个或更少的元素时递归便不必要了。<br />
+(2)、数组A为奇数情况时如何处理?<br />
+一种方法是，注意到如果前 N-1 个元素中有主要元素，则最后一个元素对结果没有影响，否则最后一个元素可能是候选元，将它作为候选元。<br />
+(3)、题干所描述的算法的运行时间?<br />
+设运行时间为 T(N)，有递推式 T(N)=T(N/2)+O(N)，解得 T(N)=O(N)<br />
+(4)、如何避免使用附加数组B?<br />
+保存一个数组 A 的拷贝后，可将要添加到数组 B 的元素直接覆盖在数组 A 上，每一级 递归均可这样做。最初的递归策略需要 O(logN)个数组，而这样只需要两个。<br />
+(5)、给出题干所描述的算法代码?<br />
+如下</p>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+#define NotAMainCell -1
+
+#define ARRLength 10
+
+
+void swap (int *a, int *b) {
+
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+
+}
+
+int isMainCell(int arr[], int probablyMaincell) {
+
+    int count = 0;
+
+    for (int i = 0; i &lt; ARRLength; i++) {
+        if (arr[i] == probablyMaincell) {
+            count++;
+        }
+    }
+
+    if (count &gt; ARRLength / 2) {
+        return 1;
+    } else {
+
+        return 0;
+    }
+}
+
+int findMainCell(int arr[], int length) {
+
+    if (length == 0) {
+        return NotAMainCell;
+    }
+
+    if (length == 1) {
+
+        if (isMainCell(arr, arr[0]) == 1) {
+            return arr[0];
+        } else {
+            return NotAMainCell;
+        }
+    }
+
+    for (int i = 0, len = 0; i &lt; length; i = i + 2) {
+
+        if (arr[i] == arr[i + 1]) {
+            swap(&amp;arr[i], &amp;arr[len++]);
+        }
+
+        if (i == length - 1) {
+            return findMainCell(arr, len);
+        } else if (i == length - 2) {
+            int resule = findMainCell(arr, len);
+
+            if (resule == NotAMainCell) {
+
+                if (isMainCell(arr, arr[ARRLength - 1]) == 1) {
+                    return arr[ARRLength - 1];
+                } else {
+                    return NotAMainCell;
+                }
+
+            } else {
+                return resule;
+            }
+
+        }
+    }
+
+    return NotAMainCell;
+}
+
+
+
+int main() {
+
+    int arr[ARRLength] = {4,3,4,2,4,4,2,4,3,4};
+
+    printf(&quot;%d \n&quot;, findMainCell(arr, ARRLength));
+
+}
+
+</code></pre>
+<p>当然还有很多方法找到主元的，比如排序一下，那么index为n/2的元素，必然是主元。用hashmap。还有删除不同的一对元素等。。就不一一展开了。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B9%A0%E9%A2%98.html'>数据结构与算法分析习题</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001875303111.html">
+                
+                  <h1>数据结构与算法解析习题2.16：不用递归，写出快速求幂的程序</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>用数组储存，x的1，2，4，8log2（n）次方，其实就是存x的2的数组index次方，储存下来。</p>
+<p>然后把n转成2进制，转成2进制后，为1的位数，就是数组的index值，相应的元素，因为是求幂，所以这几个元素相乘。</p>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+#define MAXN 1000
+
+int PowersOfXO[MAXN];
+
+int main() {
+
+    int x, n, cnt, i;
+    int ans = 1;
+    scanf(&quot;%d %d&quot;, &amp;x, &amp;n);
+    cnt = (int)log2(n);
+    PowersOfXO[0] = x;
+    for (i = 1; i &lt;= cnt; i++)
+    {
+        PowersOfXO[i] = PowersOfXO[i - 1] * PowersOfXO[i - 1];
+    }
+    i = 0;
+    while (n &gt; 0) {//将n转换为2进制，如果为1乘
+        if (n % 2 == 1)
+            ans *= PowersOfXO[i];
+        i++;
+        n /= 2;
+    }
+    printf(&quot;%d&quot;, ans);
+}
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B9%A0%E9%A2%98.html'>数据结构与算法分析习题</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001875303178.html">
+                
+                  <h1>数据结构与算法解析习题2.14：找出所有素数</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>这个主要用一个n+1（具体要不要+1根据后面给数组中元素赋值决定的，都可以）数组来记录素数的位置，比如7是素数，那么数组中index为7的元素就是1。</p>
+<p>先把所有元素都置为1，然后在数组中非素数的index的元素，置为0，这样数组中为1的index，就是所有的素数了。</p>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+int countPrimes(int n) {
+
+    int p[n + 1]; //p[i]=1 表示i是素数
+    int tot = 0;
+
+    for(int i = 2; i &lt;= n; i++) p[i] = 1;
+
+    // 遍历大于2的每一个数，然后把这些数的倍数（除了自己）都置0
+    for(int i = 2; i &lt;= n; i++)
+        for(int j = i * 2; j &lt;= n; j += i) p[j] = 0;
+
+    for(int i = 2; i &lt;= n; i++) if(p[i]) tot ++;
+
+    for (int i = 2; i &lt;= n; ++i) {
+
+        if (p[i]) {
+            printf(&quot;%d 是素数 \n&quot;, i);
+        }
+    }
+
+    return tot;
+}
+
+int main() {
+
+    printf(&quot;素数数量 = %d \n&quot;, countPrimes(72));
+
+}
+
+
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B9%A0%E9%A2%98.html'>数据结构与算法分析习题</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001875303251.html">
+                
+                  <h1>数据结构与算法解析习题2.13：编写一个程序来确定正整数N是否是素数。</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>先判断是不是1，如果是1直接不是素数。</p>
+<p>再判断能不能被2整除，最后判断能不能被小于n的开方整除，也就是说，判断n能否被2～n的开方整除。</p>
+<p>如果都不能，就是素数。</p>
+<pre><code class="language-c">
+int isPrime(unsigned int n) {
+
+    if (n == 1) {
+        return 0;
+    }
+
+    if (n % 2 == 0) {
+        return 0;
+    }
+
+    for (int i = 3; i * i &lt;= n; i += 2) {
+
+        if (n % i == 0) {
+            return 0;
+        }
+
+    }
+
+    return 1;
+}
+
+
+
+
+int main() {
+    
+    printf(&quot;%d \n&quot;, isPrime(77));
+
+}
+
+
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B9%A0%E9%A2%98.html'>数据结构与算法分析习题</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001875303326.html">
+                
+                  <h1>数据结构与算法解析习题2.12：最小子序列和，最小正序列和，最大子序列乘积</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>书上的最大子序列和还有最小子序列和，最小正序列和，最大子序列乘积，这四个基本上是最常问的题了。</p>
+<p>这几个绕来绕去容易把人搞蒙，算法有相似但地方但是细微的差别导致结果不同，再此记录一下。</p>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+/** ------------------------ 最小子序列和 ------------------------ */
+
+int minSequenceSum(const int A[],int N) {
+
+    int minSum, thisSum, i;
+
+    minSum = 0x7FFFFFFF; thisSum = 0;
+    for (i = 0; i &lt; N; i++) {
+        thisSum += A[i];
+
+        if (thisSum &lt; minSum)
+            minSum = thisSum;
+        else if (thisSum &gt; 0)
+            thisSum = 0;
+
+    }
+    return minSum;
+}
+
+/** ------------------------ 最小正序列和 ------------------------
+ * 1、连续子序列，2、序列和为正且最小
+ * 思路：求出开始的一组子序列：｛-2｝，｛-2，11｝，
+ *｛-2，11，-4｝， ｛-2，11，-4，13｝，｛-2，11，-4，13，-5｝，｛-2，11，-4，13，-5，-2｝
+ * 剩下的子序列必然可以通过上面的这一组子序列相减获得
+ * 所以要获得最小正子序列各，必然将上面的序列和排序后的相邻序列和相减所得
+ * */
+
+
+//要记录秩
+typedef struct node {
+    int value;
+    int rank;
+} nodes;
+
+//快排
+int quickSort(nodes a[],int low,int high){
+
+    nodes pivotkey = a[low];
+
+    while(low&lt;high) {
+
+        while(low &lt; high &amp;&amp; a[high].value &gt;= pivotkey.value) --high;
+
+        a[low] = a[high];
+
+        while(low &lt; high &amp;&amp; a[low].value &lt;= pivotkey.value) ++low;
+
+        a[high] = a[low];
+    }
+
+    a[low] = pivotkey;
+
+    return low;
+
+}
+
+//快排的递归
+void Qsort(nodes a[],int low,int high) {
+    if(low &lt; high) {
+        int temp = quickSort(a,low,high);
+        Qsort(a,low,temp);
+        Qsort(a,temp+1,high);
+    }
+}
+
+
+
+int minPositiveSubSum(int a[],int len) {
+
+    nodes b[len];
+
+    int sum = 0;
+    for(int i = 0; i &lt; len; i++) {
+        sum += a[i];
+        b[i].value = sum;
+        b[i].rank = i;
+    }
+
+    //将其排序 O(nlogn)
+    Qsort(b,0,len - 1);
+
+//    for(int i=0;i&lt;len;i++){
+//        printf(&quot;%d rank为%d    &quot;,b[i].value,b[i].rank);
+//    }
+//    printf(&quot;\n&quot;);
+
+    int min = b[0].value &gt;= 0 ? b[0].value : b[len-1].value;
+
+    for(int i = 1; i &lt; len; i++) {
+        //必须得够减
+        if(b[i].rank &gt; b[i-1].rank) {
+            int temp = b[i].value-b[i-1].value;
+            if(temp &gt; 0 &amp;&amp; temp &lt; min) {
+                min = temp;
+            }
+        }
+
+    }
+//    printf(&quot;最小正序列和为：%d \n&quot;,min);
+    return min;
+}
+
+
+
+/** ------------------------ 最大子序列乘积 ------------------------ */
+
+int max_int(int x, int y)
+{
+    return x &gt; y ? x : y;
+}
+
+int min_int(int x, int y)
+{
+    return x &lt; y ? x : y;
+}
+
+int maxSubProduct(int a[],int len) {
+
+    int posMax = a[0];
+    int negMax = a[0];
+    int ret = a[0];
+
+    for(int i=1; i &lt; len; i++)
+    {
+        int tempPosMax = posMax;
+        int tempNegMax = negMax;
+        posMax = max_int(a[i], max_int(a[i] * tempPosMax, a[i] * tempNegMax));
+        negMax = min_int(a[i], min_int(a[i] * tempPosMax, a[i] * tempNegMax));
+        ret = max_int(ret,posMax);
+    }
+
+    return ret;
+
+}
+
+
+
+int main() {
+
+    int arr1[] = {0,3,16,-7,8,-8,-9,-12,55,-11,99};
+
+    printf(&quot;最小子序列和 = %d \n&quot;, minSequenceSum(arr1, 11));
+
+    int arr2[]={-2,11,-4,13,-5,-2};
+
+    printf(&quot;最小正序列和为 %d \n&quot;, minPositiveSubSum(arr2, 6));
+
+    int arr3[]={2,3,-2,4};
+
+    printf(&quot;最大子序列乘积 %d \n&quot;, maxSubProduct(arr3, 4));
+}
+
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B9%A0%E9%A2%98.html'>数据结构与算法分析习题</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001875303405.html">
+                
+                  <h1>数据结构与算法解析习题2.11：二分查找</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>在计算机科学中，二分搜索（英语：binary search），也称折半搜索（英语：half-interval search）、对数搜索（英语：logarithmic search），是一种在有序数组中查找某一特定元素的搜索算法。搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。</p>
+<p>二分搜索在情况下的复杂度是对数时间，进行 O(logn)次比较操作（n在此处是数组的元素数量，O是大O记号，log 是对数）。二分搜索使用常数空间，无论对任何大小的输入数据，算法使用的空间都是一样的。除非输入数据数量很少，否则二分搜索比线性搜索更快，但数组必须事先被排序。尽管特定的、为了快速搜索而设计的数据结构更有效（比如哈希表），二分搜索应用面更广。</p>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+#define NotFound -1
+
+int binarySearch(const int a[], int x, int n) {
+
+    int low, mid, high;
+
+    low = 0;
+    high = n - 1;
+
+    while (low &lt;= high) {
+
+        mid = (low + high) /2;
+
+        if (a[mid] &lt; x) {
+            low = mid + 1;
+        } else if (a[mid] &gt; x) {
+            high = mid - 1;
+        } else {
+            return mid;
+        }
+
+    }
+
+    return NotFound;
+}
+
+
+int main() {
+
+    int arr[] = {0,3,4,6,7,8,9,22,55,77,99,3333};
+
+    printf(&quot;index = %d \n&quot;, binarySearch(arr, 9, 12));
+}
+
+
+
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B9%A0%E9%A2%98.html'>数据结构与算法分析习题</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001875303488.html">
+                
+                  <h1>数据结构与算法解析习题2.10：霍纳法则(Horner's rule)</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>霍纳法则：求多项式值的一个快速算法，后发现算法程序和数字处理都远不及五百多年前的秦九韶有条理，遂现称秦九韶算法。<br />
+秦九韶算法是中国南宋时期的数学家秦九韶表述求解一元高次多项式的值的算法——正负开方术。它也可以配合牛顿法用来求解一元高次多项式的根。</p>
+<p><img src="https://anyanf-img-1256234566.cos.ap-beijing.myqcloud.com/2019/%E7%A7%A6%E4%B9%9D%E9%9F%B6%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86%402x.jpg" alt="" /></p>
+<p><img src="https://anyanf-img-1256234566.cos.ap-beijing.myqcloud.com/2019/%E7%A7%A6%E4%B9%9D%E9%9F%B6%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B%402x.jpg" alt="" /></p>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+int Horner_rule(int arr[],int n,int x) {
+    int i,ans = 0;
+
+    for(i = n - 1;i &gt;= 0; i--)
+    {
+        ans = arr[i] + x * ans;
+    }
+    return ans;
+}
+
+
+
+int main() {
+
+    int x = 3;
+
+    int arr[] = {2,1,0,8,4};
+
+    printf(&quot;%d \n&quot;, Horner_rule(arr, 5, x));
+}
+
+
+
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B9%A0%E9%A2%98.html'>数据结构与算法分析习题</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001875303583.html">
+                
+                  <h1>数据结构与算法解析习题2.7：前N个自然数的一个随机置换</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>问题描述：假设需要生成前N个自然数的一个随机置换。例如，{4,3,1,5,2} 和 {3,1,4,2,5} 就是合法的置换，但 {5,4,1,2,1} 却不是，因为数1出现了两次而数 3 缺没有。这个程序常常用于模拟一些算法。我们假设存在一个随机数生成器 randInt(i, j) ，它以相同的概率生成 i 和 j 之间的一个整数。</p>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void swap (int *a, int *b) {
+
+   int t;
+   t = *a;
+   *a = *b;
+   *b = t;
+
+}
+
+
+int RandInt(int i, int j) {
+
+   if (i == 0) {
+       return rand() % (j + 1);
+   } else {
+       return rand() % (j + 1 - i) + i;
+   }
+}
+
+// 1.如下填入 A[0] 到 A[N-1] 的数组 A；为了填入 A[i] ，生成随机数直到它不同于已经生成的 A[0], A[1],  ... ,  A[i-1] 时，再将其填入 A[i] 。
+
+void fun1(int a[], int n) {
+
+   int tmp;
+   int i = 0;
+   int j;
+   while (i &lt; n) {
+
+       tmp = RandInt(0, n-1);
+
+
+       for ( j = 0; j &lt; i; j++) {
+           if (tmp == a[j]) {
+               break;
+           }
+       }
+
+       if (j == i) {
+
+           a[i] = tmp;
+           i++;
+       }
+   }
+}
+
+// 2.同算法1，但是要保存一个附加的数组，称之为 Used（用过的）数组。
+// 当一个随机数 Ran 最初被放入数组A的时候，置Used[Ran]=1。
+// 这就是说，当用一个随机数填入 A[i] 时，可以用一步来测试是否该随机数已经被使用，而不是像第一个算法那样（可能）进行 i 步测试。
+
+void fun2 (int a[], int n) {
+
+   int tmp;
+   int used[n];
+
+   for (int i = 0; i &lt; n; i++) {
+       used[i] = 0;
+   }
+
+   int i = 0;
+
+   while (i &lt; n) {
+
+       tmp = RandInt(0, n-1);
+
+       if (used[tmp] == 0) {
+
+           a[i] = tmp;
+           used[tmp] = 1;
+           i++;
+       }
+   }
+}
+
+// 3.填写该数组使得 A[i] = i + 1。然后
+// for(i = 1; i &lt; N; i++)
+//     swap(&amp;A[i], &amp;A[randInt(0, i)]);
+
+void fun3 (int a[], int n) {
+
+   int i;
+
+   for (i = 0; i &lt; n; i++) {
+       a[i] = i;
+   }
+
+   for (i = 0; i &lt; n; i++) {
+
+       swap(&amp;a[i], &amp;a[RandInt(0, i)]);
+
+       for (int i = 0; i &lt; n; i++) {
+           printf(&quot;%d &quot;, a[i]);
+       }
+       printf(&quot;\n \n&quot;);
+   }
+
+}
+
+
+
+
+
+
+int main() {
+
+   int a[5];
+   fun3(a, 5);
+
+   for (int i = 0; i &lt; 5; i++) {
+       printf(&quot;%d \n&quot;, a[i]);
+   }
+}
+
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B9%A0%E9%A2%98.html'>数据结构与算法分析习题</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001875303677.html">
+                
+                  <h1>数据结构与算法解析习题1.3：只是用处理 I/O 的 printDigit 函数，编写一个过程以输出任意实数（可以是负的）</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>整体思路就是先拿到小数点前面的数字一位一位打印了，如果小数点后有值就打印一个小数点，接着打印小数点后面的数字。<br />
+这里有一个注意点就是RoundUp函数，因为double类型333234.11，实际是333234.09999999998，所以需要把最后一位数补全以保证数值的正确。</p>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+void printDigit(int num) {
+    printf(&quot;%d&quot;, num);
+}
+
+void printOut(int num) {
+    if (num &gt;= 10)
+    {
+        printOut(num / 10);
+    }
+
+    printDigit(num % 10);
+}
+
+/// 舍入误差.针对 小数点后面指定位数
+double roundUp(double num, int decPlaces) {
+    int i;
+    double amountToAdd = 0.5;
+    for(i = 0;i &lt; decPlaces; i++)
+        amountToAdd /= 10;
+    return num + amountToAdd;
+}
+
+int getIntergerPart(double num) {
+    return (int)num;
+}
+
+
+double getFractionPart(double num) {
+    return  num - (int)num;
+}
+
+void printReal(double num, int decPlaces) {
+    int integerPart;
+    double fractionPart;
+
+    if (num &lt; 0)
+    {
+        printf(&quot;-&quot;);
+        num = fabs(num);
+    }
+    num = roundUp(num, decPlaces);
+
+    integerPart = getIntergerPart(num);
+    fractionPart = getFractionPart(num);
+
+    printOut(integerPart);
+
+    if (fractionPart &gt; 0)
+    {
+        printf(&quot;.&quot;);
+    }
+
+    for (int i = 0; i &lt; decPlaces; i++)
+    {
+        fractionPart *= 10;
+        printDigit(getIntergerPart(fractionPart));
+        fractionPart = getFractionPart(fractionPart);
+
+    }
+
+}
+
+
+int main() {
+
+    printReal(-333234.123111, 3);
+
+    printf(&quot;\n&quot;);
+
+    return 0;
+}
+
+
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/03/06</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E4%B9%A0%E9%A2%98.html'>数据结构与算法分析习题</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			 <a href="数据结构与算法分析习题_1.html">&raquo; Next Page</a> 
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>DreamEverAfter</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="Pages.html"><strong>Pages</strong></a>
+        
+            <a href="CS.html"><strong>CS</strong></a>
+        
+            <a href="List.html"><strong>List</strong></a>
+        
+            <a href="%E6%9D%82.html"><strong>杂</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="17005448149061.html">贴牌品牌</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="16996865532784.html">三汁焖锅</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001172774052.html">别了，中国大陆的Kindle</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001265068678.html">HomeBrew更新报错“fatal- Could not resolve HEAD to a revision”</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="17001892553950.html">SwiftUI基本控件</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+figure{margin: 0;padding: 0;}
+figcaption{text-align:center;}
+
+/* PrismJS 1.14.0
+ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: black;
+    background: none;
+    text-shadow: 0 1px white;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+    text-shadow: none;
+    background:#b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+    text-shadow: none;
+    background: #b3d4fc;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    padding: 1em;
+    margin: .5em 0;
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #F7F7F7;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #999;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #9a6e3a;
+    background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #07a;
+}
+
+.token.function,
+.token.class-name {
+    color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+    .line-numbers-rows > span {
+        pointer-events: none;
+        display: block;
+        counter-increment: linenumber;
+    }
+
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+
+</style>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+
+
+  </body>
+</html>
