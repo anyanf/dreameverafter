@@ -132,12 +132,8 @@
       <div class="article-content">
       <h2><a id="weak%E6%8E%A2%E7%A9%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>__weak探究</h2>
 <p>程序中添加了一个 <code>__weak</code> 变量，查看调用堆栈，看到下一个调用的是 <code>objc_initWeak</code> 函数。</p>
-<<<<<<< HEAD
-<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak%E5%85%A5%E5%8F%A3.jpg" alt="__weak调用的函数" /></p>
-=======
 <span id="more"></span><!-- more -->
 <p><img src="media/17001892556510/17010137935483.jpg" alt="__weak调用的函数" /></p>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>所以我们就 <code>objc_initWeak</code> 函数作为入口，探究 <code>weak</code>。</p>
 <h2><a id="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>数据结构</h2>
 <p>首先了解以下的变量，这些变量在这章的数据结构、函数形参中使用：</p>
@@ -175,17 +171,10 @@ class StripedMap {
     weak_table_t weak_table;
 }
 </code></pre>
-<<<<<<< HEAD
-<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_sideTable.png" alt="weak_sideTable" /></p>
-<p>可以看出SideTable的大小是62，64位对齐后是64。其中weak_talbe存储着weak相关的内容。其他的两个成员refcnts、slock不在本文的研究范围内。</p>
-<p>所以数组 <code>SideTable array[64]</code> 中元素的大小就是 <code>64</code>。整个 <code>array</code> 共占用 <code>64*64=4096</code> 字节。回到没有简化前的版本，<code>StripedMap&lt;SideTable&gt;</code> 本质是一个数组，数组的元素是模板参数类型 — <code>SideTable</code>，大小为 <code>64</code>。</p>
-<p><img src="https://gitee.com/anyanf/images/raw/master/img/stripmap_memory_struct.png" alt="StripedMap 内存结构" /></p>
-=======
 <p><img src="media/17001892556510/17010137929891.png" alt="weak_sideTable" /></p>
 <p>可以看出SideTable的大小是62，64位对齐后是64。其中weak_talbe存储着weak相关的内容。其他的两个成员refcnts、slock不在本文的研究范围内。</p>
 <p>所以数组 <code>SideTable array[64]</code> 中元素的大小就是 <code>64</code>。整个 <code>array</code> 共占用 <code>64*64=4096</code> 字节。回到没有简化前的版本，<code>StripedMap&lt;SideTable&gt;</code> 本质是一个数组，数组的元素是模板参数类型 — <code>SideTable</code>，大小为 <code>64</code>。</p>
 <p><img src="media/17001892556510/17010137929902.png" alt="StripedMap 内存结构" /></p>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>函数 <code>SideTables()</code> 是将 <code>SideTableBuf</code> 转化为 <code>StripedMap&lt;SideTable&gt;</code> 的。所以下面了解 <code>SideTableBuf</code> 的定义。</p>
 <h3><a id="sidetablebuf" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>SideTableBuf</h3>
 <p>SideTableBuf的定义：</p>
@@ -201,11 +190,7 @@ class StripedMap {
     return *reinterpret_cast&lt;StripedMap&lt;SideTable&gt;*&gt;(SideTableBuf);
 }
 </code></pre>
-<<<<<<< HEAD
-<p><img src="https://gitee.com/anyanf/images/raw/master/img/stripedMap.png" alt="SideTableBuf转化为StripedMap 内存示意图" /></p>
-=======
 <p><img src="media/17001892556510/17010137929907.png" alt="SideTableBuf转化为StripedMap 内存示意图" /></p>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 <h3><a id="weak-table-t" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>weak_table_t</h3>
 <pre><code class="language-cpp">// 全局的弱引用表
 struct weak_table_t {
@@ -243,21 +228,12 @@ struct weak_table_t {
 <li><code>referent</code> 存储被弱引用的对象。</li>
 <li>第二个成员是一个 <code>union</code>，存储弱引用者 <code>refferer</code>。如果 <code>referent</code> 的弱引用者小于四个，也就是 <code>out_of_line</code> 为 <code>0</code> 时，弱引用者就存储在 <code>inline_referrers</code> 数组中。 否则，就存储在 <code>referrers</code> 中，这时 <code>out_of_line</code> 为 <code>1</code>，<code>referrers</code> 是个二级指针，里面存的是指向 <code>referent</code> 的对象们的地址。<code>num_refs</code> 是弱引用着的个数。<code>mask</code> 是容量减 <code>1</code>。</li>
 </ol>
-<<<<<<< HEAD
-<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_entry_t.png" alt="SideTableBuf转化为StripedMap" /></p>
-<h3><a id="%E5%B0%8F%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>小结</h3>
-<p>上面分析了weak相关的结构，现在画一张总图：</p>
-<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_data_overal.png" alt="SideTableBuf转化为StripedMap" /></p>
-<p>上面是详细的数据结构，比较复杂，下面列出我认为核心的结构，核心结构就是三级hash表。</p>
-<p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_table%E4%B8%89%E7%BA%A7%E8%A1%A8.png" alt="SideTableBuf转化为StripedMap" /></p>
-=======
 <p><img src="media/17001892556510/17010137929912.png" alt="SideTableBuf转化为StripedMap" /></p>
 <h3><a id="%E5%B0%8F%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>小结</h3>
 <p>上面分析了weak相关的结构，现在画一张总图：</p>
 <p><img src="media/17001892556510/17010137929917.png" alt="SideTableBuf转化为StripedMap" /></p>
 <p>上面是详细的数据结构，比较复杂，下面列出我认为核心的结构，核心结构就是三级hash表。</p>
 <p><img src="media/17001892556510/17010137933612.png" alt="SideTableBuf转化为StripedMap" /></p>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 <h2><a id="%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%A3" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数接口</h2>
 <pre><code class="language-cpp">id objc_storeWeakOrNil(id *location, id newObj);
 id objc_initWeak(id *location, id newObj);

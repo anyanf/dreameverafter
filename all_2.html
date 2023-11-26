@@ -123,100 +123,6 @@
 <p>在没有集成 <code>charts</code> 之前，一切都是那么的美好，天是晴的，雨是停的。</p>
 <p>直到有一天，因为业务需要图表功能，经一番调研之后，选择了 <code>charts</code> 集成到工程之中。</p>
 <p>然后噩梦就开始了。</p>
-<<<<<<< HEAD
-<p>直接集成跑项目会直接报上百个错，因为 <code>charts</code> 是用swift写的，错误简要如下:</p>
-<pre><code class="language-shell">Undefined symbols for architecture x86_64:
-  &quot;protocol witness table for Swift.Double : Swift.CVarArg in Swift&quot;, referenced from:
-      static Charts.XFChartString.format2f(number: Swift.Double) -&gt; Swift.String in libCharts.a(XFChartUtils.o)
-  &quot;base conformance descriptor for Swift.Comparable: Swift.Equatable&quot;, referenced from:
-      protocol conformance descriptor for Charts.(LineAlt in _35CAD2F96B83BFC8E7052E13186FFBAD) : Swift.Comparable in Charts in libCharts.a(DataApproximator+N.o)
-  &quot;method descriptor for static Swift.Comparable.&lt; infix(A, A) -&gt; Swift.Bool&quot;, referenced from:
-      protocol conformance descriptor for Charts.(LineAlt in _35CAD2F96B83BFC8E7052E13186FFBAD) : Swift.Comparable in Charts in libCharts.a(DataApproximator+N.o)
-</code></pre>
-<p>当时没想太多（这就是过于依赖搜索了，连分析都没直接去搜），搜的如何的oc项目通过 pod 集成swift代码。</p>
-<p>大概翻了几篇的意思是swift只能动态库打包，需要 pod 管理的库改成动态库，其实这都是老黄历了，都是 pod1.5 之前的方案，不过我当时还是无脑跟着这么做了。</p>
-<p>其实在这时候里胜利只差一步，结果绕了一个大弯子。如果不想看我废话这么多的，可以直接转到<strong>结局</strong>去看。</p>
-<h2><a id="use-frameworks" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>use_frameworks!</h2>
-<p>在 <code>Podfile</code>中加入 <code>use_frameworks!</code>，就可以让 pod 管理的库都改成动态库。</p>
-<p>加上之后，重新 <code>pod install</code> 一下。</p>
-<p>然后项目一跑，果然不报错了，哎呦，牛逼，这就解决了。</p>
-<p>心里美滋滋的，现在回头来看，还是太年轻了，直接把库都弄成动态库，后面还有成吨的依赖问题在等着我。。</p>
-<p>就如下面的标题：<br />
-动静态库 pod 内部依赖静态lib，静态framewor，动态framework，都是坑！</p>
-<h2><a id="%E5%8A%A8%E6%80%81%E5%BA%93pod%E4%B8%AD%E5%B5%8C%E5%85%A5%E9%9D%99%E6%80%81-lib" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>动态库 Pod 中嵌入静态 lib</h2>
-<p>先说一下最先遇到的就是动态库 Pod 中嵌入静态lib。</p>
-<p>vendored_library属性对应依赖的.a，然后依赖系统库在library，frameworks里加上。</p>
-<p>最后就是.h,如果你不想暴露的话public_header_files里加完就不用管了，如果想要暴露给别人调用，只能source_files里再加一遍.h。</p>
-<p>不想在source_files里再写一遍的也可以建个.h引用一遍所有.a的头文件，最后source_files写你自己的.h，但这只是保证我到处可以通过引用自己的头文件实现方法调用，并不能单个引用对应.a的头文件。</p>
-<h2><a id="%E5%8A%A8%E6%80%81%E5%BA%93pod%E5%B5%8C%E5%85%A5%E9%9D%99%E6%80%81-framework" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>动态库 Pod 嵌入静态 Framework</h2>
-<p>对静态的Framework封装的时候可以说是最简单的了，vendored_frameworks加上去基本就万事大吉了，至于依赖啥系统库什么的跟上面一样。</p>
-<h2><a id="%E5%8A%A8%E6%80%81%E5%BA%93pod%E5%B5%8C%E5%85%A5%E5%8A%A8%E6%80%81-framework" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>动态库 Pod 嵌入动态 Framework</h2>
-<p>对于动态的Framework封装，是最恶心的，就算不用 pod 也是很麻烦的。</p>
-<p>不用 pod 你要手动把这SDK拖到Embedded Binaries位置头文件才能引用，这个是苹果现在引用动态Framework的方法。</p>
-<p>下面讲一下 pod 怎么搞，如果单纯framework做 pod，首先public_header_files要指定xxx.framework/Headers/{.h}不然头文件找不到。</p>
-<p>其次source_files里看具体编译情况决定加不加xxx.framework/Headers/{.h}，然后就是比较普通的地方vendored_frameworks指定好就完事了。</p>
-<p>source_files这个加了的时候还有一个前提就是Framework内引用全是&quot;&quot;不能&lt;&gt;，所以大部分情况source_files不加。</p>
-<p>另一种混合使用感觉这才是最常见的。</p>
-<p>这时候不要指定Framework的public_header_files，写一个自己的头文件引用类，把想公开可以调用的写在在头文件引用类里如：<code>#import &lt;xxx.framework/xxx.h&gt;</code>，间接把xxx.h暴露出来。</p>
-<h2><a id="%E9%9D%99%E6%80%81%E5%BA%93pod%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E7%9A%84%E8%B0%83%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>静态库 Pod 资源文件的调用</h2>
-<p>静态库其实还好，跟 pod 有关的resourced都在相应的 <code>pod库名.bundle</code> 之中。<br />
-只需要用下面方法，就可以取出bundle，然海找相应的资源。</p>
-<pre><code class="language-swift">+ (NSBundle *)staticLibBundleWithModuleName:(NSString *)moduleName {
-    
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:moduleName withExtension:@&quot;bundle&quot;];
-    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
-    return bundle;
-}
-</code></pre>
-<h2><a id="%E5%8A%A8%E6%80%81%E5%BA%93pod%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6%E7%9A%84%E8%B0%83%E7%94%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>动态库 Pod 资源文件的调用</h2>
-<p>每错，新坑出来了，动态 pod 中的静态framework，所依赖的资源图片找不到了。</p>
-<p>打开ipa一看，路径全变了，pod 建动态库的时候的bundle都在相应的Framework里了。</p>
-<p>大概路径就是：<code>xxx.ipa/Frameworks/xxxpod.framework/xxxpod.bundle</code></p>
-<p>真坑。。</p>
-<p>所以获取bundle的方法改成下面的了。</p>
-<pre><code class="language-swift">+ (NSBundle *)dynamicLibBundleWithModuleName:(NSString *)moduleName {
-    
-    NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@&quot;Frameworks&quot; withExtension:nil];
-    bundleURL = [bundleURL URLByAppendingPathComponent:moduleName];
-    bundleURL = [bundleURL URLByAppendingPathExtension:@&quot;framework&quot;];
-    bundleURL = [bundleURL URLByAppendingPathComponent:moduleName];
-    bundleURL = [bundleURL URLByAppendingPathExtension:@&quot;bundle&quot;];
-    
-    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
-    return bundle;
-}
-</code></pre>
-<h2><a id="%E5%85%B3%E4%BA%8E%E5%8A%A8%E9%9D%99%E4%B9%8B%E4%BA%89" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>关于动静之争</h2>
-<p>关于动态库和静态库的优劣网上一堆一堆的文章在说，这里就不废话了。</p>
-<p>不过我个人倾向是用静态库的，事少，而且启动速度一些，说白了就是空间换时间。</p>
-<p>安卓的art技术也是在空间换时间。</p>
-<p>这年头空间哪有时间贵啊，手机容量再小，连这点都没有的那也不是我们的有效客户了。</p>
-<h2><a id="%E7%BB%93%E5%B1%80" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>结局</h2>
-<p>故事的答案是，我一开始以为swift不能打成静态库，所以导致的报错，其实并不是的。</p>
-<p>当时报这个错是 <code>Undefined symbols</code> 错误，在后来把报错一搜，找到了 <code>stackoverflow</code> 上一个<a href="https://stackoverflow.com/questions/52536380/why-linker-link-static-libraries-with-errors-ios">帖子</a>。</p>
-<p>大概意思就是这个OC的项目不知道要编译Swift的代码才报错，只需要在主工程中，建一个空的swift文件并自动建一个bridge，然后就可以了。</p>
-<p>没错，智慧就是这么简单，而我绕了好大的一个弯。</p>
-<h2><a id="%E5%BD%A9%E8%9B%8B1%EF%BC%9Axcode9swift%E9%9D%99%E6%80%81%E5%BA%93%E7%9A%84%E6%94%AF%E6%8C%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>彩蛋1：Xcode9swift静态库的支持</h2>
-<p>一开始查的结果其实就是过时的，早在Xcode9，swift就支持打成静态库了，所以不用非要弄成动态库。</p>
-<h2><a id="%E5%BD%A9%E8%9B%8B2-pod1-5-use-modular-headers" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>彩蛋2: pod1.5 use_modular_headers!</h2>
-<p>随着支持swift静态库，pod1.5也更新的对应的功能，如果swift的 pod 依赖于某个OC的 pod，需要为该OC版 pod 启用<code>modular headers</code>，所以多了 <code>use_modular_headers!</code>来全局开启，不过开启之后，之前一些不严谨的依赖，可能会报错，需要具体情况具体分析了，网上相关的文章也很多，就不在这里一一赘述了。而且我也不建议这种跨语言的交叉依赖，比如我的项目主要是OC，依赖的swift版 pod，就是纯swift写的。</p>
-<h2><a id="%E5%86%8D%E6%9D%A5%E7%82%B9%E5%BA%9F%E8%AF%9D" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>再来点废话</h2>
-<p>虽然是过去式了，但是之前用 <code>use_frameworks!</code> 的时候，发现会给每一个 pod 创建一个 <code>umbrella.h</code> 文件，而这个文件里会有 pod 里所有的.h，当然这个是可以通过 podspec 中的属性控制的。如果 pod 里有 cpp 之类的文件，各种引用问题就很烦人了，还得一点一点改。</p>
-<p>这是去年建新项目的时候一点心路历程，只是大概记个印象了，有的细节也不是很清楚了，等后面再遇到或者想起来了，再补充把。</p>
-<h2><a id="%E5%BC%95%E7%94%A8%EF%BC%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>引用：</h2>
-<blockquote>
-<p><a href="https://stackoverflow.com/questions/52536380why-linker-link-static-libraries-with-errors-ios">https://stackoverflow.com/questions/52536380why-linker-link-static-libraries-with-errors-ios</a><br />
-<a href="https://cloud.tencent.com/developer/news/252403">https://cloud.tencent.com/developer/news/252403</a><br />
-<a href="https://www.jianshu.com/p/10ed66dae403">https://www.jianshu.com/p/10ed66dae403</a><br />
-<a href="https://blog.csdn.net/ios8988/article/details/84111011">https://blog.csdn.net/ios8988/article/details/84111011</a><br />
-<a href="https://www.jianshu.com/p/544df88b6a1e">https://www.jianshu.com/p/544df88b6a1e</a><br />
-<a href="https://www.jianshu.com/p/be9c848d050f">https://www.jianshu.com/p/be9c848d050f</a><br />
-<a href="https://www.jianshu.com/p/4be1ef1dc3ff">https://www.jianshu.com/p/4be1ef1dc3ff</a><br />
-<a href="https://www.jianshu.com/p/dfe9a1e1db7f">https://www.jianshu.com/p/dfe9a1e1db7f</a><br />
-<a href="https://www.jianshu.com/p/913df8cc1f18">https://www.jianshu.com/p/913df8cc1f18</a><br />
-<a href="https://www.jianshu.com/p/35db14a4931c">https://www.jianshu.com/p/35db14a4931c</a><br />
-<a href="https://zhuanlan.zhihu.com/p/50571342">https://zhuanlan.zhihu.com/p/50571342</a></p>
-=======
 
                         
                       </div>
@@ -394,7 +300,6 @@
                         
                         	<blockquote>
 <p>先秦•屈原</p>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 </blockquote>
 
                         
@@ -403,48 +308,8 @@
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-<<<<<<< HEAD
-                  
-                    <span class="date">2020/08/25</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='iOS.html'>iOS</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="17001265069754.html">
-                
-                  <h1>OpenGL 术语</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>前两年稍微接触了一些 <code>OpenGL</code>，近期准备把所得总结一下，先把高频词汇列出来把。</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="17001265069754.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2020/08/06</span>
-=======
                    <a href="17001173766480.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2020/01/22</span>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span>posted in&nbsp;</span> 
           				  
           					    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
@@ -463,25 +328,14 @@
               </div><!-- article -->
         
 			<div class="article">
-<<<<<<< HEAD
-                <a class="clearlink" href="17001177799867.html">
-                
-                  <h1>归纳与演绎</h1>
-=======
                 <a class="clearlink" href="17001892554888.html">
                 
                   <h1>iOS：如何在UITableView调用reloadData刷新结束后再同步执行后续操作</h1>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-<<<<<<< HEAD
-                        	<h2><a id="%E5%BD%92%E7%BA%B3%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>归纳法</h2>
-<p>归纳法或归纳推理（Inductive reasoning），有时叫做归纳逻辑，是论证的前提支持结论但不确保结论的推理过程。</p>
-=======
                         	<p>调用[tableView reloadData]时，系统并不会等待tableview更新结束后才执行后续代码，而是立即执行后续代码，然后异步地去计算scrollView的高度，获取cell等等。</p>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -489,186 +343,11 @@
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-<<<<<<< HEAD
-                   <a href="17001177799867.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2020/03/13</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>算法与数据结构</a></span>
-=======
                    <a href="17001892554888.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2020/01/04</span>
                     <span>posted in&nbsp;</span> 
           				  
           					    <span class="posted-in"><a href='UI.html'>UI</a></span>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-<<<<<<< HEAD
-                <a class="clearlink" href="17001892557079.html">
-                
-                  <h1>当对象接收到不能处理的消息时调用的方法</h1>
-=======
-                <a class="clearlink" href="17001892554721.html">
-                
-                  <h1>统计iOS工程代码行数</h1>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-<<<<<<< HEAD
-                        	<p>当对象接收到不能处理的消息时调用的方法，下面三个方法会按顺序调用。</p>
-=======
-                        	<p>虽然说这是一件毫无意义的事，而且如果代码打成库，统计还不准确。。当时有时候就是需要统计，比如说现在这个时间节点。。</p>
->>>>>>> b3ad68a (2023-11-26 23:56:08)
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-<<<<<<< HEAD
-                   <a href="17001892557079.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2020/03/03</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="17001265069516.html">
-                
-                  <h1>命令行通过ffmpeg剪切视频</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>ffmpeg的强大自不用多书，有时候遇到只是想简单剪切一下视频，那么可以直接用一下脚本，简单方法，前提是先装上ffmpeg环境。</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="17001265069516.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2020/02/22</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='CS.html'>CS</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="17001173766480.html">
-                
-                  <h1>离骚</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<blockquote>
-<p>先秦•屈原</p>
-</blockquote>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                   <a href="17001173766480.html">Read more</a>&nbsp;&nbsp; 
-                    <span class="date">2020/01/22</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='%E6%9D%82.html'>杂</a></span>
-          				   
-                    
-
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="17001892554888.html">
-                
-                  <h1>iOS：如何在UITableView调用reloadData刷新结束后再同步执行后续操作</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>调用[tableView reloadData]时，系统并不会等待tableview更新结束后才执行后续代码，而是立即执行后续代码，然后异步地去计算scrollView的高度，获取cell等等。</p>
-<p>但是我们又经常需要在tableview刷新结束后同步的执行某些操作，这个是一个隐藏的小坑，有时候稍不注意，就会写出来点Bug，这次有不小心遇到这个问题了，遂在此记录一下。</p>
-<p>Apple并没有直接提供reloadData结束时的回调api，那么想要程序代码延迟到reloadData结束后再操作，可以通过以下两个方法来实现：</p>
-<h2><a id="1%E9%80%9A%E8%BF%87-layoutifneeded%E6%96%B9%E6%B3%95%EF%BC%8C%E5%BC%BA%E5%88%B6%E9%87%8D%E7%BB%98%E5%B9%B6%E7%AD%89%E5%BE%85%E5%AE%8C%E6%88%90%E3%80%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 通过layoutIfNeeded方法，强制重绘并等待完成。</h2>
-<pre><code class="language-swift">[self.tableView reloadData]; 
-
-[self.tableView layoutIfNeeded];  // 刷新完成，执行后续需要执行的代码
-</code></pre>
-<h2><a id="2-reloaddata%E6%96%B9%E6%B3%95%E4%BC%9A%E5%9C%A8%E4%B8%BB%E7%BA%BF%E7%A8%8B%E6%89%A7%E8%A1%8C%EF%BC%8C%E9%80%9A%E8%BF%87gcd%EF%BC%8C%E4%BD%BF%E5%90%8E%E7%BB%AD%E6%93%8D%E4%BD%9C%E6%8E%92%E9%98%9F%E5%9C%A8reloaddata%E5%90%8E%E9%9D%A2%E6%89%A7%E8%A1%8C%E3%80%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.reloadData方法会在主线程执行，通过GCD，使后续操作排队在reloadData后面执行。</h2>
-<pre><code class="language-swift">[self.tableView reloadData]; 
-
-dispatch_async(dispatch_get_main_queue(), ^{ 
-    //刷新完成，执行后续代码
-});
-</code></pre>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2020/01/04</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='UI.html'>UI</a></span>
           				   
                     
 
@@ -692,12 +371,6 @@ dispatch_async(dispatch_get_main_queue(), ^{
                       <div class="a-content-text">
                         
                         	<p>虽然说这是一件毫无意义的事，而且如果代码打成库，统计还不准确。。当时有时候就是需要统计，比如说现在这个时间节点。。</p>
-<pre><code class="language-plain_text"># 这个是包含空格的
-find . &quot;(&quot; -name &quot;*.m&quot; -or -name &quot;*.mm&quot; -name &quot;*.xib&quot; -or -name &quot;*.cpp&quot; -or -name &quot;*.h&quot; -or -name &quot;*.c&quot; -or -name &quot;*.rss&quot; &quot;)&quot; -print | xargs wc -l
-
-# 不包含空格的
-find . &quot;(&quot; -name &quot;*.m&quot; -or -name &quot;*.mm&quot; -name &quot;*.xib&quot; -or -name &quot;*.cpp&quot; -or -name &quot;*.h&quot; -or -name &quot;*.c&quot; -or -name &quot;*.rss&quot; &quot;)&quot; -print  | xargs grep -v &quot;^$&quot; | wc -l
-</code></pre>
 
                         
                       </div>
@@ -705,10 +378,7 @@ find . &quot;(&quot; -name &quot;*.m&quot; -or -name &quot;*.mm&quot; -name &quo
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-                  
-=======
                    <a href="17001892554721.html">Read more</a>&nbsp;&nbsp; 
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2019/12/30</span>
                     <span>posted in&nbsp;</span> 
           				  

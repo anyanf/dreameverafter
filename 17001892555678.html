@@ -131,10 +131,7 @@
 
       <div class="article-content">
       <p>平时开发遇到一个比较蛋疼的情景就是，设计给的按钮是40x40pt的，但是UE又觉得按钮太小，总是点不准，想要增大点击范围，这个要求合理合法，开发没有任何拒绝的理由。那就把按钮弄大吧，然后各种计算frame，按钮可能还有边框渐变色什么的，还得更复杂的处理一番，折腾下来身心俱疲。</p>
-<<<<<<< HEAD
-=======
 <span id="more"></span><!-- more -->
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>程序员这么懒的人怎么可能做这种又low又类的工作呢，所以肯定是有解决方法的，一顿搜索后，发现智慧就是这么简单，想要扩大<code>UIButton</code>的响应区域，让用户在点击<code>UIButton</code>以外的范围的时候也可以响应按钮的触发事件，只需要重写<code>UIButton</code>的对象方法<code>-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event;</code>，然后只要点击在在想要响应按钮事件的范围内，返回YES即可。下面提供一个分类方法，直接设置hitEdgeInsets属性即可实现扩大响应范围。</p>
 <pre><code class="language-swift">#import &lt;UIKit/UIKit.h&gt;
 @interface UIButton (HitRect)

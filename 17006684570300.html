@@ -130,17 +130,6 @@
       </div><!-- article -->
 
       <div class="article-content">
-<<<<<<< HEAD
-      <pre><code class="language-C">
-// 帮助实现单例设计模式
-
-// .h文件的实现
-#define SingletonH(methodName) + (instancetype)shared##methodName;
-
-// .m文件的实现
-#if __has_feature(objc_arc) // 是ARC
-#define SingletonM(methodName) \
-=======
       <span id="more"></span><!-- more -->
 <pre><code class="language-C">
 // 帮助实现单例设计模式
@@ -151,7 +140,6 @@
 // .m文件的实现
 #if __has_feature(objc_arc) // 是ARC
 #define SB_SINGLETON_M(methodName) \
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 static id _instace = nil; \
 + (id)allocWithZone:(struct _NSZone *)zone \
 { \
@@ -177,31 +165,19 @@ return _instace; \
 { \
 return [[self alloc] init]; \
 } \
-<<<<<<< HEAD
-+ (id)copyWithZone:(struct _NSZone *)zone \
-=======
 - (id)copyWithZone:(struct _NSZone *)zone \
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 { \
 return _instace; \
 } \
 \
-<<<<<<< HEAD
-+ (id)mutableCopyWithZone:(struct _NSZone *)zone \
-=======
 - (id)mutableCopyWithZone:(struct _NSZone *)zone \
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 { \
 return _instace; \
 }
 
 #else // 不是ARC
 
-<<<<<<< HEAD
-#define SingletonM(methodName) \
-=======
 #define SB_SINGLETON_M(methodName) \
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 static id _instace = nil; \
 + (id)allocWithZone:(struct _NSZone *)zone \
 { \
@@ -242,20 +218,12 @@ return self; \
 { \
 return 1; \
 } \
-<<<<<<< HEAD
-+ (id)copyWithZone:(struct _NSZone *)zone \
-=======
 - (id)copyWithZone:(struct _NSZone *)zone \
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 { \
     return _instace; \
 } \
  \
-<<<<<<< HEAD
-+ (id)mutableCopyWithZone:(struct _NSZone *)zone \
-=======
 - (id)mutableCopyWithZone:(struct _NSZone *)zone \
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 { \
     return _instace; \
 }

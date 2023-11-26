@@ -163,100 +163,6 @@
 + (instancetype)notificationWithName:(NSString*)aName object:(id)anObject userInfo:(NSDictionary*)aUserInfo;
 - (instancetype)initWithName:(NSString*)name object:(id)object userInfo:(NSDictionary *)userInfo;
 </code></pre>
-<<<<<<< HEAD
-<h2><a id="%E5%8F%91%E5%B8%83%E9%80%9A%E7%9F%A5%E6%96%B9%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>发布通知方法</h2>
-<p>通知中心(NSNotificationCenter)提供了相应的方法来帮助发布通知</p>
-<p>如果发布通知的方法在那一条线程上，则监听通知的对象调用的方法在会在这个线程上运行</p>
-<p>所以：</p>
-<p>如果在异步线程发的通知，那么可以执行比较耗时的操作；</p>
-<p>如果在主线程发的通知，那么就不可以执行比较耗时的操作</p>
-<pre><code class="language-swift">// 发布一个notification通知，可在notification对象中设置通知的名称、通知发布者、额外信息等
-- (void)postNotification:(NSNotification*)notification;
-
-// 发布一个名称为aName的通知，anObject为这个通知的发布者
-- (void)postNotificationName:(NSString *)aName object:(id)anObject;
-
-// 发布一个名称为aName的通知，anObject为这个通知的发布者，aUserInfo为一些额外信息
-- (void)postNotificationName:(NSString *)aName object:(id)anObject userInfo:(NSDictionary *)aUserInfo;
-</code></pre>
-<h2><a id="%E6%B3%A8%E5%86%8C%E9%80%9A%E7%9F%A5%E7%9B%91%E5%90%AC%E5%99%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>注册通知监听器</h2>
-<p>通知中心(NSNotificationCenter)提供了相应的方法注册监听器(Observer)来监听通知的发布:</p>
-<pre><code class="language-swift">// observer：监听器，即谁要接收这个通知
-// aSelector：收到通知后，回调监听器的这个方法，并且把通知对象当做参数传入
-// aName：通知的名称。如果为nil，那么无论通知的名称是什么，监听器都能收到这个通知
-// anObject：通知发布者。如果为anObject和aName都为nil，监听器都收到所有的通知
-- (void)addObserver:(id)observer selector:(SEL)aSelector name:(NSString *)aName object:(id)anObject;
-
-// name：通知的名称
-// obj：通知发布者
-// block：收到对应的通知时，会回调这个block
-// queue：决定了block在哪个操作队列中执行，如果传nil，默认在当前操作队列中同步执行
-- (id)addObserverForName:(NSString *)name object:(id)obj queue:(NSOperationQueue *)queue usingBlock:(void (^)(NSNotification *note))block;
-</code></pre>
-<h2><a id="%E5%8F%96%E6%B6%88%E6%B3%A8%E5%86%8C%E9%80%9A%E7%9F%A5%E7%9B%91%E5%90%AC%E5%99%A8" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>取消注册通知监听器</h2>
-<p>通知中心不会保留(retain)监听器对象，在通知中心注册过的对象，必须在该对象释放前取消注册。否则，当相应的通知再次出现时，通知中心仍然会向该监听器发送消息。因为相应的监听器对象已经被释放了，所以可能会导致应用崩溃</p>
-<p>通知中心提供了相应的方法来取消注册监听器</p>
-<pre><code class="language-swift">- (void)removeObserver:(id)observer;
-- (void)removeObserver:(id)observer name:(NSString *)aName object:(id)anObject;
-</code></pre>
-<h2><a id="%E7%A4%BA%E4%BE%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>示例</h2>
-<p>一个朋友说看了我这篇还是该不懂还是不懂,感觉还是放个例子上来好一些,果然需求是技术进步的动力</p>
-<h3><a id="%E9%A6%96%E5%85%88%E8%A6%81%E7%BB%99%E9%80%9A%E7%9F%A5%E8%B5%B7%E4%B8%80%E4%B8%AA%E5%90%8D%E5%AD%97" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>首先要给通知起一个名字</h3>
-<p>最好用字符串常量,或者用宏也可以,这样可以保证发送和监听的是同一个通知</p>
-<pre><code class="language-swift">// 字符串常量
-// 头文件中
-extern NSString *const NotifationTest;
-
-// 实现文件中
-NSString *const NotifationTest = @&quot;notificationTest&quot;;
-
-// 或者直接用宏
-#define NOTIFICATION_TEST @&quot;notificationTest&quot;
-</code></pre>
-<h3><a id="%E6%B3%A8%E5%86%8C%E7%9B%91%E5%90%AC" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>注册监听</h3>
-<p>给想要接受到通知的对象注册监听,这样就可以收到其他对象发的通知了,通知是可以重复注册的,每次多一次注册就会多收到一次通知,所以尽量在只执行一次的方法中注册,比如控制器的<code>viewDidLoad</code>方法中</p>
-<pre><code class="language-swift">[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fuck) name:NotifationTest object:nil];
-</code></pre>
-<p>发送通知后,监听者会受到通知然后调用<code>fuck</code>方法 ! 😄</p>
-<h3><a id="%E5%8F%91%E9%80%81%E9%80%9A%E7%9F%A5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>发送通知</h3>
-<p>发送通知就很简单了,想法通知的时候只需要post一下就好了</p>
-<pre><code class="language-swift">[[NSNotificationCenter defaultCenter] postNotificationName:NotifationTest object:nil];
-</code></pre>
-<h3><a id="%E7%A7%BB%E9%99%A4%E9%80%9A%E7%9F%A5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>移除通知</h3>
-<p>监听器被销毁了一定要记得取消注册…</p>
-<pre><code class="language-swift">// 一般在监听器销毁之前取消注册（如在监听器中加入下列代码）：
-- (void)dealloc
-{
-    [super dealloc];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-</code></pre>
-<p>当然可能由于种种原因(内存泄漏),监听器该销毁的时候并没有被销毁导致的<code>dealloc</code>方法没有被调用(出现这个问题的地方大多是控制器),这样的话,也不会取消注册通知的,这时候有可能第二次创建这个控制器的时候重复注册,所以还有一种比较稳妥的方法是这样</p>
-<pre><code class="language-swift">- (void)viewWillAppear:(BOOL)animated
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fuck) name:NotifationTest object:nil];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-</code></pre>
-<p>在控制器将要出现在屏幕的时候注册通知,控制器将要消失的时候取消注册,一般情况下这样也就够了,但是这个在离开屏幕时是收不到通知的,所以如果有需求是不在当前屏幕也要接收通知的话,这个方式就不可以了..</p>
-<h2><a id="uidevice%E9%80%9A%E7%9F%A5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>UIDevice 通知</h2>
-<p>UIDevice类提供了一个单例对象，它代表着设备，通过它可以获得一些设备相关的信息，比如电池电量值(batteryLevel)、电池状态(batteryState)、设备的类型(model，比如iPod、iPhone等)、设备的系统(systemVersion)</p>
-<p>通过<code>[UIDevice currentDevice]</code>可以获取这个单粒对象</p>
-<p>UIDevice 对象会不间断地发布一些通知，下列是 UIDevice 对象所发布通知的名称常量：</p>
-<ol>
-<li>UIDeviceOrientationDidChangeNotification // 设备旋转</li>
-<li>UIDeviceBatteryStateDidChangeNotification // 电池状态</li>
-<li>UIDeviceBatteryLevelDidChangeNotification // 电池电量</li>
-<li>UIDeviceProximityStateDidChangeNotification // 近距离传感器(比如设备贴近了使用者的脸部)</li>
-</ol>
-<h2><a id="%E6%9C%80%E5%90%8E%E6%9D%A5%E4%B8%80%E5%8F%91%E9%B8%A1%E6%B1%A4" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>最后来一发鸡汤</h2>
-<p><strong>实践是最好的老师,但是智者还能从其他地方有所收货。</strong></p>
-=======
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -264,11 +170,7 @@ NSString *const NotifationTest = @&quot;notificationTest&quot;;
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-<<<<<<< HEAD
-                  
-=======
                    <a href="17001892556421.html">Read more</a>&nbsp;&nbsp; 
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2015/06/03</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -334,27 +236,6 @@ NSString *const NotifationTest = @&quot;notificationTest&quot;;
                       <div class="a-content-text">
                         
                         	<p>简单的记录一下关于时间的API和基本用法:</p>
-<<<<<<< HEAD
-<h2><a id="nsdate" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>NSDate</h2>
-<h4><a id="1%E5%88%9B%E5%BB%BA%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F-nsdateformatter%E7%9A%84%E6%A0%BC%E5%BC%8F%E7%BA%A6%E5%AE%9A" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 创建时间格式NSDateFormatter的格式约定</h4>
-<pre><code class="language-swift">// 设置格式
-
-hh : 12小时制
-
-HH : 24小时制
-
-mm : 分
-
-ss : 秒
-
-yyyy : 年
-
-MM : 月
-
-dd : 日
-</code></pre>
-=======
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -389,122 +270,14 @@ dd : 日
                       
                       <div class="a-content-text">
                         
-<<<<<<< HEAD
-                        	<pre><code class="language-C">
-// 帮助实现单例设计模式
-
-// .h文件的实现
-#define SingletonH(methodName) + (instancetype)shared##methodName;
-
-// .m文件的实现
-#if __has_feature(objc_arc) // 是ARC
-#define SingletonM(methodName) \
-static id _instace = nil; \
-+ (id)allocWithZone:(struct _NSZone *)zone \
-{ \
-if (_instace == nil) { \
-static dispatch_once_t onceToken; \
-dispatch_once(&amp;onceToken, ^{ \
-_instace = [super allocWithZone:zone]; \
-}); \
-} \
-return _instace; \
-} \
-\
-- (id)init \
-{ \
-static dispatch_once_t onceToken; \
-dispatch_once(&amp;onceToken, ^{ \
-_instace = [super init]; \
-}); \
-return _instace; \
-} \
-\
-+ (instancetype)shared##methodName \
-{ \
-return [[self alloc] init]; \
-} \
-+ (id)copyWithZone:(struct _NSZone *)zone \
-{ \
-return _instace; \
-} \
-\
-+ (id)mutableCopyWithZone:(struct _NSZone *)zone \
-{ \
-return _instace; \
-}
-
-#else // 不是ARC
-
-#define SingletonM(methodName) \
-static id _instace = nil; \
-+ (id)allocWithZone:(struct _NSZone *)zone \
-{ \
-if (_instace == nil) { \
-static dispatch_once_t onceToken; \
-dispatch_once(&amp;onceToken, ^{ \
-_instace = [super allocWithZone:zone]; \
-}); \
-} \
-return _instace; \
-} \
-\
-- (id)init \
-{ \
-static dispatch_once_t onceToken; \
-dispatch_once(&amp;onceToken, ^{ \
-_instace = [super init]; \
-}); \
-return _instace; \
-} \
-\
-+ (instancetype)shared##methodName \
-{ \
-return [[self alloc] init]; \
-} \
-\
-- (oneway void)release \
-{ \
-\
-} \
-\
-- (id)retain \
-{ \
-return self; \
-} \
-\
-- (NSUInteger)retainCount \
-{ \
-return 1; \
-} \
-+ (id)copyWithZone:(struct _NSZone *)zone \
-{ \
-    return _instace; \
-} \
- \
-+ (id)mutableCopyWithZone:(struct _NSZone *)zone \
-{ \
-    return _instace; \
-}
-
-#endif
-
-</code></pre>
-
-=======
                         	
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                         
                       </div>
                   </div>
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-<<<<<<< HEAD
-                  
-=======
                    <a href="17006684570300.html">Read more</a>&nbsp;&nbsp; 
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2014/11/22</span>
                     <span>posted in&nbsp;</span> 
           				  

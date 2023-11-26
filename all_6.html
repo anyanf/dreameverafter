@@ -188,65 +188,6 @@
                       <div class="a-content-text">
                         
                         	<p>Ogre 是个老牌的游戏引擎了，前段时间有点需求需要改里面源码，所以研究了一下如何编译，没想到坑有点深，爬完赶紧过来记录一下，省得再陷进去。。</p>
-<<<<<<< HEAD
-<h2><a id="%E5%87%86%E5%A4%87%E9%98%B6%E6%AE%B5" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>准备阶段</h2>
-<p>需要下载 <a href="https://bitbucket.org/sinbad/ogre/src/default/">Ogre源码</a>和 <a href="https://bitbucket.org/cabalistic/ogredeps/src/default/">Ogre 依赖的一些库</a>，先把这些依赖的库编好放在 iOSDependencies 文件夹中，头文件放在 include 文件夹中，库放进 lib 文件夹中。</p>
-<p>安装 <a href="http://www.cmake.org">cmake</a> 工具。</p>
-<p>然后就开始编 Ogre了。</p>
-<p>其实编译这些依赖库的时候也遇到了一些坑，不过我的大脑保护机制选择删除了这段记忆，实在想不起来了，不过网上好像有直接编译好的包，所以如果实在编译不成功可以网上找找或者联系我。</p>
-<h2><a id="ogre1-10-11-ios%E6%BA%90%E7%A0%81-build" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>OGRE1.10.11 iOS 源码 Build</h2>
-<p>第一步，把 iOSDependencies 文件夹拷贝到 Ogre 源码的根目录。</p>
-<p>第二步，创建 build 文件夹，然后 cd 进 build。</p>
-<pre><code class="language-plain_text">mkdir build
-cd build
-</code></pre>
-<p>第三步，设置 cmake 相关参数并生成 Xcode 工程，注意命令最后的两个点不要丢掉，那是路径设置。</p>
-<pre><code class="language-plain_text"># 参数中需要改动有两点
-# DIOS_PLATFORM              编译真机还是模拟器（OS或者SIMULATOR）
-# DOGRE_DEPENDENCIES_DIR     ogre依赖库的路径，要写成绝对路径，不要问我为什么。。
-
-cmake -DOGRE_BUILD_PLATFORM_APPLE_IOS:BOOL=TRUE -DIOS_PLATFORM=SIMULATOR -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DAPPLE_IOS:BOOL=TRUE -DOGRE_DEPENDENCIES_DIR=&quot;/Users/ankang/Documents/Git/OGRE/ogre1.10.11/iOSDependencies&quot; -G Xcode ..
-</code></pre>
-<p>最后一步，编译生成的 Xcode 工程。</p>
-<pre><code class="language-plain_text">cmake --build .
-</code></pre>
-<p>如果编译完成的就是 iOS 平台的 ogre 的库了。。</p>
-<hr />
-<p>下面是当初 Ogre 1.9 的爬坑之旅，只是记录，如果不需要编老版本库的话，就不要看了，看了心烦。。</p>
-<hr />
-<h2><a id="ogre1-9-ios%E6%BA%90%E7%A0%81-build" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>OGRE1.9 iOS 源码 Build</h2>
-<p>下载源码<br />
-需要下载两套源码：</p>
-<ol>
-<li>OGRE源码</li>
-<li>ogredeps</li>
-</ol>
-<p>添加 iOS 依赖库</p>
-<ol>
-<li>在 ogre 根目录创建目录： iOSDependencies ，然后放着先别管他。</li>
-<li>进入下载的 ogredeps 源码根目录。</li>
-<li>用 cmake 构建一个 ogredeps 的 xcode 工程，方法同上。</li>
-<li>打开 ogredeps 工程，选择 install target，编译一下。</li>
-<li>编译完成后，在工程目录下，有个 ogredeps 目录，拷贝目录里面的 inclued 和 lib 两个文件夹，粘贴到 iOSDependencies 之中。（debug 和 release 的真机和模拟器都要弄）</li>
-</ol>
-<p>通过 CMAKE build iOS工程</p>
-<ol>
-<li>下载 cmake APP 打开。</li>
-<li>在 source code 处，选择 ogre 根目录。</li>
-<li>在 build 处，选择需要 build 出来的工程的地方。</li>
-<li>点击 Add Entry，Name : OGRE_BUILD_PLATFORM_APPLE_IOS , Type : BOOL, value : 打对勾。然后点击OK</li>
-<li>点击 Configure，等等配置结束，再次点击 Configure。再次等待。然后点击Generate。等待一段时间，工程已经构建完成。但是这时候是跑不起来工程的。还需要添加一下 iOS 依赖库。</li>
-</ol>
-<p>跑 OGRE SDK  编译脚本 （可省略 (通过 CMAKE build iOS工程) 步骤）</p>
-<ol>
-<li>进入 ogre/SDK/iOS 目录。</li>
-<li>执行 make_ios.sh 脚本，坐等一个小时左右。</li>
-<li>在此目录下会生成 build 文件夹。里面就是 iOS 工程。</li>
-<li>完事，跑工程即可。</li>
-</ol>
-<p>参考：<a href="https://github.com/aphcoder/ogre-ios-helloworld">https://github.com/aphcoder/ogre-ios-helloworld</a></p>
-=======
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -254,11 +195,7 @@ cmake -DOGRE_BUILD_PLATFORM_APPLE_IOS:BOOL=TRUE -DIOS_PLATFORM=SIMULATOR -DCMAKE
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-<<<<<<< HEAD
-                  
-=======
                    <a href="17001892554810.html">Read more</a>&nbsp;&nbsp; 
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2018/10/13</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -322,58 +259,14 @@ cmake -DOGRE_BUILD_PLATFORM_APPLE_IOS:BOOL=TRUE -DIOS_PLATFORM=SIMULATOR -DCMAKE
                       
                       <div class="a-content-text">
                         
-<<<<<<< HEAD
-                        	<p>iPhoneX 的分辨率：2436 x 1125px，812 x 375pt</p>
-<p>iPhoneXs 的分辨率： 2436 x 1125px，pt: 812 x 375pt</p>
-<p>iPhoneXs Max 的分辨率：2688 x 1242px，pt: 896 x 414pt</p>
-<p>iPhoneXr 的分辨率：1792 x 828px，pt: 896 x 414pt</p>
-<pre><code class="language-swift">//判断是否是ipad
-#define isPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-//判断iPhone4系列
-#define kiPhone4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) &amp;&amp; !isPad : NO)
-//判断iPhone5系列
-#define kiPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) &amp;&amp; !isPad : NO)
-//判断iPhone6系列
-#define kiPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) &amp;&amp; !isPad : NO)
-//判断iphone6+系列
-#define kiPhone6Plus ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) &amp;&amp; !isPad : NO)
-//判断iPhoneX
-#define IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) &amp;&amp; !isPad : NO)
-//判断iPhoneXs
-#define IS_IPHONE_Xs ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) &amp;&amp; !isPad : NO)
-//判断iPhoneXs Max
-#define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) &amp;&amp; !isPad : NO)
-//判断iPHoneXr
-#define IS_IPHONE_Xr ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) &amp;&amp; !isPad : NO)
-
-// 判断是否是刘海机型
-#define IS_IPHONE_X_S_Max_R (IS_IPHONE_X || IS_IPHONE_Xs || IS_IPHONE_Xs_Max || IS_IPHONE_Xr)
-
-</code></pre>
-<p>NavigationBar 和 TabBar 的判断</p>
-<pre><code class="language-swift">//刘海机型
-#define StatusBar_Height (IS_IPHONE_X_S_Max_R ? 44.0 : 20.0)
-#define NavBar_Height (IS_IPHONE_X_S_Max_R ? 88.0 : 64.0)
-#define TabBar_Height (IS_IPHONE_X_S_Max_R ? 83.0 : 49.0)
-</code></pre>
-<p>其实刘海屏的主要影响是屏幕顶部多出来的一块刘海，所以其实可以获取状态栏的高度，来确定导航栏需要增加的高度或者是位置（这个就要看具体的业务需求了），不过这个有一点问题就是如果状态栏被隐藏的话，高度就会为 0，如果在状态栏隐藏状态下判断，拿到的高度显然是不符合期望值的，不过这个情况也是比较少见的情况，如果注意页面之间的代码逻辑的话，是可以避免的。</p>
-<pre><code class="language-swift">[UIApplication sharedApplication].statusBarFrame.size.height
-</code></pre>
-
-=======
                         	
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                         
                       </div>
                   </div>
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-<<<<<<< HEAD
-                  
-=======
                    <a href="17001892555520.html">Read more</a>&nbsp;&nbsp; 
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2018/10/10</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -473,62 +366,6 @@ cmake -DOGRE_BUILD_PLATFORM_APPLE_IOS:BOOL=TRUE -DIOS_PLATFORM=SIMULATOR -DCMAKE
                         
                         	<h2><a id="ios%E6%B2%99%E7%9B%92%E6%9C%BA%E5%88%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>iOS 沙盒机制</h2>
 <p>沙盒是系统为每一个应用程序生成的一个特定文件夹 ，文件夹的名字由十六进制数据组成，每一个应用程序的沙盒文件名都是不一样的，是由系统随机生成的。在iOS中，为了安全性，这个文件夹别的 app 是不可以访问的。理论上 app 只能在自己的沙盒里存取文件，除了一些系比较特殊的数据储存方式，如 keychain ，iCloud， iOS11 新增的 file 等等。</p>
-<<<<<<< HEAD
-<p>沙盒下一共有三个目录：</p>
-<ol>
-<li>Documents 目录：您应该将所有的应用程序数据文件写入到这个目录下，这个目录用于存储用户数据或其它应该定期备份的信息。</li>
-<li>Library 目录：这个目录下有两个子目录：Caches 和 Preferences。
-<ul>
-<li>Caches目录用于存放应用程序专用的支持文件，保存应用程序再次启动过程中需要的信息，存放缓存文件，iTunes不会备份此目录，此目录下文件不会在应用退出后删除。</li>
-<li>Preferences 目录包含应用程序的偏好设置文件。您不应该直接创建偏好设置文件，而是应该使用NSUserDefaults类来取得和设置应用程序的偏好。</li>
-</ul>
-</li>
-<li>tmp 目录：这个目录用于存放临时文件，保存应用程序再次启动过程中不需要的信息，iTunes不会备份和恢复此目录，此目录下文件可能会在应用退出后删除。</li>
-</ol>
-<p>注意：iTunes在与iPhone同步时，备份所有的Documents和Library文件。iPhone在重启时，会丢弃所有的tmp文件。</p>
-<pre><code class="language-swift">// 沙盒主目录
-NSString *homeDir = NSHomeDirectory();
-NSLog(@&quot;%@&quot;, homeDir);
-
-// Documents 路径
-NSString *docDir1 = [homeDir stringByAppendingPathComponent:@&quot;Documents&quot;];
-NSLog(@&quot;%@&quot;, docDir1);
-
-/**
-参数
-1. NSDocumentDirectory 搜索路径的类型
-2. NSUserDomainMask    在iOS上固定的
-3. 是否展开波浪号        YES
-*/
-NSString *docDir2 = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-NSLog(@&quot;%@&quot;, docDir2);
-
-// Caches路径 
-NSString *cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]; NSLog(@&quot;%@&quot;, cacheDir);
-
-// tmp路径
-NSString *tmpDir = NSTemporaryDirectory();
-NSLog(@&quot;%@&quot;, tmpDir);
-
-//  Preferences偏好设置目录，保存手机常用设置信息，用户的个人信息，例如用户名，密码
-// 直接使用setXXX方法赋值即可，无需获得路径
-NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-[defaults setObject:@&quot;hehe&quot; forKey:@&quot;UserName&quot;];
-[defaults setBool:YES forKey:@&quot;AutoLogin&quot;];
-
-// 默认情况下，往偏好设置保存数据，更新的非常慢，如果需要及时保存，需要使用一个同步方法
-[defaults synchronize];
-</code></pre>
-<h2><a id="bundle" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bundle</h2>
-<p>Bundle 是一个资源文件包。我们将许多图片、文本文件、mp3等组织在一起，打包成一个 Bundle 文件。方便在其他项目中引用包内的资源。</p>
-<p>Bundle是静态的，也就是说，我们包含到包中的资源文件作为一个资源包是不参加项目编译的。也就意味着，bundle包中不能包含可执行的文件。它仅仅是作为资源，被解析成为特定的二进制数据。</p>
-<p>mainBundle 对应于应用程序文件归档或者应用程序的封包：一个以“.app”为扩展名并以应用程序名称为基本名的目录。</p>
-<pre><code class="language-swift">// mainBundle
-NSString *bundlePath = [NSBundle mainBundle].bundlePath;
-NSLog(@&quot;%@&quot;, bundlePath);
-</code></pre>
-=======
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -536,11 +373,7 @@ NSLog(@&quot;%@&quot;, bundlePath);
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
-<<<<<<< HEAD
-                  
-=======
                    <a href="17001892554274.html">Read more</a>&nbsp;&nbsp; 
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2018/05/21</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -567,17 +400,7 @@ NSLog(@&quot;%@&quot;, bundlePath);
                       
                       <div class="a-content-text">
                         
-<<<<<<< HEAD
-                        	<p><img src="media/17001892554557/17001904991550.png" alt="" /></p>
-<p>本文说明制作Cocoapod私有库的过程。本文涉及到两个仓库 ‘官方仓库’、’私有仓库’。</p>
-<ol>
-<li><a href="https://github.com/CocoaPods/Specs.git">官方仓库</a>的作用代表 CocoaPods的 官方 podspec 存放地址。 具体可以参考:<a href="https://github.com/CocoaPods/Specs">CocoaPods官方源</a>、<a href="http://guides.cocoapods.org/making/specs-and-specs-repo.html">Specs</a>;</li>
-<li><a href="https://github.com/jianli2017/LJRepo.git">私有仓库</a>的是私有 podspec 存放地址。在 git 中仓库名称是 YFRepo ，clone 到本地的别名也叫 YFRepo-master。后文中私有仓库–YFRepo指的 git 地址，YFRepo-master 指的是 clone 到本地的名称。</li>
-</ol>
-
-=======
                         	
->>>>>>> b3ad68a (2023-11-26 23:56:08)
                         
                       </div>
                   </div>

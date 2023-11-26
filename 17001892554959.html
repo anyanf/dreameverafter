@@ -134,10 +134,7 @@
 <p>看腾讯开源的iOS内存监控组件<a href="https://github.com/Tencent/OOMDetector">OOMDetector</a>的过程中，发现其内部使用了Facebook开源的<a href="https://github.com/facebook/fishhook">fishhook</a>。遂跟着研究了一下这个库。</p>
 <p>fishhook可以在模拟器和设备上的iOS上运行的Mach-O二进制文件中动态重新绑定符号，可以交换C的函数。</p>
 <p>fishhook代码量不多，一共就两个文件fishhook.h和fishhook.c。其中.c文件只有200多行，整体所以看起来不是很复杂的，不过其中涉及到了 <code>Mach-O</code> 和函数指针相关的知识，想看懂这些代码还是需要一些基础的。</p>
-<<<<<<< HEAD
-=======
 <span id="more"></span><!-- more -->
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>先看一下调用流程。</p>
 <h2><a id="%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>调用流程</h2>
 <pre><code class="language-c">int rebind_symbols_image(void *header,

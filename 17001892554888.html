@@ -131,10 +131,7 @@
 
       <div class="article-content">
       <p>调用[tableView reloadData]时，系统并不会等待tableview更新结束后才执行后续代码，而是立即执行后续代码，然后异步地去计算scrollView的高度，获取cell等等。</p>
-<<<<<<< HEAD
-=======
 <span id="more"></span><!-- more -->
->>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>但是我们又经常需要在tableview刷新结束后同步的执行某些操作，这个是一个隐藏的小坑，有时候稍不注意，就会写出来点Bug，这次有不小心遇到这个问题了，遂在此记录一下。</p>
 <p>Apple并没有直接提供reloadData结束时的回调api，那么想要程序代码延迟到reloadData结束后再操作，可以通过以下两个方法来实现：</p>
 <h2><a id="1%E9%80%9A%E8%BF%87-layoutifneeded%E6%96%B9%E6%B3%95%EF%BC%8C%E5%BC%BA%E5%88%B6%E9%87%8D%E7%BB%98%E5%B9%B6%E7%AD%89%E5%BE%85%E5%AE%8C%E6%88%90%E3%80%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 通过layoutIfNeeded方法，强制重绘并等待完成。</h2>
