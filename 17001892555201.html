@@ -131,6 +131,10 @@
 
       <div class="article-content">
       <p>由于UITableview在iOS11的时候加入了Self-Sizing新特性，而且cell、header、footer是默认开启的，导致estimated的高度值变成了UITableViewAutomaticDimension（之前是0）。</p>
+<<<<<<< HEAD
+=======
+<span id="more"></span><!-- more -->
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>如果不曾设置过estimateRowHeight属性的话，reload的时候可能会有一些奇怪的上下抖动，UITableview的位置也有可能不再停留在原来的位置。</p>
 <p>解决方案就是给这些预估值赋值为0来禁用：</p>
 <pre><code class="language-swift">if (@available(iOS 11.0, *)) {

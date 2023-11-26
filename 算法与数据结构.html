@@ -188,6 +188,7 @@
                         	<p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
 <p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
 <p>注意：给定 n 是一个正整数。</p>
+<<<<<<< HEAD
 <p>示例 1：</p>
 <pre><code class="language-plain_text">输入： 2
 输出： 2
@@ -283,6 +284,8 @@ public:
 <p>所以 \(f(n)=2^{n-1}\)</p>
 <p>其实还有一个更巧妙的思路：一共要上 \(n\) 个台阶，每次都可以爬 \(1\) 到 \(n\) 个台阶，算一共又多少种方法，那么到第 \(n\) 个台阶的时候，把前面 \(n-1\) 个台阶被踩和不被踩的可能性数量统计出来就是答案了，也就是 \(2^{n-1}\)。</p>
 <p>代码过于简单，就不列出来了。</p>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -290,7 +293,11 @@ public:
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001875302707.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2021/05/05</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -320,6 +327,7 @@ public:
                         	<p>给定一个可能含有重复元素的整数数组，要求随机输出给定的数字的索引。 您可以假设给定的数字一定存在于数组中。</p>
 <p>注意：</p>
 <p>数组大小可能非常大。 使用太多额外空间的解决方案将不会通过测试。</p>
+<<<<<<< HEAD
 <p>示例:</p>
 <pre><code class="language-plain_text">int[] nums = new int[] {1,2,3,3,3};
 Solution solution = new Solution(nums);
@@ -356,6 +364,8 @@ public:
  */
 
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -363,7 +373,11 @@ public:
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001875302574.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2020/10/12</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -392,6 +406,7 @@ public:
                         
                         	<h2><a id="%E9%A2%98%E7%9B%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>题目</h2>
 <p>给定一个表示分数的非负整数数组。 玩家 1 从数组任意一端拿取一个分数，随后玩家 2 继续从剩余数组任意一端拿取分数，然后玩家 1 拿，…… 。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。</p>
+<<<<<<< HEAD
 <p>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
 <p>Given an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player picks a number, that number will not be available for the next player. This continues until all the scores have been chosen. The player with the maximum score wins.</p>
 <p>Given an array of scores, predict whether player 1 is the winner. You can assume each player plays to maximize his score.</p>
@@ -496,6 +511,8 @@ public:
 </code></pre>
 <p>时间复杂度：<code>O(n^2)</code>，其中 <code>n</code> 是数组的长度。需要计算每个子数组对应的 <code>dp</code> 的值，共有 <code>n(n+1)/2</code> 个子数组。</p>
 <p>空间复杂度：<code>O(n)</code>，其中 <code>n</code> 是数组的长度。空间复杂度取决于额外创建的数组 <code>dp</code>，如果不优化空间，则空间复杂度是 <code>O(n^2)</code>，使用一维数组优化之后空间复杂度可以降至 <code>O(n)</code>。</p>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -503,7 +520,11 @@ public:
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001875302498.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2020/09/01</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -568,6 +589,7 @@ public:
                         
                         	<p>Implement atoi which converts a string to an integer.</p>
 <p>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.</p>
+<<<<<<< HEAD
 <p>The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.</p>
 <p>If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.</p>
 <p>If no valid conversion could be performed, a zero value is returned.</p>
@@ -655,6 +677,8 @@ public:
 };
 
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -662,7 +686,11 @@ public:
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001875302773.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2019/06/26</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -690,6 +718,7 @@ public:
                       <div class="a-content-text">
                         
                         	<p>The string &quot;PAYPALISHIRING&quot; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
+<<<<<<< HEAD
 <pre><code class="language-plain_text">P   A   H   N
 A P L S I I G
 Y   I   R
@@ -758,6 +787,8 @@ public:
 
 
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -765,7 +796,11 @@ public:
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001875302838.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2019/06/26</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -793,6 +828,7 @@ public:
                       <div class="a-content-text">
                         
                         	<p>Given inorder and postorder traversal of a tree, construct the binary tree.</p>
+<<<<<<< HEAD
 <p>Note:<br />
 You may assume that duplicates do not exist in the tree.</p>
 <p>For example, given</p>
@@ -857,6 +893,8 @@ public:
 };
 
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -864,7 +902,11 @@ public:
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001875302640.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2019/06/24</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -892,6 +934,7 @@ public:
                       <div class="a-content-text">
                         
                         	<p>Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.</p>
+<<<<<<< HEAD
 <p>Example 1:</p>
 <pre><code class="language-plain_text">Input: &quot;babad&quot;
 Output: &quot;bab&quot;
@@ -964,6 +1007,8 @@ public:
 };
 
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -971,7 +1016,11 @@ public:
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001875302904.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2019/06/18</span>
                     <span>posted in&nbsp;</span> 
           				  

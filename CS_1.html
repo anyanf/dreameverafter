@@ -154,6 +154,7 @@
                         
                         	<h2><a id="%E9%A2%98%E7%9B%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>题目</h2>
 <p>给定一个表示分数的非负整数数组。 玩家 1 从数组任意一端拿取一个分数，随后玩家 2 继续从剩余数组任意一端拿取分数，然后玩家 1 拿，…… 。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。</p>
+<<<<<<< HEAD
 <p>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
 <p>Given an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player picks a number, that number will not be available for the next player. This continues until all the scores have been chosen. The player with the maximum score wins.</p>
 <p>Given an array of scores, predict whether player 1 is the winner. You can assume each player plays to maximize his score.</p>
@@ -258,6 +259,8 @@ public:
 </code></pre>
 <p>时间复杂度：<code>O(n^2)</code>，其中 <code>n</code> 是数组的长度。需要计算每个子数组对应的 <code>dp</code> 的值，共有 <code>n(n+1)/2</code> 个子数组。</p>
 <p>空间复杂度：<code>O(n)</code>，其中 <code>n</code> 是数组的长度。空间复杂度取决于额外创建的数组 <code>dp</code>，如果不优化空间，则空间复杂度是 <code>O(n^2)</code>，使用一维数组优化之后空间复杂度可以降至 <code>O(n)</code>。</p>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -265,7 +268,11 @@ public:
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+                    <span class="date">2020/09/01</span>
+=======
+                   <a href="17001875302498.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2020/09/01</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -292,6 +299,125 @@ public:
                       
                       <div class="a-content-text">
                         
+                        	<h2><a id="weak%E6%8E%A2%E7%A9%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>__weak探究</h2>
+<p>程序中添加了一个 <code>__weak</code> 变量，查看调用堆栈，看到下一个调用的是 <code>objc_initWeak</code> 函数。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001892556510.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2020/08/26</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001892554464.html">
+                
+                  <h1>CocoaPods组件化——OC/Swift动静态库混用</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2><a id="%E7%BC%98%E8%B5%B7" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>缘起</h2>
+<p>一个swift库，<code>charts</code>。</p>
+<p>项目本身是通过 <code>cocoapods</code> 进行组件化管理的。</p>
+<p>在没有集成 <code>charts</code> 之前，一切都是那么的美好，天是晴的，雨是停的。</p>
+<p>直到有一天，因为业务需要图表功能，经一番调研之后，选择了 <code>charts</code> 集成到工程之中。</p>
+<p>然后噩梦就开始了。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001892554464.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2020/08/25</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='iOS.html'>iOS</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001265069754.html">
+                
+                  <h1>OpenGL 术语</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>前两年稍微接触了一些 <code>OpenGL</code>，近期准备把所得总结一下，先把高频词汇列出来把。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001265069754.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2020/08/06</span>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='LeetCode.html'>LeetCode</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+<<<<<<< HEAD
+                <a class="clearlink" href="17001892556510.html">
+                
+                  <h1>浅谈iOS中的weak</h1>
+=======
+                <a class="clearlink" href="17001177799867.html">
+                
+                  <h1>归纳与演绎</h1>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+<<<<<<< HEAD
                         	<h2><a id="weak%E6%8E%A2%E7%A9%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>__weak探究</h2>
 <p>程序中添加了一个 <code>__weak</code> 变量，查看调用堆栈，看到下一个调用的是 <code>objc_initWeak</code> 函数。</p>
 <p><img src="https://gitee.com/anyanf/images/raw/master/img/weak%E5%85%A5%E5%8F%A3.jpg" alt="__weak调用的函数" /></p>
@@ -821,6 +947,10 @@ entry-&gt;num_refs++;
 <a href="https://www.jianshu.com/p/35db14a4931c">https://www.jianshu.com/p/35db14a4931c</a><br />
 <a href="https://zhuanlan.zhihu.com/p/50571342">https://zhuanlan.zhihu.com/p/50571342</a></p>
 </blockquote>
+=======
+                        	<h2><a id="%E5%BD%92%E7%BA%B3%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>归纳法</h2>
+<p>归纳法或归纳推理（Inductive reasoning），有时叫做归纳逻辑，是论证的前提支持结论但不确保结论的推理过程。</p>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -828,11 +958,19 @@ entry-&gt;num_refs++;
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
                     <span class="date">2020/08/25</span>
                     <span>posted in&nbsp;</span> 
           				  
           					    <span class="posted-in"><a href='iOS.html'>iOS</a></span>
+=======
+                   <a href="17001177799867.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2020/03/13</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.html'>算法与数据结构</a></span>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
           				   
                     
 
@@ -848,14 +986,24 @@ entry-&gt;num_refs++;
               </div><!-- article -->
         
 			<div class="article">
+<<<<<<< HEAD
                 <a class="clearlink" href="17001265069754.html">
                 
                   <h1>OpenGL 术语</h1>
+=======
+                <a class="clearlink" href="17001892557079.html">
+                
+                  <h1>当对象接收到不能处理的消息时调用的方法</h1>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
+<<<<<<< HEAD
                         	<p>前两年稍微接触了一些 <code>OpenGL</code>，近期准备把所得总结一下，先把高频词汇列出来把。</p>
+=======
+                        	<p>当对象接收到不能处理的消息时调用的方法，下面三个方法会按顺序调用。</p>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -863,8 +1011,48 @@ entry-&gt;num_refs++;
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                    <a href="17001265069754.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2020/08/06</span>
+=======
+                   <a href="17001892557079.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2020/03/03</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='OC.html'>OC</a></span>
+          				   
+                    
+
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="17001265069516.html">
+                
+                  <h1>命令行通过ffmpeg剪切视频</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>ffmpeg的强大自不用多书，有时候遇到只是想简单剪切一下视频，那么可以直接用一下脚本，简单方法，前提是先装上ffmpeg环境。</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="17001265069516.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2020/02/22</span>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span>posted in&nbsp;</span> 
           				  
           					    <span class="posted-in"><a href='CS.html'>CS</a></span>
@@ -883,15 +1071,25 @@ entry-&gt;num_refs++;
               </div><!-- article -->
         
 			<div class="article">
+<<<<<<< HEAD
                 <a class="clearlink" href="17001177799867.html">
                 
                   <h1>归纳与演绎</h1>
+=======
+                <a class="clearlink" href="17001892554888.html">
+                
+                  <h1>iOS：如何在UITableView调用reloadData刷新结束后再同步执行后续操作</h1>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
+<<<<<<< HEAD
                         	<h2><a id="%E5%BD%92%E7%BA%B3%E6%B3%95" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>归纳法</h2>
 <p>归纳法或归纳推理（Inductive reasoning），有时叫做归纳逻辑，是论证的前提支持结论但不确保结论的推理过程。</p>
+=======
+                        	<p>调用[tableView reloadData]时，系统并不会等待tableview更新结束后才执行后续代码，而是立即执行后续代码，然后异步地去计算scrollView的高度，获取cell等等。</p>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -899,6 +1097,7 @@ entry-&gt;num_refs++;
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                    <a href="17001177799867.html">Read more</a>&nbsp;&nbsp; 
                     <span class="date">2020/03/13</span>
                     <span>posted in&nbsp;</span> 
@@ -1022,6 +1221,12 @@ dispatch_async(dispatch_get_main_queue(), ^{
                     <span class="date">2020/01/04</span>
                     <span>posted in&nbsp;</span> 
           				  
+=======
+                   <a href="17001892554888.html">Read more</a>&nbsp;&nbsp; 
+                    <span class="date">2020/01/04</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
           					    <span class="posted-in"><a href='UI.html'>UI</a></span>
           				   
                     
@@ -1046,12 +1251,15 @@ dispatch_async(dispatch_get_main_queue(), ^{
                       <div class="a-content-text">
                         
                         	<p>虽然说这是一件毫无意义的事，而且如果代码打成库，统计还不准确。。当时有时候就是需要统计，比如说现在这个时间节点。。</p>
+<<<<<<< HEAD
 <pre><code class="language-plain_text"># 这个是包含空格的
 find . &quot;(&quot; -name &quot;*.m&quot; -or -name &quot;*.mm&quot; -name &quot;*.xib&quot; -or -name &quot;*.cpp&quot; -or -name &quot;*.h&quot; -or -name &quot;*.c&quot; -or -name &quot;*.rss&quot; &quot;)&quot; -print | xargs wc -l
 
 # 不包含空格的
 find . &quot;(&quot; -name &quot;*.m&quot; -or -name &quot;*.mm&quot; -name &quot;*.xib&quot; -or -name &quot;*.cpp&quot; -or -name &quot;*.h&quot; -or -name &quot;*.c&quot; -or -name &quot;*.rss&quot; &quot;)&quot; -print  | xargs grep -v &quot;^$&quot; | wc -l
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -1059,7 +1267,11 @@ find . &quot;(&quot; -name &quot;*.m&quot; -or -name &quot;*.mm&quot; -name &quo
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892554721.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2019/12/30</span>
                     <span>posted in&nbsp;</span> 
           				  

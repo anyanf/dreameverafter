@@ -132,6 +132,10 @@
       <div class="article-content">
       <p>最近设计同学终于受不了商品评价列表中的评价内容没有行间距，强迫我们必须加上行间距。</p>
 <p>当时我就感觉一阵头大，因为这个评价内容如果超过五行的话，是默认不显示的，当用户点击展开才会显示，这样的话我就要在计算行数的时候把行间距算进去，还有一行的时候如果是中文是不能给Label加行间距的，否则一行文字下面会片空白，当然高度的计算也要去掉行间距。下面就详细讲一下如果解决这些问题。</p>
+<<<<<<< HEAD
+=======
+<span id="more"></span><!-- more -->
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <h3><a id="%E9%80%9A%E8%BF%87boundingwithrect%E8%8E%B7%E5%8F%96%E6%96%87%E6%9C%AC%E7%9A%84%E9%AB%98%E5%BA%A6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>通过boundingWithRect获取文本的高度</h3>
 <pre><code class="language-swift">NSString *text = @&quot;UILabel中文带行间距的处理，限制行数，计算高度等&quot;; 
 NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:text]; 

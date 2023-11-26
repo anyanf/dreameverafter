@@ -153,12 +153,15 @@
                       <div class="a-content-text">
                         
                         	<p>今天一个iOS大佬问我一个小问题，他用 <code>cocoapods</code> 集成了一个 <code>swift</code> 的 <code>json</code> 库：<code>SwiftyJSON</code>，用的时候发现有一丝丝不方便的地方，就是在每个用到 <code>SwiftyJSON</code> 的文件中，都需要 <code>import</code> 一下这个 <code>module</code>。</p>
+<<<<<<< HEAD
 <p>平时他在主工程里写代码的时候，由于都在一个 <code>module</code> 之下，所以基本上没有怎么用过 <code>import</code> 了，所以问我为什么会这样，以及有没有一个类似于 <code>PCH</code> 的文件，把 <code>SwiftyJSON</code> 全局引用。</p>
 <p>至于为什么会这样，其实刚刚已经说了，就是因为没有在一个 <code>module</code> 中嘛。有没有类似 <code>PCH</code> 的东西呢，其实也是有的。</p>
 <p>可以直接创建一个 <code>swift</code> 文件（类似 <code>PCH</code> ），在这个文件中使用 <code>@_exported import</code> 来导入：</p>
 <pre><code class="language-swift">@_exported import SwiftyJSON 
 </code></pre>
 <p>这就好了，没错，智慧就是这么简单。</p>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -166,7 +169,11 @@
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892555760.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2020/11/20</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -195,6 +202,7 @@
                         
                         	<h2><a id="weak%E6%8E%A2%E7%A9%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>__weak探究</h2>
 <p>程序中添加了一个 <code>__weak</code> 变量，查看调用堆栈，看到下一个调用的是 <code>objc_initWeak</code> 函数。</p>
+<<<<<<< HEAD
 <p><img src="https://gitee.com/anyanf/images/raw/master/img/weak%E5%85%A5%E5%8F%A3.jpg" alt="__weak调用的函数" /></p>
 <p>所以我们就 <code>objc_initWeak</code> 函数作为入口，探究 <code>weak</code>。</p>
 <h2><a id="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>数据结构</h2>
@@ -589,6 +597,8 @@ entry-&gt;num_refs++;
 <li>二级缓存存储被弱引用的对象。</li>
 <li>三级缓存存储某个对象的所有的弱引用者。</li>
 </ol>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -596,7 +606,11 @@ entry-&gt;num_refs++;
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892556510.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2020/08/26</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -629,6 +643,7 @@ entry-&gt;num_refs++;
 <p>在没有集成 <code>charts</code> 之前，一切都是那么的美好，天是晴的，雨是停的。</p>
 <p>直到有一天，因为业务需要图表功能，经一番调研之后，选择了 <code>charts</code> 集成到工程之中。</p>
 <p>然后噩梦就开始了。</p>
+<<<<<<< HEAD
 <p>直接集成跑项目会直接报上百个错，因为 <code>charts</code> 是用swift写的，错误简要如下:</p>
 <pre><code class="language-shell">Undefined symbols for architecture x86_64:
   &quot;protocol witness table for Swift.Double : Swift.CVarArg in Swift&quot;, referenced from:
@@ -722,6 +737,8 @@ entry-&gt;num_refs++;
 <a href="https://www.jianshu.com/p/35db14a4931c">https://www.jianshu.com/p/35db14a4931c</a><br />
 <a href="https://zhuanlan.zhihu.com/p/50571342">https://zhuanlan.zhihu.com/p/50571342</a></p>
 </blockquote>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -729,7 +746,11 @@ entry-&gt;num_refs++;
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892554464.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2020/08/25</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -792,6 +813,7 @@ entry-&gt;num_refs++;
                       <div class="a-content-text">
                         
                         	<p>调用[tableView reloadData]时，系统并不会等待tableview更新结束后才执行后续代码，而是立即执行后续代码，然后异步地去计算scrollView的高度，获取cell等等。</p>
+<<<<<<< HEAD
 <p>但是我们又经常需要在tableview刷新结束后同步的执行某些操作，这个是一个隐藏的小坑，有时候稍不注意，就会写出来点Bug，这次有不小心遇到这个问题了，遂在此记录一下。</p>
 <p>Apple并没有直接提供reloadData结束时的回调api，那么想要程序代码延迟到reloadData结束后再操作，可以通过以下两个方法来实现：</p>
 <h2><a id="1%E9%80%9A%E8%BF%87-layoutifneeded%E6%96%B9%E6%B3%95%EF%BC%8C%E5%BC%BA%E5%88%B6%E9%87%8D%E7%BB%98%E5%B9%B6%E7%AD%89%E5%BE%85%E5%AE%8C%E6%88%90%E3%80%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 通过layoutIfNeeded方法，强制重绘并等待完成。</h2>
@@ -806,6 +828,8 @@ dispatch_async(dispatch_get_main_queue(), ^{
     //刷新完成，执行后续代码
 });
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -813,7 +837,11 @@ dispatch_async(dispatch_get_main_queue(), ^{
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892554888.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2020/01/04</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -841,12 +869,15 @@ dispatch_async(dispatch_get_main_queue(), ^{
                       <div class="a-content-text">
                         
                         	<p>虽然说这是一件毫无意义的事，而且如果代码打成库，统计还不准确。。当时有时候就是需要统计，比如说现在这个时间节点。。</p>
+<<<<<<< HEAD
 <pre><code class="language-plain_text"># 这个是包含空格的
 find . &quot;(&quot; -name &quot;*.m&quot; -or -name &quot;*.mm&quot; -name &quot;*.xib&quot; -or -name &quot;*.cpp&quot; -or -name &quot;*.h&quot; -or -name &quot;*.c&quot; -or -name &quot;*.rss&quot; &quot;)&quot; -print | xargs wc -l
 
 # 不包含空格的
 find . &quot;(&quot; -name &quot;*.m&quot; -or -name &quot;*.mm&quot; -name &quot;*.xib&quot; -or -name &quot;*.cpp&quot; -or -name &quot;*.h&quot; -or -name &quot;*.c&quot; -or -name &quot;*.rss&quot; &quot;)&quot; -print  | xargs grep -v &quot;^$&quot; | wc -l
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -854,7 +885,11 @@ find . &quot;(&quot; -name &quot;*.m&quot; -or -name &quot;*.mm&quot; -name &quo
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892554721.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2019/12/30</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -882,6 +917,7 @@ find . &quot;(&quot; -name &quot;*.m&quot; -or -name &quot;*.mm&quot; -name &quo
                       <div class="a-content-text">
                         
                         	<p>转自：<a href="https://nshipster.cn/type-encodings/">nshipster</a>，觉得再某些场景上有点用，就直接抄过来了。</p>
+<<<<<<< HEAD
 <p>@encode，@编译器指令 之一，返回一个给定类型编码为一种内部表示的字符串（例如，@encode(int) → i），类似于 ANSI C 的 typeof 操作。苹果的 Objective-C 运行时库内部利用类型编码帮助加快消息分发。</p>
 <p>这里有一个所有不同的 Objective-C 类型编码的概要：</p>
 <p>Objective-C Type Encodings</p>
@@ -1145,6 +1181,8 @@ NSLog(@&quot;struct     : %s&quot;, @encode(typeof(Struct)));
 <p>我们从对 Objective-C 的类型编码的全新理解上能得到什么呢？ 不瞒您说，其实没多少（除非你在做一些疯狂的元编程）。</p>
 <p>但是就如我们最开始所说的，在追求破译密文的过程中要用到不少智慧。</p>
 <p>看看类型编码为我们展现的有关 Objective-C 内部的细节，这本身就是一种高尚的追求。如果刨根问到底的话，我们需要了解一下 Distributed Objects 神秘的历史以及那 <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/Foundation/Classes/NSNumberFormatter_Class/Reference/Reference.html%23jumpTo_22">至今仍然存在</a> 的复杂的参数修饰符。</p>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -1152,7 +1190,11 @@ NSLog(@&quot;struct     : %s&quot;, @encode(typeof(Struct)));
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892558986.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2019/04/30</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -1181,6 +1223,7 @@ NSLog(@&quot;struct     : %s&quot;, @encode(typeof(Struct)));
                         
                         	<p>为什么分类中不能直接添加属性，这个也是一个经典的面试题了。</p>
 <p>搜了一些相关文章，再结合源码做了一个小小的总结。</p>
+<<<<<<< HEAD
 <p>其实通过这个问题，也可以一瞥 OC 中类的实现。</p>
 <h2><a id="%E6%BA%90%E7%A0%81" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>源码</h2>
 <p>先晒一下OC类和分类的部分源码：</p>
@@ -1295,6 +1338,8 @@ struct category_t {
 <a href="https://blog.csdn.net/mumuyinyin/article/details/72854579">https://blog.csdn.net/mumuyinyin/article/details/72854579</a><br />
 <a href="https://tech.meituan.com/DiveIntoCategory.html">https://tech.meituan.com/DiveIntoCategory.html</a></p>
 </blockquote>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -1302,7 +1347,11 @@ struct category_t {
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892556042.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2019/03/16</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -1333,6 +1382,7 @@ struct category_t {
 <p>看腾讯开源的iOS内存监控组件<a href="https://github.com/Tencent/OOMDetector">OOMDetector</a>的过程中，发现其内部使用了Facebook开源的<a href="https://github.com/facebook/fishhook">fishhook</a>。遂跟着研究了一下这个库。</p>
 <p>fishhook可以在模拟器和设备上的iOS上运行的Mach-O二进制文件中动态重新绑定符号，可以交换C的函数。</p>
 <p>fishhook代码量不多，一共就两个文件fishhook.h和fishhook.c。其中.c文件只有200多行，整体所以看起来不是很复杂的，不过其中涉及到了 <code>Mach-O</code> 和函数指针相关的知识，想看懂这些代码还是需要一些基础的。</p>
+<<<<<<< HEAD
 <p>先看一下调用流程。</p>
 <h2><a id="%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>调用流程</h2>
 <pre><code class="language-c">int rebind_symbols_image(void *header,
@@ -1720,6 +1770,8 @@ static int prepend_rebindings(struct rebindings_entry **rebindings_head,
 <p>图9 .string 表， 偏移0x2B07 后的结果—— 0x3B498 + 0x2B07 = 0x3DF9F， 这个地址存储的字符串就是图3中</p>
 <p>地址为0x10001ef10的函数指针的名称，名称是malloc。这个名称和我么要替换的名称一致，所以替换图3中的<br />
 0x10001ef10，替换成新指定函数指针地址。实现替换。</p>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -1727,7 +1779,11 @@ static int prepend_rebindings(struct rebindings_entry **rebindings_head,
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892554959.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2019/01/27</span>
                     <span>posted in&nbsp;</span> 
           				  

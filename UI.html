@@ -153,6 +153,7 @@
                       <div class="a-content-text">
                         
                         	<p>调用[tableView reloadData]时，系统并不会等待tableview更新结束后才执行后续代码，而是立即执行后续代码，然后异步地去计算scrollView的高度，获取cell等等。</p>
+<<<<<<< HEAD
 <p>但是我们又经常需要在tableview刷新结束后同步的执行某些操作，这个是一个隐藏的小坑，有时候稍不注意，就会写出来点Bug，这次有不小心遇到这个问题了，遂在此记录一下。</p>
 <p>Apple并没有直接提供reloadData结束时的回调api，那么想要程序代码延迟到reloadData结束后再操作，可以通过以下两个方法来实现：</p>
 <h2><a id="1%E9%80%9A%E8%BF%87-layoutifneeded%E6%96%B9%E6%B3%95%EF%BC%8C%E5%BC%BA%E5%88%B6%E9%87%8D%E7%BB%98%E5%B9%B6%E7%AD%89%E5%BE%85%E5%AE%8C%E6%88%90%E3%80%82" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 通过layoutIfNeeded方法，强制重绘并等待完成。</h2>
@@ -167,6 +168,8 @@ dispatch_async(dispatch_get_main_queue(), ^{
     //刷新完成，执行后续代码
 });
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -174,7 +177,11 @@ dispatch_async(dispatch_get_main_queue(), ^{
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892554888.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2020/01/04</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -202,6 +209,7 @@ dispatch_async(dispatch_get_main_queue(), ^{
                       <div class="a-content-text">
                         
                         	<p>平时开发遇到一个比较蛋疼的情景就是，设计给的按钮是40x40pt的，但是UE又觉得按钮太小，总是点不准，想要增大点击范围，这个要求合理合法，开发没有任何拒绝的理由。那就把按钮弄大吧，然后各种计算frame，按钮可能还有边框渐变色什么的，还得更复杂的处理一番，折腾下来身心俱疲。</p>
+<<<<<<< HEAD
 <p>程序员这么懒的人怎么可能做这种又low又类的工作呢，所以肯定是有解决方法的，一顿搜索后，发现智慧就是这么简单，想要扩大<code>UIButton</code>的响应区域，让用户在点击<code>UIButton</code>以外的范围的时候也可以响应按钮的触发事件，只需要重写<code>UIButton</code>的对象方法<code>-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event;</code>，然后只要点击在在想要响应按钮事件的范围内，返回YES即可。下面提供一个分类方法，直接设置hitEdgeInsets属性即可实现扩大响应范围。</p>
 <pre><code class="language-swift">#import &lt;UIKit/UIKit.h&gt;
 @interface UIButton (HitRect)
@@ -301,6 +309,8 @@ dispatch_async(dispatch_get_main_queue(), ^{
     return resultController;
 }
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -308,7 +318,11 @@ dispatch_async(dispatch_get_main_queue(), ^{
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892555678.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2018/11/17</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -337,6 +351,7 @@ dispatch_async(dispatch_get_main_queue(), ^{
                         
                         	<p>最近设计同学终于受不了商品评价列表中的评价内容没有行间距，强迫我们必须加上行间距。</p>
 <p>当时我就感觉一阵头大，因为这个评价内容如果超过五行的话，是默认不显示的，当用户点击展开才会显示，这样的话我就要在计算行数的时候把行间距算进去，还有一行的时候如果是中文是不能给Label加行间距的，否则一行文字下面会片空白，当然高度的计算也要去掉行间距。下面就详细讲一下如果解决这些问题。</p>
+<<<<<<< HEAD
 <h3><a id="%E9%80%9A%E8%BF%87boundingwithrect%E8%8E%B7%E5%8F%96%E6%96%87%E6%9C%AC%E7%9A%84%E9%AB%98%E5%BA%A6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>通过boundingWithRect获取文本的高度</h3>
 <pre><code class="language-swift">NSString *text = @&quot;UILabel中文带行间距的处理，限制行数，计算高度等&quot;; 
 NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:text]; 
@@ -467,6 +482,8 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
     }
 }
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -474,7 +491,11 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892555599.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2018/11/16</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -502,6 +523,7 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
                       <div class="a-content-text">
                         
                         	<p>由于UITableview在iOS11的时候加入了Self-Sizing新特性，而且cell、header、footer是默认开启的，导致estimated的高度值变成了UITableViewAutomaticDimension（之前是0）。</p>
+<<<<<<< HEAD
 <p>如果不曾设置过estimateRowHeight属性的话，reload的时候可能会有一些奇怪的上下抖动，UITableview的位置也有可能不再停留在原来的位置。</p>
 <p>解决方案就是给这些预估值赋值为0来禁用：</p>
 <pre><code class="language-swift">if (@available(iOS 11.0, *)) {
@@ -510,6 +532,8 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
     UITableView.appearance.estimatedSectionHeaderHeight = 0;
 }
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -517,7 +541,11 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892555201.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2018/11/15</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -545,6 +573,7 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
                       <div class="a-content-text">
                         
                         	<p>最近做的项目需要“分享图片”的功能，截屏不单单指当前屏幕可视区域，而是指整个 scrollView 区域，因为截屏的范围可自定义，所以只需要将 scrollview 的范围设置就可以，以下是相关代码：</p>
+<<<<<<< HEAD
 <pre><code class="language-swift">///获取截屏图片
 - (UIImage *)captureScrollView:(UIScrollView *)scrollView
 {
@@ -575,6 +604,8 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
 <p>如果想要截图清晰，可以用</p>
 <pre><code class="language-swift">UIKIT_EXTERN void UIGraphicsBeginImageContextWithOptions(CGSize size, BOOL opaque, CGFloat scale) NS_AVAILABLE_IOS(4_0);
 </code></pre>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>
@@ -582,7 +613,11 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892555367.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2018/11/07</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -609,6 +644,7 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
                       
                       <div class="a-content-text">
                         
+<<<<<<< HEAD
                         	<p>iPhoneX 的分辨率：2436 x 1125px，812 x 375pt</p>
 <p>iPhoneXs 的分辨率： 2436 x 1125px，pt: 812 x 375pt</p>
 <p>iPhoneXs Max 的分辨率：2688 x 1242px，pt: 896 x 414pt</p>
@@ -646,13 +682,20 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
 <pre><code class="language-swift">[UIApplication sharedApplication].statusBarFrame.size.height
 </code></pre>
 
+=======
+                        	
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                         
                       </div>
                   </div>
                 </a>
                 <div class="read-more clearfix">
                   <div class="more-left left">
+<<<<<<< HEAD
                   
+=======
+                   <a href="17001892555520.html">Read more</a>&nbsp;&nbsp; 
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
                     <span class="date">2018/10/10</span>
                     <span>posted in&nbsp;</span> 
           				  
@@ -751,8 +794,11 @@ CGRect rect = [attributeString boundingRectWithSize:CGSizeMake(100, MAXFLOAT)
                       <div class="a-content-text">
                         
                         	<p>前几天写了个小模块,测试测出来一个UI上面的 bug,只在6plus/6s plus上才出现的问题,如图:</p>
+<<<<<<< HEAD
 <p><img src="media/17001892555444/17001895652349.jpg" alt="" /></p>
 <p>上面的白色区域是一个view,中间白色重置和红色确定按钮是一个view,下面灰色区域是一个view,简单来说就是分上中下三个view,但是这三个view的衔接出现了问题,使得每个view之间重现了一道缝隙.</p>
+=======
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 
                         
                       </div>

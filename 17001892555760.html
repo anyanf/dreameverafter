@@ -131,6 +131,10 @@
 
       <div class="article-content">
       <p>今天一个iOS大佬问我一个小问题，他用 <code>cocoapods</code> 集成了一个 <code>swift</code> 的 <code>json</code> 库：<code>SwiftyJSON</code>，用的时候发现有一丝丝不方便的地方，就是在每个用到 <code>SwiftyJSON</code> 的文件中，都需要 <code>import</code> 一下这个 <code>module</code>。</p>
+<<<<<<< HEAD
+=======
+<span id="more"></span><!-- more -->
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>平时他在主工程里写代码的时候，由于都在一个 <code>module</code> 之下，所以基本上没有怎么用过 <code>import</code> 了，所以问我为什么会这样，以及有没有一个类似于 <code>PCH</code> 的文件，把 <code>SwiftyJSON</code> 全局引用。</p>
 <p>至于为什么会这样，其实刚刚已经说了，就是因为没有在一个 <code>module</code> 中嘛。有没有类似 <code>PCH</code> 的东西呢，其实也是有的。</p>
 <p>可以直接创建一个 <code>swift</code> 文件（类似 <code>PCH</code> ），在这个文件中使用 <code>@_exported import</code> 来导入：</p>

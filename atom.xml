@@ -4,7 +4,11 @@
   <title><![CDATA[DreamEverAfter]]></title>
   <link href="www.dreameverafter.com/atom.xml" rel="self"/>
   <link href="www.dreameverafter.com/"/>
+<<<<<<< HEAD
   <updated>2023-11-23T19:15:31+08:00</updated>
+=======
+  <updated>2023-11-23T19:16:47+08:00</updated>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
   <id>www.dreameverafter.com/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -1068,6 +1072,10 @@ void merge(vector&lt;PII&gt; &amp;segs)
 <p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
 <p>每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
 <p>注意：给定 n 是一个正整数。</p>
+<<<<<<< HEAD
+=======
+<span id="more"></span><!-- more -->
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>示例 1：</p>
 <pre><code class="language-plain_text">输入： 2
 输出： 2
@@ -1711,6 +1719,10 @@ int main(int argc, char* argv[]) {
     <id>www.dreameverafter.com/17001892555760.html</id>
     <content type="html"><![CDATA[
 <p>今天一个iOS大佬问我一个小问题，他用 <code>cocoapods</code> 集成了一个 <code>swift</code> 的 <code>json</code> 库：<code>SwiftyJSON</code>，用的时候发现有一丝丝不方便的地方，就是在每个用到 <code>SwiftyJSON</code> 的文件中，都需要 <code>import</code> 一下这个 <code>module</code>。</p>
+<<<<<<< HEAD
+=======
+<span id="more"></span><!-- more -->
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>平时他在主工程里写代码的时候，由于都在一个 <code>module</code> 之下，所以基本上没有怎么用过 <code>import</code> 了，所以问我为什么会这样，以及有没有一个类似于 <code>PCH</code> 的文件，把 <code>SwiftyJSON</code> 全局引用。</p>
 <p>至于为什么会这样，其实刚刚已经说了，就是因为没有在一个 <code>module</code> 中嘛。有没有类似 <code>PCH</code> 的东西呢，其实也是有的。</p>
 <p>可以直接创建一个 <code>swift</code> 文件（类似 <code>PCH</code> ），在这个文件中使用 <code>@_exported import</code> 来导入：</p>
@@ -1730,6 +1742,10 @@ int main(int argc, char* argv[]) {
 <p>给定一个可能含有重复元素的整数数组，要求随机输出给定的数字的索引。 您可以假设给定的数字一定存在于数组中。</p>
 <p>注意：</p>
 <p>数组大小可能非常大。 使用太多额外空间的解决方案将不会通过测试。</p>
+<<<<<<< HEAD
+=======
+<span id="more"></span><!-- more -->
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>示例:</p>
 <pre><code class="language-plain_text">int[] nums = new int[] {1,2,3,3,3};
 Solution solution = new Solution(nums);
@@ -1968,6 +1984,10 @@ public:
     <content type="html"><![CDATA[
 <h2><a id="%E9%A2%98%E7%9B%AE" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>题目</h2>
 <p>给定一个表示分数的非负整数数组。 玩家 1 从数组任意一端拿取一个分数，随后玩家 2 继续从剩余数组任意一端拿取分数，然后玩家 1 拿，…… 。每次一个玩家只能拿取一个分数，分数被拿取之后不再可取。直到没有剩余分数可取时游戏结束。最终获得分数总和最多的玩家获胜。</p>
+<<<<<<< HEAD
+=======
+<span id="more"></span><!-- more -->
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>给定一个表示分数的数组，预测玩家1是否会成为赢家。你可以假设每个玩家的玩法都会使他的分数最大化。</p>
 <p>Given an array of scores that are non-negative integers. Player 1 picks one of the numbers from either end of the array followed by the player 2 and then player 1 and so on. Each time a player picks a number, that number will not be available for the next player. This continues until all the scores have been chosen. The player with the maximum score wins.</p>
 <p>Given an array of scores, predict whether player 1 is the winner. You can assume each player plays to maximize his score.</p>
@@ -2084,7 +2104,12 @@ public:
     <content type="html"><![CDATA[
 <h2><a id="weak%E6%8E%A2%E7%A9%B6" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>__weak探究</h2>
 <p>程序中添加了一个 <code>__weak</code> 变量，查看调用堆栈，看到下一个调用的是 <code>objc_initWeak</code> 函数。</p>
+<<<<<<< HEAD
 <p><img src="https://gitee.com/anyanf/images/raw/master/img/weak%E5%85%A5%E5%8F%A3.jpg" alt="__weak调用的函数" /></p>
+=======
+<span id="more"></span><!-- more -->
+<p><img src="media/17001892556510/17010137935483.jpg" alt="__weak调用的函数" /></p>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>所以我们就 <code>objc_initWeak</code> 函数作为入口，探究 <code>weak</code>。</p>
 <h2><a id="%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>数据结构</h2>
 <p>首先了解以下的变量，这些变量在这章的数据结构、函数形参中使用：</p>
@@ -2122,10 +2147,17 @@ class StripedMap {
     weak_table_t weak_table;
 }
 </code></pre>
+<<<<<<< HEAD
 <p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_sideTable.png" alt="weak_sideTable" /></p>
 <p>可以看出SideTable的大小是62，64位对齐后是64。其中weak_talbe存储着weak相关的内容。其他的两个成员refcnts、slock不在本文的研究范围内。</p>
 <p>所以数组 <code>SideTable array[64]</code> 中元素的大小就是 <code>64</code>。整个 <code>array</code> 共占用 <code>64*64=4096</code> 字节。回到没有简化前的版本，<code>StripedMap&lt;SideTable&gt;</code> 本质是一个数组，数组的元素是模板参数类型 — <code>SideTable</code>，大小为 <code>64</code>。</p>
 <p><img src="https://gitee.com/anyanf/images/raw/master/img/stripmap_memory_struct.png" alt="StripedMap 内存结构" /></p>
+=======
+<p><img src="media/17001892556510/17010137929891.png" alt="weak_sideTable" /></p>
+<p>可以看出SideTable的大小是62，64位对齐后是64。其中weak_talbe存储着weak相关的内容。其他的两个成员refcnts、slock不在本文的研究范围内。</p>
+<p>所以数组 <code>SideTable array[64]</code> 中元素的大小就是 <code>64</code>。整个 <code>array</code> 共占用 <code>64*64=4096</code> 字节。回到没有简化前的版本，<code>StripedMap&lt;SideTable&gt;</code> 本质是一个数组，数组的元素是模板参数类型 — <code>SideTable</code>，大小为 <code>64</code>。</p>
+<p><img src="media/17001892556510/17010137929902.png" alt="StripedMap 内存结构" /></p>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <p>函数 <code>SideTables()</code> 是将 <code>SideTableBuf</code> 转化为 <code>StripedMap&lt;SideTable&gt;</code> 的。所以下面了解 <code>SideTableBuf</code> 的定义。</p>
 <h3><a id="sidetablebuf" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>SideTableBuf</h3>
 <p>SideTableBuf的定义：</p>
@@ -2141,7 +2173,11 @@ class StripedMap {
     return *reinterpret_cast&lt;StripedMap&lt;SideTable&gt;*&gt;(SideTableBuf);
 }
 </code></pre>
+<<<<<<< HEAD
 <p><img src="https://gitee.com/anyanf/images/raw/master/img/stripedMap.png" alt="SideTableBuf转化为StripedMap 内存示意图" /></p>
+=======
+<p><img src="media/17001892556510/17010137929907.png" alt="SideTableBuf转化为StripedMap 内存示意图" /></p>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <h3><a id="weak-table-t" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>weak_table_t</h3>
 <pre><code class="language-cpp">// 全局的弱引用表
 struct weak_table_t {
@@ -2179,12 +2215,21 @@ struct weak_table_t {
 <li><code>referent</code> 存储被弱引用的对象。</li>
 <li>第二个成员是一个 <code>union</code>，存储弱引用者 <code>refferer</code>。如果 <code>referent</code> 的弱引用者小于四个，也就是 <code>out_of_line</code> 为 <code>0</code> 时，弱引用者就存储在 <code>inline_referrers</code> 数组中。 否则，就存储在 <code>referrers</code> 中，这时 <code>out_of_line</code> 为 <code>1</code>，<code>referrers</code> 是个二级指针，里面存的是指向 <code>referent</code> 的对象们的地址。<code>num_refs</code> 是弱引用着的个数。<code>mask</code> 是容量减 <code>1</code>。</li>
 </ol>
+<<<<<<< HEAD
 <p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_entry_t.png" alt="SideTableBuf转化为StripedMap" /></p>
 <h3><a id="%E5%B0%8F%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>小结</h3>
 <p>上面分析了weak相关的结构，现在画一张总图：</p>
 <p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_data_overal.png" alt="SideTableBuf转化为StripedMap" /></p>
 <p>上面是详细的数据结构，比较复杂，下面列出我认为核心的结构，核心结构就是三级hash表。</p>
 <p><img src="https://gitee.com/anyanf/images/raw/master/img/weak_table%E4%B8%89%E7%BA%A7%E8%A1%A8.png" alt="SideTableBuf转化为StripedMap" /></p>
+=======
+<p><img src="media/17001892556510/17010137929912.png" alt="SideTableBuf转化为StripedMap" /></p>
+<h3><a id="%E5%B0%8F%E7%BB%93" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>小结</h3>
+<p>上面分析了weak相关的结构，现在画一张总图：</p>
+<p><img src="media/17001892556510/17010137929917.png" alt="SideTableBuf转化为StripedMap" /></p>
+<p>上面是详细的数据结构，比较复杂，下面列出我认为核心的结构，核心结构就是三级hash表。</p>
+<p><img src="media/17001892556510/17010137933612.png" alt="SideTableBuf转化为StripedMap" /></p>
+>>>>>>> b3ad68a (2023-11-26 23:56:08)
 <h2><a id="%E5%87%BD%E6%95%B0%E6%8E%A5%E5%8F%A3" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数接口</h2>
 <pre><code class="language-cpp">id objc_storeWeakOrNil(id *location, id newObj);
 id objc_initWeak(id *location, id newObj);
