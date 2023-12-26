@@ -114,24 +114,45 @@
 
         <div class="markdown-body post-page">
         <p>这里是读书的记录。</p>
+<h2><a id="%E6%9C%AA%E5%AE%8C%E6%88%90" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>未完成</h2>
 <ul>
 <li><a href="https://book.douban.com/subject/26389900/">银河帝国1：基地</a></li>
+<li><a href="">贵族侦探</a>
+<ul>
+<li>维也纳森林的故事</li>
+<li>20231223</li>
+</ul>
+</li>
+<li><a href="">金瓶梅 崇祯本</a>
+<ul>
+<li>20231216</li>
+</ul>
+</li>
+</ul>
+<h2><a id="%E5%B7%B2%E5%AE%8C%E6%88%90" class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>已完成</h2>
+<ul>
+<li><a href="">人工智能：李开复谈AI如何重塑个人、商业与社会的未来图谱</a>
+<ul>
+<li>6/6</li>
+<li>20230607/202312113</li>
+</ul>
+</li>
+<li><a href="">反派初始化</a>
+<ul>
+<li>150/150</li>
+<li>20210124/20231113</li>
+</ul>
+</li>
 <li><a href="">天启预报</a>
 <ul>
 <li>1646/1646</li>
-<li>2023-10-04 ～ 2023-11-26</li>
+<li>20231004/20231126</li>
 </ul>
 </li>
 <li><a href="">象之首</a>
 <ul>
 <li>9/9</li>
-<li>2023.11.26 - 2023.11.27</li>
-</ul>
-</li>
-<li><a href="">反派初始化</a>
-<ul>
-<li>90/150</li>
-<li>2021</li>
+<li>20231126/20231127</li>
 </ul>
 </li>
 </ul>
@@ -151,22 +172,89 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
       </div>
     </div>
 
+<style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
 
 
-  
 
+div.code-toolbar {
+  position: relative;
+}
 
+div.code-toolbar > .toolbar {
+  position: absolute;
+  z-index: 10;
+  top: .3em;
+  right: .2em;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
 
+div.code-toolbar:hover > .toolbar {
+  opacity: 1;
+}
 
+/* Separate line b/c rules are thrown out if selector is invalid.
+   IE11 and old Edge versions don't support :focus-within. */
+div.code-toolbar:focus-within > .toolbar {
+  opacity: 1;
+}
 
+div.code-toolbar > .toolbar > .toolbar-item {
+  display: inline-block;
+}
 
+div.code-toolbar > .toolbar > .toolbar-item > a {
+  cursor: pointer;
+}
 
+div.code-toolbar > .toolbar > .toolbar-item > button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none; /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
 
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+  color: inherit;
+  font-size: .8em;
+  padding: 4px .5em;
+  background: #f5f2f0;
+  background: rgba(224, 224, 224, 0.4);
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+  border-radius: .5em;
+}
 
-
-
-
-
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus {
+  color: inherit;
+  text-decoration: none;
+}
+</style>
 
 <style type="text/css">
 figure{margin: 0;padding: 0;}

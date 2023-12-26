@@ -130,8 +130,7 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <p><img src="media/17001172774052/kindle.jpg" alt="kindle" /></p>
-<p>这几年 Amazon 一步步退出中国市场，似乎预示着这一天已经不远。果不其然，前阵子 Amazon 官方宣布退出中国电子书业务。今年五月由于疫情在家远程办公一周，苦于 Kindle 放公司忘了带回家无 Kindle 可看，遂准备买个新的 Whitepaper5。找一圈发现，Whitepaper5 在官方渠道没有销售，当时就感觉不太对劲。如今，算是正式开启退出中国市场的计划了。</p>
+      <p>这几年 Amazon 一步步退出中国市场，似乎预示着这一天已经不远。果不其然，前阵子 Amazon 官方宣布退出中国电子书业务。今年五月由于疫情在家远程办公一周，苦于 Kindle 放公司忘了带回家无 Kindle 可看，遂准备买个新的 Whitepaper5。找一圈发现，Whitepaper5 在官方渠道没有销售，当时就感觉不太对劲。如今，算是正式开启退出中国市场的计划了。</p>
 <span id="more"></span><!-- more -->
 <p>我也算是 Kindle 比较早期的用户了，从一开始的标准版，到 Oasis2，到现在的 Whitepaper5，一共使用过 3 个设备。还给媳妇买了个 Kindle，不过她一直没有用这个看书的习惯，基本上属于吃灰的状态。</p>
 <p>在 Kindle 中国商城里买了不少电子书，甚至大部分都没看过，毕竟买过就算是看过了哈哈。退出这个事情正好也刺激了我看书的进度，这段时间把看 Kindle 的优先级调高了很多，有点时间就拿起来看看。</p>
@@ -141,6 +140,7 @@
 <p>这件事也充分体现出来购买电子化产品的优缺点，以后买电子产品，要认真思考一下要的是什么，是否符合预期，实效性等问题了。</p>
 <p>他来了，掀起一波电子书正版化的潮流，也开发出盖泡面新姿势，现在他走了，应该不会再见了。</p>
 <p>别了，中国大陆的Kindle。</p>
+<p><img src="media/17001172774052/kindle.jpg" alt="kindle" /></p>
 
 
     
@@ -235,6 +235,12 @@
 	      
 		      
 			      <li class="post">
+			        <a href="17032096290541.html">iOS：特殊符号大全</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="16996865532784.html">三汁焖锅</a>
 			      </li>
 		     
@@ -254,12 +260,6 @@
 		      
 			      <li class="post">
 			        <a href="17001892553950.html">SwiftUI基本控件</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="17001171363865.html">LiSSA第四代计时器说明书</a>
 			      </li>
 		     
 		  
@@ -314,22 +314,89 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
       </div>
     </div>
 
+<style>.mweb-charts{background:#fff;}
+body{ box-sizing: border-box;
+    margin: 0 auto;}
+@media print{
+    pre, code, pre code {
+     overflow: visible !important;
+     white-space: pre-wrap !important;       /* css-3 */
+     white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+     white-space: -pre-wrap !important;      /* Opera 4-6 */
+     white-space: -o-pre-wrap !important;    /* Opera 7 */
+     word-wrap: break-word !important;       /* Internet Explorer 5.5+ */
+    }
+    html,body{margin:0;padding:4px;}
+}
 
 
-  
 
+div.code-toolbar {
+  position: relative;
+}
 
+div.code-toolbar > .toolbar {
+  position: absolute;
+  z-index: 10;
+  top: .3em;
+  right: .2em;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
 
+div.code-toolbar:hover > .toolbar {
+  opacity: 1;
+}
 
+/* Separate line b/c rules are thrown out if selector is invalid.
+   IE11 and old Edge versions don't support :focus-within. */
+div.code-toolbar:focus-within > .toolbar {
+  opacity: 1;
+}
 
+div.code-toolbar > .toolbar > .toolbar-item {
+  display: inline-block;
+}
 
+div.code-toolbar > .toolbar > .toolbar-item > a {
+  cursor: pointer;
+}
 
+div.code-toolbar > .toolbar > .toolbar-item > button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none; /* for button */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
 
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+  color: inherit;
+  font-size: .8em;
+  padding: 4px .5em;
+  background: #f5f2f0;
+  background: rgba(224, 224, 224, 0.4);
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+  border-radius: .5em;
+}
 
-
-
-
-
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus {
+  color: inherit;
+  text-decoration: none;
+}
+</style>
 
 <style type="text/css">
 figure{margin: 0;padding: 0;}
